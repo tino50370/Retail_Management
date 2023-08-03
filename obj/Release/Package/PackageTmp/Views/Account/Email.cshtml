@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Email";
+}
+
+<div id="product-single" >
+
+    <div style="margin-left:5px">
+        <em style="color:#F5791F">Email bellow has been sent to your friend as a follow up</em>
+    </div><br />
+    <div style="background:#fff ">
+        @Html.Raw(Server.HtmlDecode(@ViewData["message"].ToString()))
+    <br />
+    </div><br />
+    @if (ViewData["sent"].ToString() != "sent")
+    {
+    <div class="col-lg-12 col-md-12 col-sm-12" id="Erro" style=" border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:99%;min-height:40px">
+        @ViewData["sent"]
+    </div>
+    }
+</div>

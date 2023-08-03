@@ -1,0 +1,276 @@
+﻿@model IEnumerable<RetailKing.Models.DailySale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+
+
+@*<script src="@Url.Content("~/Content/Administration/js/jquery-1.10.2.min.js")"></script>*@
+
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        // $("#DateCreated").datepicker({ dateFormat: "d MM yy" });
+        //$("#Date").datepicker({ dateFormat: "d MM yy" });
+      
+        $("#SearchInItems").focus();
+
+        $("#category").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("paymentMethodReport", "Sales")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SubCategory").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("paymentMethodReport", "Sales")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("paymentMethodReport", "Sales")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: '',
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            var s = $('#SearchInItems').val();
+            if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                $.ajax({
+                    type: "Post",
+                    url: '@Url.Action("paymentMethodReport", "Sales")',
+                    dataType: 'html',
+                    data: {
+                        ItemCode: $("#SearchInItems").val(),
+                        iDisplayLength: $("#SizeR").val(),
+                        sEnd: $("#Date").val(),
+                        sStart: $("#DateCreated").val(),
+                        sEcho: 1
+                    },
+                    success: function (resp) {
+                        $('#panel').html(resp);
+                    },
+                    error: function (data) {
+                    }
+                });
+            }
+            //   }, 2000);
+        });
+
+
+
+    });
+</script>
+
+<script type="text/javascript">
+    function GetPageR(thispage) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("paymentMethodReport", "Sales")',
+            dataType: 'html',
+            data: {
+                sEnd: $("#Date").val(),
+                sStart: $("#DateCreated").val(),
+                ItemCode: '',
+                iDisplayStart: thispage,
+                iDisplayLength: $("#SizeR").val(),
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+</script>
+
+
+
+
+    
+
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Daily Payment Method Report </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                        <p></p>
+                        <table id="datatable-buttons" class="table table-striped" style="width:100%;">
+                            <thead>
+                            <tr>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AccountName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Sales)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Date)
+                                </th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AccountName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Sales)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Date)
+
+                                    </td>
+
+                                </tr>
+                            }
+                           </tbody>
+
+                            <tr>
+                                <th colspan="12" style="background-color: #E2E4FF; ">
+                                    <div onclick="GetPageR()" style="float: left; padding-left: 10px"> Pages</div>
+                                    @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                                    {
+                                        if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                        {
+                                            <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                                        }
+                                        else
+                                        {
+                                            <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                                        }
+                                    }
+                                    <div style="float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                                </th>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net/js/jquery.dataTables.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/dataTables.buttons.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/buttons.flash.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/buttons.html5.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/buttons.print.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-responsive/js/dataTables.responsive.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js")"></script>
+
+
+<script>
+      $(document).ready(function() {
+        var handleDataTableButtons = function() {
+          if ($("#datatable-buttons").length) {
+            $("#datatable-buttons").DataTable({
+                dom: "Bfrtip",
+                order: [[1, "desc"]],
+                buttons: [    
+                {
+                  extend: "copy",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "csv",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "excel",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "print",
+                  className: "btn-sm"
+                },
+              ],
+              responsive: true
+            });
+          }
+        };
+
+        TableManageButtons = function() {
+          "use strict";
+          return {
+            init: function() {
+              handleDataTableButtons();
+            }
+          };
+        }();
+
+        TableManageButtons.init();
+      });
+</script>

@@ -1,0 +1,1327 @@
+﻿@model RetailKing.Models.Customer
+@{
+    ViewBag.Title = "My Account";
+    if(Model.wallet2 == null)
+    {
+        Model.wallet2 = 0;
+    }
+}
+
+
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="breadcrumbs">
+        <p><a href="#">Home</a> <i class="icons icon-right-dir"></i>My Account</p>
+    </div>
+</div>
+
+<!-- Main Content -->
+  <!-- Sidebar -->
+<aside class="sidebar col-lg-3 col-md-3 col-sm-3 right-sidebar">
+
+    <!-- Categories -->
+    <div class="row sidebar-box purple">
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="sidebar-box-heading">
+                <i class="icons icon-folder-open-empty"></i>
+                <h4>Account Menu</h4>
+            </div>
+            @{
+                var cats = (from e in Model.categories.Where(u => u.AccountCode.Length == 4) select e).ToList();
+            }
+            <div class="sidebar-box-content">
+                <ul >
+                    <li>
+                        <a href="@Url.Action("Dashboard", "Account")" style="cursor:pointer">Account Home<i class="icons icon-right-dir"></i></a>
+                    </li>
+                    <li>
+                        <a onclick="GetAccount('@Url.Action("ChangePassword", "Account")')" style="cursor:pointer">Change Password <i class="icons icon-right-dir"></i></a>
+                    </li>
+                    <li>
+                         <a onclick="GetAccount('@Url.Action("IncomeCalculator", "Account")')" style="cursor:pointer">Income Calculator<i class="icons icon-right-dir"></i></a>
+                    </li>
+                    <li>
+                        <a onclick="GetAccount('@Url.Action("MyProject", "Account")')" style="cursor:pointer">My Project<i class="icons icon-right-dir"></i></a>
+                    </li>
+                    <li>
+                        <a onclick="GetAccount('@Url.Action("CodePurchase", "Account")')" style="cursor:pointer">Registration Codes<i class="icons icon-right-dir"></i></a>
+                    </li>
+                    <li>
+                        <a onclick="GetAccount('@Url.Action("CustomerPurchases", "Account")')" style="cursor:pointer">Puchase History<i class="icons icon-right-dir"></i></a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /Categories -->
+
+</aside>
+<!-- /Sidebar -->
+<section class="main-content col-lg-9 col-md-9 col-sm-9">
+    <div id="AccountBody">
+        <div class=" products-row row">
+
+            <!-- Heading -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="carousel-heading no-margin">
+                    <h4>My Account</h4>
+
+                </div>
+
+            </div>
+            <!-- /Heading -->
+
+        </div>
+
+
+        <div class=" products-row row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                @{
+                    var mnt = DateTime.Now.Month;
+                    decimal Commtotal = 0;
+                }
+
+
+                <table class="order-table">
+                    @if (ViewBag.code != null)
+                    {
+                    <tr style="background-color:#9B59B6;color:#ffffff;font-weight:bold ">
+                        <td colspan="2">Registration Code </td>
+                        <td>@ViewBag.code.Code</td>
+                        <td colspan="1">Balance</td>
+                        <td>
+                            @ViewBag.code.Size
+                        </td>
+                    </tr>
+                    }
+                    <tr style="background-color:#fff;color:#F5791F">
+                        <td colspan="4" style="width:70%">Payment Wallet Balance</td>
+
+                        <td>
+                            $@Model.Wallet.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)
+                            <a class="button green" style="margin-left:10px" onclick="GetAccount('@Url.Action("CashOut", "Account")')">Cash Out</a>
+                        </td>
+                    </tr>
+                    @if (Model.totals != null)
+                    {
+
+                        <tr style="background-color:#ffffff">
+                            <td colspan="4" style="width:70%">  Current Purchases Total(Less V.A.T)</td>
+                            @if (mnt == 1)
+                            {
+                                if (Model.totals.Jan0 == null) { Model.totals.Jan0 = 0; }
+
+                                <td>$@Model.totals.Jan0.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+
+                            }
+                            @if (mnt == 2)
+                            {
+                                if (Model.totals.Feb0 == null) { Model.totals.Feb0 = 0; }
+
+                                <td>$@Model.totals.Feb0.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                            }
+                            @if (mnt == 3)
+                            {
+                                if (Model.totals.Mar0 == null) { Model.totals.Mar0 = 0; }
+
+                                <td>$@Model.totals.Mar0.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+
+                            }
+                            @if (mnt == 4)
+                            {
+                                if (Model.totals.Apr0 == null) { Model.totals.Apr0 = 0; }
+
+                                <td>$@Model.totals.Apr0.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+
+                            }
+                            @if (mnt == 5)
+                            {
+                                if (Model.totals.May0 == null) { Model.totals.May0 = 0; }
+
+                                <td>$@Model.totals.May0.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+
+                            }
+                            @if (mnt == 6)
+                            {
+                                if (Model.totals.Jun0 == null) { Model.totals.Jun0 = 0; }
+
+                                <td>$@Model.totals.Jun0.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+
+                            }
+                            @if (mnt == 7)
+                            {
+                                if (Model.totals.Jul0 == null) { Model.totals.Jul0 = 0; }
+
+                                <td>$@Model.totals.Jul0.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+
+                            }
+                            @if (mnt == 8)
+                            {
+                                if (Model.totals.Aug0 == null) { Model.totals.Aug0 = 0; }
+
+                                <td>$@Model.totals.Aug0.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+
+                            }
+                            @if (mnt == 9)
+                            {
+                                if (Model.totals.Sep0 == null) { Model.totals.Sep0 = 0; }
+
+                                <td>$@Model.totals.Sep0.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+
+                            }
+                            @if (mnt == 10)
+                            {
+                                if (Model.totals.Oct0 == null) { Model.totals.Oct0 = 0; }
+
+                                <td>$@Model.totals.Oct0.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+
+                            }
+                            @if (mnt == 11)
+                            {
+                                if (Model.totals.Nov0 == null) { Model.totals.Nov0 = 0; }
+
+                                <td>$@Model.totals.Nov0.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+
+                            }
+                            @if (mnt == 12)
+                            {
+                                if (Model.totals.Dec0 == null) { Model.totals.Dec0 = 0; }
+
+                                <td>$@Model.totals.Dec0.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+
+                            }
+
+                        </tr>
+                    }
+                    <tr style="background-color:#ffffff;color:#21BF64">
+                        <td colspan="5">
+                            <em style="color:#9B59B6;font-weight:bold ">Note</em><br />
+                            @foreach (var itm in Model.networktyp)
+                            {
+                                <span> You need a minimum of $ @itm.MonthlyTarget.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)  worth of monthly purchases to activate @itm.Name commission</span><br/>
+
+                            }
+                        </td>
+                    </tr>
+
+                </table>
+
+
+                <table class="order-table">
+                    <tr>
+                        <th>Level</th>
+                        <th>Size</th>
+                        <th>Commission</th>
+                        <th colspan="2">Access</th>
+                    </tr>
+                    @{
+                        string State1 = "";
+                        string State2 = "";
+                        string State3 = "";
+                        if (@Model.NetworkType == null || @Model.NetworkType == 0)
+                        {
+                            State1 = "Disabled";
+                            State2 = "Disabled";
+                            State3 = "Disabled";
+
+                        }
+                        else if (@Model.NetworkType == 1)
+                        {
+                            State1 = "Active";
+                            State2 = "Disabled";
+                            State3 = "Disabled";
+
+                        }
+                        else if (@Model.NetworkType == 2)
+                        {
+                            State1 = "Active";
+                            State2 = "Active";
+                            State3 = "Disabled";
+
+                        }
+                        else if (@Model.NetworkType == 3)
+                        {
+                            State1 = "Active";
+                            State2 = "Active";
+                            State3 = "Active";
+                        }
+
+
+                    }
+                    @if (Model.totals != null)
+                    {
+                       
+                        if (State1 == "Active")
+                        {
+                            <tr style="background-color:#ffffff">
+                                <td>level 1</td>
+                                @if (@Model.Level1Count == null)
+                                {
+                                    <td>0 </td>
+                                }
+                                else
+                                {
+                                    <td>@Model.Level1Count </td>
+                                }
+
+
+                                @if (mnt == 1)
+                                {
+                                    if (Model.totals.Jan1 == null) { Model.totals.Jan1 = 0; }
+                                    if (Model.totals.JanJ1 == null) { Model.totals.JanJ1 = 0; }
+                                    var joinComm = Model.totals.JanJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Jan1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 2)
+                                {
+                                    if (Model.totals.Feb1 == null) { Model.totals.Feb1 = 0; }
+                                    if (Model.totals.FebJ1 == null) { Model.totals.FebJ1 = 0; }
+                                    var joinComm = Model.totals.FebJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Feb1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 3)
+                                {
+                                    if (Model.totals.Mar1 == null) { Model.totals.Mar1 = 0; }
+                                    if (Model.totals.MarJ1 == null) { Model.totals.MarJ1 = 0; }
+                                    var joinComm = Model.totals.MarJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Mar1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 4)
+                                {
+                                    if (Model.totals.Apr1 == null) { Model.totals.Apr1 = 0; }
+                                    if (Model.totals.AprJ1 == null) { Model.totals.AprJ1 = 0; }
+                                    var joinComm = Model.totals.AprJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Apr1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+                                    @*<td>@Model.totals.Apr1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>*@
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 5)
+                                {
+                                    if (Model.totals.May1 == null) { Model.totals.May1 = 0; }
+                                    if (Model.totals.MayJ1 == null) { Model.totals.MayJ1 = 0; }
+                                    var joinComm = Model.totals.MayJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.May1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 6)
+                                {
+                                    if (Model.totals.Jun1 == null) { Model.totals.Jun1 = 0; }
+                                    if (Model.totals.JunJ1 == null) { Model.totals.JunJ1 = 0; }
+                                    var joinComm = Model.totals.JunJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Jun1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 7)
+                                {
+                                    if (Model.totals.Jul1 == null) { Model.totals.Jul1 = 0; }
+                                    if (Model.totals.JulJ1 == null) { Model.totals.JulJ1 = 0; }
+                                    var joinComm = Model.totals.JulJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Jul1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 8)
+                                {
+                                    if (Model.totals.Aug1 == null) { Model.totals.Aug1 = 0; }
+                                    if (Model.totals.AugJ1 == null) { Model.totals.AugJ1 = 0; }
+                                    var joinComm = Model.totals.AugJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Aug1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 9)
+                                {
+                                    if (Model.totals.Sep1 == null) { Model.totals.Sep1 = 0; }
+                                    if (Model.totals.SepJ1 == null) { Model.totals.SepJ1 = 0; }
+                                    var joinComm = Model.totals.SepJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Sep1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 10)
+                                {
+                                    if (Model.totals.Oct1 == null) { Model.totals.Oct1 = 0; }
+                                    if (Model.totals.OctJ1 == null) { Model.totals.OctJ1 = 0; }
+                                    var joinComm = Model.totals.OctJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Oct1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 11)
+                                {
+                                    if (Model.totals.Nov1 == null) { Model.totals.Nov1 = 0; }
+                                    if (Model.totals.NovJ1 == null) { Model.totals.NovJ1 = 0; }
+                                    var joinComm = Model.totals.NovJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Nov1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 12)
+                                {
+                                    if (Model.totals.Dec1 == null) { Model.totals.Dec1 = 0; }
+                                    if (Model.totals.DecJ1 == null) { Model.totals.DecJ1 = 0; }
+                                    var joinComm = Model.totals.DecJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Dec1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>level 1</td>
+                                @if (@Model.Level2Count == null)
+                                {
+                                    <td>0 </td>
+                                }
+                                else
+                                {
+                                    <td>@Model.Level1Count </td>
+                                }
+                                @if (mnt == 1)
+                                {
+                                    if (Model.totals.Jan1 == null) { Model.totals.Jan1 = 0; }
+                                    if (Model.totals.JanJ1 == null) { Model.totals.JanJ1 = 0; }
+                                    var joinComm = Model.totals.JanJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Jan1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 2)
+                                {
+                                    if (Model.totals.Feb1 == null) { Model.totals.Feb1 = 0; }
+                                    if (Model.totals.FebJ1 == null) { Model.totals.FebJ1 = 0; }
+                                    var joinComm = Model.totals.FebJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Feb1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 3)
+                                {
+                                    if (Model.totals.Mar1 == null) { Model.totals.Mar1 = 0; }
+                                    if (Model.totals.MarJ1 == null) { Model.totals.MarJ1 = 0; }
+                                    var joinComm = Model.totals.MarJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Mar1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 4)
+                                {
+                                    if (Model.totals.Apr1 == null) { Model.totals.Apr1 = 0; }
+                                    if (Model.totals.AprJ1 == null) { Model.totals.AprJ1 = 0; }
+                                    var joinComm = Model.totals.AprJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Apr1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 5)
+                                {
+                                    if (Model.totals.May1 == null) { Model.totals.May1 = 0; }
+                                    if (Model.totals.MayJ1 == null) { Model.totals.MayJ1 = 0; }
+                                    var joinComm = Model.totals.MayJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.May1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+                                    @*<td>@Model.totals.May1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>*@
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 6)
+                                {
+                                    if (Model.totals.Jun1 == null) { Model.totals.Jun1 = 0; }
+                                    if (Model.totals.JunJ1 == null) { Model.totals.JunJ1 = 0; }
+                                    var joinComm = Model.totals.JunJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Jun1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 7)
+                                {
+                                    if (Model.totals.Jul1 == null) { Model.totals.Jul1 = 0; }
+                                    if (Model.totals.JulJ1 == null) { Model.totals.JulJ1 = 0; }
+                                    var joinComm = Model.totals.JulJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Jul1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 8)
+                                {
+                                    if (Model.totals.Aug1 == null) { Model.totals.Aug1 = 0; }
+                                    if (Model.totals.AugJ1 == null) { Model.totals.AugJ1 = 0; }
+                                    var joinComm = Model.totals.AugJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Aug1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 9)
+                                {
+                                    if (Model.totals.Sep1 == null) { Model.totals.Sep1 = 0; }
+                                    if (Model.totals.SepJ1 == null) { Model.totals.SepJ1 = 0; }
+                                    var joinComm = Model.totals.SepJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Sep1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 10)
+                                {
+                                    if (Model.totals.Oct1 == null) { Model.totals.Oct1 = 0; }
+                                    if (Model.totals.OctJ1 == null) { Model.totals.OctJ1 = 0; }
+                                    var joinComm = Model.totals.OctJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Oct1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 11)
+                                {
+                                    if (Model.totals.Nov1 == null) { Model.totals.Nov1 = 0; }
+                                    if (Model.totals.NovJ1 == null) { Model.totals.NovJ1 = 0; }
+                                    var joinComm = Model.totals.NovJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Nov1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                @if (mnt == 12)
+                                {
+                                    if (Model.totals.Dec1 == null) { Model.totals.Dec1 = 0; }
+                                    if (Model.totals.DecJ1 == null) { Model.totals.DecJ1 = 0; }
+                                    var joinComm = Model.totals.DecJ1 * (decimal)0.15;
+                                    var SalesComm = Model.totals.Dec1 * (decimal)0.03;
+                                    var total = SalesComm + joinComm;
+                                    if (State1 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State1</td>
+                                }
+                                
+                            </tr>
+                        }
+                        if (State2 == "Active")
+                        {
+                            <tr style="background-color:#ffffff">
+                                <td>level 2</td>
+                                @if (@Model.Level2Count == null)
+                                {
+                                    <td>0 </td>
+                                }
+                                else
+                                {
+                                    <td>@Model.Level2Count </td>
+                                }
+                                @if (mnt == 1)
+                                {
+                                    if (Model.totals.Jan2 == null) { Model.totals.Jan2 = 0; }
+                                    if (Model.totals.JanJ2 == null) { Model.totals.JanJ2 = 0; }
+                                    var joinComm = Model.totals.JanJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Jan2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm;
+                                    if (State2 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 2)
+                                {
+                                    if (Model.totals.Feb2 == null) { Model.totals.Feb2 = 0; }
+                                    if (Model.totals.FebJ2 == null) { Model.totals.FebJ2 = 0; }
+                                    var joinComm = Model.totals.FebJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Feb2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm;
+                                    if (State2 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 3)
+                                {
+                                    if (Model.totals.Mar2 == null) { Model.totals.Mar2 = 0; }
+                                    if (Model.totals.MarJ2 == null) { Model.totals.MarJ2 = 0; }
+                                    var joinComm = Model.totals.MarJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Mar2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm;
+                                    if (State2 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 4)
+                                {
+                                    if (Model.totals.Apr2 == null) { Model.totals.Apr2 = 0; }
+                                    if (Model.totals.AprJ2 == null) { Model.totals.AprJ2 = 0; }
+                                    var joinComm = Model.totals.AprJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Apr2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm;
+                                    if (State2 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 5)
+                                {
+                                    if (Model.totals.May2 == null) { Model.totals.May2 = 0; }
+                                    if (Model.totals.MayJ2 == null) { Model.totals.MayJ2 = 0; }
+                                    var joinComm = Model.totals.MayJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.May2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm;
+                                    if (State2 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 6)
+                                {
+                                    if (Model.totals.Jun2 == null) { Model.totals.Jun2 = 0; }
+                                    if (Model.totals.JunJ2 == null) { Model.totals.JunJ2 = 0; }
+                                    var joinComm = Model.totals.JunJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Jun2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm;
+                                    if (State2 == "Active")
+                                    {
+                                        Commtotal = Commtotal + (decimal)total;
+                                    }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 7)
+                                {
+                                    if (Model.totals.Jul2 == null) { Model.totals.Jul2 = 0; }
+                                    if (Model.totals.JulJ2 == null) { Model.totals.JulJ2 = 0; }
+                                    var joinComm = Model.totals.JulJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Jul2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 8)
+                                {
+                                    if (Model.totals.Aug2 == null) { Model.totals.Aug2 = 0; }
+                                    if (Model.totals.AugJ2 == null) { Model.totals.AugJ2 = 0; }
+                                    var joinComm = Model.totals.AugJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Aug2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 9)
+                                {
+                                    if (Model.totals.Sep2 == null) { Model.totals.Sep2 = 0; }
+                                    if (Model.totals.SepJ2 == null) { Model.totals.SepJ2 = 0; }
+                                    var joinComm = Model.totals.SepJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Sep2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 10)
+                                {
+                                    if (Model.totals.Oct2 == null) { Model.totals.Oct2 = 0; }
+                                    if (Model.totals.OctJ2 == null) { Model.totals.OctJ2 = 0; }
+                                    var joinComm = Model.totals.OctJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Oct2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 11)
+                                {
+                                    if (Model.totals.Nov2 == null) { Model.totals.Nov2 = 0; }
+                                    if (Model.totals.NovJ2 == null) { Model.totals.NovJ2 = 0; }
+                                    var joinComm = Model.totals.NovJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Nov2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 12)
+                                {
+                                    if (Model.totals.Dec2 == null) { Model.totals.Dec2 = 0; }
+                                    if (Model.totals.DecJ2 == null) { Model.totals.DecJ2 = 0; }
+                                    var joinComm = Model.totals.DecJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Dec2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>level 2</td>
+                                @if (@Model.Level2Count == null)
+                                {
+                                    <td>0 </td>
+                                }
+                                else
+                                {
+                                    <td>@Model.Level2Count </td>
+                                }
+                                @if (mnt == 1)
+                                {
+                                    if (Model.totals.Jan2 == null) { Model.totals.Jan2 = 0; }
+                                    if (Model.totals.JanJ2 == null) { Model.totals.JanJ2 = 0; }
+                                    var joinComm = Model.totals.JanJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Jan2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 2)
+                                {
+                                    if (Model.totals.Feb2 == null) { Model.totals.Feb2 = 0; }
+                                    if (Model.totals.FebJ2 == null) { Model.totals.FebJ2 = 0; }
+                                    var joinComm = Model.totals.FebJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Feb2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 3)
+                                {
+                                    if (Model.totals.Mar2 == null) { Model.totals.Mar2 = 0; }
+                                    if (Model.totals.MarJ2 == null) { Model.totals.MarJ2 = 0; }
+                                    var joinComm = Model.totals.MarJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Mar2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+                                    @*<td>@Model.totals.Mar2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>*@
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 4)
+                                {
+                                    if (Model.totals.Apr2 == null) { Model.totals.Apr2 = 0; }
+                                    if (Model.totals.AprJ2 == null) { Model.totals.AprJ2 = 0; }
+                                    var joinComm = Model.totals.AprJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Apr2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 5)
+                                {
+                                    if (Model.totals.May2 == null) { Model.totals.May2 = 0; }
+                                    if (Model.totals.MayJ2 == null) { Model.totals.MayJ2 = 0; }
+                                    var joinComm = Model.totals.MayJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.May2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 6)
+                                {
+                                    if (Model.totals.Jun2 == null) { Model.totals.Jun2 = 0; }
+                                    if (Model.totals.JunJ2 == null) { Model.totals.JunJ2 = 0; }
+                                    var joinComm = Model.totals.JunJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Jun2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 7)
+                                {
+                                    if (Model.totals.Jul2 == null) { Model.totals.Jul2 = 0; }
+                                    if (Model.totals.JulJ2 == null) { Model.totals.JulJ2 = 0; }
+                                    var joinComm = Model.totals.JulJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Jul2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 8)
+                                {
+                                    if (Model.totals.Aug2 == null) { Model.totals.Aug2 = 0; }
+                                    if (Model.totals.AugJ2 == null) { Model.totals.AugJ2 = 0; }
+                                    var joinComm = Model.totals.AugJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Aug2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 9)
+                                {
+                                    if (Model.totals.Sep2 == null) { Model.totals.Sep2 = 0; }
+                                    if (Model.totals.SepJ2 == null) { Model.totals.SepJ2 = 0; }
+                                    var joinComm = Model.totals.SepJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Sep2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 10)
+                                {
+                                    if (Model.totals.Oct2 == null) { Model.totals.Oct2 = 0; }
+                                    if (Model.totals.OctJ2 == null) { Model.totals.OctJ2 = 0; }
+                                    var joinComm = Model.totals.OctJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Oct2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 11)
+                                {
+                                    if (Model.totals.Nov2 == null) { Model.totals.Nov2 = 0; }
+                                    if (Model.totals.NovJ2 == null) { Model.totals.NovJ2 = 0; }
+                                    var joinComm = Model.totals.NovJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Nov2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                @if (mnt == 12)
+                                {
+                                    if (Model.totals.Dec2 == null) { Model.totals.Dec2 = 0; }
+                                    if (Model.totals.DecJ2 == null) { Model.totals.DecJ2 = 0; }
+                                    var joinComm = Model.totals.DecJ2 * (decimal)0.10;
+                                    var SalesComm = Model.totals.Dec2 * (decimal)0.02;
+                                    var total = SalesComm + joinComm; if (State2 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State2</td>
+                                }
+                                
+                            </tr>
+                        }
+                        if (State3 == "Active")
+                        {
+                            <tr style="background-color:#fff">
+                                <td>level 3</td>
+                                @if (@Model.Level3Count == null)
+                                {
+                                    <td>0 </td>
+                                }
+                                else
+                                {
+                                    <td>@Model.Level3Count </td>
+                                }
+                                @if (mnt == 1)
+                                {
+                                    if (Model.totals.Jan3 == null) { Model.totals.Jan3 = 0; }
+                                    if (Model.totals.JanJ3 == null) { Model.totals.JanJ3 = 0; }
+                                    var joinComm = Model.totals.JanJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Jan3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 2)
+                                {
+                                    if (Model.totals.Feb3 == null) { Model.totals.Feb3 = 0; }
+                                    if (Model.totals.FebJ3 == null) { Model.totals.FebJ3 = 0; }
+                                    var joinComm = Model.totals.FebJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Feb3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 3)
+                                {
+                                    if (Model.totals.Mar3 == null) { Model.totals.Mar3 = 0; }
+                                    if (Model.totals.MarJ3 == null) { Model.totals.MarJ3 = 0; }
+                                    var joinComm = Model.totals.MarJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Mar3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 4)
+                                {
+                                    if (Model.totals.Apr3 == null) { Model.totals.Apr3 = 0; }
+                                    if (Model.totals.AprJ3 == null) { Model.totals.AprJ3 = 0; }
+                                    var joinComm = Model.totals.AprJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Apr3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 5)
+                                {
+                                    if (Model.totals.May3 == null) { Model.totals.May3 = 0; }
+                                    if (Model.totals.MayJ3 == null) { Model.totals.MayJ3 = 0; }
+                                    var joinComm = Model.totals.MayJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.May3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 6)
+                                {
+                                    if (Model.totals.Jun3 == null) { Model.totals.Jun3 = 0; }
+                                    if (Model.totals.JunJ3 == null) { Model.totals.JunJ3 = 0; }
+                                    var joinComm = Model.totals.JunJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Jun3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 7)
+                                {
+                                    if (Model.totals.Jul3 == null) { Model.totals.Jul3 = 0; }
+                                    if (Model.totals.JulJ3 == null) { Model.totals.JulJ3 = 0; }
+                                    var joinComm = Model.totals.JulJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Jul3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+                                    <td>@Model.totals.Jul3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 8)
+                                {
+                                    if (Model.totals.Aug3 == null) { Model.totals.Aug3 = 0; }
+                                    if (Model.totals.AugJ3 == null) { Model.totals.AugJ3 = 0; }
+                                    var joinComm = Model.totals.AugJ3 * (decimal)0.05;
+                                    var SalesComm = Model.totals.Aug3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 9)
+                                {
+                                    if (Model.totals.Sep3 == null) { Model.totals.Sep3 = 0; }
+                                    if (Model.totals.SepJ3 == null) { Model.totals.SepJ3 = 0; }
+                                    var joinComm = Model.totals.SepJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Sep3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 10)
+                                {
+                                    if (Model.totals.OctJ3 == null) { Model.totals.OctJ3 = 0; }
+                                    if (Model.totals.Oct3 == null) { Model.totals.Oct3 = 0; }
+                                    var joinComm = Model.totals.OctJ3 * (decimal)0.05;
+                                    var SalesComm = Model.totals.Oct3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 11)
+                                {
+                                    if (Model.totals.NovJ3 == null) { Model.totals.NovJ3 = 0; }
+                                    if (Model.totals.Nov3 == null) { Model.totals.Nov3 = 0; }
+                                    var joinComm = Model.totals.NovJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Nov3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 12)
+                                {
+                                    if (Model.totals.DecJ3 == null) { Model.totals.DecJ3 = 0; }
+                                    if (Model.totals.Dec3 == null) { Model.totals.Dec3 = 0; }
+                                    var joinComm = Model.totals.DecJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Dec3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>level 3</td>
+                                @if (@Model.Level3Count == null)
+                                {
+                                    <td>0 </td>
+                                }
+                                else
+                                {
+                                    <td>@Model.Level3Count </td>
+                                }
+                                @if (mnt == 1)
+                                {
+                                    if (Model.totals.Jan3 == null) { Model.totals.Jan3 = 0; }
+                                    if (Model.totals.JanJ3 == null) { Model.totals.JanJ3 = 0; }
+                                    var joinComm = Model.totals.JanJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Jan3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 2)
+                                {
+                                    if (Model.totals.Feb3 == null) { Model.totals.Feb3 = 0; }
+                                    if (Model.totals.FebJ3 == null) { Model.totals.FebJ3 = 0; }
+                                    var joinComm = Model.totals.FebJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Feb3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 3)
+                                {
+                                    if (Model.totals.Mar3 == null) { Model.totals.Mar3 = 0; }
+                                    if (Model.totals.MarJ3 == null) { Model.totals.MarJ3 = 0; }
+                                    var joinComm = Model.totals.MarJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Mar3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 4)
+                                {
+                                    if (Model.totals.Apr3 == null) { Model.totals.Apr3 = 0; }
+                                    if (Model.totals.AprJ3 == null) { Model.totals.AprJ3 = 0; }
+                                    var joinComm = Model.totals.AprJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Apr3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 5)
+                                {
+                                    if (Model.totals.May3 == null) { Model.totals.May3 = 0; }
+                                    if (Model.totals.MayJ3 == null) { Model.totals.MayJ3 = 0; }
+                                    var joinComm = Model.totals.MayJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.May3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 6)
+                                {
+                                    if (Model.totals.Jun3 == null) { Model.totals.Jun3 = 0; }
+                                    if (Model.totals.JunJ3 == null) { Model.totals.JunJ3 = 0; }
+                                    var joinComm = Model.totals.JunJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Jun3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+                                    <td>@Model.totals.Jun3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 7)
+                                {
+                                    if (Model.totals.Jul3 == null) { Model.totals.Jul3 = 0; }
+                                    if (Model.totals.JulJ3 == null) { Model.totals.JulJ3 = 0; }
+                                    var joinComm = Model.totals.JulJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Jul3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 8)
+                                {
+                                    if (Model.totals.Aug3 == null) { Model.totals.Aug3 = 0; }
+                                    if (Model.totals.AugJ3 == null) { Model.totals.AugJ3 = 0; }
+                                    var joinComm = Model.totals.AugJ3 * (decimal)0.05;
+                                    var SalesComm = Model.totals.Aug3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 9)
+                                {
+                                    if (Model.totals.Sep3 == null) { Model.totals.Sep3 = 0; }
+                                    if (Model.totals.SepJ3 == null) { Model.totals.SepJ3 = 0; }
+                                    var joinComm = Model.totals.SepJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Sep3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 10)
+                                {
+                                    if (Model.totals.OctJ3 == null) { Model.totals.OctJ3 = 0; }
+                                    if (Model.totals.Oct3 == null) { Model.totals.Oct3 = 0; }
+                                    var joinComm = Model.totals.OctJ3 * (decimal)0.05;
+                                    var SalesComm = Model.totals.Oct3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 11)
+                                {
+                                    if (Model.totals.NovJ3 == null) { Model.totals.NovJ3 = 0; }
+                                    if (Model.totals.Nov3 == null) { Model.totals.Nov3 = 0; }
+                                    var joinComm = Model.totals.NovJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Nov3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                @if (mnt == 12)
+                                {
+                                    if (Model.totals.DecJ3 == null) { Model.totals.DecJ3 = 0; }
+                                    if (Model.totals.Dec3 == null) { Model.totals.Dec3 = 0; }
+                                    var joinComm = Model.totals.DecJ3 * (decimal)0.050;
+                                    var SalesComm = Model.totals.Dec3 * (decimal)0.01;
+                                    var total = SalesComm + joinComm; if (State3 == "Active") { Commtotal = Commtotal + (decimal)total; }
+
+                                    <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                    <td style="color:#F5791F">@State3</td>
+                                }
+                                
+                            </tr>
+                        }
+                        <tr style="background-color:#F5791F;color:#fff;font-weight:bold">
+                            <td colspan="3">Payable Commission</td>
+                            <td>$<span id="InvoiceTotal">@Commtotal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span></td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>level 1</td>
+                            @if (@Model.Level1Count == null)
+                            {
+                                <td>0 </td>
+                            }
+                            else
+                            {
+                                <td>@Model.Level1Count </td>
+                            }
+                            <td>0.00</td>
+                            <td style="color:#F5791F">@State1</td>
+                        </tr>
+                        <tr>
+                            <td>level 2</td>
+                            @if (@Model.Level2Count == null)
+                                {
+                                <td>0 </td>
+                                }
+                                else
+                                {
+                                <td>@Model.Level2Count </td>
+                                }
+                            <td>0.00</td>
+                            <td style="color:#F5791F">@State2</td>
+                            </tr>
+
+                    <tr>
+                        <td>level 3</td>
+                        @if (@Model.Level3Count == null)
+                        {
+                            <td>0 </td>
+                        }
+                        else
+                        {
+                            <td>@Model.Level3Count </td>
+                        }
+                        <td>0.00</td>
+                        <td style="color:#F5791F">@State3</td>
+                    </tr>
+
+                    }
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- /Main Content -->
+
+

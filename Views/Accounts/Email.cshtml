@@ -1,0 +1,6 @@
+﻿@{
+    ViewBag.Title = "Email";
+}
+
+
+@Html.Raw(Server.HtmlDecode(@ViewData["message"].ToString()))

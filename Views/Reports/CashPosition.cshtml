@@ -1,0 +1,89 @@
+﻿@model RetailKing.Models.CashPosition
+@{
+    ViewBag.Title = "CashPosition";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Cash Position Report</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                    <table id="gradient-style" style="width:100%; border-style: none ">
+                        <tbody>
+                            <tr>
+                                <td class="style3" style="border-style: none">
+                                    <div class="editor-field">
+                                    </div>
+                                </td>
+                                <td class="style4" style="border-style: none"></td>
+                                <td class="style4" style="border-style: none"></td>
+                                <td style="border-style: none">
+                                    <div class="editor-field" style="float:right ">
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="tableData">
+                        <table class="table table-striped" style="width:100%">
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                   Amount
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @{
+
+                                var accs = Model.accounts.OrderBy(u => u.AccountCode).ToList();
+                                foreach (var item in accs)
+                                {
+                                    <tr>
+                                        @if (item.AccountCode.Length <= 4)
+                                        {
+                                            <td>
+                                                <strong> @item.AccountName</strong>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                @item.AccountName
+                                            </td>
+                                        }
+                                        @if (item.Balance > 0)
+                                        {
+                                            <td>
+                                                @String.Format("{0:C}", @item.Balance)
+                                            </td>
+                                            <td></td>
+                                        }
+                                        else
+                                        {
+                                            <td></td>
+                                            <td>
+                                                @String.Format("{0:C}", @item.Balance)
+                                            </td>
+
+
+                                        }
+                                    </tr>
+                                }
+                            }
+
+                        </table>
+                    </div>
+</div>
+</div>
+</div>
+</div>
+</div> 

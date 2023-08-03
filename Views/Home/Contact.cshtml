@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "Recruiting";
+}
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/home/styles/contact.css")">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/home/styles/contact_responsive.css")">
+<!-- Content -->
+<div class="home">
+    <div class="home_background parallax-window" data-parallax="scroll" data-image-src="@Url.Content("~/Content/home/images/contact_background.jpg")" data-speed="0.8"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="home_content">
+                    <div class="home_content_inner">
+                        <div class="home_title">Contact</div>
+                        <div class="home_breadcrumbs">
+                            <ul>
+                                <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                <li>Contact Yomoney</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <!-- Top Bar -->
+        <div class="top_bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="top_bar_container d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo_container">
+                                <div class="logo">
+                                    <a href="#">
+                                        <div class="logo_img"><img src="@Url.Content("~/Content/home/images/logo.png")" alt=""></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="top_bar_content ml-auto">
+                                <div class="coins">
+                                    <ul>
+                                        <li><a style="color:#679C20" href="@Url.Action("Index","Home")">HOME</a></li>
+                                        <li><a style="color:#679C20" href="@Url.Action("About","Home")">ABOUT</a></li>
+                                        <li><a style="color:#679C20" href="@Url.Action("Contact","Home")">CONTACT</a></li>
+                                    </ul>
+                                </div>
+                                <div class="register_login">
+                                    @*<div class="register"><a href="#">register</a></div>*@
+                                    <div class="login"><a href="@Url.Action("Index", "Login")">login</a></div>
+                                </div>
+                            </div>
+                            <div class="burger">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+</div>
+<!-- Contact -->
+
+<div class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="info">
+                    <div class="section_title_container">
+                        <div class="section_subtitle">take a look at our</div>
+                        <div class="section_title">Contact info</div>
+                    </div>
+                    <div class="map_contact_title">Head Office</div>
+                    <ul>
+                        <li>Address: 16 Balantyne crescent, Cranborne </li>
+                        <li>Phone: +263 8677133636</li>
+                        <li>Email: info@yomoney.co.zw</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-8 contact_form_col">
+                <div class="section_title_container">
+                    <div class="section_subtitle">take a look at our</div>
+                    <div class="section_title">Get in touch</div>
+                </div>
+                <div class="contact_form_container">
+                    <form action="#" class="contact_form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="input_item" placeholder="Your Name" required="required">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="input_item" placeholder="Your E-mail" required="required">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="input_item" placeholder="Your Phone">
+                            </div>
+                            <div class="col-md-6">
+                                <select class="dropdown_item input_item">
+                                    <option>Business type</option>
+                                    <option>Business type</option>
+                                    <option>Business type</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <textarea id="contact_message" class="input_item contact_message" name="message" placeholder=" Your Message" required="required" data-error="Please, write us a message."></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button id="contact_btn" type="submit" class="contact_button trans_200" value="Submit">submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Google Map -->
+<script src="@Url.Content("~/Content/Home/js/contact_custom.js")"></script>

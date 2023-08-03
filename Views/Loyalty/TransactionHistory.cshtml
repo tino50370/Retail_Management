@@ -1,0 +1,416 @@
+@model IEnumerable<RetailKing.Models.Tranlog>
+@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script> 
+<script src="@Url.Content("~/Content/Administration/js/datepicker/daterangepicker.js")"></script>
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        $.fancybox.hideLoading();
+        $.fancybox.close();
+        $("#SearchInItems").focus();
+
+        $("#Branch").change(function (event) {
+            event.preventDefault();
+            $.fancybox.showLoading();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("TransactionHistory", "Loyalty")',
+                dataType: 'html',
+                data: {
+                    sStart: $("#Month").val(),
+                    sSearch: $("#SearchInItems").val(),
+                    iDisplayLength: $("#SizeR").val(),
+                    sColumns: $("#Branch").val(),
+                    sEcho: $("#SearchType").val()
+                },
+                success: function (resp) {
+                    $.fancybox.hideLoading();
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+            $.fancybox.showLoading();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("TransactionHistory", "Loyalty")',
+                dataType: 'html',
+                data: {
+                    sStart: $("#Month").val(),
+                    sSearch: $("#SearchInItems").val(),
+                    iDisplayLength: $("#SizeR").val(),
+                    sColumns: $("#Branch").val(),
+                    sEcho: $("#SearchType").val()
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchType").change(function (event) {
+            event.preventDefault();
+            $.fancybox.showLoading();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("TransactionHistory", "Loyalty")',
+                dataType: 'html',
+                data: {
+                    sStart: $("#Month").val(),
+                    sSearch: $("#SearchInItems").val(),
+                    iDisplayLength: $("#SizeR").val(),
+                    sColumns: $("#Branch").val(),
+                    sEcho: $("#SearchType").val()
+                },
+                success: function (resp) {
+                    $.fancybox.hideLoading();
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+       
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            $.fancybox.showLoading();
+            var s = $('#SearchInItems').val();
+            var  typinTimer;
+            clearTimeout(typinTimer);
+            typinTimer = setTimeout(function () {
+                if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                    $.fancybox.showLoading();
+                    $.ajax({
+                        type: "Post",
+                        url: '@Url.Action("TransactionHistory", "Loyalty")',
+                        dataType: 'html',
+                        data: {
+                            sStart: $("#Month").val(),
+                            sSearch: $("#SearchInItems").val(),
+                            iDisplayLength: $("#SizeR").val(),
+                            sColumns: $("#Branch").val(),
+                            sEcho: $("#SearchType").val()
+                        },
+                        success: function (resp) {
+                            $.fancybox.hideLoading();
+                            $('#panel').html(resp);
+                        },
+                        error: function (data) {
+                        }
+                    });
+                }
+            }, 2000);
+        });
+
+        $("#tableData input").keypress(function (e) {
+            if (e.keyCode == 13) {
+                if (this.value == '') {
+                   // alert($("#" + this.id).val());
+                }
+                else {
+                    if (isNaN(this.value / 1) == false) {
+                        var dd = this.id;
+                        $.ajax({
+                            type: "Post",
+                            url: '@Url.Action("TransactionHistory", "Loyalty")',
+                            dataType: 'html',
+                            data: {
+                                Qty: $("#" + this.id).val(),
+                                ItemCode: this.id
+                            },
+                            success: function (resp) {
+
+                                var jsonItem = $.parseJSON(resp);
+                                $('.' + dd).text(jsonItem.NewStock);
+                                $('.balance_' + dd).text(jsonItem.Balance);
+                                $('#' + dd).val('');
+
+                            },
+                            error: function (data) {
+                            }
+                        });
+                    }
+                    else {
+                        alert("Please enter number only");
+                    }
+                }
+            }
+        });
+
+    });
+    function GetTrantype(Id) {
+        //event.preventDefault();
+        $.fancybox.showLoading();
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("TransactionHistory", "Loyalty")',
+            dataType: 'html',
+            data: {
+                sEcho: $("#SearchType").val(),
+                sStart: $("#Month").val(),
+                sSearch: $("#SearchInItems").val(),
+                iDisplayLength: $("#SizeR").val(),
+                sColumns: $("#Branch").val(),
+                iTransactionType: Id,
+                sEcho: $("#SearchType").val()
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    };
+</script>
+
+<script type="text/javascript">
+     function GetPageR(thispage) {
+         $.ajax({
+             type: "Post",
+             url: '@Url.Action("TransactionHistory", "Loyalty")',
+             dataType: 'html',
+             data: {
+                 sStart: $("#Month").val(),
+                 sSearch: $("#SearchInItems").val(),
+                 sColumns: $("#Branch").val(),
+                 iDisplayStart: thispage,
+                 iDisplayLength: $("#SizeR").val(),
+                 sEcho: $("#SearchType").val()
+             },
+             success: function (resp) {
+                 $('#panel').html(resp);
+             },
+             error: function (data) {
+             }
+         });
+     }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Transaction History</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+
+                    <table id="gradient-style" style="width:100%; border-style: none ">
+                        <tbody>
+                            <tr>
+                                <td class="style3" style="border-style: none">
+                                    <div class="editor-field">
+                                        Show @Html.DropDownList("SizeR", new SelectList(new[] { "10", "20", "50", "100" },@ViewData["listSize"]), new { id = "SizeR",style="width:80%", @class = "form-control" })
+                                    </div>
+                                </td>
+                                <td class="style3" style="border-style: none">
+                                    <div class="editor-field">
+                                        Branch @Html.DropDownList("Branch", new SelectList((IEnumerable<SelectListItem>)ViewBag.Supplier, "Value", " Text", @ViewData["Branch"]), new { id = "Branch", style = "width:80%", @class = "form-control" })
+                                    </div>
+                                </td>
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                        General Search  <input type="text" style="width:80%" id="SearchInItems" placeholder="eg:search by any field value" class="form-control" value="@ViewData["searchTerm"]" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                       Date <input type="text" style="width:80%" id="Date"  class="form-control" value="@ViewData["Date"]" />
+                                       <input type="hidden" style="width:80%" id="Month" class="form-control" value="@ViewData["Date"]" />
+                                    </div>  
+                                </td>
+                                <td>
+                                        <div class="editor-field">
+
+                                            Results For the @Html.DropDownList("SearchType", new SelectList(new[] { "Month", "Date" }, @ViewData["SearchType"]), new { id = "SearchType", @class = "form-control" })
+                                        </div>
+                                </td>
+                                    @*<td class="style3" style="border-style: none">
+                                        <div class="editor-field">
+                                            Month @Html.DropDownList("Year", new SelectList(new[] { "2018", "2017"}, @ViewData["sStart"]), new { id = "Year", @class = "form-control" })
+                                        </div>
+                                    </td>*@
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <div>
+                        <button class="btn btn-success btn-sm pull-right" onclick="GetTrantype('0')">Transactions</button>
+                        <button class="btn btn-warning  btn-sm pull-right" onclick="GetTrantype('4')">Account Creations</button>
+                    </div>
+                     <div id="tableData">
+                        <table class="table table-striped" style="width:100%">
+                            <tr>
+                                <th>
+                                    Till
+                                </th>
+                                <th>
+                                    Amount
+                                </th>
+                                <th>
+                                    Receipt
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    CustomerID
+                                </th>
+                                <th>
+                                    Cashier
+                                </th>
+                                <th>
+                                    Branch 
+                                </th>
+                               
+                            </tr>
+                            @{
+
+                                int cnt = 0;
+                                foreach (var item in Model)
+                                {
+                                    cnt += 1;
+                                    if (cnt % 2 == 0)
+                                    {
+                                        <tr style="background-color: #EEEEEE" onclick="GetDetails('@Url.Action("TransactionDetails", "Loyalty")','@item.Description' + '_' + '@item.DestinationAccountNumber')">
+                                            <td>
+                                                @item.TerminalId
+                                            </td>
+                                            <td>
+                                                @item.Amount
+                                            </td>
+                                            <td>
+                                                @item.ReceiptNumber
+                                            </td>
+                                            <td>
+                                                @item.Description.Trim()
+                                            </td>
+                                            <td>
+                                                @item.DateCreated
+                                            </td>
+                                            <td>
+                                                @item.DestinationAccountNumber
+                                            </td>
+                                            <td>
+                                                @item.Username
+                                            </td>
+                                            <td>
+                                                @item.BranchName
+                                            </td>
+
+                                            @* <td><button class="btn btn-primary btn-sm pull-right" onclick="GetFancy('@Url.Action("TransactionDetails", "Loyalty")','@item.Id')">Details</button></td>
+                                            *@
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        <tr style="background-color :#FCFDFF" onclick="GetDetails('@Url.Action("TransactionDetails", "Loyalty")','@item.Description' + '_' + '@item.DestinationAccountNumber')">
+
+                                            <td>
+                                                @item.TerminalId
+                                            </td>
+                                            <td>
+                                                @item.Amount
+                                            </td>
+                                            <td>
+                                                @item.ReceiptNumber
+                                            </td>
+                                            <td>
+                                                @item.Description.Trim()
+                                            </td>
+                                            <td>
+                                                @item.DateCreated
+                                            </td>
+                                            <td>
+                                                @item.DestinationAccountNumber
+                                            </td>
+                                            <td>
+                                                @item.Username
+                                            </td>
+                                            <td>
+                                                @item.BranchName
+                                            </td>
+                                            @*
+                                                <td><button class="btn btn-primary btn-sm pull-right" onclick="GetFancy('@Url.Action("TransactionDetails", "Loyalty")','@item.Id')">Details</button></td>
+                                            *@
+                                        </tr>
+                                    }
+                                }
+}
+                            <tr>
+                                <th colspan="12" style="background-color: #E2E4FF; ">
+                                    <div onclick="GetPageR()" style="float: left; padding-left: 10px"> Pages</div>
+                                    @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                                    {
+                                        if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                        {
+                                            <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                                        }
+                                        else
+                                        {
+                                            <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                                        }
+                                    }
+                                    <div style="float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                                </th>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+    $(function (event) {
+        $('#Date').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            var mont = $("#Date").val();
+            $('#Month').val(mont);
+            $.fancybox.showLoading();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("TransactionHistory", "Loyalty")',
+                dataType: 'html',
+                data: {
+                    sEcho: $("#SearchType").val(),
+                    sStart: $("#Date").val(),
+                    sSearch: $("#SearchInItems").val(),
+                    iDisplayLength: $("#SizeR").val(),
+                    sColumns: $("#Branch").val()
+                    
+                },
+                success: function (resp) {
+                    $.fancybox.hideLoading();
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+       
+    })
+</script>

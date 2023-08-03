@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="RetailKing.Models.Orders, RetailKing" table="Orders" >
+
+    <id name="Id" column="ID" type="System.Int64" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+   
+    <property name="total" column="total"  not-null="false" type="System.Decimal"  length="40" insert="true" update="true"/>
+    <property name="discount" column="discount"  not-null="false" type="System.Decimal"  length="40" insert="true" update="true"/>
+    <property name="company" column="company"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="dated" column="dated"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="customer" column="customer"  not-null="false" type="System.String"  length="150" insert="true" update="true"/>
+    <property name="Account" column="Account"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Reciept" column="Reciept"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Invoice" column="Invoice"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="shift" column="shift"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="state" column="state"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+   
+
+  </class>
+</hibernate-mapping>

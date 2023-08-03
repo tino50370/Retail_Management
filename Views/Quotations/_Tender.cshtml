@@ -1,0 +1,75 @@
+﻿@model RetailKing.Models.Acc
+@{
+    ViewBag.Title = "Tender";
+}
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        onFocused();
+    })
+
+    function Discountz() {
+        $('#discount').show();
+        $('#Discountq').focus();
+        if ($('#discount').is(':visible')) {
+            Discount = 'Y';
+        } else {
+            Discount = 'N';
+        }
+    }
+    function CancelDiscountz() {
+        $('#discount').hide();
+        $('#totalq').focus();
+            Discount = 'N';
+    }
+
+   
+
+</script>
+<div class="col-md-12" style="width:510px">
+    @foreach (var itm in Model.Accnt)
+    {
+        decimal paid = 0;
+        if (ViewData["Paid"] != null)
+        {
+            paid = decimal.Parse(ViewData["Paid"].ToString());
+        }
+        var paytype = "";
+        if (itm.AccountCode.StartsWith("2-01"))
+        {
+            paytype = "Cash";                                                // amount                           currency       rate
+            <div class="col-md-12" onclick="setTender('@String.Format("{0:F}", (decimal)itm.Balance - paid)','@itm.Currency','@itm.Opening');GetPartialView('@Url.Action("TenderData", "Quotations", new { Quotationidd = Model.quot, Currency = itm.Currency, type = itm.AccountName.Trim() })', 'Cash', 'N', '@itm.AccountName.Trim()')" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer">
+                <div class="col-md-4"> @itm.AccountName</div>
+                <div class="col-md-4"> @itm.Currency</div>
+                <div class="col-md-4 pull-right"> @String.Format("{0:F}", (decimal)itm.Balance - paid)</div>
+            </div>
+        }
+        else if (itm.AccountCode.StartsWith("2-02"))
+        {
+            <div class="col-md-12" onclick="setTender('@String.Format("{0:F}", (decimal)itm.Balance - paid)','@itm.Currency','@itm.Opening');GetPartialView('@Url.Action("TenderData", "Quotations", new { Quotationidd = Model.quot, Currency = itm.Currency, type = itm.AccountName.Trim() })', 'Credit', 'Y', '@itm.AccountName.Trim()')" style="margin-top:3px;height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer">
+                <div class="col-md-4"> @itm.AccountName</div>
+                <div class="col-md-4"> @itm.Currency</div>
+                <div class="col-md-4 pull-right"> @String.Format("{0:F}", (decimal)itm.Balance - paid)</div>
+            </div>
+        }
+        else if (itm.AccountCode.StartsWith("2-03"))
+        {
+            paytype = itm.AccountName.Trim();
+            <div class="col-md-12" onclick="setTender('@String.Format("{0:F}", (decimal)itm.Balance - paid)','@itm.Currency','@itm.Opening');GetPartialView('@Url.Action("TenderData", "Quotations", new { Quotationidd = Model.quot, Currency = itm.Currency, type = itm.AccountName.Trim() })', 'Cash', 'N', '@itm.AccountName.Trim()')" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer">
+                <div class="col-md-4"> @itm.AccountName</div>
+                <div class="col-md-4"> @itm.Currency</div>
+                <div class="col-md-4 pull-right">@String.Format("{0:F}", (decimal)itm.Balance - paid)</div>
+            </div>
+        }
+        else
+        {
+            paytype = itm.AccountName.Trim();
+            <div class="col-md-12" onclick="setTender('@String.Format("{0:F}",(decimal)itm.Balance - paid)','@itm.Currency','@itm.Opening');GetPartialView('@Url.Action("TenderData", "Quotations", new { Quotationidd = Model.quot,Currency = itm.Currency, type = itm.AccountName.Trim() + "_Yes" })', 'Other', 'N', '@itm.AccountName.Trim()') " style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer">
+                <div class="col-md-4"> @itm.AccountName</div>
+                <div class="col-md-4"> @itm.Currency</div>
+                <div class="col-md-4 pull-right">@String.Format("{0:F}", (decimal)itm.Balance - paid)</div>
+            </div>
+        }
+
+    }
+</div>
+

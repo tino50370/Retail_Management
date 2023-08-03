@@ -1,0 +1,275 @@
+﻿@model IEnumerable<RetailKing.Models.AgentUser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        $("#SearchInItems").focus();
+        var typinTimer;
+        $("#category").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("Index", "Items")',
+                dataType: 'html',
+                data: {
+                    company: $("#activeco").text(),
+                    category: $("#category").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SubCategory").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("Index", "Sales")',
+                dataType: 'html',
+                data: {
+                    sStart: $("#Month").val(),
+                    sSearch: $("#SearchInItems").val(),
+                    iDisplayLength: $("#SizeR").val(),
+                    SupplierId: $("#Branch").val(),
+                    sColumns: $("#Branch").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#Branch").change(function (event) {
+            event.preventDefault();
+            $.fancybox.showLoading();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("Index", "AgentUser")',
+                dataType: 'html',
+                data: {
+                    sStart: $("#Month").val(),
+                    sSearch: $("#SearchInItems").val(),
+                    iDisplayLength: $("#SizeR").val(),
+                    SupplierId: $("#Branch").val(),
+                    sColumns: $("#Branch").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $.fancybox.hideLoading();
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                   // alert(data);
+                }
+            });
+        });
+
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("Index", "AgentUser")',
+                dataType: 'html',
+                data: {
+                    sStart: $("#Month").val(),
+                    sSearch: $("#SearchInItems").val(),
+                    iDisplayLength: $("#SizeR").val(),
+                    sColumns: $("#Branch").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            var s = $('#SearchInItems').val();
+            // alert(s);
+            clearTimeout(typinTimer);
+            typinTimer = setTimeout(function () {
+                // alert($('#SearchInItems').val() );
+                if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                    $.ajax({
+                        type: "Post",
+                        url: '@Url.Action("Index", "AgentUser")',
+                        dataType: 'html',
+                        data: {
+                            sStart: $("#Month").val(),
+                            sSearch: $("#SearchInItems").val(),
+                            iDisplayLength: $("#SizeR").val(),
+                            SupplierId: $("#Branch").val(),
+                            sColumns: $("#Branch").val(),
+                            sEcho: 1
+                        },
+                        success: function (resp) {
+                            $('#panel').html(resp);
+                        },
+                        error: function (data) {
+                        }
+                    });
+                }
+            }, 2000);
+        });
+
+        $("#tableData input").keypress(function (e) {
+            if (e.keyCode == 13) {
+
+                if (this.value == '') {
+                 //   alert($("#" + this.id).val());
+                }
+                else {
+                    if (isNaN(this.value / 1) == false) {
+                        var dd = this.id;
+                        $.ajax({
+                            type: "Post",
+                            url: '@Url.Action("Index", "AgentUser")',
+                            dataType: 'html',
+                            data: {
+                                sStart: $("#Month").val(),
+                                sSearch: $("#SearchInItems").val(),
+                                iDisplayLength: $("#SizeR").val(),
+                                sColumns: $("#Branch").val(),
+                                sEcho: 1
+                            },
+                            success: function (resp) {
+                                var jsonItem = $.parseJSON(resp);
+                                //  alert($('#' + dd).val());
+                                $('.' + dd).html(jsonItem.NewStock);
+                                $('#balance_' + dd).html(jsonItem.Balance);
+                                $('#' + dd).val('');
+                            },
+                            error: function (data) {
+                            }
+                        });
+                    }
+                    else {
+                        alert("Please enter number only");
+                    }
+                }
+            }
+        });
+
+    });
+</script>
+
+<script type="text/javascript">
+    function GetPageR(thispage) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("Index", "AgentUser")',
+            dataType: 'html',
+            data: {
+                company: $("#activeco").text(),
+                category: $("#category").val(),
+                ItemCode: '',
+                iDisplayStart: thispage,
+                iDisplayLength: $("#SizeR").val(),
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>User List</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                    <table id="gradient-style" class="table table-stripe" style="width:100%; border-style: none ">
+                        <tbody>
+                            <tr>
+                                <td class="style3" style="border-style: none">
+                                    <div class="editor-field">
+                                        Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR", @class = "form-control" })
+                                    </div>
+                                </td>
+
+                                <td style="border-style: none">
+                                    <div class="editor-field" style="float:right ">
+                                        Search by Name <input type="text" id="SearchInItems" class = "form-control" />
+                                    </div>
+                                </td>
+                                <td class="style3" style="border-style: none">
+                                    <div class="editor-field">
+                                        Branch @Html.DropDownList("Branch", new SelectList((IEnumerable<SelectListItem>)ViewBag.Supplier, "Value", " Text", @ViewData["Branch"]), new { id = "Branch", style = "width:80%", @class = "form-control" })
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="tableData">
+                        <table class="table" style="width:100%">
+                            <tr>
+                                <th>
+                                    @Html.DisplayName("Name")
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Role)
+                                </th>
+                                
+                                <th>
+                                    Branch
+                                </th>
+                               
+
+                                <th> <button class="btn btn-success" style="float: right" onclick="GetView('@Url.Action("Create", "AgentUser")')">Create New </button></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FullName)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Role)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AccountNumber)
+                                    </td>
+
+                                    <td>
+                                        @*<button class="btn btn-primary btn-xs" style="float: right" onclick="GetView('@Url.Action("Edit", "AgentUser", new { id=item.Id })')">Edit User</button>*@
+                                        <button class="btn btn-danger btn-xs" style="float: right" onclick="GetView('@Url.Action("Delete", "AgentUser", new { id=item.Id })')">Delete</button>
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

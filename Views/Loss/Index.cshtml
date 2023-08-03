@@ -1,0 +1,346 @@
+﻿@model IEnumerable<RetailKing.Models.Loss>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        // $("#DateCreated").datepicker({ dateFormat: "d MM yy" });
+        //$("#Date").datepicker({ dateFormat: "d MM yy" });
+      
+        $("#SearchInItems").focus();
+
+        $("#category").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("Index", "Loss")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SubCategory").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("Index", "Loss")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("Index", "Loss")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: '',
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            var s = $('#SearchInItems').val();
+            if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                $.ajax({
+                    type: "Post",
+                    url: '@Url.Action("Index", "Loss")',
+                    dataType: 'html',
+                    data: {
+                        ItemCode: $("#SearchInItems").val(),
+                        iDisplayLength: $("#SizeR").val(),
+                        sEnd: $("#Date").val(),
+                        sStart: $("#DateCreated").val(),
+                        sEcho: 1
+                    },
+                    success: function (resp) {
+                        $('#panel').html(resp);
+                    },
+                    error: function (data) {
+                    }
+                });
+            }
+            //   }, 2000);
+        });
+
+
+
+    });
+</script>
+
+<script type="text/javascript">
+    function GetPageR(thispage) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("Index", "Loss")',
+            dataType: 'html',
+            data: {
+                sEnd: $("#Date").val(),
+                sStart: $("#DateCreated").val(),
+                ItemCode: '',
+                iDisplayStart: thispage,
+                iDisplayLength: $("#SizeR").val(),
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Shinkages</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+
+                    <table id="gradient-style" style="width:100%; border-style: none ">
+                        <tbody>
+                            <tr>
+                                <td style="border-style: none; padding: 0 3px">
+                                    <div class="editor-field">
+                                        Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR", @class = "form-control" })
+                                    </div>
+                                </td>
+
+                                <td style="border-style: none; padding: 0 3px">
+                                    <div class="editor-field">
+                                        Start Date
+                                        <input type="text" name="DateCreated" id="DateCreated" value="@ViewData["sdate"]" style="width: 100%" class="form-control" />
+                                    </div>
+                                </td>
+                                <td style="border-style: none; padding: 0 3px">
+                                    <div class="editor-field">
+                                        End Date
+                                        <input type="text" class="input_text form-control" name="Date" id="Date" value="@ViewData["edate"]" style="width: 100%" />
+                                    </div>
+                                </td>
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                        Search by Customer <input type="text" class="form-control" id="SearchInItems" style="width: 100%" />
+
+                                    </div>
+                                </td>
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                        <br />
+                                        <button class="btn btn-success" style="float:left" onclick="GetLosses()"><span></span>Go</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <table class="table table-striped" style="width:100%;">
+                        <tr>
+                            <th style="width: 6%"></th>
+                            <th>
+                               Description
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            <th>
+                               Invoice Number
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.total)
+                            </th>
+                           
+                            <th>
+                                @Html.DisplayName("Sales Date")
+                            </th>
+                            <th>
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            var newrId = "";
+                            var newVId = "";
+                            if (item.Reciept != null)
+                            {
+                                char[] delimiter = new char[] { '.' };
+                                string[] partz = item.Reciept.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+                                newrId = partz[0];// + partz[1] + partz[2];
+                            }
+                            string rid = newrId + "_b";
+                            string ridx = newrId + "_x";
+
+                            if (item.Invoice != null)
+                            {
+                                char[] delimita = new char[] { '.' };
+                                string[] part = item.Invoice.Split(delimita, StringSplitOptions.RemoveEmptyEntries);
+                                newVId = part[0];// + part[1] + part[2];
+                            }
+                            string vidx = newVId + "_x";
+                            string vid = newVId + "_b";
+
+                            <tr>
+                                @if (item.Reciept != null && item.Reciept != "")
+                                {
+                                    <td style="width: 6%">
+                                        <a id="@ridx" class="btn btn-dark  btn-sm" onclick="GetLossDetail('@item.Reciept','@newrId')"><i class="fa fa-toggle-down"></i></a>
+                                        <a id="@rid" class="btn btn-warning  btn-sm" onclick="MinSalesDetail('@item.Reciept','@newrId')" style="display:none"><i class="fa fa-toggle-up"></i></a>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="width: 6%">
+                                        <a id="@vidx" class="btn btn-dark  btn-sm" onclick="GetLossDetail('@item.Invoice','@newVId')"><i class="fa fa-toggle-down"></i></a>
+                                        <a id="@vid" class="btn btn-warning  btn-sm" onclick="MinSalesDetail('@item.Invoice','@newVId')" style="display:none"><i class="fa fa-toggle-up"></i></a>
+                                    </td>
+                                }
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+                                    @if (item.state == null || item.state.Trim() == "O")
+                                    {
+                                        <span class="label label-success pull-right">Open</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-danger pull-right">Closed</span>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Reciept)
+                                    @Html.DisplayFor(modelItem => item.Invoice) 
+                                </td>
+                                
+                                
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.total)
+                                </td>
+                                
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.dated)
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="GetView('@Url.Action("NewLoss", "Loss", new { LossId = item.ID })')"><strong>view</strong></button>
+                                </td>
+
+                            </tr>
+                            if (item.Reciept != null && item.Reciept != "")
+                            {
+                                <tr><td colspan="11" id="@newrId" style="display:none "></td></tr>
+                            }
+                            else
+                            {
+                                <tr><td colspan="11" id="@newVId" style="display:none "></td></tr>
+                            }
+                        }
+                        <tr>
+                            <th colspan="12" style="background-color: #E2E4FF; ">
+                                <div onclick="GetPageR()" style="float: left; padding-left: 10px"> Pages</div>
+                                @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                                {
+                                    if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                    {
+                                        <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                                    }
+                                    else
+                                    {
+                                        <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                                    }
+                                }
+                                <div style="float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+</div>
+</div>
+</div>
+<script src="@Url.Content("~/Content/Administration/js/datepicker/daterangepicker.js")"></script>
+<script src="@Url.Content("~/Content/Administration/js/moment/moment.min.js")"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#Date').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+        $('#AquisitionDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+        $('#DisposalDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+        $('#DateCreated').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+        $('#ExpireryDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+    })
+</script>

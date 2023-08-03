@@ -1,0 +1,67 @@
+﻿@model RetailKing.Models.YomoneyResponse
+
+@{
+
+}
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites"
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+
+                try {
+                    alert(result)
+                    var resp = $.parseJSON(result);
+                    alert(resp)
+                    if (resp.ResponseCode == "Success")
+                    {
+                        alert("in")
+                        Tender(resp.Amount)
+
+                    } else
+                    {
+                        alert("Error")
+                    }
+
+                } catch (exception) {
+                    alert("not json error")
+                };
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#createAccount").ajaxForm(options);
+
+    });
+</script>
+<div class="col-md-12" style="width:510px">
+    <h2 align="center">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"> @Model.Description</div>
+        <div class="col-md-4"></div>
+    </h2>
+</div>
+

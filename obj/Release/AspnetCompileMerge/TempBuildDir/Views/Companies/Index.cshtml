@@ -1,0 +1,157 @@
+@model IEnumerable<RetailKing.Models.Company>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="grid_10">
+ <div class="box round ">
+ <h2>Companies</h2>
+ <p></p>
+
+<table style="width:100%">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Location
+        </th>
+        <th>
+            Address1
+        </th>
+        <th>
+            Address2
+        </th>
+        <th>
+            Contact1
+        </th>
+        <th>
+            Contact2
+        </th>
+        <th>
+            dated
+        </th>
+        <th>
+            Footer1
+        </th>
+        <th>
+            Footer2
+        </th>
+        <th>
+            Footer3
+        </th>
+        <th>
+            footer4
+        </th>
+       
+        <th>
+            VatNo
+        </th>
+        <th><button class="btn btn-black" onclick="GetView('@Url.Action("Create", "Companies")')">New Company</button></th>
+    </tr>
+
+@{
+    
+    int cnt = 0;
+    foreach (var item in Model)
+    {
+        cnt += 1;
+        if (cnt % 2 == 0)
+        {
+    <tr style=" background-color: #EEEEEE">
+       
+        <td>
+			@item.name
+        </td>
+        <td>
+			@item.location
+        </td>
+        <td>
+			@item.Address1
+        </td>
+        <td>
+			@item.Address2
+        </td>
+        <td>
+			@item.Contact1
+        </td>
+        <td>
+			@item.Contact2
+        </td>
+        <td>
+			@String.Format("{0:g}", item.dated)
+        </td>
+        <td>
+			@item.Footer1
+        </td>
+        <td>
+			@item.Footer2
+        </td>
+        <td>
+			@item.Footer3
+        </td>
+        <td>
+			@item.footer4
+        </td>
+        
+        <td>
+			@item.VatNo
+        </td>
+         <td>
+           <button class="btn btn-navy" onclick="GetView('@Url.Action("Edit", "Company")', '@item.ID')">Edit</button>
+        </td>
+    </tr>
+      }
+        else
+        {
+              <tr style=" background-color :#FCFDFF">
+       
+        <td>
+			@item.name
+        </td>
+        <td>
+			@item.location
+        </td>
+        <td>
+			@item.Address1
+        </td>
+        <td>
+			@item.Address2
+        </td>
+        <td>
+			@item.Contact1
+        </td>
+        <td>
+			@item.Contact2
+        </td>
+        <td>
+			@String.Format("{0:g}", item.dated)
+        </td>
+        <td>
+			@item.Footer1
+        </td>
+        <td>
+			@item.Footer2
+        </td>
+        <td>
+			@item.Footer3
+        </td>
+        <td>
+			@item.footer4
+        </td>
+        
+        <td>
+			@item.VatNo
+        </td>
+         <td>
+            <button class="btn btn-navy" onclick="GetView('@Url.Action("Edit", "Company")', '@item.ID')">Edit</button>
+        </td>
+    </tr>
+        }
+}
+}
+</table>
+
+</div> 
+ </div> 

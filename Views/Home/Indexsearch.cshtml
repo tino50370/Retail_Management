@@ -1,0 +1,44 @@
+@model IEnumerable<RetailKing.Models.Item>
+@{
+    ViewBag.Title = "Indexsearch";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                   
+
+                    <div id="tableData">
+                        <table class="table table-striped" style="width:100%">
+                           
+
+                            @{
+
+                                int cnt = 0;
+                                foreach (var item in Model)
+                                {      
+                                     
+
+                                        <tr>
+                                                <td>
+                                                     <a href="@Url.Action("Details", "Items", new { id = item.ID })">@item.ItemName</a>
+</td>
+                                          
+                                        </tr>
+                                    
+                                }
+                            }
+                           
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Address list-->
+<Addresses>
+  <Address>
+    <Id>1</Id>
+    <Contact />
+    <Address1 />
+    <CityId>1</CityId>
+    <City>Harare</City>
+    <SuburbId />
+    <Suburb>Avenues</Suburb>
+    <RegionId>6</RegionId>
+    <Phone>04556677</Phone>
+  </Address>
+  <Address>
+    <Id>2</Id>
+    <Contact />
+    <Address1 />
+    <CityId />
+    <City>1</City>
+    <SuburbId>12</SuburbId>
+    <Suburb>New Marlbrough</Suburb>
+    <RegionId>2</RegionId>
+    <Phone>0778989800</Phone>
+  </Address>
+  <Address>
+    <Id>3</Id>
+    <Contact />
+    <Address1 />
+    <CityId />
+    <City>1</City>
+    <SuburbId>12</SuburbId>
+    <Suburb>New Marlbrough</Suburb>
+    <RegionId>2</RegionId>
+    <Phone>0778989800</Phone>
+  </Address>
+</Addresses>

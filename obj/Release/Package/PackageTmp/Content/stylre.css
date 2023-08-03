@@ -1,0 +1,71 @@
+/*
+Document : mobile
+Created on : Aug 13, 2011, 11:36:28 PM
+Author : Wayne
+Description:
+Purpose of the stylesheet follows.
+*/
+/*
+TODO customize this sample style
+Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+root {
+display: block;
+}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{background:transparent;border:0;font-size:100%;margin:0;outline:0;padding:0;vertical-align:baseline; font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;}
+.header{padding:5px 1px 9px;position:relative;
+}
+.header-login{color:#fff;display:block;height:13px;padding:14px;position:absolute;right:0;top:0;width:19px;}
+.header-reg{color:#fff;display:block;height:5px;padding:14px;position:absolute;right:20px;top:19px;width:19px;}
+.header-login{height:auto;width:auto;}
+.header-post-ad{color:#fff;background-color: #00a54f;padding:7px 10px 9px;position: static; height: 15px;} .header-post-ad a{text-decoration: none;color:#fff; font-weight: bolder;}
+.header-post-ad{height:auto;width:auto;}
+.search-container{background-color:#e5ecf3;margin:0;padding:6px 0 6px 2px; position: static}
+.search-container .active{color:#004a94;font-weight:bold; font-size: xx-small;}
+.header .logo{float:left; color: #fff; font-weight: bold; text-decoration: none; width: 100%;}
+.location{background-color: grey ;padding:7px 10px 9px;position:relative; height: 15px;}
+.location a{text-decoration: none; font-size: small; color: white}
+.location-right{float: right}
+.location span{font-size: xx-small}
+.list-header{background-color: #6f7576; color: #fff ;font-size: small;padding:6px 10px; }
+.list-header a{text-decoration: none; color: #fff}
+.category-item{border-bottom:1px solid #ccdcef;padding:10px 10px 10px 10px;}
+.category-item-content{padding-left:10px;}
+.category-item-image{color:#0060b7;display:block;font-size:14px; float: left;margin-right: 5px; padding-top: 5px;}
+.category-item-biglink{display:block;width:100%; text-decoration: none}
+.category-item-title{color: #333;display:block;font-size:14px;line-height:15px;margin-bottom:0px;}
+.category-item-price{color:#0060b7;line-height:15px; font-size: 11px; font-weight: bold;text-decoration: none;}
+.category-item-price a {text-decoration: none;}
+.category-item-date{font-size: x-small; color: #004a94; position: relative}
+table td{vertical-align: top;}
+/* show ad count in category */
+.ad-list{border-bottom:1px solid #ccdcef; padding:10px 10px 10px; text-decoration: none;}
+.ad-list-content{padding-left:10px;}
+.ad-list-biglink{display:block;width:100%; text-decoration: none}
+.ad-list-title{color:#0060b7;display:block;font-size:13px;line-height:15px;}
+.ad-list-Description{color: #fff;font-size:13px;background-color: #004a94; margin-top: 10px; margin-left: 5px; margin-right: 5px; border: 1px solid #004a94; font-weight: bold; height: 20px; padding:6px 10px;}
+.ad-list-Description-text{font-size:13px; margin-left: 5px; margin-right: 5px; border-left: 1px solid #004a94 ; border-right: 1px solid #004a94; border-bottom: 1px solid #004a94; margin-bottom:10px;padding:6px 10px;}
+.ad-list-price{color:#0060b7;display:block;font-size:13px;line-height:15px;margin-bottom:5px;}
+.ad-list-biglink:visited
+.add-list-teaser{color:#999;line-height:14px;}
+.ad-list .a {text-decoration: none;}
+/* show add layout */
+.ad-item-content{padding-left:10px;}
+.ad-item-biglink{display:block;width:100%; text-decoration: none}
+.ad-item-title{font-size:13px; font-weight: bold;}
+.ad-item-Description{font-size:13px; margin-top: 2px; margin-left: 2px; margin-right: 2px;font-weight: bold; height: 20px;}
+.ad-item-Description-text{font-size:13px;}
+.ad-item-date{font-size: x-small; color: #004a94; position: relative; margin-left: 2px;}
+.ad-item-biglink:visited
+.ad-item-price{font-size:13px;; margin-top: 2px; margin-left: 2px; margin-right: 2px; font-weight: bold; height: 20px; padding:6px 10px;}
+.ad-item-phone{font-size:13px; padding-top: 10px; font-weight: bold; height: 20px; text-decoration: none;}
+.ad-item-phone a{text-decoration: none;}
+/* Comerical Add Spacing */
+.promo-space-show-phone {background-color: #CC0000; margin-top: 10px; margin-left: 5px; height: 100px; margin-right: 5px;}
+/* form styling */
+.radio_list {list-style-type: none}
+.form_row_error .error_list{position: relative;color: red; list-style-type: none; font-size: x-small}
+.form_row_error input {border-color: red}
+form_row_error select {border-color: red}
+.form_row label {font-weight: bold}
+.form_row{margin-top: 5px;}

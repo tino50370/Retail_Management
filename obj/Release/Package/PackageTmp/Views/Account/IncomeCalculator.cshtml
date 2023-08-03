@@ -1,0 +1,91 @@
+﻿@model IEnumerable<RetailKing.Models.Payment>
+@{
+    ViewBag.Title = "My Account";
+}
+
+
+    <div class="row">
+
+        <!-- Heading -->
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="carousel-heading no-margin">
+                <h4>Income Projection</h4>
+
+            </div>
+
+        </div>
+        <!-- /Heading -->
+
+    </div>
+  
+
+    <div class="row">
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            @{
+               var mnt= DateTime.Now.Month;
+            }
+            <table class="order-table">
+                <tr style="background-color:#fff">
+                    <td>
+                       
+
+                        <p>
+                            The Income Calculator is a general guideline that helps you set targets for how you can build your personal network. The Projected Income is the amount of money you would like to make each month and the Expected Ave Expenditure is the average amount each member in your network will be spending each month. Feel free to try different figures and then conclude on what can be a reasonable target for you to set for yourself.
+                        </p>
+                    </td>
+                </tr>
+
+            </table>
+            <table class="order-table">
+               
+                <tr style="background-color:#fff">
+                    <td>Projected Income</td>
+                    <td>@Html.TextBox("Income") </td>
+                    <td>Expexted Ave Expenditure</td>
+                    <td>@Html.TextBox("Expenditure") </td>
+                    <td><a class="button green" onclick="CalculateIncome()" value="Calculate">Calculate</a></td>
+                </tr>
+
+           
+                <tr>
+                    <th >Level</th>
+                    <th colspan="2">Size</th>
+                    <th colspan="2">Commission $</th>
+                    
+                </tr>
+              <tr>
+                  <td >Level 1</td>
+                  <td id="Size1" colspan="2">0</td>
+                  
+                  <td id="Commission1" colspan="2">0.00</td>
+              </tr>
+
+                <tr>
+                    <td >Level 2</td>
+                    <td id="Size2" colspan="2">0</td>
+                   
+                    <td id="Commission2" colspan="2">0.00</td>
+                </tr>
+                <tr>
+                    <td >Level 3</td>
+                    <td id="Size3" colspan="2">0</td>
+                   
+                    <td id="Commission3" colspan="2">0.00</td>
+                </tr>
+                <tr style="background-color:#F5791F;color:#fff;font-weight:bold">
+                    <td colspan="3">Expected Total Commission</td>
+                    <td colspan="2">$<span id="InvoiceTotal">0.00</span></td>
+                </tr>
+              <tr></tr>
+            <tr></tr>
+
+            </table> 
+              
+        </div>
+
+    </div>
+
+
+

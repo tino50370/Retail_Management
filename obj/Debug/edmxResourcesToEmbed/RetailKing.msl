@@ -1,0 +1,2055 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AccusalesModelStoreContainer" CdmEntityContainer="RetailKingEntities">
+    <EntitySetMapping Name="AccessOptions">
+      <EntityTypeMapping TypeName="AccusalesModel.AccessOption">
+        <MappingFragment StoreEntitySet="AccessOptions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="LinkType" ColumnName="LinkType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountCredenitials">
+      <EntityTypeMapping TypeName="AccusalesModel.AccountCredenitial">
+        <MappingFragment StoreEntitySet="AccountCredenitials">
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Pin" ColumnName="Pin" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Access" ColumnName="Access" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Atempts" ColumnName="Atempts" />
+          <ScalarProperty Name="Connection" ColumnName="Connection" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="AccusalesModel.Account">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Opening" ColumnName="Opening" />
+          <ScalarProperty Name="LinkAccount" ColumnName="LinkAccount" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="MappingCode" ColumnName="MappingCode" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="DiscountType" ColumnName="DiscountType" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="GiveDiscount" ColumnName="GiveDiscount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Activecoes">
+      <EntityTypeMapping TypeName="AccusalesModel.Activeco">
+        <MappingFragment StoreEntitySet="Activeco">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dailyTarget" ColumnName="dailyTarget" />
+          <ScalarProperty Name="monthlyTarget" ColumnName="monthlyTarget" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdPositions">
+      <EntityTypeMapping TypeName="AccusalesModel.AdPosition">
+        <MappingFragment StoreEntitySet="AdPosition">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdSpaces">
+      <EntityTypeMapping TypeName="AccusalesModel.AdSpace">
+        <MappingFragment StoreEntitySet="AdSpace">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="LocationUrl" ColumnName="LocationUrl" />
+          <ScalarProperty Name="LocationSize" ColumnName="LocationSize" />
+          <ScalarProperty Name="TargetMinAge" ColumnName="TargetMinAge" />
+          <ScalarProperty Name="TargetSex" ColumnName="TargetSex" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="AdLocator" ColumnName="AdLocator" />
+          <ScalarProperty Name="SpaceId" ColumnName="SpaceId" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="RevenueShare" ColumnName="RevenueShare" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adverts">
+      <EntityTypeMapping TypeName="AccusalesModel.Advert">
+        <MappingFragment StoreEntitySet="Advert">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="DailyMax" ColumnName="DailyMax" />
+          <ScalarProperty Name="DailyUsage" ColumnName="DailyUsage" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="MinAge" ColumnName="MinAge" />
+          <ScalarProperty Name="MaxAge" ColumnName="MaxAge" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="AdPosition" ColumnName="AdPosition" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="ExpireryDate" ColumnName="ExpireryDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Placements" ColumnName="Placements" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Radius" ColumnName="Radius" />
+          <ScalarProperty Name="Timeslots" ColumnName="Timeslots" />
+          <ScalarProperty Name="minLatitude" ColumnName="minLatitude" />
+          <ScalarProperty Name="maxLatitude" ColumnName="maxLatitude" />
+          <ScalarProperty Name="minLongitude" ColumnName="minLongitude" />
+          <ScalarProperty Name="maxLongitude" ColumnName="maxLongitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AgentUsers">
+      <EntityTypeMapping TypeName="AccusalesModel.AgentUser">
+        <MappingFragment StoreEntitySet="AgentUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="TerminalId" ColumnName="TerminalId" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="Datelast" ColumnName="Datelast" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="SessionCode" ColumnName="SessionCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Assets">
+      <EntityTypeMapping TypeName="AccusalesModel.Asset">
+        <MappingFragment StoreEntitySet="Asset">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="AssetCode" ColumnName="AssetCode" />
+          <ScalarProperty Name="AquisitionDate" ColumnName="AquisitionDate" />
+          <ScalarProperty Name="AquisitionType" ColumnName="AquisitionType" />
+          <ScalarProperty Name="lifespan" ColumnName="lifespan" />
+          <ScalarProperty Name="DisposalDate" ColumnName="DisposalDate" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="CurrentValue" ColumnName="CurrentValue" />
+          <ScalarProperty Name="PurchaseValue" ColumnName="PurchaseValue" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="FacilityCount" ColumnName="FacilityCount" />
+          <ScalarProperty Name="EquipmentCount" ColumnName="EquipmentCount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+          <ScalarProperty Name="Customer" ColumnName="Customer" />
+          <ScalarProperty Name="HasValuation" ColumnName="HasValuation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashCollections">
+      <EntityTypeMapping TypeName="AccusalesModel.CashCollection">
+        <MappingFragment StoreEntitySet="CashCollection">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cashier" ColumnName="Cashier" />
+          <ScalarProperty Name="CollectedBy" ColumnName="CollectedBy" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="Breakdown" ColumnName="Breakdown" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashoutTypes">
+      <EntityTypeMapping TypeName="AccusalesModel.CashoutType">
+        <MappingFragment StoreEntitySet="CashoutType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="trantype" ColumnName="trantype" />
+          <ScalarProperty Name="ProviderAccount" ColumnName="ProviderAccount" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="ReturnUrl" ColumnName="ReturnUrl" />
+          <ScalarProperty Name="SendingUrl" ColumnName="SendingUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="AccusalesModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="AccusalesModel.City">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CollectionPoints">
+      <EntityTypeMapping TypeName="AccusalesModel.CollectionPoint">
+        <MappingFragment StoreEntitySet="CollectionPoints">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="Suburb" ColumnName="Suburb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="AccusalesModel.Company">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+          <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="Footer1" ColumnName="Footer1" />
+          <ScalarProperty Name="Footer2" ColumnName="Footer2" />
+          <ScalarProperty Name="Footer3" ColumnName="Footer3" />
+          <ScalarProperty Name="footer4" ColumnName="footer4" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="VatNo" ColumnName="VatNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="AccusalesModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Stdcode" ColumnName="Stdcode" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreditNotes">
+      <EntityTypeMapping TypeName="AccusalesModel.CreditNote">
+        <MappingFragment StoreEntitySet="CreditNotes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="users" ColumnName="users" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="AccusalesModel.Currency">
+        <MappingFragment StoreEntitySet="Currency">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Curency" ColumnName="Curency" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+          <ScalarProperty Name="IsBase" ColumnName="IsBase" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerCodes">
+      <EntityTypeMapping TypeName="AccusalesModel.CustomerCode">
+        <MappingFragment StoreEntitySet="CustomerCodes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+          <ScalarProperty Name="Expirery" ColumnName="Expirery" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="AccusalesModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Wallet" ColumnName="Wallet" />
+          <ScalarProperty Name="Purchases" ColumnName="Purchases" />
+          <ScalarProperty Name="PurchasesToDate" ColumnName="PurchasesToDate" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="IsParent" ColumnName="IsParent" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="NetworkType" ColumnName="NetworkType" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Suburb" ColumnName="Suburb" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="Level1Count" ColumnName="Level1Count" />
+          <ScalarProperty Name="Level2Count" ColumnName="Level2Count" />
+          <ScalarProperty Name="Level3Count" ColumnName="Level3Count" />
+          <ScalarProperty Name="wallet2" ColumnName="wallet2" />
+          <ScalarProperty Name="wallet3" ColumnName="wallet3" />
+          <ScalarProperty Name="wallet1" ColumnName="wallet1" />
+          <ScalarProperty Name="Cc" ColumnName="Cc" />
+          <ScalarProperty Name="Bcc" ColumnName="Bcc" />
+          <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailyCashierSales">
+      <EntityTypeMapping TypeName="AccusalesModel.DailyCashierSale">
+        <MappingFragment StoreEntitySet="DailyCashierSales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="UniqueVisits" ColumnName="UniqueVisits" />
+          <ScalarProperty Name="Hits" ColumnName="Hits" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Cashier" ColumnName="Cashier" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailySales">
+      <EntityTypeMapping TypeName="AccusalesModel.DailySale">
+        <MappingFragment StoreEntitySet="DailySales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="UniqueVisits" ColumnName="UniqueVisits" />
+          <ScalarProperty Name="Hits" ColumnName="Hits" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailyStats">
+      <EntityTypeMapping TypeName="AccusalesModel.DailyStat">
+        <MappingFragment StoreEntitySet="DailyStats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Views" ColumnName="Views" />
+          <ScalarProperty Name="Clicks" ColumnName="Clicks" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="Reservations" ColumnName="Reservations" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="PC" ColumnName="PC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deliveries">
+      <EntityTypeMapping TypeName="AccusalesModel.Delivery">
+        <MappingFragment StoreEntitySet="Deliveries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="SaburbId" ColumnName="SaburbId" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Saburb" ColumnName="Saburb" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DeadLine" ColumnName="DeadLine" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DeliveryType" ColumnName="DeliveryType" />
+          <ScalarProperty Name="Receipt" ColumnName="Receipt" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="DriverMobile" ColumnName="DriverMobile" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="CustomerMobile" ColumnName="CustomerMobile" />
+          <ScalarProperty Name="CustomerNationalId" ColumnName="CustomerNationalId" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryAddresses">
+      <EntityTypeMapping TypeName="AccusalesModel.DeliveryAddress">
+        <MappingFragment StoreEntitySet="DeliveryAddress">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="SuburbId" ColumnName="SuburbId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discounts">
+      <EntityTypeMapping TypeName="AccusalesModel.Discount">
+        <MappingFragment StoreEntitySet="Discounts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="Receipt" ColumnName="Receipt" />
+          <ScalarProperty Name="Users" ColumnName="Users" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DomainUsers">
+      <EntityTypeMapping TypeName="AccusalesModel.DomainUser">
+        <MappingFragment StoreEntitySet="DomainUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emails">
+      <EntityTypeMapping TypeName="AccusalesModel.Email">
+        <MappingFragment StoreEntitySet="Email">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+          <ScalarProperty Name="Massege" ColumnName="Massege" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Target" ColumnName="Target" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipments">
+      <EntityTypeMapping TypeName="AccusalesModel.Equipment">
+        <MappingFragment StoreEntitySet="Equipment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EqCode" ColumnName="EqCode" />
+          <ScalarProperty Name="Make" ColumnName="Make" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Millage" ColumnName="Millage" />
+          <ScalarProperty Name="AquisitionDate" ColumnName="AquisitionDate" />
+          <ScalarProperty Name="DisposalDate" ColumnName="DisposalDate" />
+          <ScalarProperty Name="Custodian" ColumnName="Custodian" />
+          <ScalarProperty Name="FacilityId" ColumnName="FacilityId" />
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expenses">
+      <EntityTypeMapping TypeName="AccusalesModel.Expens">
+        <MappingFragment StoreEntitySet="Expenses">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Payee" ColumnName="Payee" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="Receipt" ColumnName="Receipt" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="cashier" ColumnName="cashier" />
+          <ScalarProperty Name="till" ColumnName="till" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facilities">
+      <EntityTypeMapping TypeName="AccusalesModel.Facility">
+        <MappingFragment StoreEntitySet="Facility">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+          <ScalarProperty Name="Units" ColumnName="Units" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="FeatureCount" ColumnName="FeatureCount" />
+          <ScalarProperty Name="EquipmentCount" ColumnName="EquipmentCount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacilityTypes">
+      <EntityTypeMapping TypeName="AccusalesModel.FacilityType">
+        <MappingFragment StoreEntitySet="FacilityType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AssetType" ColumnName="AssetType" />
+          <ScalarProperty Name="ConversionFactor" ColumnName="ConversionFactor" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faqs">
+      <EntityTypeMapping TypeName="AccusalesModel.Faq">
+        <MappingFragment StoreEntitySet="Faq">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaqTypes">
+      <EntityTypeMapping TypeName="AccusalesModel.FaqType">
+        <MappingFragment StoreEntitySet="FaqType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Features">
+      <EntityTypeMapping TypeName="AccusalesModel.Feature">
+        <MappingFragment StoreEntitySet="Features">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeatureTypes">
+      <EntityTypeMapping TypeName="AccusalesModel.FeatureType">
+        <MappingFragment StoreEntitySet="FeatureType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Guests">
+      <EntityTypeMapping TypeName="AccusalesModel.Guest">
+        <MappingFragment StoreEntitySet="Guests">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Wallet" ColumnName="Wallet" />
+          <ScalarProperty Name="Purchases" ColumnName="Purchases" />
+          <ScalarProperty Name="PurchasesToDate" ColumnName="PurchasesToDate" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="IsParent" ColumnName="IsParent" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="NetworkType" ColumnName="NetworkType" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Suburb" ColumnName="Suburb" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="Level1Count" ColumnName="Level1Count" />
+          <ScalarProperty Name="Level2Count" ColumnName="Level2Count" />
+          <ScalarProperty Name="Level3Count" ColumnName="Level3Count" />
+          <ScalarProperty Name="wallet2" ColumnName="wallet2" />
+          <ScalarProperty Name="wallet3" ColumnName="wallet3" />
+          <ScalarProperty Name="wallet1" ColumnName="wallet1" />
+          <ScalarProperty Name="Cc" ColumnName="Cc" />
+          <ScalarProperty Name="Bcc" ColumnName="Bcc" />
+          <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Infographics">
+      <EntityTypeMapping TypeName="AccusalesModel.Infographic">
+        <MappingFragment StoreEntitySet="Infographics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InfographicTypes">
+      <EntityTypeMapping TypeName="AccusalesModel.InfographicType">
+        <MappingFragment StoreEntitySet="InfographicType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invites">
+      <EntityTypeMapping TypeName="AccusalesModel.Invite">
+        <MappingFragment StoreEntitySet="Invite">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FriendName" ColumnName="FriendName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvoiceLines">
+      <EntityTypeMapping TypeName="AccusalesModel.InvoiceLine">
+        <MappingFragment StoreEntitySet="InvoiceLines">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="priceinc" ColumnName="priceinc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="AccusalesModel.Invoice">
+        <MappingFragment StoreEntitySet="Invoices">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice1" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemImages">
+      <EntityTypeMapping TypeName="AccusalesModel.ItemImage">
+        <MappingFragment StoreEntitySet="ItemImages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ImageThumb" ColumnName="ImageThumb" />
+          <ScalarProperty Name="ImageType" ColumnName="ImageType" />
+          <ScalarProperty Name="ImageDescription" ColumnName="ImageDescription" />
+          <ScalarProperty Name="InageTitle" ColumnName="InageTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="AccusalesModel.Item">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="BuyingPrice" ColumnName="BuyingPrice" />
+          <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
+          <ScalarProperty Name="Expected" ColumnName="Expected" />
+          <ScalarProperty Name="sold" ColumnName="sold" />
+          <ScalarProperty Name="transfer" ColumnName="transfer" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="NewStock" ColumnName="NewStock" />
+          <ScalarProperty Name="Returned" ColumnName="Returned" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+          <ScalarProperty Name="Swaps" ColumnName="Swaps" />
+          <ScalarProperty Name="Reorder" ColumnName="Reorder" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="TopSeller" ColumnName="TopSeller" />
+          <ScalarProperty Name="SDate" ColumnName="SDate" />
+          <ScalarProperty Name="EDate" ColumnName="EDate" />
+          <ScalarProperty Name="Measure" ColumnName="Measure" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ThumbImage" ColumnName="ThumbImage" />
+          <ScalarProperty Name="DicountType" ColumnName="DicountType" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Promotion" ColumnName="Promotion" />
+          <ScalarProperty Name="Nation" ColumnName="Nation" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AdPosition" ColumnName="AdPosition" />
+          <ScalarProperty Name="PromoImage" ColumnName="PromoImage" />
+          <ScalarProperty Name="Featured" ColumnName="Featured" />
+          <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+          <ScalarProperty Name="ItmDescription" ColumnName="ItmDescription" />
+          <ScalarProperty Name="IsBulk" ColumnName="IsBulk" />
+          <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+          <ScalarProperty Name="HasRecipe" ColumnName="HasRecipe" />
+          <ScalarProperty Name="NotForSale" ColumnName="NotForSale" />
+          <ScalarProperty Name="AvailabilityDate" ColumnName="AvailabilityDate" />
+          <ScalarProperty Name="AvailabilityInterval" ColumnName="AvailabilityInterval" />
+          <ScalarProperty Name="AvailabilityMatrix" ColumnName="AvailabilityMatrix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemVariations">
+      <EntityTypeMapping TypeName="AccusalesModel.ItemVariation">
+        <MappingFragment StoreEntitySet="ItemVariations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="VariationType" ColumnName="VariationType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobCategories">
+      <EntityTypeMapping TypeName="AccusalesModel.JobCategory">
+        <MappingFragment StoreEntitySet="JobCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobSubCategories">
+      <EntityTypeMapping TypeName="AccusalesModel.JobSubCategory">
+        <MappingFragment StoreEntitySet="JobSubCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="JobCategoryId" ColumnName="JobCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logins">
+      <EntityTypeMapping TypeName="AccusalesModel.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="accesslevel" ColumnName="accesslevel" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="prefix" ColumnName="prefix" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="PosUser" ColumnName="PosUser" />
+          <ScalarProperty Name="RetailUser" ColumnName="RetailUser" />
+          <ScalarProperty Name="UsesBoth" ColumnName="UsesBoth" />
+          <ScalarProperty Name="Shifts" ColumnName="Shifts" />
+          <ScalarProperty Name="ManagerMenu" ColumnName="ManagerMenu" />
+          <ScalarProperty Name="Tables" ColumnName="Tables" />
+          <ScalarProperty Name="Payments" ColumnName="Payments" />
+          <ScalarProperty Name="Reporting" ColumnName="Reporting" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="Pricing" ColumnName="Pricing" />
+          <ScalarProperty Name="Barcoding" ColumnName="Barcoding" />
+          <ScalarProperty Name="AddsProducts" ColumnName="AddsProducts" />
+          <ScalarProperty Name="Purchases" ColumnName="Purchases" />
+          <ScalarProperty Name="ManageUsers" ColumnName="ManageUsers" />
+          <ScalarProperty Name="ManagePos" ColumnName="ManagePos" />
+          <ScalarProperty Name="Transfers" ColumnName="Transfers" />
+          <ScalarProperty Name="Accounts" ColumnName="Accounts" />
+          <ScalarProperty Name="OnShift" ColumnName="OnShift" />
+          <ScalarProperty Name="xreport" ColumnName="xreport" />
+          <ScalarProperty Name="zreport" ColumnName="zreport" />
+          <ScalarProperty Name="voidsale" ColumnName="voidsale" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailPw" ColumnName="EmailPw" />
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="CashCollection" ColumnName="CashCollection" />
+          <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+          <ScalarProperty Name="UsesDispatch" ColumnName="UsesDispatch" />
+          <ScalarProperty Name="DateLastAccess" ColumnName="DateLastAccess" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreditNote" ColumnName="CreditNote" />
+          <ScalarProperty Name="InventoryManagement" ColumnName="InventoryManagement" />
+          <ScalarProperty Name="ManageStore" ColumnName="ManageStore" />
+          <ScalarProperty Name="LossAuthorize" ColumnName="LossAuthorize" />
+          <ScalarProperty Name="LossControl" ColumnName="LossControl" />
+          <ScalarProperty Name="MultiCompanyAccess" ColumnName="MultiCompanyAccess" />
+          <ScalarProperty Name="MCadmin" ColumnName="MCadmin" />
+          <ScalarProperty Name="PosCustomers" ColumnName="PosCustomers" />
+          <ScalarProperty Name="GivesDiscounts" ColumnName="GivesDiscounts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Losses">
+      <EntityTypeMapping TypeName="AccusalesModel.Loss">
+        <MappingFragment StoreEntitySet="Loss">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="DeliveryType" ColumnName="DeliveryType" />
+          <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="quests" ColumnName="quests" />
+          <ScalarProperty Name="tableNumber" ColumnName="tableNumber" />
+          <ScalarProperty Name="cashier" ColumnName="cashier" />
+          <ScalarProperty Name="button" ColumnName="button" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+          <ScalarProperty Name="Authorizer" ColumnName="Authorizer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LossLines">
+      <EntityTypeMapping TypeName="AccusalesModel.LossLine">
+        <MappingFragment StoreEntitySet="LossLines">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="priceinc" ColumnName="priceinc" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoyaltySchemes">
+      <EntityTypeMapping TypeName="AccusalesModel.LoyaltyScheme">
+        <MappingFragment StoreEntitySet="LoyaltyScheme">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="PointValue" ColumnName="PointValue" />
+          <ScalarProperty Name="ExpireryDate" ColumnName="ExpireryDate" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="SubExpireryDate" ColumnName="SubExpireryDate" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="PointCost" ColumnName="PointCost" />
+          <ScalarProperty Name="Tier" ColumnName="Tier" />
+          <ScalarProperty Name="AccessCost" ColumnName="AccessCost" />
+          <ScalarProperty Name="PaymentPeriod" ColumnName="PaymentPeriod" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MailGroups">
+      <EntityTypeMapping TypeName="AccusalesModel.MailGroup">
+        <MappingFragment StoreEntitySet="MailGroups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+          <ScalarProperty Name="Cc" ColumnName="Cc" />
+          <ScalarProperty Name="Bcc" ColumnName="Bcc" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MailingServices">
+      <EntityTypeMapping TypeName="AccusalesModel.MailingService">
+        <MappingFragment StoreEntitySet="MailingService">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ListiningFolder" ColumnName="ListiningFolder" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="StartMode" ColumnName="StartMode" />
+          <ScalarProperty Name="FileFilter" ColumnName="FileFilter" />
+          <ScalarProperty Name="SendFileAs" ColumnName="SendFileAs" />
+          <ScalarProperty Name="HasMailingList" ColumnName="HasMailingList" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EmailSeparator" ColumnName="EmailSeparator" />
+          <ScalarProperty Name="StartPossition" ColumnName="StartPossition" />
+          <ScalarProperty Name="HasSms" ColumnName="HasSms" />
+          <ScalarProperty Name="SmsPosition" ColumnName="SmsPosition" />
+          <ScalarProperty Name="SendingDetails" ColumnName="SendingDetails" />
+          <ScalarProperty Name="EmailMessagePosition" ColumnName="EmailMessagePosition" />
+          <ScalarProperty Name="SmsMessagePosition" ColumnName="SmsMessagePosition" />
+          <ScalarProperty Name="HasTemplate" ColumnName="HasTemplate" />
+          <ScalarProperty Name="HasEmail" ColumnName="HasEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MailLists">
+      <EntityTypeMapping TypeName="AccusalesModel.MailList">
+        <MappingFragment StoreEntitySet="MailList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmailList" ColumnName="EmailList" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="ListType" ColumnName="ListType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MailSettings">
+      <EntityTypeMapping TypeName="AccusalesModel.MailSetting">
+        <MappingFragment StoreEntitySet="MailSettings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+          <ScalarProperty Name="SmtpHost" ColumnName="SmtpHost" />
+          <ScalarProperty Name="EnableSSl" ColumnName="EnableSSl" />
+          <ScalarProperty Name="UseDefaultCredentials" ColumnName="UseDefaultCredentials" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UseExchange" ColumnName="UseExchange" />
+          <ScalarProperty Name="UseLocalSmtp" ColumnName="UseLocalSmtp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MailTemplates">
+      <EntityTypeMapping TypeName="AccusalesModel.MailTemplate">
+        <MappingFragment StoreEntitySet="MailTemplates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="Perpose" ColumnName="Perpose" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FixedEmail" ColumnName="FixedEmail" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="Service" ColumnName="Service" />
+          <ScalarProperty Name="ListName" ColumnName="ListName" />
+          <ScalarProperty Name="SmsSender" ColumnName="SmsSender" />
+          <ScalarProperty Name="SmsMessage" ColumnName="SmsMessage" />
+          <ScalarProperty Name="HasSms" ColumnName="HasSms" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuItems">
+      <EntityTypeMapping TypeName="AccusalesModel.MenuItem">
+        <MappingFragment StoreEntitySet="MenuItems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
+          <ScalarProperty Name="CssClass" ColumnName="CssClass" />
+          <ScalarProperty Name="HasSubMenu" ColumnName="HasSubMenu" />
+          <ScalarProperty Name="LinkType" ColumnName="LinkType" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="AccusalesModel.Menu">
+        <MappingFragment StoreEntitySet="Menus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CssClass" ColumnName="CssClass" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthlySales">
+      <EntityTypeMapping TypeName="AccusalesModel.MonthlySale">
+        <MappingFragment StoreEntitySet="MonthlySales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="UniqueVisits" ColumnName="UniqueVisits" />
+          <ScalarProperty Name="Hits" ColumnName="Hits" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthlyStats">
+      <EntityTypeMapping TypeName="AccusalesModel.MonthlyStat">
+        <MappingFragment StoreEntitySet="MonthlyStats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="JanV" ColumnName="JanV" />
+          <ScalarProperty Name="JanC" ColumnName="JanC" />
+          <ScalarProperty Name="JanR" ColumnName="JanR" />
+          <ScalarProperty Name="JanE" ColumnName="JanE" />
+          <ScalarProperty Name="FebV" ColumnName="FebV" />
+          <ScalarProperty Name="FebC" ColumnName="FebC" />
+          <ScalarProperty Name="FebR" ColumnName="FebR" />
+          <ScalarProperty Name="FebE" ColumnName="FebE" />
+          <ScalarProperty Name="MarV" ColumnName="MarV" />
+          <ScalarProperty Name="MarC" ColumnName="MarC" />
+          <ScalarProperty Name="MarR" ColumnName="MarR" />
+          <ScalarProperty Name="MarE" ColumnName="MarE" />
+          <ScalarProperty Name="AprV" ColumnName="AprV" />
+          <ScalarProperty Name="AprC" ColumnName="AprC" />
+          <ScalarProperty Name="AprR" ColumnName="AprR" />
+          <ScalarProperty Name="AprE" ColumnName="AprE" />
+          <ScalarProperty Name="MayV" ColumnName="MayV" />
+          <ScalarProperty Name="MayC" ColumnName="MayC" />
+          <ScalarProperty Name="MayR" ColumnName="MayR" />
+          <ScalarProperty Name="MayE" ColumnName="MayE" />
+          <ScalarProperty Name="JunV" ColumnName="JunV" />
+          <ScalarProperty Name="JunC" ColumnName="JunC" />
+          <ScalarProperty Name="JunR" ColumnName="JunR" />
+          <ScalarProperty Name="JunE" ColumnName="JunE" />
+          <ScalarProperty Name="JulV" ColumnName="JulV" />
+          <ScalarProperty Name="JulC" ColumnName="JulC" />
+          <ScalarProperty Name="JulR" ColumnName="JulR" />
+          <ScalarProperty Name="JulE" ColumnName="JulE" />
+          <ScalarProperty Name="AugV" ColumnName="AugV" />
+          <ScalarProperty Name="AugC" ColumnName="AugC" />
+          <ScalarProperty Name="AugR" ColumnName="AugR" />
+          <ScalarProperty Name="AugE" ColumnName="AugE" />
+          <ScalarProperty Name="SepV" ColumnName="SepV" />
+          <ScalarProperty Name="SepC" ColumnName="SepC" />
+          <ScalarProperty Name="SepR" ColumnName="SepR" />
+          <ScalarProperty Name="SepE" ColumnName="SepE" />
+          <ScalarProperty Name="OctV" ColumnName="OctV" />
+          <ScalarProperty Name="OctC" ColumnName="OctC" />
+          <ScalarProperty Name="OctR" ColumnName="OctR" />
+          <ScalarProperty Name="OctE" ColumnName="OctE" />
+          <ScalarProperty Name="NovV" ColumnName="NovV" />
+          <ScalarProperty Name="NovC" ColumnName="NovC" />
+          <ScalarProperty Name="NovR" ColumnName="NovR" />
+          <ScalarProperty Name="NovE" ColumnName="NovE" />
+          <ScalarProperty Name="DecV" ColumnName="DecV" />
+          <ScalarProperty Name="DecC" ColumnName="DecC" />
+          <ScalarProperty Name="DecR" ColumnName="DecR" />
+          <ScalarProperty Name="DecE" ColumnName="DecE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NetworkSales">
+      <EntityTypeMapping TypeName="AccusalesModel.NetworkSale">
+        <MappingFragment StoreEntitySet="NetworkSales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Jan0" ColumnName="Jan0" />
+          <ScalarProperty Name="Jan1" ColumnName="Jan1" />
+          <ScalarProperty Name="Jan2" ColumnName="Jan2" />
+          <ScalarProperty Name="Jan3" ColumnName="Jan3" />
+          <ScalarProperty Name="JanJ0" ColumnName="JanJ0" />
+          <ScalarProperty Name="JanJ1" ColumnName="JanJ1" />
+          <ScalarProperty Name="JanJ2" ColumnName="JanJ2" />
+          <ScalarProperty Name="JanJ3" ColumnName="JanJ3" />
+          <ScalarProperty Name="Feb0" ColumnName="Feb0" />
+          <ScalarProperty Name="Feb1" ColumnName="Feb1" />
+          <ScalarProperty Name="Feb2" ColumnName="Feb2" />
+          <ScalarProperty Name="Feb3" ColumnName="Feb3" />
+          <ScalarProperty Name="FebJ0" ColumnName="FebJ0" />
+          <ScalarProperty Name="FebJ1" ColumnName="FebJ1" />
+          <ScalarProperty Name="FebJ2" ColumnName="FebJ2" />
+          <ScalarProperty Name="FebJ3" ColumnName="FebJ3" />
+          <ScalarProperty Name="Mar0" ColumnName="Mar0" />
+          <ScalarProperty Name="Mar1" ColumnName="Mar1" />
+          <ScalarProperty Name="Mar2" ColumnName="Mar2" />
+          <ScalarProperty Name="Mar3" ColumnName="Mar3" />
+          <ScalarProperty Name="MarJ0" ColumnName="MarJ0" />
+          <ScalarProperty Name="MarJ1" ColumnName="MarJ1" />
+          <ScalarProperty Name="MarJ2" ColumnName="MarJ2" />
+          <ScalarProperty Name="MarJ3" ColumnName="MarJ3" />
+          <ScalarProperty Name="Apr0" ColumnName="Apr0" />
+          <ScalarProperty Name="Apr1" ColumnName="Apr1" />
+          <ScalarProperty Name="Apr2" ColumnName="Apr2" />
+          <ScalarProperty Name="Apr3" ColumnName="Apr3" />
+          <ScalarProperty Name="AprJ0" ColumnName="AprJ0" />
+          <ScalarProperty Name="AprJ1" ColumnName="AprJ1" />
+          <ScalarProperty Name="AprJ2" ColumnName="AprJ2" />
+          <ScalarProperty Name="AprJ3" ColumnName="AprJ3" />
+          <ScalarProperty Name="May0" ColumnName="May0" />
+          <ScalarProperty Name="May1" ColumnName="May1" />
+          <ScalarProperty Name="May2" ColumnName="May2" />
+          <ScalarProperty Name="May3" ColumnName="May3" />
+          <ScalarProperty Name="MayJ0" ColumnName="MayJ0" />
+          <ScalarProperty Name="MayJ1" ColumnName="MayJ1" />
+          <ScalarProperty Name="MayJ2" ColumnName="MayJ2" />
+          <ScalarProperty Name="MayJ3" ColumnName="MayJ3" />
+          <ScalarProperty Name="Jun0" ColumnName="Jun0" />
+          <ScalarProperty Name="Jun1" ColumnName="Jun1" />
+          <ScalarProperty Name="Jun2" ColumnName="Jun2" />
+          <ScalarProperty Name="Jun3" ColumnName="Jun3" />
+          <ScalarProperty Name="JunJ0" ColumnName="JunJ0" />
+          <ScalarProperty Name="JunJ1" ColumnName="JunJ1" />
+          <ScalarProperty Name="JunJ2" ColumnName="JunJ2" />
+          <ScalarProperty Name="JunJ3" ColumnName="JunJ3" />
+          <ScalarProperty Name="Jul0" ColumnName="Jul0" />
+          <ScalarProperty Name="Jul1" ColumnName="Jul1" />
+          <ScalarProperty Name="Jul2" ColumnName="Jul2" />
+          <ScalarProperty Name="Jul3" ColumnName="Jul3" />
+          <ScalarProperty Name="JulJ0" ColumnName="JulJ0" />
+          <ScalarProperty Name="JulJ1" ColumnName="JulJ1" />
+          <ScalarProperty Name="JulJ2" ColumnName="JulJ2" />
+          <ScalarProperty Name="JulJ3" ColumnName="JulJ3" />
+          <ScalarProperty Name="Aug0" ColumnName="Aug0" />
+          <ScalarProperty Name="Aug1" ColumnName="Aug1" />
+          <ScalarProperty Name="Aug2" ColumnName="Aug2" />
+          <ScalarProperty Name="Aug3" ColumnName="Aug3" />
+          <ScalarProperty Name="AugJ0" ColumnName="AugJ0" />
+          <ScalarProperty Name="AugJ1" ColumnName="AugJ1" />
+          <ScalarProperty Name="AugJ2" ColumnName="AugJ2" />
+          <ScalarProperty Name="AugJ3" ColumnName="AugJ3" />
+          <ScalarProperty Name="Sep0" ColumnName="Sep0" />
+          <ScalarProperty Name="Sep1" ColumnName="Sep1" />
+          <ScalarProperty Name="Sep2" ColumnName="Sep2" />
+          <ScalarProperty Name="Sep3" ColumnName="Sep3" />
+          <ScalarProperty Name="SepJ0" ColumnName="SepJ0" />
+          <ScalarProperty Name="SepJ1" ColumnName="SepJ1" />
+          <ScalarProperty Name="SepJ2" ColumnName="SepJ2" />
+          <ScalarProperty Name="SepJ3" ColumnName="SepJ3" />
+          <ScalarProperty Name="Oct0" ColumnName="Oct0" />
+          <ScalarProperty Name="Oct1" ColumnName="Oct1" />
+          <ScalarProperty Name="Oct2" ColumnName="Oct2" />
+          <ScalarProperty Name="Oct3" ColumnName="Oct3" />
+          <ScalarProperty Name="OctJ0" ColumnName="OctJ0" />
+          <ScalarProperty Name="OctJ1" ColumnName="OctJ1" />
+          <ScalarProperty Name="OctJ2" ColumnName="OctJ2" />
+          <ScalarProperty Name="OctJ3" ColumnName="OctJ3" />
+          <ScalarProperty Name="Nov0" ColumnName="Nov0" />
+          <ScalarProperty Name="Nov1" ColumnName="Nov1" />
+          <ScalarProperty Name="Nov2" ColumnName="Nov2" />
+          <ScalarProperty Name="Nov3" ColumnName="Nov3" />
+          <ScalarProperty Name="NovJ0" ColumnName="NovJ0" />
+          <ScalarProperty Name="NovJ1" ColumnName="NovJ1" />
+          <ScalarProperty Name="NovJ2" ColumnName="NovJ2" />
+          <ScalarProperty Name="NovJ3" ColumnName="NovJ3" />
+          <ScalarProperty Name="Dec0" ColumnName="Dec0" />
+          <ScalarProperty Name="Dec1" ColumnName="Dec1" />
+          <ScalarProperty Name="Dec2" ColumnName="Dec2" />
+          <ScalarProperty Name="Dec3" ColumnName="Dec3" />
+          <ScalarProperty Name="DecJ0" ColumnName="DecJ0" />
+          <ScalarProperty Name="DecJ1" ColumnName="DecJ1" />
+          <ScalarProperty Name="DecJ2" ColumnName="DecJ2" />
+          <ScalarProperty Name="DecJ3" ColumnName="DecJ3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NetworkTypes">
+      <EntityTypeMapping TypeName="AccusalesModel.NetworkType">
+        <MappingFragment StoreEntitySet="NetworkType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Depth" ColumnName="Depth" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="MonthlyTarget" ColumnName="MonthlyTarget" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationStats">
+      <EntityTypeMapping TypeName="AccusalesModel.NotificationStat">
+        <MappingFragment StoreEntitySet="NotificationStats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Errors" ColumnName="Errors" />
+          <ScalarProperty Name="SentSms" ColumnName="SentSms" />
+          <ScalarProperty Name="SentMail" ColumnName="SentMail" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderLines">
+      <EntityTypeMapping TypeName="AccusalesModel.OrderLine">
+        <MappingFragment StoreEntitySet="OrderLines">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="priceinc" ColumnName="priceinc" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="AccusalesModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="DeliveryType" ColumnName="DeliveryType" />
+          <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="quests" ColumnName="quests" />
+          <ScalarProperty Name="tableNumber" ColumnName="tableNumber" />
+          <ScalarProperty Name="cashier" ColumnName="cashier" />
+          <ScalarProperty Name="button" ColumnName="button" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partners">
+      <EntityTypeMapping TypeName="AccusalesModel.Partner">
+        <MappingFragment StoreEntitySet="Partners">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="AccusalesModel.Payment">
+        <MappingFragment StoreEntitySet="Payments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="SourceRefrence" ColumnName="SourceRefrence" />
+          <ScalarProperty Name="SourceMobileNumber" ColumnName="SourceMobileNumber" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
+          <ScalarProperty Name="Polls" ColumnName="Polls" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentTypes">
+      <EntityTypeMapping TypeName="AccusalesModel.PaymentType">
+        <MappingFragment StoreEntitySet="PaymentType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="trantype" ColumnName="trantype" />
+          <ScalarProperty Name="ProviderAccount" ColumnName="ProviderAccount" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="ReturnUrl" ColumnName="ReturnUrl" />
+          <ScalarProperty Name="SendingUrl" ColumnName="SendingUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PickinChecks">
+      <EntityTypeMapping TypeName="AccusalesModel.PickinCheck">
+        <MappingFragment StoreEntitySet="PickinCheck">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Lines" ColumnName="Lines" />
+          <ScalarProperty Name="Picled" ColumnName="Picled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PosKeys">
+      <EntityTypeMapping TypeName="AccusalesModel.PosKey">
+        <MappingFragment StoreEntitySet="PosKeys">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerNameForCash" ColumnName="CustomerNameForCash" />
+          <ScalarProperty Name="OrderBased" ColumnName="OrderBased" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="FiscalPrinter" ColumnName="FiscalPrinter" />
+          <ScalarProperty Name="KitchenPrinting" ColumnName="KitchenPrinting" />
+          <ScalarProperty Name="KitchenPrinter" ColumnName="KitchenPrinter" />
+          <ScalarProperty Name="DoDeliveries" ColumnName="DoDeliveries" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PosMenus">
+      <EntityTypeMapping TypeName="AccusalesModel.PosMenu">
+        <MappingFragment StoreEntitySet="PosMenu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="button" ColumnName="button" />
+          <ScalarProperty Name="caption" ColumnName="caption" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PosPrinters">
+      <EntityTypeMapping TypeName="AccusalesModel.PosPrinter">
+        <MappingFragment StoreEntitySet="PosPrinters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="DateLastAccess" ColumnName="DateLastAccess" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="AccusalesModel.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+          <ScalarProperty Name="FacilityId" ColumnName="FacilityId" />
+          <ScalarProperty Name="EquipmentId" ColumnName="EquipmentId" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RaiseBy" ColumnName="RaiseBy" />
+          <ScalarProperty Name="ProjectTeam" ColumnName="ProjectTeam" />
+          <ScalarProperty Name="ProgressReport" ColumnName="ProgressReport" />
+          <ScalarProperty Name="RaiserEmail" ColumnName="RaiserEmail" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProxySettings">
+      <EntityTypeMapping TypeName="AccusalesModel.ProxySetting">
+        <MappingFragment StoreEntitySet="ProxySetting">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseLines">
+      <EntityTypeMapping TypeName="AccusalesModel.PurchaseLine">
+        <MappingFragment StoreEntitySet="PurchaseLines">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="priceinc" ColumnName="priceinc" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Sold" ColumnName="Sold" />
+          <ScalarProperty Name="DateClosed" ColumnName="DateClosed" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="DeshelvingDate" ColumnName="DeshelvingDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderLines">
+      <EntityTypeMapping TypeName="AccusalesModel.PurchaseOrderLine">
+        <MappingFragment StoreEntitySet="PurchaseOrderLines">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="priceinc" ColumnName="priceinc" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Sold" ColumnName="Sold" />
+          <ScalarProperty Name="DateClosed" ColumnName="DateClosed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrders">
+      <EntityTypeMapping TypeName="AccusalesModel.PurchaseOrder">
+        <MappingFragment StoreEntitySet="PurchaseOrders">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="supplier" ColumnName="supplier" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="StockedValue" ColumnName="StockedValue" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchases">
+      <EntityTypeMapping TypeName="AccusalesModel.Purchase">
+        <MappingFragment StoreEntitySet="Purchases">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="supplier" ColumnName="supplier" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="StockedValue" ColumnName="StockedValue" />
+          <ScalarProperty Name="IsManufactured" ColumnName="IsManufactured" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuotationLines">
+      <EntityTypeMapping TypeName="AccusalesModel.QuotationLine">
+        <MappingFragment StoreEntitySet="QuotationLines">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="priceinc" ColumnName="priceinc" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quotations">
+      <EntityTypeMapping TypeName="AccusalesModel.Quotation">
+        <MappingFragment StoreEntitySet="Quotations">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="DeliveryType" ColumnName="DeliveryType" />
+          <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="quests" ColumnName="quests" />
+          <ScalarProperty Name="tableNumber" ColumnName="tableNumber" />
+          <ScalarProperty Name="cashier" ColumnName="cashier" />
+          <ScalarProperty Name="button" ColumnName="button" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RatingZones">
+      <EntityTypeMapping TypeName="AccusalesModel.RatingZone">
+        <MappingFragment StoreEntitySet="RatingZone">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Rounding" ColumnName="Rounding" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Receipts">
+      <EntityTypeMapping TypeName="AccusalesModel.Receipt">
+        <MappingFragment StoreEntitySet="Receipts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="PaymentReferences" ColumnName="PaymentReferences" />
+          <ScalarProperty Name="Receipt1" ColumnName="Receipt" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="ReceiptType" ColumnName="ReceiptType" />
+          <ScalarProperty Name="Cashier" ColumnName="Cashier" />
+          <ScalarProperty Name="PaymentModes" ColumnName="PaymentModes" />
+          <ScalarProperty Name="Miscellenious" ColumnName="Miscellenious" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recipes">
+      <EntityTypeMapping TypeName="AccusalesModel.Recipe">
+        <MappingFragment StoreEntitySet="Recipe">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegCodes">
+      <EntityTypeMapping TypeName="AccusalesModel.RegCode">
+        <MappingFragment StoreEntitySet="RegCodes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Prefered" ColumnName="Prefered" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="AccusalesModel.Region">
+        <MappingFragment StoreEntitySet="Regions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DeliveryRate" ColumnName="DeliveryRate" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="DeliveryMatrix" ColumnName="DeliveryMatrix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistrationCodes">
+      <EntityTypeMapping TypeName="AccusalesModel.RegistrationCode">
+        <MappingFragment StoreEntitySet="RegistrationCodes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnLines">
+      <EntityTypeMapping TypeName="AccusalesModel.ReturnLine">
+        <MappingFragment StoreEntitySet="ReturnLines">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="priceinc" ColumnName="priceinc" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Returns">
+      <EntityTypeMapping TypeName="AccusalesModel.Return">
+        <MappingFragment StoreEntitySet="Returns">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="Cashier" ColumnName="Cashier" />
+          <ScalarProperty Name="Authorised" ColumnName="Authorised" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="AccusalesModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Access" ColumnName="Access" />
+          <ScalarProperty Name="CanDelete" ColumnName="CanDelete" />
+          <ScalarProperty Name="CanEdit" ColumnName="CanEdit" />
+          <ScalarProperty Name="CanCreate" ColumnName="CanCreate" />
+          <ScalarProperty Name="InstitutionId" ColumnName="InstitutionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="AccusalesModel.Sale">
+        <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="DeliveryType" ColumnName="DeliveryType" />
+          <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+          <ScalarProperty Name="GPAmount" ColumnName="GPAmount" />
+          <ScalarProperty Name="Cashier" ColumnName="Cashier" />
+          <ScalarProperty Name="TableNumber" ColumnName="TableNumber" />
+          <ScalarProperty Name="Guests" ColumnName="Guests" />
+          <ScalarProperty Name="Tender" ColumnName="Tender" />
+          <ScalarProperty Name="PaymentModes" ColumnName="PaymentModes" />
+          <ScalarProperty Name="Miscellenious" ColumnName="Miscellenious" />
+          <ScalarProperty Name="TransactionCurrency" ColumnName="TransactionCurrency" />
+          <ScalarProperty Name="CurrencyTotal" ColumnName="CurrencyTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_Lines">
+      <EntityTypeMapping TypeName="AccusalesModel.Sales_Lines">
+        <MappingFragment StoreEntitySet="Sales_Lines">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="priceinc" ColumnName="priceinc" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Picked" ColumnName="Picked" />
+          <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+          <ScalarProperty Name="TransactionPrice" ColumnName="TransactionPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesLineSammaries">
+      <EntityTypeMapping TypeName="AccusalesModel.SalesLineSammary">
+        <MappingFragment StoreEntitySet="SalesLineSammary">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="DeliveredQty" ColumnName="DeliveredQty" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Received" ColumnName="Received" />
+          <ScalarProperty Name="Varience" ColumnName="Varience" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+          <ScalarProperty Name="DeliveryType" ColumnName="DeliveryType" />
+          <ScalarProperty Name="SuppierPicking" ColumnName="SuppierPicking" />
+          <ScalarProperty Name="DeliveryPicking" ColumnName="DeliveryPicking" />
+          <ScalarProperty Name="GPAmount" ColumnName="GPAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="seats">
+      <EntityTypeMapping TypeName="AccusalesModel.seat">
+        <MappingFragment StoreEntitySet="seats">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TableNumber" ColumnName="TableNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceActionTypes">
+      <EntityTypeMapping TypeName="AccusalesModel.ServiceActionType">
+        <MappingFragment StoreEntitySet="ServiceActionTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TranTypeId" ColumnName="TranTypeId" />
+          <ScalarProperty Name="YomoneyId" ColumnName="YomoneyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shifts">
+      <EntityTypeMapping TypeName="AccusalesModel.shift">
+        <MappingFragment StoreEntitySet="shift">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="ShiftNumber" ColumnName="ShiftNumber" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shopingLists">
+      <EntityTypeMapping TypeName="AccusalesModel.shopingList">
+        <MappingFragment StoreEntitySet="shopingList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMS">
+      <EntityTypeMapping TypeName="AccusalesModel.SM">
+        <MappingFragment StoreEntitySet="SMS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StartPages">
+      <EntityTypeMapping TypeName="AccusalesModel.StartPage">
+        <MappingFragment StoreEntitySet="StartPage">
+          <ScalarProperty Name="Page" ColumnName="Page" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="AccusalesModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Storekeys">
+      <EntityTypeMapping TypeName="AccusalesModel.Storekey">
+        <MappingFragment StoreEntitySet="Storekeys">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubMenuItems">
+      <EntityTypeMapping TypeName="AccusalesModel.SubMenuItem">
+        <MappingFragment StoreEntitySet="SubMenuItems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MenuItemId" ColumnName="MenuItemId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
+          <ScalarProperty Name="CssClass" ColumnName="CssClass" />
+          <ScalarProperty Name="LinkType" ColumnName="LinkType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suburbs">
+      <EntityTypeMapping TypeName="AccusalesModel.Suburb">
+        <MappingFragment StoreEntitySet="Suburbs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="AccusalesModel.Supplier">
+        <MappingFragment StoreEntitySet="Suppliers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+          <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="ParentAccount" ColumnName="ParentAccount" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Syskeys">
+      <EntityTypeMapping TypeName="AccusalesModel.Syskey">
+        <MappingFragment StoreEntitySet="Syskeys">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="temps">
+      <EntityTypeMapping TypeName="AccusalesModel.temp">
+        <MappingFragment StoreEntitySet="temp">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="field1" ColumnName="field1" />
+          <ScalarProperty Name="field2" ColumnName="field2" />
+          <ScalarProperty Name="field3" ColumnName="field3" />
+          <ScalarProperty Name="field4" ColumnName="field4" />
+          <ScalarProperty Name="field5" ColumnName="field5" />
+          <ScalarProperty Name="field6" ColumnName="field6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trannames">
+      <EntityTypeMapping TypeName="AccusalesModel.Tranname">
+        <MappingFragment StoreEntitySet="Tranname">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tname" ColumnName="tname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionDatas">
+      <EntityTypeMapping TypeName="AccusalesModel.TransactionData">
+        <MappingFragment StoreEntitySet="TransactionData">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TransactionName" ColumnName="TransactionName" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Debit1" ColumnName="Debit1" />
+          <ScalarProperty Name="Debit2" ColumnName="Debit2" />
+          <ScalarProperty Name="Debit3" ColumnName="Debit3" />
+          <ScalarProperty Name="Debit4" ColumnName="Debit4" />
+          <ScalarProperty Name="Debit5" ColumnName="Debit5" />
+          <ScalarProperty Name="Debit6" ColumnName="Debit6" />
+          <ScalarProperty Name="Credit1" ColumnName="Credit1" />
+          <ScalarProperty Name="Credit2" ColumnName="Credit2" />
+          <ScalarProperty Name="Credit3" ColumnName="Credit3" />
+          <ScalarProperty Name="Credit4" ColumnName="Credit4" />
+          <ScalarProperty Name="Credit5" ColumnName="Credit5" />
+          <ScalarProperty Name="Credit6" ColumnName="Credit6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransferingLines">
+      <EntityTypeMapping TypeName="AccusalesModel.TransferingLine">
+        <MappingFragment StoreEntitySet="TransferingLines">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="items" ColumnName="items" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="priceinc" ColumnName="priceinc" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransferLines">
+      <EntityTypeMapping TypeName="AccusalesModel.TransferLine">
+        <MappingFragment StoreEntitySet="TransferLines">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="priceinc" ColumnName="priceinc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transfers">
+      <EntityTypeMapping TypeName="AccusalesModel.Transfer">
+        <MappingFragment StoreEntitySet="Transfers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="Authorizer" ColumnName="Authorizer" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trantypes">
+      <EntityTypeMapping TypeName="AccusalesModel.Trantype">
+        <MappingFragment StoreEntitySet="Trantype">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tname" ColumnName="tname" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Valuations">
+      <EntityTypeMapping TypeName="AccusalesModel.Valuation">
+        <MappingFragment StoreEntitySet="Valuations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+          <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+          <ScalarProperty Name="LandValuation" ColumnName="LandValuation" />
+          <ScalarProperty Name="Improvement" ColumnName="Improvement" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="AssetName" ColumnName="AssetName" />
+          <ScalarProperty Name="LandArea" ColumnName="LandArea" />
+          <ScalarProperty Name="ImprovementArea" ColumnName="ImprovementArea" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Evauluator" ColumnName="Evauluator" />
+          <ScalarProperty Name="EvauluatorId" ColumnName="EvauluatorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VariationTypes">
+      <EntityTypeMapping TypeName="AccusalesModel.VariationType">
+        <MappingFragment StoreEntitySet="VariationType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YomoneyServices">
+      <EntityTypeMapping TypeName="AccusalesModel.YomoneyService">
+        <MappingFragment StoreEntitySet="YomoneyService">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ServiceProvider" ColumnName="ServiceProvider" />
+          <ScalarProperty Name="ServiceProviderId" ColumnName="ServiceProviderId" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+          <ScalarProperty Name="ServiceBilling" ColumnName="ServiceBilling" />
+          <ScalarProperty Name="ServiceCharge" ColumnName="ServiceCharge" />
+          <ScalarProperty Name="ChargeType" ColumnName="ChargeType" />
+          <ScalarProperty Name="ChargeFrequency" ColumnName="ChargeFrequency" />
+          <ScalarProperty Name="ServiceAudience" ColumnName="ServiceAudience" />
+          <ScalarProperty Name="ServicePrice" ColumnName="ServicePrice" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+          <ScalarProperty Name="MaxSale" ColumnName="MaxSale" />
+          <ScalarProperty Name="MinSale" ColumnName="MinSale" />
+          <ScalarProperty Name="CommisionChargeType" ColumnName="CommisionChargeType" />
+          <ScalarProperty Name="CommisionValue" ColumnName="CommisionValue" />
+          <ScalarProperty Name="CommisionLimit" ColumnName="CommisionLimit" />
+          <ScalarProperty Name="SuspenseWindow" ColumnName="SuspenseWindow" />
+          <ScalarProperty Name="HasProduct" ColumnName="HasProduct" />
+          <ScalarProperty Name="RequireServiceBalance" ColumnName="RequireServiceBalance" />
+          <ScalarProperty Name="IsSupplierService" ColumnName="IsSupplierService" />
+          <ScalarProperty Name="CreateMultiple" ColumnName="CreateMultiple" />
+          <ScalarProperty Name="IsExternal" ColumnName="IsExternal" />
+          <ScalarProperty Name="ExtServiceId" ColumnName="ExtServiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Denominations">
+      <EntityTypeMapping TypeName="AccusalesModel.Denomination">
+        <MappingFragment StoreEntitySet="Denominations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Denomination1" ColumnName="Denomination" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuAccesses">
+      <EntityTypeMapping TypeName="AccusalesModel.MenuAccess">
+        <MappingFragment StoreEntitySet="MenuAccess">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectTypes">
+      <EntityTypeMapping TypeName="AccusalesModel.ProjectType">
+        <MappingFragment StoreEntitySet="ProjectType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tenants">
+      <EntityTypeMapping TypeName="AccusalesModel.Tenant">
+        <MappingFragment StoreEntitySet="Tenant">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Trade" ColumnName="Trade" />
+          <ScalarProperty Name="Business" ColumnName="Business" />
+          <ScalarProperty Name="lease" ColumnName="lease" />
+          <ScalarProperty Name="ExpireryDate" ColumnName="ExpireryDate" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="Effected" ColumnName="Effected" />
+          <ScalarProperty Name="terms" ColumnName="terms" />
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vouchers">
+      <EntityTypeMapping TypeName="AccusalesModel.Voucher">
+        <MappingFragment StoreEntitySet="Vouchers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="BatchNumber" ColumnName="BatchNumber" />
+          <ScalarProperty Name="Denomination" ColumnName="Denomination" />
+          <ScalarProperty Name="ExpireryDate" ColumnName="ExpireryDate" />
+          <ScalarProperty Name="VID" ColumnName="VID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="VoucherKey" ColumnName="VoucherKey" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

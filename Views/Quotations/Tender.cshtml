@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Tender";
+}
+<div class="Tender">
+      <div class="container_12">     
+        <div class="col-md-12">
+            <div class="col-md-9 ">
+                <input type="text" id="Cashq" class="form-control" style="width : 100%; height: 35px" />
+            </div>
+            <div class="col-md-2 floatleft">
+                <button type="button" onclick="Back()" class="btn btn-success"><i class="fa fa-arrow-left"></i> Back</button>
+            </div> 
+            <div class="col-md-1 floatleft">
+                <button type="button" onclick="CloseFancy()" class="btn btn-danger"><i class="fa fa-close"></i></button>
+            </div> 
+            <div class="alert alert-danger alert-dismissible fade in" style="display:none" role="alert">
+               
+            </div>
+              <div id="Btns" style="margin-top:10px; width: 100%; height:400px;  ">
+               <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id ="7" onclick="onNumber('7')">7</div> 
+               <div class="col-md-4"  style="margin-top:15px; margin-right: 2%; width:32%;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="8" onclick="onNumber('8')">8</div>
+                <div class="col-md-4"  style="margin-top:15px;   width:32%; height:65px; background-color: #67217A; color: White;font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="9" onclick="onNumber('9')">9</div>
+                 <div class="col-md-4"  style="margin-top:15px; margin-right: 2%; width:32%;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id ="4" onclick="onNumber('4')">4</div>
+                 <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="5" onclick="onNumber('5')">5</div> 
+               <div class="col-md-4"  style="margin-top:15px; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="6"  onclick="onNumber('6')">6</div>
+                <div class="col-md-4"  style="margin-top:15px; margin-right: 2%; width:32%;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="1" onclick="onNumber('1')">1</div>
+                 <div class="col-md-4"  style="margin-top:15px; margin-right: 2%; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="2" onclick="onNumber('2')">2</div>
+                 <div class="col-md-4" style="margin-top:15px;  width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="3" onclick="onNumber('3')">3</div> 
+                <div class="col-md-4"  style="margin-top:15px; margin-right: 2%; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="." onclick="onNumber('.')">.</div>
+                <div class="col-md-4"  style="margin-top:15px; margin-right: 2%; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id= "0" onclick="onNumber('0')">0</div>
+                
+                  <div class="col-md-4" style="margin-top:15px;  width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; font-weight: bold; cursor: pointer" id="Enter" onclick="setPayment('','','@ViewData["Type"]','@ViewData["Qid"]')">Enter</div>        
+          </div>
+       
+        </div> 
+     </div>
+ </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Cashq").focus();
+        document.getElementById("Cashq").select(); 
+     
+        $("#Cashq").val(Balance);
+        $("#Cashq").on('change keyup paste mouseup', function (e) {
+            $(".alert-danger").hide();
+        });
+       
+       
+    });
+    
+</script>

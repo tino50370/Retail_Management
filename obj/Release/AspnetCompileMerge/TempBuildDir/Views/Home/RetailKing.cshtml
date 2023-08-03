@@ -1,0 +1,313 @@
+﻿@model RetailKing.ViewModels.HomeVM 
+@{
+    ViewBag.Title = "Mobistore";
+    
+}
+ <script type="text/javascript">
+     $(document).ready(function (event) {
+         $.fancybox.close();
+     })
+   </script>
+<body>
+    <div id="panel">
+       @{
+           var g = (from e in Model.items
+                     .Where(e => e.Balance <= e.Reorder)
+                     .OrderBy(e => e.ItemName)
+                    select e).Take(10).ToList();
+
+           var t = (from e in Model.items
+                    .OrderByDescending(e => e.sold)
+                    select e).Take(10).ToList();
+                    
+         <div class="grid_10">
+            <div class="box round">
+                
+                <div class="block">
+                    <div class="stat-col">
+                        <span>Monthly Target</span>
+                      
+                        @if (@Model.activeco == null)
+                        {
+                              <p class="purple"> 
+                          @String.Format("{0:F}", 0)
+                              </p>
+                        }
+                        else
+                        {
+                                    <p class="purple">         
+                      @String.Format("{0:F}", @Model.activeco.monthlyTarget)
+                        </p>
+                        }
+                    </div>
+                    <div class="stat-col">
+                        <span>Last Month Sales</span>
+                          @if (@Model.monthlysale == null)
+                          {
+                             <p class="blue">
+                       @String.Format("{0:F}", 0)
+                         </p>
+                          }
+                          else
+                          {           
+                        <p class="blue">
+                       @String.Format("{0:F}", @Model.monthlysale.Sales) 
+                         </p>
+                          }
+                    </div>
+                    <div class="stat-col">
+                        <span>This Month Sales</span>
+                        <p class="yellow">
+                       @String.Format("{0:F}", @ViewData["ThisMonth"])
+                           </p>
+                    </div>
+                    <div class="stat-col">
+                        <span>Daily Target</span>
+                         @if (@Model.activeco == null)
+                         {
+                              <p class="green"> 
+                          @String.Format("{0:F}", 0)  
+                              </p>
+                         }
+                         else
+                         {
+                                     <p class="green">
+                        @String.Format("{0:F}", @Model.activeco.dailyTarget)
+                            </p>
+                         }
+                       
+                    </div>
+                    <div class="stat-col">
+                        <span>Yesterday's Sales</span>
+                         @if (@Model.dailysales == null)
+                         {
+                              <p class="blue"> 
+                            @String.Format("{0:F}", 0)
+                              </p>
+                         }
+                         else
+                         {
+                                     <p class="blue">
+                       @String.Format("{0:F}", @Model.dailysales.Sales)
+                            </p>
+                         }
+                       
+                    </div>
+                    <div class="stat-col">
+                        <span>Today's Sales</span>
+                        <p class="red">
+                          @String.Format("{0:F}", @ViewData["Nhasi"])
+                           </p>
+                    </div>
+                
+                    <div class="clear">
+                    </div>
+                </div>
+            
+            </div> 
+        </div> 
+     
+         <div class="grid_5" > 
+              <div class="box round">
+                <h2>These Items need re-ordering</h2>
+                <div class="block" style= " height: 430px">
+                <div id="gradient-styl" style="width:100%; border-style: none; padding-bottom: 10px ">
+        <div class="floatleft" style=" padding-bottom:5px; padding-right :30px">
+              Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeO" }) 
+    </div> 
+           <div  >
+         Search by Product <input type="text" id="SearchInLocation"/>  
+         </div> 
+         </div>
+       
+                <div id="low Stock" >
+                @if (g.Count() == 0)
+                {
+                    <div><h2> Your inventory is well stocked</h2></div>
+                }
+                else
+                {
+                <table>
+    <tr>
+        
+        <th>
+            Product
+        </th>
+         <th>
+            Item Code
+        </th>
+        <th>
+            Opening Balance
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            sold
+        </th>
+        <th>
+            transfer
+        </th>
+        <th>
+            Balance
+        </th>    
+    </tr>
+
+@foreach (var item in g)
+{
+    if (item.Balance <= 0)
+    {
+    <tr style = "background-color: Fuchsia">  
+        <td>
+			@item.ItemName 
+        </td>
+          <td>
+			@item.ItemCode
+        </td>
+        <td>
+			@item.Quantity
+        </td>
+        <td>
+			@String.Format("{0:F}", item.SellingPrice)
+        </td>
+        <td>
+			@item.sold
+        </td>
+        <td>
+			@item.transfer
+        </td>
+        <td>
+			@item.Balance
+        </td>
+       
+    </tr>
+    }
+    else
+    {
+    <tr >       
+        <td>
+			@item.ItemName 
+        </td>
+          <td>
+			@item.ItemCode
+        </td>
+        <td>
+			@item.Quantity
+        </td>
+        <td>
+			@String.Format("{0:F}", item.SellingPrice)
+        </td>
+        <td>
+			@item.sold
+        </td>
+        <td>
+			@item.transfer
+        </td>
+        <td>
+			@item.Balance
+        </td>   
+    </tr>  
+    }
+}
+
+</table>
+                }
+                </div>
+                  </div> 
+                  </div> 
+  </div>              
+           
+        <div class="grid_5" >
+              <div class="box round">
+                <h2>Top selling products</h2>
+                
+                <div class="block" style= "height: 430px">
+                  <div id="gradient" style="width:100%; border-style: none; padding-bottom: 10px ">
+        <div class="floatleft" style=" padding-bottom:5px; padding-right :30px">
+              Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeL" }) 
+    </div> 
+           <div >
+         Search by Product <input type="text" id="top"/>  
+         </div> 
+         </div>
+                   <div id="Top Seller" >
+                    @if (g.Count() == 0)
+                    {
+                    <div><h2> There are no sales Yet</h2></div>
+                    }
+                    else
+                    {
+                  <table>
+    <tr>    
+        <th>
+            Product
+        </th>
+         <th>
+            Item Code
+        </th>
+        <th>
+            Opening Balance
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            sold
+        </th>
+        <th>
+            transfer
+        </th>
+        <th>
+            Balance
+        </th>    
+    </tr>
+
+@foreach (var item in t)
+{
+    
+    <tr>
+        
+        <td>
+			@item.ItemName 
+        </td>
+          <td>
+			@item.ItemCode
+        </td>
+        <td>
+			@item.Quantity
+        </td>
+        <td>
+			@String.Format("{0:F}", item.SellingPrice)
+        </td>
+        <td>
+			@item.sold
+        </td>
+        <td>
+			@item.transfer
+        </td>
+        <td>
+			@item.Balance
+        </td>
+       
+    </tr>
+}
+
+</table>
+                    }
+</div>
+                 </div> 
+                 </div> 
+                </div>
+            
+   }   
+        </div> 
+
+</body>
+
+
+
+
+
+ 
+
+

@@ -1,0 +1,36 @@
+@model RetailKing.Models.Company
+
+@{
+    ViewBag.Title = "Create";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div class="grid_10">
+ <div class="box round ">
+<h2>Create New Company</h2>
+    
+
+@using (Html.BeginForm("Create", "Companies", FormMethod.Post, new { enctype = "multipart/form-data", @name = "Create", id = "createCompany" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend></legend>
+
+		@Html.Partial("_CreateOrEdit", Model)
+
+        <p>
+            
+        </p>
+    </fieldset>
+
+
+}
+     <div>
+  <button class="btn btn-black"  onclick="SaveView('createCompany')" >Save</button>
+  <button class="btn btn-black" onclick="GetView('@Url.Action("Index", "Companies")')">Cancel</button>
+</div>
+</div> 
+</div>
+ <iframe id="UploadTarget" name="UploadTarget"  style="position: absolute; left: -999em; top: -999em;"></iframe>
+<div id="Images"></div>

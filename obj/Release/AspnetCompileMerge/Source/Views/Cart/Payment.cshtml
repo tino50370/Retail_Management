@@ -1,0 +1,96 @@
+﻿@model IEnumerable<RetailKing.Models.PaymentType>
+
+@{
+    ViewBag.Title = "Payment";
+}
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="breadcrumbs">
+        <p><a href="#">Home</a> <i class="icons icon-right-dir"></i>Payment</p>
+    </div>
+</div>
+
+<!-- Main Content -->
+<section class="main-content col-lg-12 col-md-12 col-sm-12">
+
+    <div class="row">
+
+        <!-- Heading -->
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="carousel-heading">
+                <h4>Payment Options</h4>
+
+            </div>
+
+        </div>
+        <!-- /Heading -->
+
+    </div>
+
+    
+    <div class="row">
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <table class="order-table">
+                <tr style="background-color:#9B59B6;color:#ffffff">
+                    <td>Order Number</td>
+                    <td>@ViewData["OrderNumber"]</td>
+                    <td>Status</td>
+                    <td>@ViewData["OrderStatus"]</td>
+                    <td>Total</td>
+                    <td>@ViewData["Total"]</td>
+                </tr>
+                <tr>
+                    <th colspan="6">Select a payment method</th>
+                    
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr style="cursor: pointer" onclick="ShowPayOption('@item.ID')">
+                        <td><img style=" width:100px" src="@Url.Content(@item.Logo)" alt=""></td>
+                        <td colspan="5">@item.Name</td>
+                    </tr>
+                    if (item.trantype.Trim() == "MobileMoney")
+                    {
+                    <tr id="details-@item.ID"style="background-color:#F5791F;color:#fff;font-weight:bold;display:none ">
+                        <td >@item.AccountName</td>
+                        <td>@item.ProviderAccount</td>
+                        <td colspan="4">@Html.TextBox("merchant", "", new { Id=item.ID , @style="width:100%", placeholder = "Enter Transaction Reference"})</td>
+                    </tr>
+                    <tr id="action-@item.ID" style="display:none;background-color:#fff;">
+                        <td colspan="6">
+                            <a  onclick="Pay('@item.ID')" style="float:right; margin-left:10px;" class="button big blue">Verify Payment</a>
+                            <a style="float:right" class="button big" onclick="HidePayOption('@item.ID')">Cancel</a>
+                        </td>
+                    </tr>
+                    <tr id="error_@item.ID" style="background-color:#E74C3C;color:#fff;font-weight:bold;display:none ">
+                        <td id="error_td_@item.ID" colspan="6"></td>
+                    </tr>
+                   
+                    }
+                    else
+                    {
+
+                    }
+                }
+                <tr id="error" style="background-color:#E74C3C;color:#fff;font-weight:bold;display:none ">
+                    <td id="error_td">
+                        Sorry the is an error in the payment. Please try again.
+                    </td>
+                </tr>
+                <tr id="No" style="background-color:#E74C3C;color:#fff;font-weight:bold;display:none ">
+                    <td id="No_td">
+                        Your transaction was not found please try to confirm payment again checking you respense code.
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+
+</section>
+<!-- /Main Content -->

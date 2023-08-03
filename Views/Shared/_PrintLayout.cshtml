@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Mobistore Network</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/css/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/css/jquery.nouislider.min.css")">
+
+    @System.Web.Optimization.Styles.Render("~/Content/css")
+    @System.Web.Optimization.Scripts.Render("~/bundles/modernizr")
+    <script src="@Url.Content("~/Content/Template/js/jquery-1.11.0.min.js")"></script>
+</head>
+<body>
+    <div id="homebody" class="container">
+        <!-- Header -->
+        <header class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <!-- Main Header -->
+                <div id="main-header">
+
+                    <div class="row">
+                        <div id="logo" class="col-lg-4 col-md-4 col-sm-4">
+                            <a href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Content/Template/img/logo.png")" alt="@ViewData["Company"]"></a>
+                        </div>
+
+                        <nav id="middle-navigation" class="col-lg-8 col-md-8 col-sm-8">
+                            <div style="float:right; font-size:3.0em; margin-top:37px">
+                                @ViewData["Document"]
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <!-- /Main Header -->
+
+            </div>
+
+        </header>
+        <!-- /Header -->
+
+        <div id="body" class="row content">
+            <section class="content-wrapper main-content clear-fix">
+                <div id="panel">
+                    @RenderBody()
+                </div>
+            </section>
+        </div>
+
+</div> 
+
+        <script src="@Url.Content("~/Content/Template/js/jquery-ui.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/jquery.raty.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/perfect-scrollbar.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/zoomsl-3.0.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/jquery.themepunch.plugins.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/jquery.themepunch.revolution.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/flexslider.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/jquery.iosslider.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/jquery.nouislider.min.js")"></script>
+
+        <script src="@Url.Content("~/Content/Template/js/owl.carousel.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/chosen.jquery.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/bootstrap.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/modernizr.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/tinynav.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>
+
+        @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+        <script src="@Url.Content("~/Scripts/store/main-script.js")"></script>
+
+</body>
+</html>
+
+

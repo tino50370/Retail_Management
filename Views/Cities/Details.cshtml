@@ -1,0 +1,36 @@
+﻿@model RetailKing.Models.City
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Details</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <fieldset>
+                        <legend>City</legend>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.Name)
+                        </div>
+                    </fieldset>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+

@@ -1,0 +1,128 @@
+﻿@model RetailKing.Models.ReceiptVM
+@{
+    ViewBag.Title = "Dispatch";
+}
+   <div style="page-break-after: always;">
+    <table style="width:100%">
+        <tbody>
+            @if (Model.company.Logo != null && Model.company.Logo != "")
+            {
+                <tr style="border-style: none">
+                    <td colspan="3" style="text-align: center">@Model.company.Logo  </td>
+                </tr>
+            }
+            @if (Model.company.name != null && Model.company.name != "")
+            {
+                <tr style="border-style: none">
+                    <td colspan="3" style="text-align: center; font-size:large; font-weight:bold">@Model.company.name </td>
+                </tr>
+            }
+            @if (Model.company.Address1 != null && Model.company.Address1 != "")
+            {
+                <tr style="border-style: none">
+                    <td colspan="3" style="text-align: center">@Model.company.Address1</td>
+                </tr>
+            }
+            @if (@Model.company.VatNo != null && @Model.company.VatNo != "")
+            {
+                <tr style="border-style: none">
+                    <td colspan="3" style="text-align: center">VAT No. @Model.company.VatNo</td>
+                </tr>
+            }
+            @if (@Model.isCopy)
+            {
+                <tr style="border-style: none">
+                    <td colspan="3" style="text-align: center"><strong>REPRINT</strong></td>
+                </tr>
+            }
+            @foreach (var menu in Model.posd)
+            {
+                <tr style="cursor: pointer">
+                    <td colspan="3" style="border-style:none;  vertical-align: middle;">@menu.item</td>
+                </tr>
+                <tr style="border-style: none">
+                    <td style="width: 30%; text-align:center; border-style:none ">@menu.qty</td>
+                    <td style="width: 30%; text-align:center; border-style:none ">@String.Format("{0:F}", @menu.prize) @menu.unit</td>
+                    <td style="width: 40%; text-align:center; border-style:none; text-align:right">@String.Format("{0:F}", @menu.amount)</td>
+                </tr>
+            }
+            <tr style="border-top: 1px solid black">
+                <td style="border-top: 1px solid black; text-align:left"> SUBTOTAL  </td>
+                <td style="border-top: 1px solid black"></td>
+                <td style="border-top: 1px solid black; text-align:right"> @Model.subTotal </td>
+            </tr>
+            <tr style="border-style: none">
+                <td style="border-style: none; text-align:left"> V.A.T</td>
+                <td style="border-style: none"></td>
+                <td style="border-style: none; text-align:right"> @Model.tax </td>
+            </tr>
+            <tr style="border-style: none">
+                <td style="border-style: none; text-align:left; font-weight:bold"> TOTAL  </td>
+                <td style="border-style: none;"></td>
+                <td style="border-style: none; text-align:right; font-weight:bold"> @Model.total </td>
+            </tr>
+            <tr style="border-style: none">
+                <td style="border-style: none; text-align:left"> TENDER  </td>
+                <td style="border-style: none"></td>
+                <td style="border-style: none; text-align:right"> @Model.tender </td>
+            </tr>
+            <tr style="border-style: none">
+                <td style="border-style: none; text-align:left"> CHANGE  </td>
+                <td style="border-style: none"></td>
+                <td style="border-style: none; text-align:right"> @Model.change </td>
+            </tr>
+            <tr style="border-top: 1px solid black">
+                <td style="border-top: 1px solid black; text-align:left" colspan="3"> CASHIER : @Model.cashier   </td>
+            </tr>
+            <tr style="border-style: none">
+                <td style="border-style: none; text-align:left"># @Model.Receipt</td>
+                <td style="border-style: none">@DateTime.Now.Date.ToShortDateString()</td>
+                <td style="border-style: none; text-align:right">@DateTime.Now.ToShortTimeString()</td>
+            </tr>
+            @if (Model.ToCollect == "Yes")
+            {
+                <tr style="border-top: 1px solid black">
+                    <td style="text-align:left" colspan="3"><strong> COLLECTION DETAILS </strong>  </td>
+                </tr>
+                    <tr style="border-style: none">
+                        <td style="text-align:left; text-align:left" colspan="3"> CUSTOMER : @Model.CustomerName   </td>
+                    </tr>
+                    <tr style="border-style: none">
+                        <td style="border-style: none; text-align:left" colspan="3"> MOBILE : @Model.CustomerMobile  </td>
+                    </tr>
+                    <tr style="border-style: none">
+                        <td style="text-align:left" colspan="3"> COLLECTION ADDRESS :  @Model.diliveryAddress  </td>
+                    </tr>
+                    <tr style="border-style: none">
+                        <td style="text-align:left" colspan="3"> COLLECTION DATE :  @Model.CollectionDate  </td>
+                    </tr>
+
+            }
+            @if (Model.company.Footer1 != null && @Model.company.Footer1 != "")
+            {
+                <tr style="border-style: none">
+                    <td colspan="3" style="border-style: none; text-align: center">@Model.company.Footer1</td>
+                </tr>
+            }
+            @if (Model.company.Footer2 != null && @Model.company.Footer2 != "")
+            {
+                <tr style="border-style: none">
+                    <td colspan="3" style="border-style: none; text-align: center">@Model.company.Footer2</td>
+                </tr>
+            }
+            @if (Model.company.Footer3 != null && @Model.company.Footer3 != "")
+            {
+                <tr style="border-style: none">
+                    <td colspan="3" style="border-style: none; text-align: center">@Model.company.Footer3</td>
+                </tr>
+            }
+
+            @if (Model.company.footer4 != null && @Model.company.footer4 != "")
+            {
+                <tr style="border-style: none">
+                    <td colspan="3" style="border-style: none; text-align: center"> @Model.company.footer4</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div> 

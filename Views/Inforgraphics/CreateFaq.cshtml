@@ -1,0 +1,101 @@
+﻿@model RetailKing.Models.Faq
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites"
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+
+                $("#panel").html(result);
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#Profilep").ajaxForm(options);
+
+    });
+</script>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Create @ViewData["Section"]</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+
+                    @using (Html.BeginForm("CreateFaq", "Inforgraphics", FormMethod.Post, new { enctype = "multipart/form-data", @name = "ProfileP", id = "Profilep" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                            <legend></legend>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Question)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Question,new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Question)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Answer)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextAreaFor(model => model.Answer,new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Answer)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Type)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(m => m.Type, new SelectList((IEnumerable<SelectListItem>)ViewBag.type, "Value", " Text"),new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Type)
+                            </div>
+
+                            <br />
+                            <p>
+                                <button class="btn btn-black" type="submit">Save</button>
+                                <button class="btn btn-black" type="button" onclick="GetView('@Url.Action("FaqList", "Inforgraphics")')">Cancel</button>
+                            </p>
+                        </fieldset>
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

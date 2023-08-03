@@ -1,0 +1,386 @@
+@model RetailKing.Models.Inventory
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        $("#SearchInItems").focus();
+        var typinTimer;
+
+        $("#category").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("IndexSearches", "Transfers")',
+                dataType: 'html',
+                data: {
+                    company: $("#activeco").text(),
+                    category: $("#category").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    // $("#panel").html(resp);
+                    $.fancybox(resp, {
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+                },
+                error: function (data) {
+
+                }
+            });
+        });
+
+        $("#SubCategory").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("IndexSearches", "Transfers")',
+                dataType: 'html',
+                data: {
+                    SubCategory: $("#SubCategory").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    //$("#panel").html(resp);
+                    $.fancybox(resp, {
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+                },
+                error: function (data) {
+
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("IndexSearches", "Transfers")',
+                dataType: 'html',
+                data: {
+                    company: $("#activeco").text(),
+                    category: $("#category").val(),
+                    SubCategory: $("#SubCategory").val(),
+                    ItemCode: '',
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $.fancybox(resp, {
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+                    //$('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            var s = $('#SearchInItems').val();
+            // alert(s);
+            clearTimeout(typinTimer);
+            typinTimer = setTimeout(function () {
+                // alert($('#SearchInItems').val() );
+                if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                    $.ajax({
+                        type: "Post",
+                        url: '@Url.Action("IndexSearches", "Transfers")',
+                        dataType: 'html',
+                        data: {
+                            company: $("#activeco").text(),
+                            category: $("#category").val(),
+                            SubCategory: $("#SubCategory").val(),
+                            ItemCode: $("#SearchInItems").val(),
+                            iDisplayLength: $("#SizeR").val(),
+                            sEcho: 1
+                        },
+                        success: function (resp) {
+                            $.fancybox(resp, {
+                                openEffect: 'none',
+                                closeEffect: 'none'
+                            });
+                            //$('#panel').html(resp);
+                        },
+                        error: function (data) {
+                        }
+                    });
+                }
+            }, 2000);
+        });
+
+        $("#tableData input").keypress(function (e) {
+
+            if (e.keyCode == 13 || e.keyCode == 9) {
+                if (this.value == '') {
+                }
+                else {
+                    if (isNaN(this.value / 1) == false) {
+                        var dd = this.id;
+                        ItemCode = dd;
+                        Qty = this.value;
+                        $.ajax({
+                            type: "Get",
+                            url: '@Url.Action("newStock", "Transfers")',
+                            dataType: 'html',
+                            data: {
+                                company: $("#activeco").text(),
+                                Qty: this.value,
+                                Reciept: Reciept,
+                                Supplier: Supplier,
+                                ItemCode: this.id
+                            },
+                            success: function (resp) {
+                                $.fancybox(resp, {
+                                    openEffect: 'none',
+                                    closeEffect: 'none'
+                                });
+                            },
+                            error: function (data) {
+                            }
+                        });
+                    }
+                    else {
+                        alert("Please enter numbers only");
+                    }
+                }
+            }
+        });
+
+        $("#tableData input").focusout(function () {
+            if (this.value == '') {
+            }
+            else {
+                if (isNaN(this.value / 1) == false) {
+                    var dd = this.id;
+                    ItemCode = dd;
+                    Qty = this.value;
+                    $.ajax({
+                        type: "Get",
+                        url: '@Url.Action("newStock", "Transfers")',
+                        dataType: 'html',
+                        data: {
+                            company: $("#activeco").text(),
+                            Qty: this.value,
+                            Reciept: Reciept,
+                            Supplier: Supplier,
+                            ItemCode: this.id
+                        },
+                        success: function (resp) {
+                            $.fancybox(resp, {
+                                openEffect: 'none',
+                                closeEffect: 'none'
+                            });
+                        },
+                        error: function (data) {
+                        }
+                    });
+                }
+                else {
+                    alert("Please enter numbers only");
+                }
+            }
+        })
+
+    });
+
+</script>
+
+<script type="text/javascript">
+    function GetPageR(thispage) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("IndexSearches", "Transfers")',
+            dataType: 'html',
+            data: {
+                company: $("#activeco").text(),
+                category: $("#category").val(),
+                SubCategory: $("#SubCategory").val(),
+                ItemCode: '',
+                iDisplayStart: thispage,
+                iDisplayLength: $("#SizeR").val(),
+                sEcho: 1
+            },
+            success: function (resp) {
+                $.fancybox(resp, {
+                    openEffect: 'none',
+                    closeEffect: 'none'
+                });
+               // $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Products </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                    <table id="gradient-style" style="width:100%; border-style: none ">
+                        <tbody>
+                            <tr>
+                                <td class="style3" style="border-style: none">
+                                    <div class="editor-field">
+                                        Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR", @class = "form-control" })
+                                    </div>
+                                </td>
+                                <td class="style4" style="border-style: none">
+                                    <div class="editor-field">
+                                        Category
+                                        @Html.DropDownList("Category",
+                                     new SelectList(
+                                         Model.categories,
+                                         "AccountName",
+                                      "AccountName"), new { id = "category", @class = "form-control" })
+
+                                    </div>
+                                </td>
+                                <td class="style4" style="border-style: none">
+                                    <div class="editor-field">
+                                        Subcategory
+                                        @Html.DropDownList("SubCategory",
+                         new SelectList(
+                             Model.SubCategories,
+                             "AccountName",
+                                      "AccountName"), new { id = "SubCategory", @class = "form-control" })
+
+                                    </div>
+                                </td>
+                                <td style="border-style: none">
+                                    <div class="editor-field" style="float:right ">
+                                        Search by ItemCode <input type="text" class="form-control" id="SearchInItems" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="tableData">
+                        <table class="table table-striped" style="width:100%">
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Item Code
+                                </th>
+                                <th>
+                                    Opening
+                                </th>
+
+
+                                <th>
+                                    Balance
+                                </th>
+
+                                <th>
+                                    New Stock
+                                </th>
+                                <th>
+                                    Category
+                                </th>
+
+                                <th>
+                                    Reorder Qty
+                                </th>
+                                <th>
+
+                                </th>
+
+
+                            </tr>
+
+                            @{
+
+                                int cnt = 0;
+                                foreach (var item in Model.items)
+                                {
+                                    cnt += 1;
+
+                                    <tr>
+
+                                        <td>
+                                            @item.ItemName
+                                        </td>
+                                        <td>
+                                            @item.ItemCode
+                                        </td>
+                                        <td>
+
+                                            @String.Format("{0:F}", @item.Quantity)
+                                        </td>
+
+
+                                        <td id="balance_@item.ItemCode.Trim()">
+
+                                            @String.Format("{0:F}", @item.Balance)
+                                        </td>
+
+                                        <td class="@item.ItemCode.Trim()">
+
+                                            @String.Format("{0:F}", @item.NewStock)
+                                        </td>
+                                        <td>
+                                            @item.category
+                                        </td>
+
+                                        <td>
+                                            @item.Reorder
+                                        </td>
+
+                                        <td>
+                                            <input type="text" id="@item.ItemCode.Trim()" style="width: 100%" />
+                                        </td>
+
+                                    </tr>
+
+
+                                }
+                            }
+                            <tr>
+                                <th colspan="12" style=" background-color: #E2E4FF; ">
+                                    <div onclick="GetPageR()" style=" float: left; padding-left: 10px"> Pages</div>
+                                    @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                                    {
+                                        if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                        {
+                                            <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange; cursor:pointer">@i</div>
+                                        }
+                                        else
+                                        {
+                                            <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black;cursor:pointer ">@i</div>
+                                        }
+                                    }
+                                    <div style=" float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                                </th>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

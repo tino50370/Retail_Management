@@ -1,0 +1,96 @@
+@model RetailKing.Models.Reward
+
+@{
+    ViewBag.Title = "Create";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/tinymce/tinymce.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>
+
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatus');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                //bar.width('0%');
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                // bar.width(pVel);
+                // alert("progress");
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                try {
+                    var resp = $.parseJSON(result);
+
+                    if (resp == "error") {
+                        alert("An error occured during upload.\r\n Your file has not been uploaded")
+                        status.fadeOut(800);
+                    }
+                    else if (resp == "Format") {
+                        alert("Your file format is not supported. Please select a video file")
+                        status.fadeOut(800);
+                    }
+                    else if (resp == "No File") {
+                        alert("Please select a video to upload")
+                        status.fadeOut(800);
+                    }
+                }
+                catch (error) {
+
+                    $('#RightPanel').html(result);
+                    status.fadeOut(800);
+                }
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                // $('#panel').html(errorThrown);
+                status.fadeOut(800);
+            }
+
+        };
+        $("#createCustomers").ajaxForm(options);
+
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>New Loyalty Campaign</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+
+                    @using (Html.BeginForm("EditReward", "Loyalty", FormMethod.Post, new { enctype = "multipart/form-data", @name = "createCustomersP", id = "createCustomers" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        <fieldset>
+                           
+
+                            @Html.Partial("_CreateOrEditReward", Model)
+
+                        </fieldset>
+                    
+                    <br/>
+                    <div>
+                        <input class="btn btn-success" value="Save" type="submit"/>
+                        <a class="btn btn-warning" onclick="GetView('@Url.Action("SupplierLoyalty", "Loyalty")')">Cancel</a>
+                    </div>
+                    }
+                </div>
+             </div>
+           </div>
+        </div>
+    </div>
+

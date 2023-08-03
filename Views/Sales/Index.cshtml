@@ -1,0 +1,433 @@
+﻿@model IEnumerable<RetailKing.Models.Sale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        // $("#DateCreated").datepicker({ dateFormat: "d MM yy" });
+        //$("#Date").datepicker({ dateFormat: "d MM yy" });
+      
+        $("#SearchInItems").focus();
+
+        $("#category").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("Index", "Sales")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SubCategory").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("Index", "Sales")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("Index", "Sales")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: '',
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            var s = $('#SearchInItems').val();
+            if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                $.ajax({
+                    type: "Post",
+                    url: '@Url.Action("Index", "Sales")',
+                    dataType: 'html',
+                    data: {
+                        ItemCode: $("#SearchInItems").val(),
+                        iDisplayLength: $("#SizeR").val(),
+                        sEnd: $("#Date").val(),
+                        sStart: $("#DateCreated").val(),
+                        sEcho: 1
+                    },
+                    success: function (resp) {
+                        $('#panel').html(resp);
+                    },
+                    error: function (data) {
+                    }
+                });
+            }
+            //   }, 2000);
+        });
+
+
+
+    });
+</script>
+
+<script type="text/javascript">
+    function GetPageR(thispage) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("Index", "Sales")',
+            dataType: 'html',
+            data: {
+                sEnd: $("#Date").val(),
+                sStart: $("#DateCreated").val(),
+                ItemCode: '',
+                iDisplayStart: thispage,
+                iDisplayLength: $("#SizeR").val(),
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Sales Report </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+
+                    <table id="gradient-style" style="width:100%; border-style: none ">
+                        <tbody>
+                            <tr>
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                        Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR",@class="form-control" })
+                                    </div>
+                                </td>
+
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                        Start Date
+                                        <input type="text" name="DateCreated" id="DateCreated" class ="form-control" value="@ViewData["sdate"]" style="width: 90%" />
+                                    </div>
+                                </td>
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                        End Date
+                                        <input type="text" class ="form-control" name="Date" id="Date" value="@ViewData["edate"]" style="width: 90%" />
+                                    </div>
+                                </td>
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                        Search by Customer <input type="text" style="width: 90%" class ="form-control" id="SearchInItems" />
+                                      
+                                    </div>
+                                </td>
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                     <br />
+                                        <button class="btn btn-success" onclick="GetSalesProduct()"><span></span>Go</button>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <table id="datatable-buttons" class="table table-striped" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th style="width: 6%"></th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.customer)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Account)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Reciept)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayName("Credit Period")
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.total)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.discount)
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Sales Date")
+                                </th>
+
+
+
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                var newrId = "";
+                                var newVId = "";
+                                if (item.Reciept != null)
+                                {
+                                    char[] delimiter = new char[] { '.' };
+                                    string[] partz = item.Reciept.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+                                    newrId = partz[0];// + partz[1] + partz[2];
+                                }
+                                string rid = newrId + "_b";
+                                string ridx = newrId + "_x";
+
+                                if (item.Invoice != null)
+                                {
+                                    char[] delimita = new char[] { '.' };
+                                    string[] part = item.Invoice.Split(delimita, StringSplitOptions.RemoveEmptyEntries);
+                                    newVId = part[0];// + part[1] + part[2];
+                                }
+                                string vidx = newVId + "_x";
+                                string vid = newVId + "_b";
+
+                                <tr>
+                                    @if (item.Reciept != null && item.Reciept != "")
+                                    {
+                                        <td style="width: 6%">
+                                            <a id="@ridx" class="btn btn-dark  btn-sm " onclick="GetSalesDetail('@item.Reciept','@newrId')"><i class="fa fa-toggle-down"></i></a>
+                                            <a id="@rid" class="btn btn-warning  btn-sm" onclick="MinSalesDetail('@item.Reciept','@newrId')" style="display:none"><i class="fa fa-toggle-up"></i></a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td style="width: 6%">
+                                            <a id="@vidx" class="btn btn-dark  btn-sm" onclick="GetSalesDetail('@item.Invoice','@newVId')"><i class="fa fa-toggle-down"></i></a>
+                                            <a id="@vid" class="btn btn-warning  btn-sm" onclick="MinSalesDetail('@item.Invoice','@newVId')" style="display:none"><i class="fa fa-toggle-up"></i></a>
+                                        </td>
+                                    }
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.customer)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Account)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Reciept)
+                                        @Html.DisplayFor(modelItem => item.Invoice)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Period)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.total)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.discount)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.dated)
+                                    </td>
+
+
+                                </tr>
+
+                                <tr id="break_@newrId" style="display:none">
+                                    @{
+                                var pts = item.PaymentModes.Split(',');
+                                    }
+                                    <td colspan="11">
+                                        @foreach (var p in pts)
+                                        {
+                                            var py = p.Split('-');
+                                            if (py.Length >= 2)
+                                            {
+                                                <span>@py[0] $@py[1], </span>
+
+
+                                            }
+                                        }
+                                    </td>
+
+                                </tr>
+                                if (item.Reciept != null && item.Reciept != "")
+                                {
+                                    <tr><td colspan="11" id="@newrId" style="display:none "></td></tr>
+                                }
+                                else
+                                {
+                                    <tr><td colspan="11" id="@newVId" style="display:none "></td></tr>
+                                }
+                            }
+
+                        </tbody>
+                        <tr>
+                            <th colspan="12" style="background-color: #E2E4FF; ">
+                                <div onclick="GetPageR()" style="float: left; padding-left: 10px"> Pages</div>
+                                @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                                {
+                                    if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                    {
+                                        <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                                    }
+                                    else
+                                    {
+                                        <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                                    }
+                                }
+                                <div style="float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+</div>
+</div>
+</div>
+<script src="@Url.Content("~/Content/Administration/js/datepicker/daterangepicker.js")"></script>
+<script src="@Url.Content("~/Content/Administration/js/moment/moment.min.js")"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#Date').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+        $('#AquisitionDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+        $('#DisposalDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+        $('#DateCreated').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+        $('#ExpireryDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+    })
+</script>
+
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net/js/jquery.dataTables.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/dataTables.buttons.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/buttons.flash.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/buttons.html5.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/buttons.print.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-responsive/js/dataTables.responsive.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js")"></script>
+
+
+<script>
+    $(document).ready(function () {
+        var handleDataTableButtons = function () {
+            if ($("#datatable-buttons").length) {
+                $("#datatable-buttons").DataTable({
+                    dom: "Bfrtip",
+                    order: [[1, "desc"]],
+                    buttons: [
+                    {
+                        extend: "copy",
+                        className: "btn-sm"
+                    },
+                    {
+                        extend: "csv",
+                        className: "btn-sm"
+                    },
+                    {
+                        extend: "excel",
+                        className: "btn-sm"
+                    },
+                    {
+                        extend: "print",
+                        className: "btn-sm"
+                    },
+                    ],
+                    responsive: true
+                });
+            }
+        };
+
+        TableManageButtons = function () {
+            "use strict";
+            return {
+                init: function () {
+                    handleDataTableButtons();
+                }
+            };
+        }();
+
+        TableManageButtons.init();
+    });
+</script>

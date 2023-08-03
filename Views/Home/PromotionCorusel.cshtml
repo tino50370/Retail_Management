@@ -1,0 +1,71 @@
+﻿@model   IEnumerable<RetailKing.Models.Advert>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+	
+	<script>
+        curr = '@ViewData["ThisPage"]';
+        scrollpage = '@ViewData["ThisPage"]';
+    </script>
+
+ <script src="@Url.Content("~/Scripts/store/main-script.js")"></script>
+				
+
+					<!-- New Collection -->
+					<div class="products-row row">
+					
+						<!-- Carousel -->
+						<div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
+						
+								@{
+                                    var newStock = (from e in Model.OrderByDescending(u => u.Id) select e).Take(10);
+                                }
+                                <div class="owl-carousel" data-max-items="3">
+                                    @foreach (var c in newStock)
+                                    {
+           	<!-- Slide -->
+                                        <div>
+                                            <!-- Carousel Item -->
+                                            <div class="product">
+
+                                                <div class="product-image">
+                                                       @if (c.Image == null)
+                                                       {
+                                                         <a href="@Url.Action("Details", "Cart", new { id = c.Id })">
+                                                            <img src="@Url.Content("~/Content/Template/img/bag.png")" alt="@c.Description ">
+                                                         </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="@Url.Action("Details", "Cart", new { id = c.Id })">
+                                                                <img src="@Url.Content(c.Image)" alt="@c.Description">
+                                                            </a> 
+                                                        }
+                                                         <a href="@Url.Action("Details", "Cart", new { id = c.Id })" class="product-hover">
+                                                            <i class="icons icon-eye-1"></i> More
+                                                         </a>
+                                                    </div>
+
+                                               
+                                            </div>
+                                            <!-- /Carousel Item -->
+                                           
+                                        </div>
+									<!-- /Slide -->
+
+                                    }
+
+                                </div>
+									
+							</div>
+						</div>
+						<!-- /Carousel -->
+						
+			
+				
+						
+			
+				
+      

@@ -1,0 +1,257 @@
+﻿@model IEnumerable<RetailKing.Models.SalesLineSammary>
+
+@{
+    ViewBag.Title = "CollectionsSammary";
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        // $("#DateCreated").datepicker({ dateFormat: "d MM yy" });
+        //$("#Date").datepicker({ dateFormat: "d MM yy" });
+        setDatePicker('DateCreated');
+        setDatePicker('Date');
+        $("#SearchInItems").focus();
+
+        $("#category").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("DeliverySammery", "Deliveries")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SubCategory").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("DeliverySammery", "Deliveries")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("DeliverySammery", "Deliveries")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: '',
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            var s = $('#SearchInItems').val();
+            if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                $.ajax({
+                    type: "Get",
+                    url: '@Url.Action("DeliverySammery", "Deliveries")',
+                    dataType: 'html',
+                    data: {
+                        ItemCode: $("#SearchInItems").val(),
+                        iDisplayLength: $("#SizeR").val(),
+                        sEnd: $("#Date").val(),
+                        sStart: $("#DateCreated").val(),
+                        sEcho: 1
+                    },
+                    success: function (resp) {
+                        $('#panel').html(resp);
+                    },
+                    error: function (data) {
+                    }
+                });
+            }
+            //   }, 2000);
+        });
+
+
+
+    });
+</script>
+
+<script type="text/javascript">
+     function GetPageR(thispage) {
+         $.ajax({
+             type: "GET",
+             url: '@Url.Action("DeliverySammery", "Deliveries")',
+             dataType: 'html',
+             data: {
+                 sEnd: $("#Date").val(),
+                 sStart: $("#DateCreated").val(),
+                 ItemCode: '',
+                 iDisplayStart: thispage,
+                 iDisplayLength: $("#SizeR").val(),
+                 sEcho: 1
+             },
+             success: function (resp) {
+                 $('#panel').html(resp);
+             },
+             error: function (data) {
+             }
+         });
+     }
+</script>
+
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Deliveries</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+
+            <table id="gradient-style" style="width:100%; border-style: none ">
+                <tbody>
+                    <tr>
+                        <td style="border-style: none">
+                            <div class="editor-field">
+                                Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR" })
+                            </div>
+                        </td>
+
+                        <td style="border-style: none">
+                            <div class="editor-field">
+                                Start Date
+                                <input type="text" name="DateCreated" id="DateCreated" value="@ViewData["sdate"]" style="width: 100px" />
+                            </div>
+                        </td>
+                        <td style="border-style: none">
+                            <div class="editor-field">
+                                End Date
+                                <input type="text" class="input_text" name="Date" id="Date" value="@ViewData["edate"]" style="width: 100px" />
+                            </div>
+                        </td>
+                        <td style="border-style: none">
+                            <div class="editor-field">
+                                Search by Customer <input type="text" id="SearchInItems" />
+                                <button class="btn-icon btn-green btn-person" onclick="GetDeliverySammary()"><span></span>Go</button>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <table style="width:100%;">
+                <tr>
+
+                    <th>
+                        @Html.DisplayName("Quantity")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Item Code")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Item Name")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Supplier")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Delivery Type")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Delivery Date")
+                    </th>
+
+                    <th style="width: 3%"></th>
+
+                </tr>
+
+
+                @foreach (var item in Model)
+                {
+                    if (item.DeliveryType.Trim() != "Sms")
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ItemCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ItemName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Company)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DeliveryType)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Deadline)
+                            </td>
+
+                            <td id="@item.Id" onclick="PickDelivery('@item.Id')">
+                                @Html.EditorFor(modelItem => item.DeliveryPicking.Value)
+                            </td>
+
+                        </tr>
+                    }
+                }
+                <tr>
+                    <th colspan="12" style=" background-color: #E2E4FF; ">
+                        <div onclick="GetPageR()" style=" float: left; padding-left: 10px"> Pages</div>
+                        @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                        {
+                            if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                            {
+                                <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                            }
+                            else
+                            {
+                                <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                            }
+                        }
+                        <div style=" float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

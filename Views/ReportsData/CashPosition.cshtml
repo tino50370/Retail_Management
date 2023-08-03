@@ -1,0 +1,160 @@
+﻿@model RetailKing.Models.CashPosition
+@{
+    ViewBag.Title = "CashPosition";
+}
+
+
+<link href="@Url.Content("~/Content/Administration/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css")" rel="stylesheet">
+<link href="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css")" rel="stylesheet">
+<link href="@Url.Content("~/Content/Administration/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css")" rel="stylesheet">
+<link href="@Url.Content("~/Content/Administration/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css")" rel="stylesheet">
+<link href="@Url.Content("~/Content/Administration/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css")" rel="stylesheet">
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Cash Position Report</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                    <table id="gradient-style" style="width:100%; border-style: none ">
+                        <tbody>
+                            <tr>
+                                <td class="style3" style="border-style: none">
+                                    <div class="editor-field">
+                                    </div>
+                                </td>
+                                <td class="style4" style="border-style: none"></td>
+                                <td class="style4" style="border-style: none"></td>
+                                <td style="border-style: none">
+                                    <div class="editor-field" style="float:right ">
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="tableData">
+                        <table id="datatable-buttons" class="table table-striped" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Amount
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                            @{
+
+                                var accs = Model.accounts.OrderBy(u => u.AccountCode).ToList();
+                                foreach (var item in accs)
+                                {
+                                    <tr>
+                                        @if (item.AccountCode.Length <= 4)
+                                        {
+                                            <td>
+                                                <strong> @item.AccountName</strong>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                @item.AccountName
+                                            </td>
+                                        }
+                                        @if (item.Balance > 0)
+                                        {
+                                            <td>
+                                                @String.Format("{0:C}", @item.Balance)
+                                            </td>
+                                            <td></td>
+                                        }
+                                        else
+                                        {
+                                            <td></td>
+                                            <td>
+                                                @String.Format("{0:C}", @item.Balance)
+                                            </td>
+
+
+                                        }
+                                    </tr>
+                                }
+                            }
+                                </tbody>
+
+                        </table>
+                    </div>
+</div>
+</div>
+</div>
+</div>
+</div> 
+
+
+
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net/js/jquery.dataTables.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/dataTables.buttons.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/buttons.flash.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/buttons.html5.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/buttons.print.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-responsive/js/dataTables.responsive.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js")"></script>
+
+
+<script>
+    $(document).ready(function () {
+        var handleDataTableButtons = function () {
+            if ($("#datatable-buttons").length) {
+                $("#datatable-buttons").DataTable({
+                    dom: "Bfrtip",
+                    order: [[1, "desc"]],
+                    buttons: [
+                    {
+                        extend: "copy",
+                        className: "btn-sm"
+                    },
+                    {
+                        extend: "csv",
+                        className: "btn-sm"
+                    },
+                    {
+                        extend: "excel",
+                        className: "btn-sm"
+                    },
+                    {
+                        extend: "print",
+                        className: "btn-sm"
+                    },
+                    ],
+                    responsive: true
+                });
+            }
+        };
+
+        TableManageButtons = function () {
+            "use strict";
+            return {
+                init: function () {
+                    handleDataTableButtons();
+                }
+            };
+        }();
+
+        TableManageButtons.init();
+    });
+</script>

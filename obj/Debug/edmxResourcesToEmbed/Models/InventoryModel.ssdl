@@ -1,0 +1,837 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventoryModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="InventoryModelStoreContainer">
+    <EntitySet Name="Accounts" EntityType="InventoryModel.Store.Accounts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Activeco" EntityType="InventoryModel.Store.Activeco" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Categories" EntityType="InventoryModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Companies" EntityType="InventoryModel.Store.Companies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CreditNotes" EntityType="InventoryModel.Store.CreditNotes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customers" EntityType="InventoryModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Discounts" EntityType="InventoryModel.Store.Discounts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Expenses" EntityType="InventoryModel.Store.Expenses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Invoices" EntityType="InventoryModel.Store.Invoices" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Items" EntityType="InventoryModel.Store.Items" store:Type="Tables" store:Schema="dbo" store:Name="Items">
+      <DefiningQuery>SELECT 
+      [Items].[ID] AS [ID], 
+      [Items].[Item] AS [Item], 
+      [Items].[Quantity] AS [Quantity], 
+      [Items].[BuyingPrice] AS [BuyingPrice], 
+      [Items].[SellingPrice] AS [SellingPrice], 
+      [Items].[Expected] AS [Expected], 
+      [Items].[sold] AS [sold], 
+      [Items].[transfer] AS [transfer], 
+      [Items].[Balance] AS [Balance], 
+      [Items].[Amount] AS [Amount], 
+      [Items].[NewStock] AS [NewStock], 
+      [Items].[Returns] AS [Returns], 
+      [Items].[company] AS [company], 
+      [Items].[category] AS [category], 
+      [Items].[SubCategory] AS [SubCategory], 
+      [Items].[Swaps] AS [Swaps], 
+      [Items].[Reorder] AS [Reorder], 
+      [Items].[status] AS [status], 
+      [Items].[ItemCode] AS [ItemCode], 
+      [Items].[tax] AS [tax]
+      FROM [dbo].[Items] AS [Items]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="login" EntityType="InventoryModel.Store.login" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="menu" EntityType="InventoryModel.Store.menu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Orders" EntityType="InventoryModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Purchases" EntityType="InventoryModel.Store.Purchases" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Returns" EntityType="InventoryModel.Store.Returns" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sales" EntityType="InventoryModel.Store.Sales" store:Type="Tables" store:Schema="dbo" store:Name="Sales">
+      <DefiningQuery>SELECT 
+      [Sales].[ID] AS [ID], 
+      [Sales].[item1] AS [item1], 
+      [Sales].[item2] AS [item2], 
+      [Sales].[item3] AS [item3], 
+      [Sales].[item4] AS [item4], 
+      [Sales].[item5] AS [item5], 
+      [Sales].[item6] AS [item6], 
+      [Sales].[item7] AS [item7], 
+      [Sales].[item8] AS [item8], 
+      [Sales].[item9] AS [item9], 
+      [Sales].[item10] AS [item10], 
+      [Sales].[item11] AS [item11], 
+      [Sales].[item12] AS [item12], 
+      [Sales].[item13] AS [item13], 
+      [Sales].[item14] AS [item14], 
+      [Sales].[item15] AS [item15], 
+      [Sales].[item16] AS [item16], 
+      [Sales].[item17] AS [item17], 
+      [Sales].[item18] AS [item18], 
+      [Sales].[item19] AS [item19], 
+      [Sales].[item20] AS [item20], 
+      [Sales].[quantity1] AS [quantity1], 
+      [Sales].[quantity2] AS [quantity2], 
+      [Sales].[quantity3] AS [quantity3], 
+      [Sales].[quantity4] AS [quantity4], 
+      [Sales].[quantity5] AS [quantity5], 
+      [Sales].[quantity6] AS [quantity6], 
+      [Sales].[quantity7] AS [quantity7], 
+      [Sales].[quantity8] AS [quantity8], 
+      [Sales].[quantity9] AS [quantity9], 
+      [Sales].[quantity10] AS [quantity10], 
+      [Sales].[quantity11] AS [quantity11], 
+      [Sales].[quantity12] AS [quantity12], 
+      [Sales].[quantity13] AS [quantity13], 
+      [Sales].[quantity14] AS [quantity14], 
+      [Sales].[quantity15] AS [quantity15], 
+      [Sales].[quantity16] AS [quantity16], 
+      [Sales].[quantity17] AS [quantity17], 
+      [Sales].[quantity18] AS [quantity18], 
+      [Sales].[quantity19] AS [quantity19], 
+      [Sales].[quantity20] AS [quantity20], 
+      [Sales].[price1] AS [price1], 
+      [Sales].[price2] AS [price2], 
+      [Sales].[price3] AS [price3], 
+      [Sales].[price4] AS [price4], 
+      [Sales].[price5] AS [price5], 
+      [Sales].[price6] AS [price6], 
+      [Sales].[price7] AS [price7], 
+      [Sales].[price8] AS [price8], 
+      [Sales].[price9] AS [price9], 
+      [Sales].[price10] AS [price10], 
+      [Sales].[price11] AS [price11], 
+      [Sales].[price12] AS [price12], 
+      [Sales].[price13] AS [price13], 
+      [Sales].[price14] AS [price14], 
+      [Sales].[price15] AS [price15], 
+      [Sales].[price16] AS [price16], 
+      [Sales].[price17] AS [price17], 
+      [Sales].[price18] AS [price18], 
+      [Sales].[price19] AS [price19], 
+      [Sales].[price20] AS [price20], 
+      [Sales].[total] AS [total], 
+      [Sales].[discount] AS [discount], 
+      [Sales].[company] AS [company], 
+      [Sales].[dated] AS [dated], 
+      [Sales].[customer] AS [customer], 
+      [Sales].[Account] AS [Account], 
+      [Sales].[Reciept] AS [Reciept], 
+      [Sales].[Invoice] AS [Invoice], 
+      [Sales].[shift] AS [shift], 
+      [Sales].[state] AS [state]
+      FROM [dbo].[Sales] AS [Sales]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Sales_Lines" EntityType="InventoryModel.Store.Sales_Lines" store:Type="Tables" store:Schema="dbo" store:Name="Sales_Lines">
+      <DefiningQuery>SELECT 
+      [Sales_Lines].[ID] AS [ID], 
+      [Sales_Lines].[Reciept] AS [Reciept], 
+      [Sales_Lines].[item] AS [item], 
+      [Sales_Lines].[quantity] AS [quantity], 
+      [Sales_Lines].[price] AS [price], 
+      [Sales_Lines].[tax] AS [tax], 
+      [Sales_Lines].[priceinc] AS [priceinc]
+      FROM [dbo].[Sales_Lines] AS [Sales_Lines]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="seats" EntityType="InventoryModel.Store.seats" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="shift" EntityType="InventoryModel.Store.shift" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tranname" EntityType="InventoryModel.Store.Tranname" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Transactions" EntityType="InventoryModel.Store.Transactions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Transfers" EntityType="InventoryModel.Store.Transfers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Trantype" EntityType="InventoryModel.Store.Trantype" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AccountCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Balance" Type="money" />
+    <Property Name="Opening" Type="money" />
+    <Property Name="LinkAccount" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Activeco">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" />
+    <Property Name="status" Type="nvarchar" MaxLength="255" />
+    <Property Name="location" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Companies">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" />
+    <Property Name="status" Type="nvarchar" MaxLength="255" />
+    <Property Name="location" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Contact1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Contact2" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="datetime" />
+    <Property Name="Footer1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Footer2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Footer3" Type="nvarchar" MaxLength="255" />
+    <Property Name="footer4" Type="nvarchar" MaxLength="255" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="255" />
+    <Property Name="VatNo" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CreditNotes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="user" Type="nvarchar" MaxLength="255" />
+    <Property Name="Dated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AccountCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="255" />
+    <Property Name="ContactPerson" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Username" Type="nvarchar" MaxLength="255" />
+    <Property Name="Dated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Discounts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="dated" Type="datetime" />
+    <Property Name="amount" Type="money" />
+    <Property Name="Receipt" Type="nvarchar" MaxLength="255" />
+    <Property Name="Username" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Expenses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AccountCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="value" Type="money" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Payee" Type="nvarchar" MaxLength="255" />
+    <Property Name="Dated" Type="nvarchar" MaxLength="255" />
+    <Property Name="Receipt" Type="nvarchar" MaxLength="255" />
+    <Property Name="Balance" Type="money" />
+    <Property Name="type" Type="nvarchar" MaxLength="255" />
+    <Property Name="cashier" Type="nvarchar" MaxLength="255" />
+    <Property Name="till" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Invoices">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="item1" Type="nvarchar" MaxLength="255" />
+    <Property Name="item2" Type="nvarchar" MaxLength="255" />
+    <Property Name="item3" Type="nvarchar" MaxLength="255" />
+    <Property Name="item4" Type="nvarchar" MaxLength="255" />
+    <Property Name="item5" Type="nvarchar" MaxLength="255" />
+    <Property Name="item6" Type="nvarchar" MaxLength="255" />
+    <Property Name="item7" Type="nvarchar" MaxLength="255" />
+    <Property Name="item8" Type="nvarchar" MaxLength="255" />
+    <Property Name="item9" Type="nvarchar" MaxLength="255" />
+    <Property Name="item10" Type="nvarchar" MaxLength="255" />
+    <Property Name="item11" Type="nvarchar" MaxLength="255" />
+    <Property Name="item12" Type="nvarchar" MaxLength="255" />
+    <Property Name="item13" Type="nvarchar" MaxLength="255" />
+    <Property Name="item14" Type="nvarchar" MaxLength="255" />
+    <Property Name="item15" Type="nvarchar" MaxLength="255" />
+    <Property Name="item16" Type="nvarchar" MaxLength="255" />
+    <Property Name="item17" Type="nvarchar" MaxLength="255" />
+    <Property Name="item18" Type="nvarchar" MaxLength="255" />
+    <Property Name="item19" Type="nvarchar" MaxLength="255" />
+    <Property Name="item20" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity1" Type="int" />
+    <Property Name="quantity2" Type="int" />
+    <Property Name="quantity3" Type="int" />
+    <Property Name="quantity4" Type="int" />
+    <Property Name="quantity5" Type="int" />
+    <Property Name="quantity6" Type="int" />
+    <Property Name="quantity7" Type="int" />
+    <Property Name="quantity8" Type="int" />
+    <Property Name="quantity9" Type="int" />
+    <Property Name="quantity10" Type="int" />
+    <Property Name="quantity11" Type="int" />
+    <Property Name="quantity12" Type="int" />
+    <Property Name="quantity13" Type="int" />
+    <Property Name="quantity14" Type="int" />
+    <Property Name="quantity15" Type="int" />
+    <Property Name="quantity16" Type="int" />
+    <Property Name="quantity17" Type="int" />
+    <Property Name="quantity18" Type="int" />
+    <Property Name="quantity19" Type="int" />
+    <Property Name="quantity20" Type="int" />
+    <Property Name="price1" Type="money" />
+    <Property Name="price2" Type="money" />
+    <Property Name="price3" Type="money" />
+    <Property Name="price4" Type="money" />
+    <Property Name="price5" Type="money" />
+    <Property Name="price6" Type="money" />
+    <Property Name="price7" Type="money" />
+    <Property Name="price8" Type="money" />
+    <Property Name="price9" Type="money" />
+    <Property Name="price10" Type="money" />
+    <Property Name="price11" Type="money" />
+    <Property Name="price12" Type="money" />
+    <Property Name="price13" Type="money" />
+    <Property Name="price14" Type="money" />
+    <Property Name="price15" Type="money" />
+    <Property Name="price16" Type="money" />
+    <Property Name="price17" Type="money" />
+    <Property Name="price18" Type="money" />
+    <Property Name="price19" Type="money" />
+    <Property Name="price20" Type="money" />
+    <Property Name="total" Type="money" />
+    <Property Name="discount" Type="money" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="nvarchar" MaxLength="255" />
+    <Property Name="Customer" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="shift" Type="nvarchar" MaxLength="255" />
+    <Property Name="User" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Inventory.dbo.Items' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Item" Type="nvarchar" MaxLength="255" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="BuyingPrice" Type="money" />
+    <Property Name="SellingPrice" Type="money" />
+    <Property Name="Expected" Type="money" />
+    <Property Name="sold" Type="int" />
+    <Property Name="transfer" Type="int" />
+    <Property Name="Balance" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="NewStock" Type="nvarchar" MaxLength="255" />
+    <Property Name="Returns" Type="nvarchar" MaxLength="255" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="category" Type="nvarchar" MaxLength="255" />
+    <Property Name="SubCategory" Type="nvarchar" MaxLength="255" />
+    <Property Name="Swaps" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reorder" Type="int" />
+    <Property Name="status" Type="nvarchar" MaxLength="255" />
+    <Property Name="ItemCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="tax" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="nvarchar" MaxLength="255" />
+    <Property Name="password" Type="nvarchar" MaxLength="255" />
+    <Property Name="accesslevel" Type="nvarchar" MaxLength="255" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="255" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="255" />
+    <Property Name="prefix" Type="nvarchar" MaxLength="255" />
+    <Property Name="Location" Type="nvarchar" MaxLength="255" />
+    <Property Name="PosUser" Type="bit" />
+    <Property Name="RetailUser" Type="bit" />
+    <Property Name="UsesBoth" Type="bit" />
+    <Property Name="Shifts" Type="bit" />
+    <Property Name="ManagerMenu" Type="bit" />
+    <Property Name="Tables" Type="bit" />
+    <Property Name="Payments" Type="bit" />
+    <Property Name="Reporting" Type="bit" />
+    <Property Name="Sales" Type="bit" />
+    <Property Name="Pricing" Type="bit" />
+    <Property Name="Barcoding" Type="bit" />
+    <Property Name="AddsProducts" Type="bit" />
+    <Property Name="Purchases" Type="bit" />
+    <Property Name="ManageUsers" Type="bit" />
+    <Property Name="ManagePos" Type="bit" />
+    <Property Name="Transfers" Type="bit" />
+    <Property Name="Accounts" Type="bit" />
+    <Property Name="OnShift" Type="bit" />
+    <Property Name="xreport" Type="bit" />
+    <Property Name="zreport" Type="bit" />
+    <Property Name="voidsale" Type="bit" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="button" Type="nvarchar" MaxLength="255" />
+    <Property Name="caption" Type="nvarchar" MaxLength="255" />
+    <Property Name="code" Type="nvarchar" MaxLength="255" />
+    <Property Name="color" Type="nvarchar" MaxLength="255" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="item1" Type="nvarchar" MaxLength="255" />
+    <Property Name="item2" Type="nvarchar" MaxLength="255" />
+    <Property Name="item3" Type="nvarchar" MaxLength="255" />
+    <Property Name="item4" Type="nvarchar" MaxLength="255" />
+    <Property Name="item5" Type="nvarchar" MaxLength="255" />
+    <Property Name="item6" Type="nvarchar" MaxLength="255" />
+    <Property Name="item7" Type="nvarchar" MaxLength="255" />
+    <Property Name="item8" Type="nvarchar" MaxLength="255" />
+    <Property Name="item9" Type="nvarchar" MaxLength="255" />
+    <Property Name="item10" Type="nvarchar" MaxLength="255" />
+    <Property Name="item11" Type="nvarchar" MaxLength="255" />
+    <Property Name="item12" Type="nvarchar" MaxLength="255" />
+    <Property Name="item13" Type="nvarchar" MaxLength="255" />
+    <Property Name="item14" Type="nvarchar" MaxLength="255" />
+    <Property Name="item15" Type="nvarchar" MaxLength="255" />
+    <Property Name="item16" Type="nvarchar" MaxLength="255" />
+    <Property Name="item17" Type="nvarchar" MaxLength="255" />
+    <Property Name="item18" Type="nvarchar" MaxLength="255" />
+    <Property Name="item19" Type="nvarchar" MaxLength="255" />
+    <Property Name="item20" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity1" Type="int" />
+    <Property Name="quantity2" Type="int" />
+    <Property Name="quantity3" Type="int" />
+    <Property Name="quantity4" Type="int" />
+    <Property Name="quantity5" Type="int" />
+    <Property Name="quantity6" Type="int" />
+    <Property Name="quantity7" Type="int" />
+    <Property Name="quantity8" Type="int" />
+    <Property Name="quantity9" Type="int" />
+    <Property Name="quantity10" Type="int" />
+    <Property Name="quantity11" Type="int" />
+    <Property Name="quantity12" Type="int" />
+    <Property Name="quantity13" Type="int" />
+    <Property Name="quantity14" Type="int" />
+    <Property Name="quantity15" Type="int" />
+    <Property Name="quantity16" Type="int" />
+    <Property Name="quantity17" Type="int" />
+    <Property Name="quantity18" Type="int" />
+    <Property Name="quantity19" Type="int" />
+    <Property Name="quantity20" Type="int" />
+    <Property Name="price1" Type="money" />
+    <Property Name="price2" Type="money" />
+    <Property Name="price3" Type="money" />
+    <Property Name="price4" Type="money" />
+    <Property Name="price5" Type="money" />
+    <Property Name="price6" Type="money" />
+    <Property Name="price7" Type="money" />
+    <Property Name="price8" Type="money" />
+    <Property Name="price9" Type="money" />
+    <Property Name="price10" Type="money" />
+    <Property Name="price11" Type="money" />
+    <Property Name="price12" Type="money" />
+    <Property Name="price13" Type="money" />
+    <Property Name="price14" Type="money" />
+    <Property Name="price15" Type="money" />
+    <Property Name="price16" Type="money" />
+    <Property Name="price17" Type="money" />
+    <Property Name="price18" Type="money" />
+    <Property Name="price19" Type="money" />
+    <Property Name="price20" Type="money" />
+    <Property Name="total" Type="money" />
+    <Property Name="discount" Type="money" />
+    <Property Name="button" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="nvarchar" MaxLength="255" />
+    <Property Name="customer" Type="nvarchar" MaxLength="255" />
+    <Property Name="cashier" Type="nvarchar" MaxLength="255" />
+    <Property Name="table" Type="nvarchar" MaxLength="255" />
+    <Property Name="guests" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Purchases">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="item1" Type="nvarchar" MaxLength="255" />
+    <Property Name="item2" Type="nvarchar" MaxLength="255" />
+    <Property Name="item3" Type="nvarchar" MaxLength="255" />
+    <Property Name="item4" Type="nvarchar" MaxLength="255" />
+    <Property Name="item5" Type="nvarchar" MaxLength="255" />
+    <Property Name="item6" Type="nvarchar" MaxLength="255" />
+    <Property Name="item7" Type="nvarchar" MaxLength="255" />
+    <Property Name="item8" Type="nvarchar" MaxLength="255" />
+    <Property Name="item9" Type="nvarchar" MaxLength="255" />
+    <Property Name="item10" Type="nvarchar" MaxLength="255" />
+    <Property Name="item11" Type="nvarchar" MaxLength="255" />
+    <Property Name="item12" Type="nvarchar" MaxLength="255" />
+    <Property Name="item13" Type="nvarchar" MaxLength="255" />
+    <Property Name="item14" Type="nvarchar" MaxLength="255" />
+    <Property Name="item15" Type="nvarchar" MaxLength="255" />
+    <Property Name="item16" Type="nvarchar" MaxLength="255" />
+    <Property Name="item17" Type="nvarchar" MaxLength="255" />
+    <Property Name="item18" Type="nvarchar" MaxLength="255" />
+    <Property Name="item19" Type="nvarchar" MaxLength="255" />
+    <Property Name="item20" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity1" Type="int" />
+    <Property Name="quantity2" Type="int" />
+    <Property Name="quantity3" Type="int" />
+    <Property Name="quantity4" Type="int" />
+    <Property Name="quantity5" Type="int" />
+    <Property Name="quantity6" Type="int" />
+    <Property Name="quantity7" Type="int" />
+    <Property Name="quantity8" Type="int" />
+    <Property Name="quantity9" Type="int" />
+    <Property Name="quantity10" Type="int" />
+    <Property Name="quantity11" Type="int" />
+    <Property Name="quantity12" Type="int" />
+    <Property Name="quantity13" Type="int" />
+    <Property Name="quantity14" Type="int" />
+    <Property Name="quantity15" Type="int" />
+    <Property Name="quantity16" Type="int" />
+    <Property Name="quantity17" Type="int" />
+    <Property Name="quantity18" Type="int" />
+    <Property Name="quantity19" Type="int" />
+    <Property Name="quantity20" Type="int" />
+    <Property Name="price1" Type="money" />
+    <Property Name="price2" Type="money" />
+    <Property Name="price3" Type="money" />
+    <Property Name="price4" Type="money" />
+    <Property Name="price5" Type="money" />
+    <Property Name="price6" Type="money" />
+    <Property Name="price7" Type="money" />
+    <Property Name="price8" Type="money" />
+    <Property Name="price9" Type="money" />
+    <Property Name="price10" Type="money" />
+    <Property Name="price11" Type="money" />
+    <Property Name="price12" Type="money" />
+    <Property Name="price13" Type="money" />
+    <Property Name="price14" Type="money" />
+    <Property Name="price15" Type="money" />
+    <Property Name="price16" Type="money" />
+    <Property Name="price17" Type="money" />
+    <Property Name="price18" Type="money" />
+    <Property Name="price19" Type="money" />
+    <Property Name="price20" Type="money" />
+    <Property Name="total" Type="money" />
+    <Property Name="discount" Type="money" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="nvarchar" MaxLength="255" />
+    <Property Name="supplier" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="shift" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Returns">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="item1" Type="nvarchar" MaxLength="255" />
+    <Property Name="item2" Type="nvarchar" MaxLength="255" />
+    <Property Name="item3" Type="nvarchar" MaxLength="255" />
+    <Property Name="item4" Type="nvarchar" MaxLength="255" />
+    <Property Name="item5" Type="nvarchar" MaxLength="255" />
+    <Property Name="item6" Type="nvarchar" MaxLength="255" />
+    <Property Name="item7" Type="nvarchar" MaxLength="255" />
+    <Property Name="item8" Type="nvarchar" MaxLength="255" />
+    <Property Name="item9" Type="nvarchar" MaxLength="255" />
+    <Property Name="item10" Type="nvarchar" MaxLength="255" />
+    <Property Name="item11" Type="nvarchar" MaxLength="255" />
+    <Property Name="item12" Type="nvarchar" MaxLength="255" />
+    <Property Name="item13" Type="nvarchar" MaxLength="255" />
+    <Property Name="item14" Type="nvarchar" MaxLength="255" />
+    <Property Name="item15" Type="nvarchar" MaxLength="255" />
+    <Property Name="item16" Type="nvarchar" MaxLength="255" />
+    <Property Name="item17" Type="nvarchar" MaxLength="255" />
+    <Property Name="item18" Type="nvarchar" MaxLength="255" />
+    <Property Name="item19" Type="nvarchar" MaxLength="255" />
+    <Property Name="item20" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity1" Type="int" />
+    <Property Name="quantity2" Type="int" />
+    <Property Name="quantity3" Type="int" />
+    <Property Name="quantity4" Type="int" />
+    <Property Name="quantity5" Type="int" />
+    <Property Name="quantity6" Type="int" />
+    <Property Name="quantity7" Type="int" />
+    <Property Name="quantity8" Type="int" />
+    <Property Name="quantity9" Type="int" />
+    <Property Name="quantity10" Type="int" />
+    <Property Name="quantity11" Type="int" />
+    <Property Name="quantity12" Type="int" />
+    <Property Name="quantity13" Type="int" />
+    <Property Name="quantity14" Type="int" />
+    <Property Name="quantity15" Type="int" />
+    <Property Name="quantity16" Type="int" />
+    <Property Name="quantity17" Type="int" />
+    <Property Name="quantity18" Type="int" />
+    <Property Name="quantity19" Type="int" />
+    <Property Name="quantity20" Type="int" />
+    <Property Name="price1" Type="money" />
+    <Property Name="price2" Type="money" />
+    <Property Name="price3" Type="money" />
+    <Property Name="price4" Type="money" />
+    <Property Name="price5" Type="money" />
+    <Property Name="price6" Type="money" />
+    <Property Name="price7" Type="money" />
+    <Property Name="price8" Type="money" />
+    <Property Name="price9" Type="money" />
+    <Property Name="price10" Type="money" />
+    <Property Name="price11" Type="money" />
+    <Property Name="price12" Type="money" />
+    <Property Name="price13" Type="money" />
+    <Property Name="price14" Type="money" />
+    <Property Name="price15" Type="money" />
+    <Property Name="price16" Type="money" />
+    <Property Name="price17" Type="money" />
+    <Property Name="price18" Type="money" />
+    <Property Name="price19" Type="money" />
+    <Property Name="price20" Type="money" />
+    <Property Name="total" Type="money" />
+    <Property Name="discount" Type="money" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="nvarchar" MaxLength="255" />
+    <Property Name="customer" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="shift" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Inventory.dbo.Sales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="item1" Type="nvarchar" MaxLength="255" />
+    <Property Name="item2" Type="nvarchar" MaxLength="255" />
+    <Property Name="item3" Type="nvarchar" MaxLength="255" />
+    <Property Name="item4" Type="nvarchar" MaxLength="255" />
+    <Property Name="item5" Type="nvarchar" MaxLength="255" />
+    <Property Name="item6" Type="nvarchar" MaxLength="255" />
+    <Property Name="item7" Type="nvarchar" MaxLength="255" />
+    <Property Name="item8" Type="nvarchar" MaxLength="255" />
+    <Property Name="item9" Type="nvarchar" MaxLength="255" />
+    <Property Name="item10" Type="nvarchar" MaxLength="255" />
+    <Property Name="item11" Type="nvarchar" MaxLength="255" />
+    <Property Name="item12" Type="nvarchar" MaxLength="255" />
+    <Property Name="item13" Type="nvarchar" MaxLength="255" />
+    <Property Name="item14" Type="nvarchar" MaxLength="255" />
+    <Property Name="item15" Type="nvarchar" MaxLength="255" />
+    <Property Name="item16" Type="nvarchar" MaxLength="255" />
+    <Property Name="item17" Type="nvarchar" MaxLength="255" />
+    <Property Name="item18" Type="nvarchar" MaxLength="255" />
+    <Property Name="item19" Type="nvarchar" MaxLength="255" />
+    <Property Name="item20" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity1" Type="int" />
+    <Property Name="quantity2" Type="int" />
+    <Property Name="quantity3" Type="int" />
+    <Property Name="quantity4" Type="int" />
+    <Property Name="quantity5" Type="int" />
+    <Property Name="quantity6" Type="int" />
+    <Property Name="quantity7" Type="int" />
+    <Property Name="quantity8" Type="int" />
+    <Property Name="quantity9" Type="int" />
+    <Property Name="quantity10" Type="int" />
+    <Property Name="quantity11" Type="int" />
+    <Property Name="quantity12" Type="int" />
+    <Property Name="quantity13" Type="int" />
+    <Property Name="quantity14" Type="int" />
+    <Property Name="quantity15" Type="int" />
+    <Property Name="quantity16" Type="int" />
+    <Property Name="quantity17" Type="int" />
+    <Property Name="quantity18" Type="int" />
+    <Property Name="quantity19" Type="int" />
+    <Property Name="quantity20" Type="int" />
+    <Property Name="price1" Type="money" />
+    <Property Name="price2" Type="money" />
+    <Property Name="price3" Type="money" />
+    <Property Name="price4" Type="money" />
+    <Property Name="price5" Type="money" />
+    <Property Name="price6" Type="money" />
+    <Property Name="price7" Type="money" />
+    <Property Name="price8" Type="money" />
+    <Property Name="price9" Type="money" />
+    <Property Name="price10" Type="money" />
+    <Property Name="price11" Type="money" />
+    <Property Name="price12" Type="money" />
+    <Property Name="price13" Type="money" />
+    <Property Name="price14" Type="money" />
+    <Property Name="price15" Type="money" />
+    <Property Name="price16" Type="money" />
+    <Property Name="price17" Type="money" />
+    <Property Name="price18" Type="money" />
+    <Property Name="price19" Type="money" />
+    <Property Name="price20" Type="money" />
+    <Property Name="total" Type="money" />
+    <Property Name="discount" Type="money" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="nvarchar" MaxLength="255" />
+    <Property Name="customer" Type="nvarchar" MaxLength="255" />
+    <Property Name="Account" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="shift" Type="nvarchar" MaxLength="255" />
+    <Property Name="state" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Inventory.dbo.Sales_Lines' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Sales_Lines">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="item" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="price" Type="money" />
+    <Property Name="tax" Type="money" />
+    <Property Name="priceinc" Type="money" />
+  </EntityType>
+  <EntityType Name="seats">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TableNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="shift">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="dated" Type="nvarchar" MaxLength="255" />
+    <Property Name="ShiftNumber" Type="int" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="State" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Tranname">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="tname" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Debit1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Debit2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Debit3" Type="nvarchar" MaxLength="255" />
+    <Property Name="Debit4" Type="nvarchar" MaxLength="255" />
+    <Property Name="Debit5" Type="nvarchar" MaxLength="255" />
+    <Property Name="Debit6" Type="nvarchar" MaxLength="255" />
+    <Property Name="Credit1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Credit2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Credit3" Type="nvarchar" MaxLength="255" />
+    <Property Name="Credit4" Type="nvarchar" MaxLength="255" />
+    <Property Name="Credit5" Type="nvarchar" MaxLength="255" />
+    <Property Name="Credit6" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Transfers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="item1" Type="nvarchar" MaxLength="255" />
+    <Property Name="item2" Type="nvarchar" MaxLength="255" />
+    <Property Name="item3" Type="nvarchar" MaxLength="255" />
+    <Property Name="item4" Type="nvarchar" MaxLength="255" />
+    <Property Name="item5" Type="nvarchar" MaxLength="255" />
+    <Property Name="item6" Type="nvarchar" MaxLength="255" />
+    <Property Name="item7" Type="nvarchar" MaxLength="255" />
+    <Property Name="item8" Type="nvarchar" MaxLength="255" />
+    <Property Name="item9" Type="nvarchar" MaxLength="255" />
+    <Property Name="item10" Type="nvarchar" MaxLength="255" />
+    <Property Name="item11" Type="nvarchar" MaxLength="255" />
+    <Property Name="item12" Type="nvarchar" MaxLength="255" />
+    <Property Name="item13" Type="nvarchar" MaxLength="255" />
+    <Property Name="item14" Type="nvarchar" MaxLength="255" />
+    <Property Name="item15" Type="nvarchar" MaxLength="255" />
+    <Property Name="item16" Type="nvarchar" MaxLength="255" />
+    <Property Name="item17" Type="nvarchar" MaxLength="255" />
+    <Property Name="item18" Type="nvarchar" MaxLength="255" />
+    <Property Name="item19" Type="nvarchar" MaxLength="255" />
+    <Property Name="item20" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity1" Type="int" />
+    <Property Name="quantity2" Type="int" />
+    <Property Name="quantity3" Type="int" />
+    <Property Name="quantity4" Type="int" />
+    <Property Name="quantity5" Type="int" />
+    <Property Name="quantity6" Type="int" />
+    <Property Name="quantity7" Type="int" />
+    <Property Name="quantity8" Type="int" />
+    <Property Name="quantity9" Type="int" />
+    <Property Name="quantity10" Type="int" />
+    <Property Name="quantity11" Type="int" />
+    <Property Name="quantity12" Type="int" />
+    <Property Name="quantity13" Type="int" />
+    <Property Name="quantity14" Type="int" />
+    <Property Name="quantity15" Type="int" />
+    <Property Name="quantity16" Type="int" />
+    <Property Name="quantity17" Type="int" />
+    <Property Name="quantity18" Type="int" />
+    <Property Name="quantity19" Type="int" />
+    <Property Name="quantity20" Type="int" />
+    <Property Name="price1" Type="money" />
+    <Property Name="price2" Type="money" />
+    <Property Name="price3" Type="money" />
+    <Property Name="price4" Type="money" />
+    <Property Name="price5" Type="money" />
+    <Property Name="price6" Type="money" />
+    <Property Name="price7" Type="money" />
+    <Property Name="price8" Type="money" />
+    <Property Name="price9" Type="money" />
+    <Property Name="price10" Type="money" />
+    <Property Name="price11" Type="money" />
+    <Property Name="price12" Type="money" />
+    <Property Name="price13" Type="money" />
+    <Property Name="price14" Type="money" />
+    <Property Name="price15" Type="money" />
+    <Property Name="price16" Type="money" />
+    <Property Name="price17" Type="money" />
+    <Property Name="price18" Type="money" />
+    <Property Name="price19" Type="money" />
+    <Property Name="price20" Type="money" />
+    <Property Name="total" Type="money" />
+    <Property Name="discount" Type="money" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="nvarchar" MaxLength="255" />
+    <Property Name="customer" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="shift" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Trantype">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="tname" Type="nvarchar" MaxLength="255" />
+    <Property Name="type" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6013: The table/view 'Inventory.dbo.temp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="temp">
+        <Property Name="field1" Type="nvarchar" MaxLength="255" />
+        <Property Name="field2" Type="nvarchar" MaxLength="255" />
+        <Property Name="field3" Type="nvarchar" MaxLength="255" />
+        <Property Name="field4" Type="nvarchar" MaxLength="255" />
+        <Property Name="field5" Type="nvarchar" MaxLength="255" />
+        <Property Name="field6" Type="nvarchar" MaxLength="255" />
+      </EntityType>-->
+</Schema>

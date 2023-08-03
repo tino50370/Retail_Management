@@ -1,0 +1,94 @@
+@model RetailKing.Models.Item
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/js/datepicker/daterangepicker.js")"></script>
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites"
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+                $("#panel").html(result);
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#Profilep").ajaxForm(options);
+
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Add Promotion</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+
+                    @using (Html.BeginForm("Promotion", "Items", FormMethod.Post, new { enctype = "multipart/form-data", @name = "ProfileP", id = "Profilep" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        <fieldset>
+                            @Html.HiddenFor(model => model.ID)
+                            @Html.HiddenFor(model => model.sold)
+                            @Html.HiddenFor(model => model.Balance)
+                            @Html.HiddenFor(model => model.transfer)
+                            @Html.HiddenFor(model => model.Returned)
+                            @Html.HiddenFor(model => model.Image)
+                            @Html.HiddenFor(model => model.PromoImage)
+                            @Html.HiddenFor(model => model.ThumbImage)
+                            @Html.HiddenFor(model => model.Swaps)
+                            @Html.HiddenFor(model => model.NewStock)
+                            @Html.HiddenFor(model => model.Expected)
+                            @Html.HiddenFor(model => model.Amount)
+                            @Html.HiddenFor(model => model.TopSeller)
+                            @Html.HiddenFor(model => model.status)
+                            @Html.Partial("_Promo", Model)
+                            <p></p>
+                           <br />
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button class="btn btn-success" type="submit">Save</button>
+                                    <button class="btn btn-warning" type="button" onclick="GetView('@Url.Action("Stocks", "Items")')">Cancel</button>
+                                </div>
+                           </div> 
+</fieldset>
+                    }
+
+                    <div>
+                        <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+                        <div id="Images"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

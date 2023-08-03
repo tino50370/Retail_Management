@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <title id="main_title"></title>
+    <meta name="description" content="shopping, fashion, groceries, food" />
+    <meta name="keywords" content="shop ,shopping , network marketing, health and beauty ,online shopping zimbabwe,groceries,fashion,deliveries " />
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/css/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/css/jquery.nouislider.min.css")">
+
+    <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Content/Template/js/jquery-1.11.0.min.js")"></script>
+
+    @System.Web.Optimization.Styles.Render("~/Content/css")
+    @System.Web.Optimization.Scripts.Render("~/bundles/modernizr")
+    @{
+        var SID = "";
+    }
+   
+
+</head>
+<body>
+    <div class="container-header">
+        <div class="container-size">
+
+            <!-- Header -->
+            <header class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                    <!-- Top Header -->
+                    <div id="top-header">
+
+                        <div class="row">
+
+                            <nav id="top-navigation" class="col-lg-7 col-md-7 col-sm-7">
+                                <ul class="pull-left">
+                                    @if (Request.IsAuthenticated)
+                                    {
+                                        <li><a href="@Url.Action("DashBoard", "Account")">My Account</a></li>
+                                        <li><a href="@Url.Action("CreateAcount", "Account", new { Company = @ViewData["Company"]})">Create Account</a></li>
+                                        <li><a href="@Url.Action("Invite", "Account")">Send Invite</a></li>
+                                        <li><a id="MyLists" href="@Url.Action("Mylist", "Cart")">Saved List</a></li>
+                                        <li><a href="@Url.Action("Cartitems", "Cart")">My Order</a></li>
+                                    }
+                                    <li><a href="@Url.Action("About","Home")">About Us</a></li>
+                                    <li><a href="@Url.Action("faq","Home")">FAQ</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </nav>
+
+                        </div>
+
+                    </div>
+                    <!-- /Top Header -->
+                    <!-- Main Header -->
+                    <div id="main-header">
+
+                        <div class="row">
+
+                            <div id="logo" class="col-lg-4 col-md-4 col-sm-4">
+                                <a href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Content/Template/img/logo.png")" alt="@ViewData["Company"]"></a>
+                            </div>
+
+                            <nav id="middle-navigation" class="col-lg-8 col-md-8 col-sm-8">
+                                <ul class="pull-right">
+                                    <li class="blue">
+                                        <a id="WishlistSize" href="wishlist.html"><i class="icons icon-heart-empty"></i>0 Items</a>
+                                    </li>
+                                    <li class="orange">
+                                        <a id="ChartSize" href="#"><i class="icons icon-basket-2"></i>0 Items</a>
+                                    </li>
+                                    @if (!Request.IsAuthenticated)
+                                    {
+                                        <li class="login-create purple">
+
+                                            <i class="icons icon-user"></i>
+                                            <p><a href="@Url.Action("Login","Account")">Login</a>  </p>
+                                            <ul id="login-dropdown" class="box-dropdown">
+                                                <li id="loginform">
+                                                </li>
+                                            </ul>
+
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="login-create purple">
+
+                                            <i class="icons icon-user"></i>
+                                            <p id="loginform"></p>
+                                            <ul id="login-dropdown" class="box-dropdown">
+                                                <li>
+                                                    @using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @name = "loginAccount", id = "loginAccount" }))
+                                                    {
+                                                        <div class="box-wrapper">
+                                                            <h4>LOGIN OUT</h4>
+
+                                                            <div class="pull-left">
+                                                                <input type="submit" class="orange" value="Logout" style="width:100%">
+                                                            </div>
+
+                                                            <br class="clearfix">
+                                                        </div>
+                                                        <div class="footer">
+
+                                                        </div>
+                                                    }
+                                                </li>
+                                            </ul>
+
+                                        </li>
+                                    }
+                                </ul>
+                            </nav>
+
+                        </div>
+
+                    </div>
+                    <!-- /Main Header -->
+                    <!-- Main Navigation -->
+                    <nav id="main-navigation" class="style2">
+                    </nav>
+                    <!-- /Main Navigation -->
+                    <br />
+                    <section id="bannerAd" class="banner"></section>
+                </div>
+            </header>
+            <!-- /Header -->
+        </div>
+    </div>
+    <div id="homebody" class="container">
+        <div id="body" class="row content">
+            <section class="content-wrapper main-content clear-fix">
+                <div id="panel">
+                    @RenderBody()
+                </div>
+            </section>
+        </div>
+        <!-- Footer -->
+        <footer id="footer" class="row">
+            @if (!Request.IsAuthenticated)
+            {
+                <!-- Upper Footer -->
+                <div id="rcode" class="col-lg-12 col-md-12 col-sm-12">
+
+                    <div id="upper-footer">
+
+                        <div class="row">
+
+                            <!-- Newsletter -->
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                @using (Html.BeginForm("CodeRegister", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @name = "CodeReg", id = "CodeReg" }))
+                                {
+                                    @* MvcCaptcha sampleCaptcha = new MvcCaptcha("SampleCaptcha");*@
+                                    @Html.AntiForgeryToken()
+                                    <h4>Code Registration</h4>
+                                    <p><em style="color:#F5791F; font-size: 14px">Use this option if you have a registration code. If you dont have then you need an invitation.</em></p>
+                                    <div class="col-lg-4 col-md-4 col-sm-6">
+                                        <input type="text" id="regcode" name="regcode" placeholder="Enter your registration code" style="width:100%">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-6">
+                                        @*@Html.Captcha(sampleCaptcha)*@
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-6">
+                                        @Html.TextBox("CaptchaCode", "", new { style = "width:71%", placeholder = "Enter characters from picture" })
+                                        <input type="submit" name="newsletter-submit" value="Submit">
+                                    </div>
+                                }
+                            </div>
+                            <!-- /Newsletter -->
+                            @*
+                                <!-- Social Media -->
+                                <div class="col-lg-5 col-md-5 col-sm-5 social-media">
+                                    <h4>Stay Connected</h4>
+                                    <ul>
+                                        <li class="social-googleplus tooltip-hover" data-toggle="tooltip" data-placement="top" title="Google+"><a href="#"></a></li>
+                                        <li class="social-facebook tooltip-hover" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="#"></a></li>
+                                        <li class="social-pinterest tooltip-hover" data-toggle="tooltip" data-placement="top" title="Pinterest"><a href="#"></a></li>
+                                        <li class="social-twitter tooltip-hover" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="#"></a></li>
+                                        <li class="social-youtube tooltip-hover" data-toggle="tooltip" data-placement="top" title="Youtube"><a href="#"></a></li>
+                                    </ul>
+                                </div>
+                                <!-- /Social Media -->
+                            *@
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /Upper Footer -->
+
+            }
+
+
+            <!-- Lower Footer -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div id="lower-footer">
+
+                    <div class="row">
+                        <table width="135" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose GeoTrust SSL for secure e-commerce and confidential communications.">
+                            <tr>
+                                <td width="135" align="center" valign="top">
+                                    <script type="text/javascript" src="https://seal.geotrust.com/getgeotrustsslseal?host_name=www.baskiti.com&amp;size=M&amp;lang=en"></script>
+                                    <br />
+                                    <a href="http://www.geotrust.com/ssl/" target="_blank" style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;"></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <p class="copyright">Copyright @DateTime.Now.Year <a href="#">Baskiti</a>. All Rights Reserved. <a href="http://www.faithworksystems.com">A Faithwork Systems</a></p>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <ul class="payment-list">
+                                <li class="payment1"></li>
+                                <li class="payment2"></li>
+                                <li class="payment3"></li>
+                                <li class="payment4"></li>
+                                <li class="payment5"></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- /Lower Footer -->
+        </footer>
+        <!-- Footer -->
+    </div>
+
+    <script src="@Url.Content("~/Content/Template/js/jquery-ui.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/js/jquery.raty.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/js/perfect-scrollbar.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/js/zoomsl-3.0.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/js/jquery.themepunch.plugins.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/js/jquery.themepunch.revolution.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/js/flexslider.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/js/jquery.iosslider.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/js/jquery.nouislider.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/js/jquery.fancybox.pack.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>
+
+    <script src="@Url.Content("~/Content/Template/js/owl.carousel.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/js/chosen.jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/js/bootstrap.min.js")"></script>
+
+    <script src="@Url.Content("~/Content/Template/js/tinynav.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/store/main-script.js")"></script>
+    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            try {
+                var id = localStorage.getItem('SessionId');
+                //alert(id);
+                if (id == '' || id == undefined) {
+                    id = '@ViewData["Sessionid"]';
+                    // alert(id);
+                    localStorage.setItem('SessionId', id);
+
+                }
+                var lnk = '/Cart/CartItems?GSL=' + id;
+                var link = document.getElementById("ChartSize");
+                link.setAttribute('href', lnk )
+            }
+            catch (err) {
+            }
+        });
+    </script>
+
+</body>
+</html>

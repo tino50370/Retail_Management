@@ -1,0 +1,59 @@
+﻿@model RetailKing.Models.ItemImage
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="grid_10">
+    <div class="box round ">
+       <h2>Create</h2>
+
+       @using (Html.BeginForm("Create", "ItemImages", FormMethod.Post, new { enctype = "multipart/form-data", @name = "ProfileP", id = "Profilep" }))
+       {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend></legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ItemCode)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ItemCode)
+                    @Html.ValidationMessageFor(model => model.ItemCode)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Image)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Image)
+                    @Html.ValidationMessageFor(model => model.Image)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ImageThumb)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ImageThumb)
+                    @Html.ValidationMessageFor(model => model.ImageThumb)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ImageType)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ImageType)
+                    @Html.ValidationMessageFor(model => model.ImageType)
+                </div>
+                <br />
+                <p>
+                    <button class="btn btn-black" type="submit">Save</button>
+                    <button class="btn btn-black" type="button" onclick="GetView('@Url.Action("Index", "ItemImages", new { id = ViewData["ItemCode"]})')">Cancel</button>
+                </p>
+            </fieldset>
+        }
+
+   </div>
+</div>

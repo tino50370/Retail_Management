@@ -1,0 +1,38 @@
+@model RetailKing.Models.Loyalty
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Redeem Points</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                 @using (Html.BeginForm("CustomerPoints", "Loyalty", FormMethod.Post, new { id = "CustomerPoints" }))
+                 {
+                    <div class="editor-label">
+                        @Html.Label("Card/Customer/Mobile Number")
+                    </div>
+                    <div class="editor-field ">
+                        @Html.TextBoxFor(model => model.CardNumber, new { @class = "form-control " })
+                        @Html.ValidationMessageFor(model => model.CardNumber, "", new { style = "color:red" })
+                    </div>
+                   
+                  }
+                    <br />
+                    <div >
+                        <button class="btn btn-success " onclick="GetSearch('CustomerPoints')">Check</button>
+                    </div>
+                    <br/>
+                    <div id="searchData"></div>
+                    
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+

@@ -1,0 +1,43 @@
+﻿@model RetailKing.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+
+
+
+@using (Html.BeginForm("Login", "Accounts", FormMethod.Post, new { enctype = "multipart/form-data", @name = "loginAccount", id = "loginAccount" }))
+{
+<div class="box-wrapper">
+    <h4>LOGIN</h4>
+    <div class="iconic-input">
+        @Html.TextBoxFor(m => m.User, new { placeholder = "Email Address" })
+        <i class="icons icon-user-3"></i>
+    </div>
+    <div class="iconic-input">
+        @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+        <i class="icons icon-lock"></i>
+    </div>
+    <input type="checkbox" id="loginremember"> <label for="loginremember">Remember me</label>
+    <br>
+    <br>
+    <div class="pull-left">
+        <input type="submit" class="orange" value="Login">
+        
+    </div>
+    <div class="pull-right">
+        <a href="#">Forgot your password?</a>
+        <br>
+        
+    </div>
+    <div>
+        <span class="error"></span>
+    </div>
+    <br class="clearfix">
+</div>
+<div class="footer">
+    
+</div>
+}
+<iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+<div id="Images"></div>

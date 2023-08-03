@@ -1,0 +1,170 @@
+@model RetailKing.Models.Currency
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+ <script type="text/javascript">
+     $(function (event) {
+         $("#Level").change(function (event) {
+             //  event.preventDefault();
+             // alert($("#Level").val());
+             if ($("#Level").val() == "SECOND") {
+                 $("#Level1").show();
+                 $("#Level2d").show();
+                 $("#Level3d").hide();
+                 $("#second").hide();
+                 $("#second_div").hide();
+                 $("#minu2").hide();
+                 $("#Level2").val('');
+                 $("#Level3").val('');
+             }
+             else if ($("#Level").val() == "THIRD") {
+                 $("#Level1").show();
+                 $("#second").show();
+                 $("#second_div").show();
+                 $("#Level2d").hide();
+                 $("#Level3d").show();
+                 $("#minu2").show();
+                 $("#Level2").val('');
+                 $("#Level3").val('');
+             }
+         });
+
+         $("#Level1").change(function (event) {
+
+             if ($("#Level").val() == "THIRD")
+             {
+                 $.ajax({
+                     type: "Get",
+                     url: '/Accounts/secondLevel',
+                     dataType: 'html',
+                     data: { json_str: $("#Level1").val() },
+                     success: function (resp) {
+                         var data = $.parseJSON(resp);
+                         var ddl = $('#second');
+                         ddl.empty();
+                      //  alert(data)
+                         $.each(data, function (index, value) {
+                             // alert(value.Name);
+                             ddl.append(
+                             $('<option/>', {
+                                 value: value.Value,
+                                 text: value.Text
+                             })
+                             );
+                         });
+                         
+                     },
+                     error: function (data) {
+                     }
+                 });
+             }
+             else if ($("#Level").val() == "SECOND")
+             {
+                 $.ajax({
+                     type: "Get",
+                     url: '/Accounts/AccountNumber',
+                     dataType: 'html',
+                     data: {
+                         json_str: $("#Level1").val(),
+                         level: $("#Level").val()
+                     },
+                     success: function (resp) {
+                         var data = $.parseJSON(resp);
+                         var ddl = $('#Level2');
+                       
+                         ddl.val(data);
+ 
+                     },
+                     error: function (data) {
+                     }
+                 });
+             }
+         });
+
+         $("#second").change(function () {     
+             $("#Level2").val($("#second").val());
+             $.ajax({
+                 type: "Get",
+                 url: '/Accounts/AccountNumber',
+                 dataType: 'html',
+                 data: {
+                     json_str: $("#Level1").val(),
+                     level: $("#Level").val()
+                 },
+                 success: function (resp) {
+                     var data = $.parseJSON(resp);
+                     var ddl = $('#Level3');
+                    
+                     ddl.val(data);
+                     $("#AccountCode").val( $("#second").val() + "-" + data)
+                 },
+                 error: function (data) {
+                 }
+             });
+         })
+
+         $("#Level2").keyup(function (e) {
+             // alert("oyiroyryi");
+             var txt = $("#Level2").val();
+             if (txt.length > 2) {
+                 var n = $("#Level2").val()
+                 $("#Level2").val(n.substring(0, n.length - 1));
+                 $("#Level2").focus();
+             }
+         });
+
+         $("#Level3").keyup(function (e) {
+             // alert("oyiroyryi");
+             var txt = $("#Level3").val();
+             if (txt.length > 3) {
+                 var n = $("#Level3").val()
+                 $("#Level3").val(n.substring(0, n.length - 1));
+                 $("#Level3").focus();
+             }
+         });
+
+       
+     })
+ </script>
+<div class="col-md-8">
+    <div class="editor-label">
+        @Html.Label("Company")
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(m => m.Company , new SelectList((IEnumerable<SelectListItem>)ViewBag.Company, "Value", " Text", Model.Company), new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Company )
+    </div>
+
+    <div class="editor-label">
+        @Html.Label("Currency")
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Curency, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Curency)
+    </div>
+
+    <div class="editor-label">
+        @Html.Label("Description")
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Description , new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Description )
+    </div>
+
+    <div class="editor-label">
+        @Html.Label("Exchange Rate")
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.ExchangeRate, new { @class = "form-control", type="number", step="0.01"})
+        @Html.ValidationMessageFor(model => model.ExchangeRate )
+    </div>
+   
+    <div class="editor-label">
+        @Html.Label("Base Currency")
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.IsBase, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.IsBase)
+    </div>
+
+</div>

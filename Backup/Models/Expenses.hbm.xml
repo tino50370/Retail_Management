@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="RetailKing.Models.Expenses, RetailKing" table="Expenses" >
+
+    <id name="Id" column="ID" type="System.Int64" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+
+    <property name="value" column="value"  not-null="false" type="System.Decimal"   insert="true" update="true"/>
+    <property name="Amount" column="Amount"  not-null="false" type="System.Decimal"   insert="true" update="true"/>
+    <property name="Balance" column="Balance"  not-null="false" type="System.Decimal"   insert="true" update="true"/>
+    <property name="AccountCode" column="AccountCode"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="AccountName" column="AccountName"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Description" column="Description"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Payee" column="Payee"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Dated" column="Dated"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="type" column="type"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="cashier" column="cashier"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="till" column="till"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+
+  </class>
+</hibernate-mapping>

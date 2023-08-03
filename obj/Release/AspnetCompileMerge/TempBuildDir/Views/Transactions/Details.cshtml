@@ -1,0 +1,113 @@
+﻿@model RetailKing.Models.TransactionData
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Transactions</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TransactionName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TransactionName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Type)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Type)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Debit1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Debit1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Debit2)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Debit2)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Debit3)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Debit3)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Debit4)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Debit4)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Debit5)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Debit5)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Debit6)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Debit6)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Credit1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Credit1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Credit2)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Credit2)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Credit3)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Credit3)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Credit4)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Credit4)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Credit5)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Credit5)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Credit6)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Credit6)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

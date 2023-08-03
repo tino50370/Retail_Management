@@ -1,0 +1,21 @@
+﻿@model IEnumerable<RetailKing.Models.Suburb>
+
+<style>
+    #surblist {
+        z-index:1000;
+    }
+</style>
+@*@@Html.DropDownListFor(m => m.Suburb, new SelectList(
+                                (IEnumerable<SelectListItem>)ViewBag.Suburb,
+                                     "Value",
+                         "Text"), new { style = "width:100%; height: 30px", @class = "chosen-select" })*@
+<ul id="surblist" style="border:solid 1px #E6E6E6">
+    @foreach (var item in Model)
+    {
+
+        <li style="cursor:pointer" onclick="SelectSuburb('@item.Name.Trim()','@item.RegionId')">
+            @item.Name
+        </li>
+
+    }
+</ul>

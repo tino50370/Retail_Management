@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="RetailKing.Models.login, RetailKing" table="login" >
+
+    <id name="Id" column="ID" type="System.Int64" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+
+    <property name="username" column="username"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="password" column="password"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="accesslevel" column="accesslevel"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Firstname" column="Firstname"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Surname" column="Surname"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="prefix" column="prefix"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Location" column="Location"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="PosUser" column="PosUser"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="RetailUser" column="RetailUser"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="UsesBoth" column="UsesBoth"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="Shifts" column="Shifts"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="ManagerMenu" column="ManagerMenu"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="Tables" column="Tables"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="Payments" column="Payments"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="Reporting" column="Reporting"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="Sales" column="Sales"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="Pricing" column="Pricing"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="Barcoding" column="Barcoding"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="AddsProducts" column="AddsProducts"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="Purchases" column="Purchases"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="ManageUsers" column="ManageUsers"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="ManagePos" column="ManagePos"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="Transfers" column="Transfers"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="Accounts" column="Accounts"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="OnShift" column="OnShift"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="xreport" column="xreport"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="zreport" column="zreport"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+    <property name="voidsale" column="voidsale"  not-null="false" type="System.Boolean"  length="100" insert="true" update="true"/>
+
+  </class>
+</hibernate-mapping>

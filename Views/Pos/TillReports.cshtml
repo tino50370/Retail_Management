@@ -1,0 +1,53 @@
+﻿@model  IEnumerable<RetailKing.Models.Sale>
+@{
+    ViewBag.Title = "xreport";
+}
+
+<div style="page-break-after: always;">
+    <table style="width:100%">
+        <tbody>
+         
+                <tr style="border-style: none">
+                    <td colspan="3" style="text-align: center; font-size:large; font-weight:bold">@ViewData["Company"] </td>
+                </tr>
+            
+                <tr style="border-style: none">
+                    <td colspan="3" style="text-align: center">Sales Sammary</td>
+                </tr>
+            
+                <tr style="border-style: none">
+                    <td colspan="2" >CASHIER: @ViewData["Cashier"]</td>
+                    <td colspan="1">@DateTime.Now.ToString("dd/MM/yyyy")</td>
+                </tr>
+            
+          
+            @foreach (var menu in Model)
+            {
+                var parts = menu.PaymentModes.Split(',');
+                <tr style="cursor: pointer">
+                    <td colspan="1" style="border-style:none;  vertical-align: middle;">@menu.Reciept </td>
+                    <td colspan="1" style="border-style:none;  vertical-align: middle;">@menu.dated.Value.ToShortTimeString() </td>
+                    <td colspan="1" style="border-style:none;  vertical-align: middle;float: right">@menu.total </td>
+                </tr>
+                if(menu.customer != null)
+                {
+                    <tr style="cursor: pointer">
+                        <td colspan="3" style="border-style:none;  vertical-align: middle;">@menu.customer </td>
+                    </tr>
+                }
+                foreach (var itm in parts)
+                {
+                    var pitm = itm.Split('-');
+                    if (pitm.Length == 2)
+                    {
+                    <tr style="border-style: none">
+                        <td colspan="2" style="text-align:center; border-style:none ">@pitm[0]</td>
+                        <td colspan="1" style="text-align:center; border-style:none ">@String.Format("{0:F}", pitm[1]) </td>
+                    </tr>
+                    }
+                }
+            }
+           
+        </tbody>
+    </table>
+</div>    

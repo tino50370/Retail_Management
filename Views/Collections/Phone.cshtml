@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Phone";
+}
+
+<div class="row content">
+
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="breadcrumbs">
+            <p><a href="@Url.Action("Index","Home")">Home</a> <i class="icons icon-right-dir"></i> <a href="#">Phone Number </a> </p>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <section class="main-content col-lg-9 col-md-9 col-sm-9">
+        <div id="product-single">
+
+            <div style="background-color:#34495E; height:40px; color:#fff; font-size:large; font-weight:bold; margin: 10px 15px">
+                <span style="top :10px;margin-left:20px; color:#fff">Enter Delivery Phone Number for Airtime</span>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <form id="newsletter" action="http://inthe7heaven.com/homeshop-html/php/newsletter.php">
+                    <div id="PError" style="display:none; border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:99%;height:40px">
+
+                    </div>
+                    <h4>Phone Number</h4>
+                   
+                    <input type="text" id="Pnum" name="Phone_number" placeholder="Enter Cellphone number eg. 0777000111 ">
+                    <input type="button" onclick="SaveNumber('@ViewData["ItemId"]')" name="Phone_number-submit" class=" button green " value="Submit">
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

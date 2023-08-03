@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Tender";
+}
+
+
+<div class="col-md-12 " style="width:500px">     
+          <div class="col-md-12 floatleft">
+          <div style="color: #67217A; font-size:32px;"> Customer</div>
+          <div style="width: 100%; float: left">
+             <div class="col-md-8"><input type="text" id="Creditq" style="width : 98%; height: 25px" placeholder="Account Number, Name " />
+                 <div id="customers" style="position:absolute; top:78px; width: 98%"></div>    
+             </div>
+              <div id="cPeriod" class="col-md-2" style="height:30px; " >@Html.DropDownList("Days", new SelectList((IEnumerable<SelectListItem>)ViewBag.ResortArea, "Value", " Text"), new {style="height:30px" }) </div>
+              <div class="col-md-2" style="height:30px; background-color:#17806E" onclick="Back()"><img alt="" src="@Url.Content("~/Content/Images/clear.png")" style="width :80%; margin-top: -19%; margin-left: 1%"/></div>
+          </div>
+              <div id="Btns" style="margin-top:10px; width: 100%; height:400px;  ">
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="7" onclick="onNumber('7')">7</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="8" onclick="onNumber('8')">8</div>
+                  <div class="col-md-4" style="margin-top:15px;   width:32%; height:65px; background-color: #67217A; color: White;font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="9" onclick="onNumber('9')">9</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="4" onclick="onNumber('4')">4</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="5" onclick="onNumber('5')">5</div>
+                  <div class="col-md-4" style="margin-top:15px; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="6" onclick="onNumber('6')">6</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="1" onclick="onNumber('1')">1</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="2" onclick="onNumber('2')">2</div>
+                  <div class="col-md-4" style="margin-top:15px;  width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="3" onclick="onNumber('3')">3</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="." onclick="onNumber('.')">.</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="0" onclick="onNumber('0')">0</div>
+                  <div class="col-md-4" style="margin-top:15px;  width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; font-weight: bold; cursor: pointer" id="Enter" onclick="setCustomer('@ViewData["Action"]')">Enter</div>
+              </div>
+             
+        </div> 
+        </div> 
+    
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // document.getElementById("Creditq").focus();
+        $('#Creditq').focus;
+        $("#Creditq").bind('input propertychange', function (e) {
+            // alert("oyiroyryi");
+            var txt = $("#Creditq").val();
+            if (txt.length > 1) {
+                $.ajax({
+                    type: "Get",
+                    url: '@Url.Action("Search", "Customers")',
+                    dataType: 'html',
+                    data: { searchtext: $("#Creditq").val() },
+                    success: function (resp) {
+                        $('#customers').html(resp);
+                    },
+                    error: function (data) {
+                    }
+                });
+            } else {
+                $('#customers').html('');
+            }
+        });
+
+        if (IsCredit == "N") {
+            $('#cPeriod').hide();
+        }
+
+      //  changeTextarea();
+       // onFocused();
+    });
+
+
+ 
+    function placeText(id) {
+        //  alert(id);
+        $('#Creditq').val(id);
+        $('#customers').html('');
+        customerSelected = 'Y';
+    }
+
+    function setCustomer() {
+        customerName = $('#Creditq').val();
+        creditPeriod = $('#Days').val();
+        if (IsCredit == "N") {
+            if (customerSelected == 'Y') {
+                GetPartialView('/Pos/Tender', 'total', 'N');
+            }
+        }
+        else {
+            if (customerSelected == 'Y') {
+                Savesale();
+            }
+        }
+    }
+</script>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--shopping list-->
+<Items>
+  <Item>
+    <ItemId>CERESMANGO1LT</ItemId>
+    <Quantity>1.0000</Quantity>
+  </Item>
+  <Item>
+    <ItemId>DAWNALOEVERABC200G</ItemId>
+    <Quantity>1.0000</Quantity>
+  </Item>
+</Items>

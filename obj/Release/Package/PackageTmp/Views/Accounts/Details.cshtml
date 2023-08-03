@@ -1,0 +1,32 @@
+@model RetailKing.Models.Account
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Account</legend>
+
+    <div class="display-label">AccountCode</div>
+    <div class="display-field">@Model.AccountCode</div>
+
+    <div class="display-label">AccountName</div>
+    <div class="display-field">@Model.AccountName</div>
+
+    <div class="display-label">Balance</div>
+    <div class="display-field">@String.Format("{0:F}", Model.Balance)</div>
+
+    <div class="display-label">Opening</div>
+    <div class="display-field">@String.Format("{0:F}", Model.Opening)</div>
+
+    <div class="display-label">LinkAccount</div>
+    <div class="display-field">@Model.LinkAccount</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

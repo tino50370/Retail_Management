@@ -1,0 +1,45 @@
+@model RetailKing.Models.MailingService  
+
+@{
+    ViewBag.Title = "Create";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>New Service</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="col-md-12">
+
+                    @using (Html.BeginForm("CreateMailingService", "MailSettings", FormMethod.Post, new { enctype = "multipart/form-data", @name = "Create", id = "createMailList" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        @Html.AntiForgeryToken()
+                        <fieldset>
+                            @Html.HiddenFor(m => m.Status, new { value = "Stopped"})
+
+                            @Html.Partial("_MailingServiceCreateOrEdit", Model)
+
+                            <p>
+
+                            </p>
+                        </fieldset>
+
+                    }
+                    <br/>
+                    <div>
+                        <button class="btn btn-success" onclick="SaveView('createMailList')">Save</button>
+                        <button class="btn btn-warning" onclick="GetView('@Url.Action("MailingServices", "MailSettings")')">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+            <div id="Images"></div>
+        </div>
+    </div>
+</div>

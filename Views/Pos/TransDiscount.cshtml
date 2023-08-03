@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Discount";
+}
+
+
+<div class="container_12" style="width:500px">
+    <div class="x_panel">
+        <div class="row">
+            <div class="x_content">
+                <h3>@ViewData["item"]</h3>
+                <h4>You are about to Discount by @ViewData["percent"] % !!!</h4>
+                <br />
+                <button type="button" onclick="YesDiscountTrans('','','@ViewData["TransType"]','@ViewData["DisType"]','@ViewData["percent"]','@ViewData["amount"]','YES')" class="btn btn-success"> Yes</button>
+                <button type="button" onclick="setPayment('','','@ViewData["TransType"]','NO','@ViewData["amount"]')" class="btn btn-warning"> No</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@model RetailKing.Models.Customer
+
+
+<script type="text/javascript">
+       $(document).ready(function () {
+
+           $("#Region").change(function () {
+             
+              var xx = $("#Region").val();
+              $.ajax({
+                  type: "Get",
+                  url: '@Url.Action("GetSuburbs", "Accounts")',
+                  dataType: 'html',
+                  data: {
+                      Id: xx
+                  },
+                  success: function (resp) {
+                       $("#Suburb_select").html(resp);
+
+                  },
+                  error: function (data) {
+                  }
+              });
+          });
+
+
+      });
+</script>
+
+@Html.DropDownList("Region", new SelectList(
+                                     (IEnumerable<SelectListItem>)ViewBag.Regions,
+                                          "Value",
+                                    "Text"), new { id= "Region", style = " height: 30px", @class = "chosen-select" })

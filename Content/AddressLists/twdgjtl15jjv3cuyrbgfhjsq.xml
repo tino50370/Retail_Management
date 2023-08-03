@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Address list-->
+<Addresses>
+  <Address>
+    <Id>1</Id>
+    <Contact>Guest</Contact>
+    <Address1>12 typ</Address1>
+    <CityId>2</CityId>
+    <City>2</City>
+    <SuburbId>1</SuburbId>
+    <Suburb>feedrite</Suburb>
+    <RegionId>1</RegionId>
+    <Phone>0789567934</Phone>
+  </Address>
+</Addresses>

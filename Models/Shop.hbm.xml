@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="Yomoney.Models.Shop, Yomoney" table="Shop" >
+    <id name="Id" column="AccountNo" type="System.String">
+      <generator class="assigned"/>
+    </id>
+    <property name="TerminalID" column="TerminalID"  not-null="false" type="System.String"  length="30" insert="true" update="true"/>
+    <property name="Mac" column="Mac"  not-null="false" type="System.String"  length="30" insert="true" update="true"/>
+    <property name="Activation" column="Activation"  not-null="false" type="System.String"  length="30" insert="true" update="true"/>
+    <property name="ActKey" column="ActKey"  not-null="false" type="System.String"  length="80" insert="true" update="true"/>
+  </class>
+</hibernate-mapping>

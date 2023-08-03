@@ -1,0 +1,251 @@
+﻿@model IEnumerable<RetailKing.Models.Recipe>
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        // $("#DateCreated").datepicker({ dateFormat: "d MM yy" });
+        //$("#Date").datepicker({ dateFormat: "d MM yy" });
+        Receipt = '@ViewData["ItemCode"].ToString()';
+        $("#SearchInItems").focus();
+
+        $("#category").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("GrvList", "Items")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SubCategory").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("GrvList", "Items")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("GrvList", "Items")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: '',
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            var s = $('#SearchInItems').val();
+            if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                $.ajax({
+                    type: "Post",
+                    url: '@Url.Action("GrvList", "Items")',
+                    dataType: 'html',
+                    data: {
+                        ItemCode: $("#SearchInItems").val(),
+                        iDisplayLength: $("#SizeR").val(),
+                        sEnd: $("#Date").val(),
+                        sStart: $("#DateCreated").val(),
+                        sEcho: 1
+                    },
+                    success: function (resp) {
+                        $('#panel').html(resp);
+                    },
+                    error: function (data) {
+                    }
+                });
+            }
+            //   }, 2000);
+        });
+
+
+
+    });
+</script>
+
+<script type="text/javascript">
+    function GetPageR(thispage) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("GrvList", "Items")',
+            dataType: 'html',
+            data: {
+                sEnd: $("#Date").val(),
+                sStart: $("#DateCreated").val(),
+                ItemCode: '',
+                iDisplayStart: thispage,
+                iDisplayLength: $("#SizeR").val(),
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>@ViewData["Item"] Recipe</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+
+                    <table class="table table-striped" style="width:100%;">
+                        <tr>
+                           
+                            <th>
+                                @Html.DisplayName("Item Code")
+                            </th>
+                            
+                            <th>
+                                @Html.DisplayName("Name")
+                            </th>
+
+                            <th>
+                                @Html.DisplayName("Quantity")
+                            </th>
+                            
+                            <th><button class="btn btn-success btn-sm pull-right"  onclick="GetFancy('@Url.Action("AddRecipeItem", "Items", new { Id = ViewData["ItemCode"].ToString()})')"><span></span>Add Ingridient</button></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                           
+
+                            <tr>
+                               
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ItemCode )
+                                </td>
+                               
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ItemName  )                              
+                                </td>       
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Quantity)
+                                    @Html.DisplayFor(modelItem => item.Unit)
+                                </td>
+                               
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm pull-right" onclick="GetFancy('@Url.Action("DeleteRecipe", "Items", new { Id = item.Id})')"><strong>Delete</strong></button>
+                                    @*<button type="button" class="btn btn-primary btn-sm pull-right" onclick="GetFancy('@Url.Action("EditRecipe", "Items", new { Id = item.Id})')"><strong>Edit</strong></button>*@
+                                </td>
+                            </tr>
+                            
+                        }
+                        <tr>
+                            <th colspan="12" style="background-color: #E2E4FF; ">
+                                <div onclick="GetPageR()" style="float: left; padding-left: 10px"> Pages</div>
+                                @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                                {
+                                    if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                    {
+                                        <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                                    }
+                                    else
+                                    {
+                                        <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                                    }
+                                }
+                                <div style="float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+</div>
+</div>
+</div>
+<script src="@Url.Content("~/Content/Administration/js/datepicker/daterangepicker.js")"></script>
+<script src="@Url.Content("~/Content/Administration/js/moment/moment.min.js")"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#Date').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+        $('#AquisitionDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+        $('#DisposalDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+        $('#DateCreated').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+        $('#ExpireryDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+    })
+</script>

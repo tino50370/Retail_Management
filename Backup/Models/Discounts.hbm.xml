@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="RetailKing.Models.Discounts, RetailKing" table="Discounts" >
+
+    <id name="Id" column="ID" type="System.Int64" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+
+    <property name="Amount" column="Amount"  not-null="false" type="System.Decimal"   insert="true" update="true"/>
+    <property name="Invoice" column="Invoice"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="users" column="Users"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Dated" column="dated"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Receipt" column="Receipt"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+   
+  </class>
+</hibernate-mapping>

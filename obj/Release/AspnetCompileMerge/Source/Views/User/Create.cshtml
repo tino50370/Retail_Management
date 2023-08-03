@@ -1,0 +1,294 @@
+﻿@model RetailKing.Models.login
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="grid_10">
+ <div class="box round ">
+<h2>Create New User</h2>
+<p></p>
+@using (Html.BeginForm("Create", "User", FormMethod.Post, new { enctype = "multipart/form-data", @name = "NewUser", id = "createUser" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+        <div class="grid_4">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.username)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.username)
+            @Html.ValidationMessageFor(model => model.username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.password)
+            @Html.ValidationMessageFor(model => model.password)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Access Level")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.accesslevel , new SelectList(new[] {"CASHIER", "SUPERVISOR", "MANAGER", "ADMINISTRATOR" })) 
+            @Html.ValidationMessageFor(model => model.accesslevel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Firstname)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Firstname)
+            @Html.ValidationMessageFor(model => model.Firstname)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Surname)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Surname)
+            @Html.ValidationMessageFor(model => model.Surname)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.prefix)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.prefix)
+            @Html.ValidationMessageFor(model => model.prefix)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Location)
+        </div>
+        <div class="editor-field">
+       
+            @Html.DropDownListFor(m => m.Location, new SelectList((IEnumerable<SelectListItem>)ViewBag.Company, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Location)
+        </div>
+</div> 
+
+ <div class="grid_6">
+     <div class="box round ">
+     <h2>Back Office Roles</h2>
+    
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RetailUser)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RetailUser)
+            @Html.ValidationMessageFor(model => model.RetailUser)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UsesBoth)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UsesBoth)
+            @Html.ValidationMessageFor(model => model.UsesBoth)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Shifts)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Shifts)
+            @Html.ValidationMessageFor(model => model.Shifts)
+        </div>
+</div> 
+   
+     <div class="grid_2 last">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Tables)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Tables)
+            @Html.ValidationMessageFor(model => model.Tables)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Payments)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Payments)
+            @Html.ValidationMessageFor(model => model.Payments)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Reporting)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Reporting)
+            @Html.ValidationMessageFor(model => model.Reporting)
+        </div>
+</div> 
+    
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Pricing)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Pricing)
+            @Html.ValidationMessageFor(model => model.Pricing)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Barcoding)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Barcoding)
+            @Html.ValidationMessageFor(model => model.Barcoding)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AddsProducts)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AddsProducts)
+            @Html.ValidationMessageFor(model => model.AddsProducts)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Purchases)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Purchases)
+            @Html.ValidationMessageFor(model => model.Purchases)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ManageUsers)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ManageUsers)
+            @Html.ValidationMessageFor(model => model.ManageUsers)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ManagePos)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ManagePos)
+            @Html.ValidationMessageFor(model => model.ManagePos)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Transfers)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Transfers)
+            @Html.ValidationMessageFor(model => model.Transfers)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Accounts)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Accounts)
+            @Html.ValidationMessageFor(model => model.Accounts)
+        </div>
+</div>
+         </div>
+     <p></p> 
+     </div>
+ 
+ <div class="grid_6">
+     <div class="box round "> 
+      <h2>Point Of Sale Roles</h2>
+          <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PosUser)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PosUser)
+            @Html.ValidationMessageFor(model => model.PosUser)
+        </div>
+    </div> 
+          <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sales)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sales)
+            @Html.ValidationMessageFor(model => model.Sales)
+        </div>
+</div> 
+     
+        <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ManagerMenu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ManagerMenu)
+            @Html.ValidationMessageFor(model => model.ManagerMenu)
+        </div>
+</div>
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.xreport)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.xreport)
+            @Html.ValidationMessageFor(model => model.xreport)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.zreport)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.zreport)
+            @Html.ValidationMessageFor(model => model.zreport)
+        </div>
+</div> 
+     <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.voidsale)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.voidsale)
+            @Html.ValidationMessageFor(model => model.voidsale)
+        </div>
+         </div> 
+         <div class="grid_2">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OnShift)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OnShift)
+            @Html.ValidationMessageFor(model => model.OnShift)
+        </div>
+</div> 
+</div> 
+     </div> 
+        <p>
+            
+        </p>
+    </fieldset>
+}
+
+<div>
+  <button class="btn btn-black"  onclick="SaveView('createUser')" >Save</button>
+  <button class="btn btn-black" onclick="GetView('@Url.Action("Index", "User")')">Cancel</button>
+</div>
+
+</div> 
+    </div> 

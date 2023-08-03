@@ -1,0 +1,44 @@
+﻿@model IEnumerable<RetailKing.Models.Order> 
+@{
+    ViewBag.Title = "getItems";
+}
+
+   <div style="width:400px">
+       <div class="col-md-12">
+           <h1>Open Orders</h1>
+       </div>
+           <div class="col-md-12"><input type="text" id="Date" class="form-control" value="@ViewData["Date"]" /></div>
+       <br />
+           <div class="col-md-12">
+               <table class="table" style="width:100%">
+                   <tbody>
+                       @foreach (var menu in Model)
+                       {
+                           <tr onclick="LoadOrders('@menu.Invoice')" style="width:100%; border-bottom-color: White; background-color: #00B294; cursor: pointer">
+                               <td style="border-left-style:none; border-right-style: none; font-size: 13px; vertical-align: middle; text-align:center; color: White; font-weight: bold">
+                                   @menu.Invoice
+                               </td>
+                               <td style="float:left;border-left-style:none; border-right-style: none; font-size: 13px; vertical-align: middle; text-align:center; color: White; font-weight: bold">$@String.Format("{0:F}", menu.total)</td>
+                               <td id="btns-@menu.ID" style="border-left-style:none; border-right-style: none; font-size: 13px; vertical-align: middle;  color: White; font-weight: bold">
+                                   @menu.tableNumber
+                               </td>
+                           </tr>
+                       }
+                   </tbody>
+               </table>
+           </div>
+       </div>
+
+<script type="text/javascript">
+       $(document).ready(function () {
+
+           $('#Date').daterangepicker({
+               singleDatePicker: true,
+               calender_style: "picker_2"
+           }, function (start, end, label) {
+               GetActions('/Pos/getOrders?date=' + start.format('YYYY-MM-DD'), 'ORDERS')
+           });
+
+       });
+
+</script>

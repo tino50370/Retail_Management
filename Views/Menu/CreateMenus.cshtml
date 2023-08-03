@@ -1,0 +1,51 @@
+﻿@model RetailKing.Models.Menu
+
+@{
+    ViewBag.Title = "CreatePoint";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>New Manu</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+
+                @using (Html.BeginForm("CreateMenus", "Menu", FormMethod.Post, new { enctype = "multipart/form-data", @name = "PointP", id = "Pointp" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.Type)
+                    <fieldset>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Name)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control form-cascade-control input-small" })
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.CssClass)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.CssClass, new { @class = "form-control form-cascade-control input-small" })
+                            @Html.ValidationMessageFor(model => model.CssClass)
+                        </div>
+
+                        <p></p>
+
+                        <p>
+                            <input type="submit" class="btn btn-primary" value="Save Menu" />
+                        </p>
+                    </fieldset>
+                }
+            </div>
+        </div>
+    </div>
+</div>

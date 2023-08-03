@@ -1,0 +1,121 @@
+﻿@model RetailKing.Models.TransactionData
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="grid_10">
+ <div class="box round ">
+<h2>Create New Transaction</h2>
+
+@using (Html.BeginForm("Create", "Transactions", FormMethod.Post, new { id = "createTransaction" })){
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+  <div class="grid_10">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TransactionName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TransactionName)
+            @Html.ValidationMessageFor(model => model.TransactionName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Type)
+        </div>
+        <div class="editor-field">
+             @Html.DropDownListFor(m => m.Type, new SelectList((IEnumerable<SelectListItem>)ViewBag.Type, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Type)
+        </div>
+</div>
+
+  <div class="grid_4">
+ 
+        <div class="editor-label">
+            @Html.Label("Debit Column" )
+        </div>
+        <div class="editor-field">
+              @Html.DropDownListFor(m => m.Debit1, new SelectList((IEnumerable<SelectListItem>)ViewBag.Accountz, "Value", " Text"))
+              @Html.ValidationMessageFor(model => model.Debit1)
+        </div>
+
+        
+        <div class="editor-field">
+          @Html.DropDownListFor(m => m.Debit2, new SelectList((IEnumerable<SelectListItem>)ViewBag.Accountz, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Debit2)
+        </div>
+
+       
+        <div class="editor-field">
+           @Html.DropDownListFor(m => m.Debit3, new SelectList((IEnumerable<SelectListItem>)ViewBag.Accountz, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Debit3)
+        </div>
+
+        <div class="editor-field">
+              @Html.DropDownListFor(m => m.Debit4, new SelectList((IEnumerable<SelectListItem>)ViewBag.Accountz, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Debit4)
+        </div>
+ 
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.Debit5, new SelectList((IEnumerable<SelectListItem>)ViewBag.Accountz, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Debit5)
+        </div>
+         
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.Debit6, new SelectList((IEnumerable<SelectListItem>)ViewBag.Accountz, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Debit6)
+        </div>
+</div> 
+
+  <div class="grid_4">
+        
+        <div class="editor-label">
+            @Html.Label("Credit Column")
+        </div>
+        <div class="editor-field">
+             @Html.DropDownListFor(m => m.Credit1, new SelectList((IEnumerable<SelectListItem>)ViewBag.Accountz, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Credit1)
+        </div>
+
+        
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.Credit2, new SelectList((IEnumerable<SelectListItem>)ViewBag.Accountz, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Credit2)
+        </div>
+
+        
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.Credit3, new SelectList((IEnumerable<SelectListItem>)ViewBag.Accountz, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Credit3)
+        </div>
+
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.Credit4, new SelectList((IEnumerable<SelectListItem>)ViewBag.Accountz, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Credit4)
+        </div>
+
+       
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.Credit5, new SelectList((IEnumerable<SelectListItem>)ViewBag.Accountz, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Credit5)
+        </div>
+
+        <div class="editor-field">
+           @Html.DropDownListFor(m => m.Credit6, new SelectList((IEnumerable<SelectListItem>)ViewBag.Accountz, "Value", " Text"))
+            @Html.ValidationMessageFor(model => model.Credit6)
+        </div>
+</div>
+        <div class="grid_10">
+            <p></p>
+       
+</div> 
+    </fieldset>
+}
+ <p>
+           <button class="btn btn-black"  onclick="SaveView('createTransaction')" >Save</button>
+           <button class="btn btn-black" onclick="GetView('@Url.Action("Index", "Transactions")')">Cancel</button>
+        </p>
+</div>
+</div> 

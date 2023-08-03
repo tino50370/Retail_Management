@@ -1,0 +1,114 @@
+﻿@model IEnumerable<RetailKing.Models.Asset>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Assets</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+            <table id="datatable-buttons"  class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Asset Code </th>
+                        <th>Name </th>
+                        <th>Type</th>
+                        <th>Location</th>
+                        <th>Area (sqm)</th>
+                        <th>Date</th>
+                        <th><button class="btn btn-info" onclick="GetView('@Url.Action("Create", "Asset", new { Id=ViewData["ItemCode"]})')">Create New</button></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.AssetCode </td>
+                            <td>@item.Name </td>
+                            <td>@item.Type </td>
+                            <td>@item.Location</td>
+                            <td>@item.Area</td>
+                            <td>@item.AquisitionDate</td>
+                            <td>
+                                <button class="btn btn-primary btn-xs" onclick="GetView('@Url.Action("Edit", "Asset")','@item.Id')">Edit</button>
+                                <button class="btn btn-warning btn-xs" onclick="GetView('@Url.Action("Index", "Facility")','@item.Id')">Facilities @if(@item.FacilityCount != 0){ <span style="padding-left:2px" class="badge bg-green">@item.FacilityCount</span>}</button>
+                                <button class="btn btn-success btn-xs" onclick="GetView('@Url.Action("Index", "Equipment")','@item.Id')">Equipment @if(@item.EquipmentCount != 0){<span style="padding-left:2px"  class="badge bg-orange">@item.EquipmentCount</span>}</button>
+                                <button class="btn btn-danger btn-xs" onclick="GetView('@Url.Action("Delete", "Asset")','@item.Id')">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var handleDataTableButtons = function () {
+            if ($("#datatable-buttons").length) {
+                $("#datatable-buttons").DataTable({
+                    dom: "Bfrtip",
+                    buttons: [
+                      {
+                          extend: "copy",
+                          className: "btn-sm"
+                      },
+                      {
+                          extend: "csv",
+                          className: "btn-sm"
+                      },
+                      {
+                          extend: "print",
+                          className: "btn-sm"
+                      },
+                    ],
+                    responsive: false
+                });
+            }
+        };
+
+        TableManageButtons = function () {
+            "use strict";
+            return {
+                init: function () {
+                    handleDataTableButtons();
+                }
+            };
+        }();
+
+        $('#datatable').dataTable();
+
+        $('#datatable-keytable').DataTable({
+            keys: true
+        });
+
+        $('#datatable-responsive').DataTable();
+
+       
+
+        $('#datatable-fixed-header').DataTable({
+            fixedHeader: true
+        });
+
+        var $datatable = $('#datatable-checkbox');
+
+        $datatable.dataTable({
+            'order': [[1, 'asc']],
+            'columnDefs': [
+              { orderable: false, targets: [0] }
+            ]
+        });
+        $datatable.on('draw.dt', function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_flat-green'
+            });
+        });
+
+        TableManageButtons.init();
+    });
+</script>

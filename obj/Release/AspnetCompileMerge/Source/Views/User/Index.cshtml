@@ -1,0 +1,242 @@
+﻿@model IEnumerable<RetailKing.Models.login>
+
+@{
+    ViewBag.Title = "Index";
+}
+ <script type="text/javascript">
+     $(document).ready(function (event) {
+         $("#SearchInItems").focus();
+         var typinTimer;
+         $("#category").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Items")',
+                 dataType: 'html',
+                 data: {
+                     company: $("#activeco").text(),
+                     category: $("#category").val(),
+                     ItemCode: "",
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $("#panel").html(resp);
+                 },
+                 error: function (data) {
+                     alert(data);
+                 }
+             });
+         });
+
+         $("#SubCategory").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Sales")',
+                 dataType: 'html',
+                 data: {
+                     SubCategory: $("#SubCategory").val(),
+                     ItemCode: "",
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $("#panel").html(resp);
+                 },
+                 error: function (data) {
+                     alert(data);
+                 }
+             });
+         });
+
+         $("#SizeR").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Items")',
+                 dataType: 'html',
+                 data: {
+                     company: $("#activeco").text(),
+                     category: $("#category").val(),
+                     ItemCode: '',
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $('#panel').html(resp);
+                 },
+                 error: function (data) {
+                 }
+             });
+         });
+
+         $("#SearchInItems").keyup(function () {
+             // event.preventDefault();
+             var s = $('#SearchInItems').val();
+            // alert(s);
+             clearTimeout(typinTimer);
+             typinTimer = setTimeout(function () {
+                // alert($('#SearchInItems').val() );
+                 if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                     $.ajax({
+                         type: "Post",
+                         url: '@Url.Action("Index", "Items")',
+                         dataType: 'html',
+                         data: {
+                             company: $("#activeco").text(),
+                             category: $("#category").val(),
+                             ItemCode: $("#SearchInItems").val(),
+                             iDisplayLength: $("#SizeR").val(),
+                             sEcho: 1
+                         },
+                         success: function (resp) {
+                             $('#panel').html(resp);
+                         },
+                         error: function (data) {
+                         }
+                     });
+                 }
+            }, 2000);
+         });
+
+         $("#tableData input").keypress( function (e) {
+             if (e.keyCode == 13) {
+                
+                 if (this.value == '') {
+                     alert($("#" + this.id).val());
+                 }
+                 else {
+                     if (isNaN(this.value / 1) == false) {
+                         var dd = this.id;
+                         $.ajax({
+                             type: "Post",
+                             url: '@Url.Action("newStock", "Items")',
+                             dataType: 'html',
+                             data: {
+                                 company: $("#activeco").text(),
+                                 Qty: this.value,
+                                 ItemCode: this.id
+                             },
+                             success: function (resp) {                        
+                                 var jsonItem = $.parseJSON(resp);
+                               //  alert($('#' + dd).val());
+                                 $('.' + dd).html(jsonItem.NewStock);
+                                 $('#balance_' + dd).html(jsonItem.Balance);
+                                 $('#' + dd).val('');
+                             },
+                             error: function (data) {
+                             }
+                         });
+                     }
+                     else {
+                         alert("Please enter number only");
+                     }
+                 }
+             }
+         });
+
+     });
+   </script>
+
+ <script type="text/javascript">
+     function GetPageR(thispage) {
+         $.ajax({
+             type: "Post",
+             url: '@Url.Action("Index", "Items")',
+             dataType: 'html',
+             data: {
+                 company: $("#activeco").text(),
+                 category: $("#category").val(),
+                 ItemCode: '',
+                 iDisplayStart: thispage,
+                 iDisplayLength: $("#SizeR").val(),
+                 sEcho: 1
+             },
+             success: function (resp) {
+                 $('#panel').html(resp);
+             },
+             error: function (data) {
+             }
+         });
+     }  
+    </script>
+<div class="grid_10">
+ <div class="box round ">
+ <h2>System Users</h2>
+ <p></p>
+ <table id="gradient-style" style="width:100%; border-style: none ">
+        <tbody>
+        <tr>
+          <td class="style3" style="border-style: none">
+       <div class="editor-field">
+              Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR"}) 
+        </div>
+            </td>         
+           
+        <td style="border-style: none">
+          <div class="editor-field" style="float:right ">
+         Search by Name <input type="text" id="SearchInItems"/>  
+         </div> 
+        </td>
+        </tr>
+        </tbody>
+        </table>
+
+ <div id="tableData">
+<table style="width:100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accesslevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prefix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        
+        <th> <button class="btn btn-black" style="float: right" onclick="GetView('@Url.Action("Create", "User")')">Create New </button></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.accesslevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prefix)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+       
+        <td>
+            <button class="btn btn-navy" style="float: right" onclick="GetView('@Url.Action("Details", "User", new { id=item.ID })')">View Details</button>
+        </td>
+    </tr>
+}
+
+</table>
+</div> 
+ </div> 
+</div> 

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<RetailKing.Models.Infographic>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div id="panel">
+    <div class="grid_10">
+        <div class="box round ">
+            <h2>Index</h2>
+
+            <p>
+                <button class="btn btn-black" onclick="GetView('@Url.Action("Create", "Inforgraphics")')">Create New</button>
+            </p>
+            <table>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Position)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Type)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Position)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            <button class="btn btn-black" onclick="GetView('@Url.Action("Edit", "Inforgraphics")','@item.Id')">Edit</button>
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

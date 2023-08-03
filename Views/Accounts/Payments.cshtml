@@ -1,0 +1,210 @@
+﻿@model RetailKing.Models.Expens
+
+@{
+    ViewBag.Title = "Payments";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Payment</h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="col-md-8">
+                    <div id="err" style="color:#D60405"> @Model.cashier</div>
+                    @using (Html.BeginForm("Payments", "Accounts", FormMethod.Post, new { id = "createPayment" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+
+                            <div class="editor-label">
+                                @Html.Label("Payment Type")
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(m => m.type, new SelectList((IEnumerable<SelectListItem>)ViewBag.Type, "Value", " Text"), new { @class = "form-control" })
+                                <div id="Paymenttype" style="color:#D60405"></div>
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Payee")
+                            </div>
+                            <div class="editor-field">
+                                <span class="col-md-11"> @Html.TextBoxFor(model => model.Payee, new { @class = "form-control" })</span>
+                                <span class="col-md-1"> <button id="browseSupplier" class="btn btn-navy" type="button" onclick="GetInvoices('PAYMENT')">...</button></span>
+                                @Html.ValidationMessageFor(model => model.Payee)
+                            </div>
+                            <div id="payee" style=" position:absolute; top:262px; width: 98%"></div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Amount)
+                            </div>
+                            <div class="editor-field">
+                                <span>@Html.TextBoxFor(model => model.Amount, new { disabled = "disabled", @class = "form-control" })</span><span id="TheValue" style="display:none "> of</span>
+                                @Html.ValidationMessageFor(model => model.Amount)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Balance)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("Balanced", "", new { disabled = "disabled", id = "Balanced", @class = "form-control" })
+                                @Html.HiddenFor(model => model.value)
+                                @Html.HiddenFor(model => model.till)
+                                @Html.HiddenFor(model => model.Invoice)
+                                @Html.HiddenFor(model => model.Balance)
+                                @Html.ValidationMessageFor(model => model.value)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Description)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextAreaFor(model => model.Description, new { cols = "40", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </div>
+
+
+                        </fieldset>
+                    }
+                    <div class="editor-label">
+                        @Html.Label("Invoices")
+                    </div>
+                    <div class="editor-field">
+                        <span class="col-md-11">@Html.TextBoxFor(model => model.Receipt, new { disabled = "disabled", @class = "form-control" })</span>
+                        <span class="col-md-1"> <button id="browse" class="btn btn-navy" type="button" onclick="GetInvoices('PAYMENT')">...</button></span>
+                        @Html.ValidationMessageFor(model => model.Receipt)
+                    </div>
+                    <p></p>
+                    <div id="fielserror" style="color:#D60405"></div>
+                    <p>
+                        <button class="btn btn-success" type="button" onclick="SaveView('createPayment')">Save</button>
+                        <button class="btn btn-warning" type="button" onclick="GetView('@Url.Action("Index", "Home")')">Cancel</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+        <script type="text/javascript">
+            $(document).ready(function () {
+                // document.getElementById("Creditq").focus();
+
+
+                $("#Payee").bind('input propertychange', function (e) {
+                    if ($("#type").val() == '') {
+                        $("#Paymenttype").html('Select the transaction type first')
+
+                        $("#Payee").val('');
+                    }
+                    else {
+                        var txt = $("#Payee").val();
+                        if (supplierSelected == 'Y') {
+                            $("#balances").val('');
+                            $('#Invoices').val('');
+                            $("#Receipt").val('');
+                            $("#Amount").prop('disabled', true);
+                            $('#Balance').val('');
+                            $('#TheValue').hide();
+                            supplierSelected == 'N';
+                        }
+                        if (txt.length > 1) {
+                            $.ajax({
+                                type: "Get",
+                                url: '@Url.Action("GetPayee", "Accounts")',
+                                dataType: 'html',
+                                data: {
+                                    searchtext: $("#Payee").val(),
+                                    Transaction: $("#type").val(),
+                                    Company: Company
+                                },
+                                success: function (resp) {
+                                    $('#payee').html(resp);
+                                },
+                                error: function (data) {
+                                }
+                            });
+                        } else {
+                            $('#payee').html('');
+                        }
+                    }
+                });
+
+                $("#Amount").bind('input propertychange', function (e) {
+                    $("#TheValue").show();
+                    var txt = $("#Amount").val();
+                    var ff = $("#value").val();
+                    var bal = parseFloat(ff) - parseFloat(txt);
+                    $("#Balanced").val(bal);
+                    $("#Balance").val(bal);
+                    if ($("#Amount").val() == '') {
+                        $("#TheValue").hide();
+                        $("#Balance").val(ff);
+                        $("#Balanced").val(ff);
+                    }
+                });
+
+                $("#Receipt").bind('input propertychange', function (e) {
+                    $("#Invoice").val($("#Receipt").val());
+                    $("#balances").val($("#Balance").val())
+                });
+
+                $("#type").change(function (event) {
+                    $("#Paymenttype").html('')
+                });
+                //  changeTextarea();
+                // onFocused();
+            });
+
+            function Cancel(url) {
+                parent.$.fancybox.close();
+                $.ajax({
+                    type: "Get",
+                    url: url,
+                    dataType: 'html',
+                    data: {
+                        Company: Company,
+                    },
+                    success: function (resp) {
+                        $("#panel").html(resp);
+                    },
+                    error: function (data) {
+                        // alert(data);
+                    }
+                });
+            }
+
+            function placeText(id, Balance) {
+                Supplier = id;
+                if (id.toLowerCase().indexOf("requesition") >= 0) {
+                    $("#Receipt").prop('disabled', false);
+                    $('#browse').hide();
+                }
+                $('#Payee').val(id);
+                $('#payee').html('');
+                $("#Amount").prop('disabled', false);
+                supplierSelected = 'Y';
+                $('#value').val(Balance);
+                $('#TheValue').html('  of ' + Balance);
+                $('#Balance').val(Balance);
+                $('#till').val(Company);
+            }
+
+            function setCustomer() {
+                customerName = $('#Creditq').val();
+                creditPeriod = $('#Days').val();
+                if (IsCredit == "N") {
+                    if (customerSelected == 'Y') {
+                        GetPartialView('/Pos/Tender', 'total', 'N');
+                    }
+                }
+                else {
+                    if (customerSelected == 'Y') {
+                        Savesale();
+                    }
+                }
+            }
+        </script>

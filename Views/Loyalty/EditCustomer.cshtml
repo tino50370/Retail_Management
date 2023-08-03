@@ -1,0 +1,84 @@
+@model RetailKing.Models.Loyalty
+
+@{
+    ViewBag.Title = "Create";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/tinymce/tinymce.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Edit Customer</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+
+                    @using (Html.BeginForm("EditCustomer", "Loyalty", FormMethod.Post, new { enctype = "multipart/form-data", @name = "createCustomersP", id = "createCustomers" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        <div class="col-md-12">
+                            <fieldset>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Name)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Name, new {  @class = "form-control" })
+                                    @Html.HiddenFor(model => model.Id)
+                                    @Html.HiddenFor(model => model.SupplierId)
+
+                                    @Html.ValidationMessageFor(model => model.Name)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Contact Person")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.ContactPerson, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ContactPerson, "", new { style = "color:red" })
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Branch)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Branch, new { @class = "form-control", disabled = "disabled", })
+                                    @Html.ValidationMessageFor(model => model.Branch)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Phone Number")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PhoneNumber)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Email Address")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Email)
+                                </div>
+
+                            </fieldset>
+                        </div>
+                         }
+                            <br />
+                            <div>
+                                <button class="btn btn-success" onclick="SaveView('createCustomers')">Save</button>
+                                <button class="btn btn-warning" onclick="GetView('@Url.Action("CustomerLoyalty", "Loyalty")')">Cancel</button>
+                            </div>
+                        </div>
+            </div>
+          </div>
+        </div>
+    </div>
+

@@ -1,0 +1,290 @@
+﻿@model IEnumerable<RetailKing.Models.Account>
+
+@{
+    ViewBag.Title = "Index";
+    int cnt = 0;
+}
+<script type="text/javascript">
+     $(document).ready(function (event) {
+         $("#SearchInItems").focus();
+         var typinTimer;
+         $("#category").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Items")',
+                 dataType: 'html',
+                 data: {
+                     company: $("#activeco").text(),
+                     category: $("#category").val(),
+                     ItemCode: "",
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $("#panel").html(resp);
+                 },
+                 error: function (data) {
+                     alert(data);
+                 }
+             });
+         });
+
+         $("#SubCategory").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Sales")',
+                 dataType: 'html',
+                 data: {
+                     SubCategory: $("#SubCategory").val(),
+                     ItemCode: "",
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $("#panel").html(resp);
+                 },
+                 error: function (data) {
+                     alert(data);
+                 }
+             });
+         });
+
+         $("#SizeR").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Items")',
+                 dataType: 'html',
+                 data: {
+                     company: $("#activeco").text(),
+                     category: $("#category").val(),
+                     ItemCode: '',
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $('#panel').html(resp);
+                 },
+                 error: function (data) {
+                 }
+             });
+         });
+
+         $("#SearchInItems").keyup(function () {
+             // event.preventDefault();
+             var s = $('#SearchInItems').val();
+            // alert(s);
+             clearTimeout(typinTimer);
+             typinTimer = setTimeout(function () {
+                // alert($('#SearchInItems').val() );
+                 if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                     $.ajax({
+                         type: "Post",
+                         url: '@Url.Action("Index", "Items")',
+                         dataType: 'html',
+                         data: {
+                             company: $("#activeco").text(),
+                             category: $("#category").val(),
+                             ItemCode: $("#SearchInItems").val(),
+                             iDisplayLength: $("#SizeR").val(),
+                             sEcho: 1
+                         },
+                         success: function (resp) {
+                             $('#panel').html(resp);
+                         },
+                         error: function (data) {
+                         }
+                     });
+                 }
+            }, 2000);
+         });
+
+         $("#tableData input").keypress( function (e) {
+             if (e.keyCode == 13) {
+
+                 if (this.value == '') {
+                     alert($("#" + this.id).val());
+                 }
+                 else {
+                     if (isNaN(this.value / 1) == false) {
+                         var dd = this.id;
+                         $.ajax({
+                             type: "Post",
+                             url: '@Url.Action("newStock", "Items")',
+                             dataType: 'html',
+                             data: {
+                                 company: $("#activeco").text(),
+                                 Qty: this.value,
+                                 ItemCode: this.id
+                             },
+                             success: function (resp) {
+                                 var jsonItem = $.parseJSON(resp);
+                               //  alert($('#' + dd).val());
+                                 $('.' + dd).html(jsonItem.NewStock);
+                                 $('#balance_' + dd).html(jsonItem.Balance);
+                                 $('#' + dd).val('');
+                             },
+                             error: function (data) {
+                             }
+                         });
+                     }
+                     else {
+                         alert("Please enter number only");
+                     }
+                 }
+             }
+         });
+
+     });
+</script>
+
+<script type="text/javascript">
+     function GetPageR(thispage) {
+         $.ajax({
+             type: "Post",
+             url: '@Url.Action("Index", "Items")',
+             dataType: 'html',
+             data: {
+                 company: $("#activeco").text(),
+                 category: $("#category").val(),
+                 ItemCode: '',
+                 iDisplayStart: thispage,
+                 iDisplayLength: $("#SizeR").val(),
+                 sEcho: 1
+             },
+             success: function (resp) {
+                 $('#panel').html(resp);
+             },
+             error: function (data) {
+             }
+         });
+     }
+</script>
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Cateories</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p>
+
+                    </p>
+                    <p></p>
+
+                    <table id="gradient-style" style="width:100%; border-style: none ">
+                        <tbody>
+                            <tr>
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                        Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR" , @class = "form-control" })
+                                    </div>
+                                </td>
+
+                                <td style="border-style: none"></td>
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                        <div class="col-md-10">
+                                            Search by ItemCode <input type="text" style="width:90%" id="SearchInItems" class="form-control" />
+                                        </div> <div class="col-md-2">
+                                             <button class="btn-icon btn-success " onclick="GetSalesProduct()"><span></span>Go</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-stripe"style="width: 100%">
+                        <tr>
+
+                            <th>
+                                Account Code
+                            </th>
+                            <th>
+                                Account Name
+                            </th>
+                            <th>
+                                Balance
+                            </th>
+                            <th>
+                                Opening Balance
+                            </th>
+                            <th>
+                                Account Type
+                            </th>
+                            <th>
+                                <button class="btn btn-warning" style="float: right" onclick="GetView('@Url.Action("Create", "Category")')">Create New </button>
+
+                            </th>
+
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            cnt += 1;
+                            if (cnt % 2 == 0)
+                            {
+                                <tr style=" background-color: #EEEEEE">
+
+                                    <td>
+                                        @item.AccountCode
+                                    </td>
+                                    <td>
+                                        @item.AccountName
+                                    </td>
+                                    <td>
+                                        @String.Format("{0:F}", item.Balance)
+                                    </td>
+                                    <td>
+                                        @String.Format("{0:F}", item.Opening)
+                                    </td>
+                                    <td>
+                                        @item.LinkAccount
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-success" style="float: right;" onclick="GetView('@Url.Action("SubCategoryList", "Category", new {Id = item.ID })','@item.ID')">Sub-Categories</button>
+                                        <button class="btn btn-primary " style="float: right; margin-right:5px" onclick="GetView('@Url.Action("Edit", "Accounts")','@item.ID')">Edit </button>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr style=" background-color :#FCFDFF">
+
+                                    <td>
+                                        @item.AccountCode
+                                    </td>
+                                    <td>
+                                        @item.AccountName
+                                    </td>
+                                    <td>
+                                        @String.Format("{0:F}", item.Balance)
+                                    </td>
+                                    <td>
+                                        @String.Format("{0:F}", item.Opening)
+                                    </td>
+                                    <td>
+                                        @item.LinkAccount
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-success" style="float: right;" onclick="GetView('@Url.Action("SubCategoryList", "Category", new {Id = item.ID })','@item.ID')">Sub-Categories</button>
+                                        <button class="btn btn-primary" style="float: right;  margin-right:5px" onclick="GetView('@Url.Action("Edit", "Category")','@item.ID')">Edit </button>
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+       

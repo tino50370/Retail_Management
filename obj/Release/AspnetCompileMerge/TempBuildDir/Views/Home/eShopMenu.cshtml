@@ -1,0 +1,102 @@
+﻿@model IEnumerable<RetailKing.Models.Account>
+
+@{
+    ViewBag.Title = "eShopMenu";
+}
+
+@{
+    var cats = (from e in Model.Where(u => u.AccountCode.Length == 4) select e).ToList();
+    var cyc = 0;
+}
+
+<ul>
+    <li class="home-green current-item">
+        <a href="@Url.Action("Index", "Home")">
+            <span class="nav-caption">Home</span>
+            <span class="nav-description">Site Home Page</span>
+        </a>
+    </li>
+    @foreach (var cat in cats)
+    {
+        var subcats = (from e in Model.Where(u => u.AccountCode.StartsWith(cat.AccountCode + "-")) select e).ToList();
+        cyc+=1;
+        var w = "red";
+        if(cyc == 2)
+        { w = "blue"; }
+        if (cyc == 3)
+        { w = "orange"; }
+        if (cyc == 4)
+        { w = "green"; }
+        if (cyc == 5)
+        { w = "purple"; }
+        if (cyc == 6)
+        { w = "blue"; }
+        <li class="@w">
+            <a href="@Url.Action("Index", "Category", new { id=cat.AccountName  })">
+                <span class="nav-caption">@cat.AccountName</span> 
+                <span class="nav-description">@cat.Description</span>
+            </a>
+            @if (subcats.Count > 0)
+            {
+                int runs = subcats.Count / 5;
+                if (subcats.Count % 5 != 0)
+                { runs = runs + 1; }
+                <ul class="wide-dropdown normalAniamtion">
+                    @for (int i = 0; i < runs; i++)
+                    {
+                        var top5 = (from e in subcats.Skip(i) select e).Take(5);
+                        <li >
+                            <ul>
+                                @foreach (var scat in subcats)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Index", "Category", new { id = scat.AccountName })">@scat.AccountName</a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+
+                </ul>
+            }
+        </li>
+    }
+       <li class="nav-search">
+          <i class="icons icon-search-1"></i>
+       </li>
+   </ul>
+
+
+<div id="search-bar">
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <table id="search-bar-table">
+            <tr>
+                <td class="search-column-1">
+                    <p><span class="grey">Popular Searches:</span> <a href="#">accessories</a>, <a href="#">audio</a>, <a href="#">camera</a>, <a href="#">phone</a>, <a href="#">storage</a>, <a href="#">more</a></p>
+                    <input id="searchText"type="text" placeholder="Enter your keyword">
+                </td>
+                <td class="search-column-2">
+                    <p class="align-right"><a href="#">Advanced Search</a></p>
+                    <select class="chosen-select-search">
+                        <option>Any Category</option>
+                      @foreach(var item in cats) 
+                      { 
+                          <option>@item.AccountName</option>
+                      }
+                       
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="search-button">
+        <input type="submit" value="">
+        <i class="icons icon-search-1"></i>
+    </div>
+   
+    <table id="product_lines" style=" border-style: none; background-color: #EAEAEA; width:97%; margin:15px">
+        <tbody></tbody>
+    </table> 
+</div>
+

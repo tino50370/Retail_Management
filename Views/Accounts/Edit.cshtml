@@ -1,0 +1,75 @@
+@model RetailKing.Models.Account
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites";
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+
+                $("#panel").html(result);
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#editAccounts").ajaxForm(options);
+
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Edit</h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                @using (Html.BeginForm("edit", "Accounts", FormMethod.Post, new { enctype = "multipart/form-data", @name = "editAccounts", id = "editAccounts" }))
+                {
+                    @Html.ValidationSummary(true)
+                    <fieldset>
+
+                        @Html.HiddenFor(model => model.ID)
+                        @Html.HiddenFor(model => model.Icon)
+                        @Html.Partial("_CreateOrEdit", Model)
+                        <p></p>
+                        <p>
+                            <div class="col-md-12">
+                                <button class="btn btn-success" type="submit">Save</button>
+                                <button class="btn btn-warning" type="button" onclick="GetView('@Url.Action("Index", "Accounts")')">Cancel</button>
+                            </div>
+                        </p>
+                    </fieldset>
+                }
+            </div>
+        </div>
+</div>
+</div>

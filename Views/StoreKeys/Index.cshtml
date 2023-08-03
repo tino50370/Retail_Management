@@ -1,0 +1,92 @@
+@model IEnumerable<RetailKing.Models.Syskey>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>System Keys</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+
+            <table style="width:100%" class="table table-stripe">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Value
+                    </th>
+                    <th>
+                        Module 
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    
+                    <th><button class="btn btn-info" onclick="GetView('@Url.Action("Create", "SystemKeys")')">New Key</button></th>
+                </tr>
+
+                @{
+
+                    int cnt = 0;
+                    foreach (var item in Model)
+                    {
+                        cnt += 1;
+                        if (cnt % 2 == 0)
+                        {
+                            <tr style=" background-color: #EEEEEE">
+
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    @item.Value 
+                                </td>
+                                <td>
+                                    @item.Module
+                                </td>
+                                <td>
+                                    @item.Description
+                                </td>
+                                
+                                <td>
+                                    <button class="btn btn-primary" onclick="GetView('@Url.Action("Edit", "SystemKeys")', '@item.Id')">Edit</button>
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr style=" background-color :#FCFDFF">
+
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    @item.Value
+                                </td>
+                                <td>
+                                    @item.Module
+                                </td>
+                                <td>
+                                    @item.Description
+                                </td>
+
+                                <td>
+                                    <button class="btn btn-primary" onclick="GetView('@Url.Action("Edit", "SystemKeys")', '@item.Id')">Edit</button>
+                                </td>
+                               
+                            </tr>
+                        }
+                    }
+                }
+            </table>
+
+        </div>
+    </div>
+</div>
+    

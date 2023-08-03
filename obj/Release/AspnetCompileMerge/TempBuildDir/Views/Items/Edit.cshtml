@@ -1,0 +1,82 @@
+@model RetailKing.Models.Item
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+ <script type="text/javascript">
+     $(function () {
+         var status = $('#ajaxStatuss');
+         var percent = $('.percent');
+         var bar = $('.bar');
+         var options = {
+             beforeSend: function () {
+                 status.fadeIn();
+                 $.fancybox.showLoading();
+                 percent.html('0%');
+             },
+             uploadProgress: function (event, position, total, percentComplete) {
+                 var pVel = percentComplete + '%';
+                 if (percentComplete == 100) {
+                     pVel = "Processing file on server might take a few minuites"
+                 }
+                 percent.html(pVel);
+
+             },
+             success: function (result) {
+                 $.fancybox.hideLoading();
+                 $("#panel").html(result);
+             },
+
+             error: function (xhr, textStatus, errorThrown) {
+                 $('#fileresp').html(errorThrown);
+                 $('#fileresp').show();
+                 status.fadeOut(800);
+             }
+
+         };
+      $("#Profilep").ajaxForm(options);
+
+     });
+ </script>
+<div class="grid_10">
+ <div class="box round ">
+<h2>Create New Product</h2>
+
+@using (Html.BeginForm("Edit", "Items", FormMethod.Post, new { enctype = "multipart/form-data", @name = "ProfileP", id = "Profilep" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        @Html.HiddenFor(model => model.ID)
+           @Html.HiddenFor(model => model.sold )
+           @Html.HiddenFor(model => model.Balance )
+           @Html.HiddenFor(model => model.transfer)
+           @Html.HiddenFor(model => model.Returned)
+           @Html.HiddenFor(model => model.Image )
+           @Html.HiddenFor(model => model.PromoImage)
+           @Html.HiddenFor(model => model.ThumbImage)
+           @Html.HiddenFor(model => model.Swaps)
+           @Html.HiddenFor(model => model.NewStock)
+           @Html.HiddenFor(model => model.Expected)
+           @Html.HiddenFor(model => model.Amount)
+           @Html.HiddenFor(model => model.TopSeller )
+           @Html.HiddenFor(model => model.status )
+		@Html.Partial("_CreateOrEdit", Model)
+        <p></p>
+        <div class="grid_10" style="margin-top:20px">
+  <button  class="btn btn-black" type="submit"  >Save</button>
+  <button class="btn btn-black"  type="button" onclick="GetView('@Url.Action("Stocks", "Items")')">Cancel</button>
+        </div> 
+    </fieldset>
+}
+
+<div>
+   <iframe id="UploadTarget" name="UploadTarget"  style="position: absolute; left: -999em; top: -999em;"></iframe>
+    <div id="Images"></div>
+  
+</div>
+</div> 
+</div> 
+

@@ -1,0 +1,87 @@
+@model RetailKing.Models.LoyaltyScheme
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+@Html.HiddenFor(model => model.SupplierId)
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Name, new {@class = "form-control" })  
+    @Html.ValidationMessageFor(model => model.Name, "", new { style = "color:red" })
+</div>
+<div class="editor-label">
+    @Html.Label("Loyalty Tier") <br />
+    <em style="color:orange">This is the loyalty level</em>
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Tier, new { @class = "form-control", disabled = "disabled" })
+    @Html.ValidationMessageFor(model => model.Tier, "", new { style = "color:red" })
+</div>
+
+<div class="editor-label">
+   @Html.Label("Payment Type") <br />
+   <em style="color:orange">What the customer pays to access scheme</em>
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.PaymentType, new SelectList(new[] { "Free", "Subcription", "Points" }, Model.PaymentType), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.PaymentType, "", new { style = "color:red" })
+</div>
+
+<div id="other" style="display:none">
+    <div class="editor-label">
+        @Html.Label("Subscription Type") <br />
+        <em style="color:orange">This is the loyalty level</em>
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.PaymentPeriod, new SelectList(new[] { "OnceOff", "Monthly", "Quaterly", "Annually" }, Model.PaymentType), new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.PaymentPeriod , "", new { style = "color:red" })
+    </div>
+    <div id="sublabel"  class="editor-label">
+        @Html.Label("Subscription Amount")
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.AccessCost, new { @class = "form-control", type = "number", step = "0.01" })
+        @Html.ValidationMessageFor(model => model.AccessCost, "", new { style = "color:red" })
+    </div>
+
+</div>
+
+<div class="editor-label">
+    @Html.Label("Enter Cash value of a point")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.PointValue, new { @class = "form-control", type = "number", step = ".001" })
+    @Html.ValidationMessageFor(model => model.PointValue, "", new { style = "color:red" })
+</div>
+
+<div class="editor-label">
+    @Html.Label("Enter the Cost of a Point")<br /> 
+    <em style="color:orange"> This is how much a person spends to get a point</em>
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.PointCost, new { @class = "form-control", type = "number", step = ".01" })
+    @Html.ValidationMessageFor(model => model.PointCost, "", new { style = "color:red" })
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#PaymentType").change(function () {
+            var w = $("#PaymentType").val();
+            if (w != "Free") 
+            {
+                $("#other").show();
+                if(w == "Points")
+                {
+                   $("#sublabel").html("Subscription Points")
+                }
+            }
+            else
+            {
+                $("#other").hide();
+            }
+        })
+    });
+</script>
+
+

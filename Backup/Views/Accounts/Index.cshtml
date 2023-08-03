@@ -1,0 +1,59 @@
+@model IEnumerable<RetailKing.Models.Account>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            AccountCode
+        </th>
+        <th>
+            AccountName
+        </th>
+        <th>
+            Balance
+        </th>
+        <th>
+            Opening
+        </th>
+        <th>
+            LinkAccount
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+        <td>
+			@item.AccountCode
+        </td>
+        <td>
+			@item.AccountName
+        </td>
+        <td>
+			@String.Format("{0:F}", item.Balance)
+        </td>
+        <td>
+			@String.Format("{0:F}", item.Opening)
+        </td>
+        <td>
+			@item.LinkAccount
+        </td>
+    </tr>
+}
+
+</table>
+
+

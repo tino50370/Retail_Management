@@ -1,0 +1,142 @@
+﻿@model IEnumerable<RetailKing.Models.Infographic>
+@{
+    ViewBag.Title = "About Mobishoppa";
+    var cnt = 0;
+}
+
+<!-- Content -->
+<div >
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="breadcrumbs">
+            <p><a href="#">Home</a> <i class="icons icon-right-dir"></i>About</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="main-content col-lg-12 col-md-12 col-sm-12">
+
+
+        <div class="row">
+
+          
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+               
+                <div class="blog-item">
+                    <div class="carousel-heading no-margin ">
+                        <h4>About Mobishoppa</h4>
+                    </div>
+                    
+                    <div class="blog-info" style="background-color:#fff">
+                        <h1>Road to riches with Mobishoppa</h1>
+                        <p>
+                            The Mobishoppa network is an online store that offers you the opportunity to shop online and also to
+
+                            earn an income from your ability to build a network of shoppers.
+
+                            The company was started by a family for families. As a family, you have brands that you
+
+                            have grown to love and trust. On Mobishoppa.com, these brands are now giving back to you.
+
+                            For every item purchased by people you introduce to the website, Mobishoppa shares up to 60% of the
+
+                            profit with YOU.  This makes Mobishoppa.com YOUR store and also YOUR business. There is
+
+                            no start-up capital, no joining fees, just buy your usual monthly groceries, cloths, electricals etc and  share this
+
+                            amazing experience with friends and family and be on your way to earning your first
+
+                            paycheck this monthend. With  Mobishoppa.com, your network is your networth!
+
+                            Register today and enjoy a better and more convenient shopping experience.
+                        </p>
+                    </div>
+                 
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 blog-item">
+                <div class="carousel-heading no-margin ">
+                    <h4>How It Works</h4>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 blog-info" style="background-color:#fff">
+                    
+                    <div class="" style="background-color:#fff">
+                        @foreach (var item in Model)
+                        {
+                            cnt += 1;
+                            if (cnt % 2 != 0)
+                            {
+                                <div class="col-lg-5 col-md-5 col-sm-5" style="margin-top:20px">
+                                    <div class="single-profile-left">
+                                        <div class="left-header"> <h2 class="info-title">@item.Title</h2> </div>
+                                        <div class="data">
+
+                                            <p>
+                                                @Html.Raw(Server.HtmlDecode(item.Description))
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="num_@item.Id" class="col-lg-2 col-md-2 col-sm-2">
+                                </div>
+                            }
+
+
+                            if (cnt % 2 != 0)
+                            {
+                                <script>
+                                    $("#" + "num_" + @item.Id).append(
+                                     "<div style='vertical-align:middle' class='col-lg-12 col-md-12 col-sm-12'>" +
+                                     "<a ><img style='width:70px; float:left; margin-left:-25px; margin-top: 20px' img src='@Url.Content("~/Content/Template/img/infor/"+ cnt+".png")' alt=''></a>"+
+                                     "</div><div class='col-lg-6 col-md-6 col-sm-6 team-bar-right'></div>"
+                                    );
+                                </script>
+
+                            }
+                            else
+                            {
+                                var ccc = item.Id - 1;
+                                <script>
+                                    $("#" + "num_" + @ccc).append(
+                                     "</div><div class='col-lg-6 col-md-6 col-sm-6 team-bar-left'></div>" +
+                                     "<div style='min-height:40px;vertical-align:middle' class='col-lg-12 col-md-12 col-sm-12'>" +
+                                     "<a ><img style='width:70px; float:right; margin-right:-25px;' img src='@Url.Content("~/Content/Template/img/infor/"+ cnt+".png")' alt=''></a>"
+                                    );
+                                </script>
+
+                            }
+
+
+                            if (cnt % 2 == 0)
+                            {
+                                <div class="col-lg-5 col-md-5 col-sm-5" style="margin-top:20px">
+                                    <div class="single-profile-right">
+
+                                        <div class="right-header"> <h2 class="info-title">@item.Title</h2> </div>
+                                        <p>
+                                            @Html.Raw(Server.HtmlDecode(item.Description))
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                        }
+
+                    </div>
+                </div>
+
+               
+            </div>
+      </div> 
+
+</section>
+    <!-- /Main Content -->
+  
+
+</div>
+<!-- /Content -->

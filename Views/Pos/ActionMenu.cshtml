@@ -1,0 +1,40 @@
+﻿@model IEnumerable<RetailKing.Models.Account>
+@{
+    ViewBag.Title = "Tender";
+}
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        onFocused();
+    })
+    function Discountz() {
+        $('#discount').show();
+        $('#Discountq').focus();
+        if ($('#discount').is(':visible')) {
+            Discount = 'Y';
+        } else {
+            Discount = 'N';
+        }
+    }
+    function CancelDiscountz() {
+        $('#discount').hide();
+        $('#totalq').focus();
+            Discount = 'N';
+    }
+
+
+</script>
+
+<div class="col-md-12" style="width:510px">
+    <div class="col-md-12" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer"><a href="@Url.Action("LogOff", "Login")" style="color: #fff"><i class="fa fa-power-off"></i> SIGN OUT</a></div>
+    <div class="col-md-12" onclick="GetActions('/Pos/getOrders', 'ORDERS')" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer"><i class="fa fa-newspaper-o"></i> ORDERS</div>
+    <div class="col-md-12" onclick="GetActions('/Pos/getSales', 'SALES')" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer"><i class="fa fa-print"></i> REPRINT</div>
+    <div class="col-md-12" onclick="SetActions('CREDIT NOTE')" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer"><i class="fa fa-exchange"></i> CREDIT NOTE</div>
+    <div class="col-md-12" onclick="GetActions('/Pos/CashCollection', 'CASH OUT')" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer"><i class="fa fa-calculator"></i> CASH COLLECTION</div>
+    <div class="col-md-12" onclick="PrintReport('/Pos/TillReports')" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer"><i class="fa fa-bar-chart"></i> X REPORT</div>
+    <div class="col-md-12" onclick="GetActions('/Pos/XCollection', 'XCollection')" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer"><i class="fa fa-bar-chart"></i> SALES RECON</div>
+    <div class="col-md-12" onclick="GetActions('/Pos/CreditPayment', 'CREDIT PAYMENT')" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer"><i class="fa fa-credit-card"></i> CREDIT PAYMENT</div>
+    <div class="col-md-12" onclick="GetActions('/Pos/Voucher', 'Voucher')" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer"><i class="fa fa-credit-card"></i> VOUCHER AND AIRTIME</div>
+    <div class="col-md-12" onclick="GetActions('/Pos/ZESA', 'ZESA')" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer"><i class="fa fa-credit-card"></i> BILL PAYMENT</div>
+</div> 
+    
+

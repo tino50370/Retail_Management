@@ -1,0 +1,38 @@
+@model RetailKing.Models.Advert
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Delete Advert</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+
+                    <h3>Are you sure you want to delete this?</h3>
+                    <fieldset>
+                       
+
+                        <div class="display-label">Advert</div>
+                        <div class="display-field">@Model.Name</div>
+
+                        
+                    </fieldset>
+                    @using (Html.BeginForm())
+                    {
+                        <p>
+                            <input class="btn btn-danger"  type="submit" value="Delete" /> 
+                            <button class="btn btn-warning" onclick="GetView('@Url.Action("Index", "Customers")')">Cancel</button>
+                        </p>
+                    }
+             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

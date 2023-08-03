@@ -1,0 +1,292 @@
+@model IEnumerable<RetailKing.Models.Loyalty>
+
+@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        $("#SearchInItems").focus();
+
+        $("#cat").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("CustomerLoyalty", "Loyalty")',
+                dataType: 'html',
+                data: {
+                    category: $("#cat").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#Branch").change(function (event) {
+            event.preventDefault();
+            $.fancybox.showLoading();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("CustomerLoyalty", "Loyalty")',
+                dataType: 'html',
+                data: {
+                    sStart: $("#Month").val(),
+                    sSearch: $("#SearchInItems").val(),
+                    iDisplayLength: $("#SizeR").val(),
+                    sColumns: $("#Branch").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $.fancybox.hideLoading();
+                    $("#panel").html(resp);
+                    
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("CustomerLoyalty", "Loyalty")',
+                dataType: 'html',
+                data: { 
+                    iDisplayLength: $("#SizeR").val(),
+                    sStart: $("#Month").val(),
+                    sSearch: $("#SearchInItems").val(),
+                    sColumns: $("#Branch").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            $.fancybox.hideLoading();
+            var s = $('#SearchInItems').val();
+            //alert(s);
+            var typinTimer;
+            clearTimeout(typinTimer);
+            typinTimer = setTimeout(function () {
+                if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                    //alert(s);
+                    $.ajax({
+                        type: "Post",
+                        url: '@Url.Action("CustomerLoyalty", "Loyalty")',
+                        dataType: 'html',
+                        data: {
+                            sSearch: $("#SearchInItems").val(),
+                            iDisplayLength: $("#SizeR").val(),
+                            sColumns: $("#Branch").val(),
+                            sEcho: 1
+                        },
+                        success: function (resp) {
+                            $.fancybox.hideLoading();
+                            $('#panel').html(resp);
+                        },
+                        error: function (data) {
+                        }
+                    });
+                }
+            }, 2000);
+        });
+
+
+
+    });
+</script>
+
+<script type="text/javascript">
+    function GetPageR(thispage) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("CustomerLoyalty", "Loyalty")',
+            dataType: 'html',
+            data: {
+                iDisplayStart: thispage,
+                iDisplayLength: $("#SizeR").val(),
+                sStart: $("#Month").val(),
+                sSearch: $("#SearchInItems").val(),
+                sColumns: $("#Branch").val(),
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+
+    function GetTransactions(thispage) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("TransactionHistory", "Loyalty")',
+            dataType: 'html',
+            data: {
+                sSearch: thispage,
+                iDisplayLength: 20,
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+</script>
+
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Loyalty Customers</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+            
+            <table id="gradient-style" style="width:100%; border-style: none ">
+                <tbody>
+                    <tr>
+                        <td class="style3" style="border-style: none">
+                            <div class="editor-field">
+                                Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR", style = "width:80%", @class = "form-control" })
+                            </div>
+                        </td>
+                        <td class="style3" style="border-style: none">
+                            <div class="editor-field">
+                                Branch @Html.DropDownList("Branch", new SelectList((IEnumerable<SelectListItem>)ViewBag.Supplier, "Value", " Text", @ViewData["Branch"]), new { id = "Branch", style = "width:80%", @class = "form-control" })
+                            </div>
+                        </td>
+
+                        <td style="border-style: none">
+                            <div class="editor-field">
+                                Search by Customer Account  <input type="text" id="SearchInItems" style="width:80%" class="form-control" value="@ViewData["Search"]"/>
+                            </div>
+                        </td>
+                        
+                        <td class="style4" style="border-style: none ; display:none">
+                            <div>
+                                <button disabled  class="btn btn-warning pull-right " onclick="GetView('@Url.Action("Create", "Loyalty")')">Create Customer</button>
+                                <button disabled  class="btn btn-success pull-right" onclick="GetFancy('@Url.Action("RedeemPoints", "Loyalty")')">Redeem Points</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+            <table style="width:100%" class="table table-striped">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Branch
+                    </th>
+                    <th>
+                        Points
+                    </th>
+                    <th>
+                        Cash Value
+                    </th>
+                    <th>
+                       Phone
+                    </th>
+                    <th>
+                       Account
+                    </th>
+                    <th>
+                        
+                    </th>
+                </tr>
+
+                @{
+
+    int cnt = 0;
+    foreach (var item in Model)
+    {
+                     
+
+                <tr>
+
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Branch
+                    </td>
+                    <td>
+                        @item.Points
+                    </td>
+                    <td>
+                        $ @string.Format("{0:n}", item.MonetaryValue)
+                    </td>
+                    <td>
+                       @item.PhoneNumber 
+                    </td>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        <button class="btn btn-warning btn-xs pull-right" onclick="GetTransactions('@item.Id')">Transactions</button>
+                        <button class="btn btn-success btn-xs pull-right" onclick="GetView('@Url.Action("EditCustomer", "Loyalty",new { Id =item.Id })')">Edit</button>
+                    </td>
+                    @*
+                <td>
+                    <button class="btn btn-primary btn-xs" onclick="GetSideView('@Url.Action("EditScheme", "Loyalty", new { Id =item.Id })')">Edit</button>
+                    <button class="btn btn-danger btn-xs" onclick="GetView('@Url.Action("DeleteScheme", "Loyalty",new { Id =item.Id })')">Delete</button>
+                </td>*@
+                </tr>
+
+    }
+                }
+                <tr>
+                    <th colspan="12" style=" background-color: #E2E4FF; ">
+                        <div onclick="GetPageR()" style=" float: left; padding-left: 10px"> Pages</div>
+                        @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                        {
+                            if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                            {
+                                <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                            }
+                            else
+                            {
+                                <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                            }
+                        }
+                        <div style=" float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                    </th>
+                </tr>
+
+            </table>
+
+
+
+        </div>
+    </div>
+</div>
+<div id="RightPanel" class="col-md-4">
+</div>
+
+<script type="text/javascript">
+    $(function () {
+       // GetSideView('@Url.Action("AddPoints", "Loyalty")')
+    })
+</script>

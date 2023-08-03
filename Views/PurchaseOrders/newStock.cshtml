@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "newStock";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Order Item </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p>You are ordering new stock from @ViewData["Supplier"]</p>
+                    <div id="stockdetail">
+                        <span class="display-label"> @ViewData["Qty"] @ViewData["ItemName"] at </span>
+                        <span class="display-field">
+                            $ <input type="text" id="Amount" style="width: 35px" /> each
+                        </span>
+                    </div>
+                    <p></p>
+                    <div>
+                       
+                        <div id="Error" class="alert alert-danger  alert-dismissible fade in" style="display:none"role="alert">
+
+                        </div>
+                        <div>
+
+                            <button class="btn btn-success" onclick="AddStock('@ViewData["ItemName"]','@ViewData["Money"]')">Save</button>
+                            <button class="btn btn-warning" onclick="CloseCancelItem('@ViewData["ItemName"]')">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        document.getElementById("Amount").focus();
+        
+        $('#Amount').keyup(function (event) {
+            $('#Error').hide();
+        });
+    });
+</script>

@@ -1,0 +1,53 @@
+﻿@model   IEnumerable<RetailKing.Models.Advert>
+
+    @{
+        ViewBag.Title = "Home Page";
+    }
+
+    <script>
+        curr = '@ViewData["ThisPage"]';
+        scrollpage = '@ViewData["ThisPage"]';
+    </script>
+
+    <script src="@Url.Content("~/Scripts/store/main-script.js")"></script>
+
+
+    <!-- New Collection -->
+
+    @{
+        var newStock = (from e in Model.OrderByDescending(u => u.Id) select e).Take(10);
+    }
+
+    <div class="row sidebar-box">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 sidebar-carousel">
+          
+            <!-- Slider -->
+            <section class="sidebar-slider">
+                <div class="sidebar-flexslider">
+                    <ul class="slides">
+                        @foreach (var c in newStock)
+                        {
+                            <li>
+                                <a href="#">
+                                <img src="@Url.Content(c.Image)" alt=" slide1" />
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+                <div class="slider-nav"></div>
+            </section>
+            <!-- /Slider -->
+        </div>
+
+    </div>
+    <!-- /Carousel -->
+
+
+
+
+
+
+

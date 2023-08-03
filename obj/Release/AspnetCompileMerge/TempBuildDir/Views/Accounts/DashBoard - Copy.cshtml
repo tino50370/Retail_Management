@@ -1,0 +1,612 @@
+﻿@model RetailKing.Models.Customer
+@{
+    ViewBag.Title = "My Account";
+}
+
+
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="breadcrumbs">
+        <p><a href="#">Home</a> <i class="icons icon-right-dir"></i>My Account</p>
+    </div>
+</div>
+
+<!-- Main Content -->
+  <!-- Sidebar -->
+<aside class="sidebar col-lg-3 col-md-3 col-sm-3 right-sidebar">
+
+    <!-- Categories -->
+    <div class="row sidebar-box purple">
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="sidebar-box-heading">
+                <i class="icons icon-folder-open-empty"></i>
+                <h4>Account Menu</h4>
+            </div>
+            @{
+                var cats = (from e in Model.categories.Where(u => u.AccountCode.Length == 4) select e).ToList();
+            }
+            <div class="sidebar-box-content">
+                <ul>
+                    @foreach (var cat in cats)
+                    {
+                        var subcats = (from e in Model.categories.Where(u => u.AccountCode.StartsWith(cat.AccountCode + "-")) select e).ToList();
+                        <li>
+                            <a href="@Url.Action("Index", "Category", new { id=cat.AccountName  })">@cat.AccountName <i class="icons icon-right-dir"></i></a>
+                            @if (subcats.Count > 0)
+                            {
+                                int runs = subcats.Count / 5;
+                                if (subcats.Count % 5 != 0)
+                                { runs = runs + 1; }
+                                <ul class="sidebar-dropdown">
+                                    @for (int i = 0; i < runs; i++)
+                                    {
+                                        var top5 = (from e in subcats.Skip(i) select e).Take(5);
+                                        <li>
+                                            <ul>
+                                                @foreach (var scat in subcats)
+                                                {
+                                                    <li>
+                                                        <a href="@Url.Action("Index", "Category", new { id = scat.AccountName }) ">@scat.AccountName</a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
+
+                                </ul>
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /Categories -->
+
+</aside>
+<!-- /Sidebar -->
+<section class="main-content col-lg-9 col-md-9 col-sm-9">
+
+    <div class="row">
+
+        <!-- Heading -->
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="carousel-heading">
+                <h4>My Account</h4>
+
+            </div>
+
+        </div>
+        <!-- /Heading -->
+
+    </div>
+  
+
+    <div class="row">
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            @{
+               var mnt= DateTime.Now.Month;
+            }
+            <table class="order-table">
+                <tr>
+                    <th>Level</th>
+                    <th>Size</th>
+                    <th>New SignUps</th>
+                    <th>Signup Commission</th>
+                    <th>Total Sales</th>
+                    <th>Sales Commission</th>
+                    <th>Total Commission</th>
+                </tr>
+                
+                @if (Model.totals != null)
+                {
+                   
+                    <tr>
+                    <td>level 1</td>
+                    <td>@Model.Level1Count</td>
+                    @if(mnt == 1)
+                    {
+                        if (Model.totals.Jan1 == null) { Model.totals.Jan1 = 0; }
+                        if (Model.totals.JanJ1 == null) { Model.totals.JanJ1 = 0; }
+                        var joinComm = Model.totals.JanJ1 * (decimal)0.15;
+                        var SalesComm = Model.totals.Jan1 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.JanJ1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Jan1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 2)
+                    {
+                        if (Model.totals.Feb1 == null) { Model.totals.Feb1 = 0; }
+                        if (Model.totals.FebJ3 == null) { Model.totals.FebJ3 = 0; }
+                        var joinComm = Model.totals.FebJ1 * (decimal)0.15;
+                        var SalesComm = Model.totals.Feb1 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.FebJ1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Feb1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 3)
+                    {
+                        if (Model.totals.Mar1 == null) { Model.totals.Mar1 = 0; }
+                        if (Model.totals.MarJ1 == null) { Model.totals.MarJ1 = 0; }
+                        var joinComm = Model.totals.MarJ1 * (decimal)0.15;
+                        var SalesComm = Model.totals.Mar1 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+             
+                        <td>@Model.totals.MarJ1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Mar1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 4)
+                    {
+                        if (Model.totals.Apr1 == null) { Model.totals.Apr1 = 0; }
+                        if (Model.totals.AprJ1 == null) { Model.totals.AprJ1 = 0; }
+                        var joinComm = Model.totals.AprJ1 * (decimal)0.15;
+                        var SalesComm = Model.totals.Apr1 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.AprJ1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Apr1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 5)
+                    {
+                        if (Model.totals.May1 == null) { Model.totals.May1 = 0; }
+                        if (Model.totals.MayJ1 == null) { Model.totals.MayJ1 = 0; }
+                        var joinComm = Model.totals.MayJ1 * (decimal)0.15;
+                        var SalesComm = Model.totals.May1 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.MayJ1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.May1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 6)
+                    {
+                        if (Model.totals.Jun1 == null) { Model.totals.Jun1 = 0; }
+                        if (Model.totals.JunJ1 == null) { Model.totals.JunJ1 = 0; }
+                        var joinComm = Model.totals.JunJ1 * (decimal)0.15;
+                        var SalesComm = Model.totals.Jun1 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.JunJ1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Jun1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 7)
+                    {
+                        if (Model.totals.Jul1 == null) { Model.totals.Jul1 = 0; }
+                        if (Model.totals.JulJ1 == null) { Model.totals.JulJ1 = 0; }
+                        var joinComm = Model.totals.JulJ1 * (decimal)0.15;
+                        var SalesComm = Model.totals.Jul1 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.JulJ1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Jul1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 8)
+                    {
+                        if (Model.totals.Aug1 == null) { Model.totals.Aug1 = 0; }
+                        if (Model.totals.AugJ1 == null) { Model.totals.AugJ1 = 0; }
+                        var joinComm = Model.totals.AugJ1 * (decimal)0.15;
+                        var SalesComm = Model.totals.Aug1 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.AugJ1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Aug1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 9)
+                    {
+                        if (Model.totals.Sep1 == null) { Model.totals.Sep1 = 0; }
+                        if (Model.totals.SepJ1 == null) { Model.totals.SepJ1 = 0; }
+                        var joinComm = Model.totals.SepJ1 * (decimal)0.15;
+                        var SalesComm = Model.totals.Sep1 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.Sep1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Sep1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 10)
+                    {
+                        if (Model.totals.Oct1 == null) { Model.totals.Oct1 = 0; }
+                        if (Model.totals.OctJ1 == null) { Model.totals.OctJ1 = 0; }
+                        var joinComm = Model.totals.OctJ1 * (decimal)0.15;
+                        var SalesComm = Model.totals.Oct1 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.OctJ1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Oct1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 11)
+                    {
+                        if (Model.totals.Nov1 == null) { Model.totals.Nov1 = 0; }
+                        if (Model.totals.NovJ1 == null) { Model.totals.NovJ1 = 0; }
+                        var joinComm = Model.totals.NovJ1 * (decimal)0.15;
+                        var SalesComm = Model.totals.Nov1 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.NovJ1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Nov1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 12)
+                    {
+                        if (Model.totals.Dec1 == null) { Model.totals.Dec1 = 0; }
+                        if (Model.totals.DecJ1 == null) { Model.totals.DecJ1 = 0; }
+                        var joinComm = Model.totals.DecJ1 * (decimal)0.15;
+                        var SalesComm = Model.totals.Dec1 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.DecJ1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Dec1.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                       <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    
+                </tr>
+                    <tr>
+                    <td>level 2</td>
+                    <td>@Model.Level2Count</td>
+                    @if (mnt == 1)
+                    {
+                        if (Model.totals.Jan2 == null) { Model.totals.Jan2 = 0; }
+                        if (Model.totals.JanJ2 == null) { Model.totals.JanJ2 = 0; }
+                        var joinComm = Model.totals.JanJ2 * (decimal)0.10;
+                        var SalesComm = Model.totals.Jan2 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.JanJ2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Jan2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 2)
+                    {
+                        if (Model.totals.Feb2 == null) { Model.totals.Feb2 = 0; }
+                        if (Model.totals.FebJ2 == null) { Model.totals.FebJ2 = 0; }
+                        var joinComm = Model.totals.FebJ2 * (decimal)0.10;
+                        var SalesComm = Model.totals.Feb2 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.FebJ2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Feb2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 3)
+                    {
+                        if (Model.totals.Mar2 == null) { Model.totals.Mar2 = 0; }
+                        if (Model.totals.MarJ2 == null) { Model.totals.MarJ2 = 0; }
+                        var joinComm = Model.totals.MarJ2 * (decimal)0.10;
+                        var SalesComm = Model.totals.Mar2 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.MarJ2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Mar2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 4)
+                    {
+                        if (Model.totals.Apr2 == null) { Model.totals.Apr2 = 0; }
+                        if (Model.totals.AprJ2 == null) { Model.totals.AprJ2 = 0; }
+                        var joinComm = Model.totals.AprJ2 * (decimal)0.10;
+                        var SalesComm = Model.totals.Apr2 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.AprJ2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Apr2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 5)
+                    {
+                        if (Model.totals.May2 == null) { Model.totals.May2 = 0; }
+                        if (Model.totals.MayJ2 == null) { Model.totals.MayJ2 = 0; }
+                        var joinComm = Model.totals.MayJ2 * (decimal)0.10;
+                        var SalesComm = Model.totals.May2 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.MayJ2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.May2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 6)
+                    {
+                        if (Model.totals.Jun2 == null) { Model.totals.Jun2 = 0; }
+                        if (Model.totals.JunJ2 == null) { Model.totals.JunJ2 = 0; }
+                        var joinComm = Model.totals.JunJ2 * (decimal)0.10;
+                        var SalesComm = Model.totals.Jun2 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.JunJ2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Jun2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 7)
+                    {
+                        if (Model.totals.Jul2 == null) { Model.totals.Jul2 = 0; }
+                        if (Model.totals.JulJ2 == null) { Model.totals.JulJ2 = 0; }
+                        var joinComm = Model.totals.JulJ2 * (decimal)0.10;
+                        var SalesComm = Model.totals.Jul2 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.JulJ2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Jul2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 8)
+                    {
+                        if (Model.totals.Aug2 == null) { Model.totals.Aug2 = 0; }
+                        if (Model.totals.AugJ2 == null) { Model.totals.AugJ2 = 0; }
+                        var joinComm = Model.totals.AugJ2 * (decimal)0.10;
+                        var SalesComm = Model.totals.Aug2 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.AugJ2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Aug2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 9)
+                    {
+                        if (Model.totals.Sep2 == null) { Model.totals.Sep2 = 0; }
+                        if (Model.totals.SepJ2 == null) { Model.totals.SepJ2 = 0; }
+                        var joinComm = Model.totals.SepJ2 * (decimal)0.10;
+                        var SalesComm = Model.totals.Sep2 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.Sep2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Sep2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 10)
+                    {
+                        if (Model.totals.Oct2 == null) { Model.totals.Oct2 = 0; }
+                        if (Model.totals.OctJ2 == null) { Model.totals.OctJ2 = 0; }
+                        var joinComm = Model.totals.OctJ2 * (decimal)0.10;
+                        var SalesComm = Model.totals.Oct2 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.OctJ2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Oct2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+    <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 11)
+                    {
+                        if (Model.totals.Nov2 == null) { Model.totals.Nov2 = 0; }
+                        if (Model.totals.NovJ2 == null) { Model.totals.NovJ2 = 0; }
+                        var joinComm = Model.totals.NovJ2 * (decimal)0.10;
+                        var SalesComm = Model.totals.Nov2 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.NovJ2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Nov2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 12)
+                    {
+                        if (Model.totals.Dec2 == null) { Model.totals.Dec2 = 0; }
+                        if (Model.totals.DecJ2 == null) { Model.totals.DecJ2 = 0; }
+                        var joinComm = Model.totals.DecJ2 * (decimal)0.10;
+                        var SalesComm = Model.totals.Dec2 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.DecJ2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Dec2.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+
+                </tr>
+                    <tr>
+                    <td>level 3</td>
+                    <td>@Model.Level3Count</td>
+                    @if (mnt == 1)
+                    {
+                        if (Model.totals.Jan3 == null) { Model.totals.Jan3 = 0; }
+                        if (Model.totals.JanJ3 == null) { Model.totals.JanJ3 = 0; }
+                        var joinComm = Model.totals.JanJ3 * (decimal)0.050;
+                        var SalesComm = Model.totals.Jan3 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.JanJ3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Jan3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 2)
+                    {
+                        if (Model.totals.Feb3 == null) { Model.totals.Feb3 = 0; }
+                        if (Model.totals.FebJ3 == null) { Model.totals.FebJ3 = 0; }
+                        var joinComm = Model.totals.FebJ3 * (decimal)0.050;
+                        var SalesComm = Model.totals.Feb3 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.FebJ3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Feb3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 3)
+                    {
+                        if (Model.totals.May3 == null) { Model.totals.May3 = 0; }
+                        if (Model.totals.MarJ3 == null) { Model.totals.MarJ3 = 0; }
+                        var joinComm = Model.totals.MarJ3 * (decimal)0.050;
+                        var SalesComm = Model.totals.Mar3 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.MarJ3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Mar3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 4)
+                    {
+                        if (Model.totals.May3 == null) { Model.totals.May3 = 0; }
+                        if (Model.totals.AprJ3 == null) { Model.totals.AprJ3 = 0; }
+                        var joinComm = Model.totals.AprJ3 * (decimal)0.050;
+                        var SalesComm = Model.totals.Apr3 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.AprJ3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Apr3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 5)
+                    {
+                        if (Model.totals.May3 == null) { Model.totals.May3 = 0; }
+                        if (Model.totals.MayJ3 == null) { Model.totals.MayJ3 = 0; }
+                        var joinComm = Model.totals.MayJ3 * (decimal)0.050;
+                        var SalesComm = Model.totals.May3 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.MayJ3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.May3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 6)
+                    {
+                        if (Model.totals.Jun3 == null) { Model.totals.Jun3 = 0; }
+                        if (Model.totals.JunJ3 == null) { Model.totals.JunJ3 = 0; }
+                        var joinComm = Model.totals.JunJ3 * (decimal)0.050;
+                        var SalesComm = Model.totals.Jun3 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.JunJ3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Jun3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 7)
+                    {
+                        if (Model.totals.Jul3 == null) { Model.totals.Jul3 = 0; }
+                        if (Model.totals.JulJ3 == null) { Model.totals.JulJ3 = 0; }
+                        var joinComm = Model.totals.JulJ3 * (decimal)0.050;
+                        var SalesComm = Model.totals.Jul3 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.JulJ3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Jul3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 8)
+                    {
+                        if (Model.totals.Aug3 == null) { Model.totals.Aug3 = 0; }
+                        if (Model.totals.AugJ3 == null) { Model.totals.AugJ3 = 0; }
+                        var joinComm = Model.totals.AugJ3 * (decimal)0.05;
+                        var SalesComm = Model.totals.Aug3 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.AugJ3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Aug3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 9)
+                    {
+                        if (Model.totals.Sep3 == null) { Model.totals.Sep3 = 0; }
+                        if (Model.totals.SepJ3 == null) { Model.totals.SepJ3 = 0; }
+                        var joinComm = Model.totals.SepJ3 * (decimal)0.050;
+                        var SalesComm = Model.totals.Sep3 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.Sep3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Sep3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 10)
+                    {
+                        if (Model.totals.OctJ3 == null) { Model.totals.OctJ3 = 0; }
+                        if (Model.totals.Oct3 == null) { Model.totals.Oct3 = 0; }
+                        var joinComm = Model.totals.OctJ3 * (decimal)0.05;
+                        var SalesComm = Model.totals.Oct3 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.OctJ3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Oct3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 11)
+                    {
+                        if (Model.totals.NovJ3 == null) { Model.totals.NovJ3 = 0; }
+                        if (Model.totals.Nov3 == null) { Model.totals.Nov3 = 0; }
+                        var joinComm = Model.totals.NovJ3 * (decimal)0.050;
+                        var SalesComm = Model.totals.Nov3 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.NovJ3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Nov3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+                    @if (mnt == 12)
+                    {
+                        if (Model.totals.DecJ3 == null) { Model.totals.DecJ3 = 0; }
+                        if (Model.totals.Dec3 == null) { Model.totals.Dec3 = 0; }
+                        var joinComm = Model.totals.DecJ3 * (decimal)0.050;
+                        var SalesComm = Model.totals.Dec3 * (decimal)0.03;
+                        var total = SalesComm + joinComm;
+                        <td>@Model.totals.DecJ3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@joinComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@Model.totals.Dec3.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@SalesComm.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                        <td>@total.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                    }
+
+    </tr>
+
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7"> there are no transactions</td>
+                    </tr>
+                }
+            
+            </table> 
+              
+        </div>
+
+    </div>
+
+
+</section>
+<!-- /Main Content -->
+
+

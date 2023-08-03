@@ -1,0 +1,177 @@
+﻿@model IEnumerable<RetailKing.Models.Account>
+@{
+    ViewBag.Title = "Search";
+   
+}
+
+<table  style="background-color: #D5BEE8; width: 100%">
+    <tr>
+        <td style="border-style: none"></td>
+        <td style="border-style: none">Account_Balance </td>
+        <td style="border-style: none">Amount_Paid  </td>
+        <td  style="border-style: none">Allocated </td>
+        <td  style="border-style: none">Un-Allocated </td>
+    </tr>
+    <tr>
+        <td style="border-style: none">@ViewData["AccountName"]</td>
+        <td id="AccBal" style="border-style: none">@ViewData["Balance"]</td>
+        <td style="border-style: none">@ViewData["Amount"]</td>
+        <td id="Allocated" style="border-style: none"> 0.00</td>
+        <td id="NewBalance" style="border-style: none"> @ViewData["Amount"]</td>
+    </tr>
+</table> 
+<table id="Sresults" style="width: 100%;background-color: white">
+    <tr>
+        <th></th>
+        <th>Invoice #</th>
+        <th>Balance </th>
+        <th>Invoice Value</th>
+    </tr>
+@foreach (var item in Model) {
+    var ww = item.AccountName.Trim() + "_" + item.AccountCode;
+    <tr id = "@item.AccountCode" onclick="placeNo('@item.LinkAccount','@item.Opening','@item.AccountCode')"> 
+        <td>
+             @Html.EditorFor(modelItem => item.Selection, new { @onclick ="placeNo('@item.LinkAccount','@item.Opening','@item.AccountCode')" })
+        </td>    
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkAccount )
+        </td>
+         <td id="balance_@item.AccountCode">
+            @Html.DisplayFor(modelItem => item.Opening)
+        </td>   
+         <td>
+            @Html.DisplayFor(modelItem => item.Balance)
+        </td>   
+    </tr>
+}
+</table>
+<div>
+    <button class="btn btn-black"  type="button"  onclick="KnockOff()">Next</button>
+    <button class="btn btn-black" type="button" onclick="CancelInv()" >Cancel</button>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // document.getElementById("Creditq").focus();
+        AllocationBalance =parseFloat( '@ViewData["Amount"]');
+        Allocated = parseFloat('0');
+        Unallocated = parseFloat('@ViewData["Amount"]');
+        $("#balances").val('');
+        $('#Invoices').val('');
+        $("#Receipt").val('')
+    });
+
+   
+
+    function placeNo(id, amt, chek) {
+        if ($("#" + chek + " input:checkbox")[0].checked == true && parseFloat(amt) != parseFloat($('#balance_' + chek).html())) {
+            $("#" + chek + " input:checkbox")[0].checked = false;
+            var ttt;
+            if ($("#Receipt").val() == id) {
+                ttt = $("#Receipt").val().replace(id, '');
+            }
+            else {
+                var xx = "," + id;
+                ttt = $("#Receipt").val().replace(xx, '');;
+            }
+          
+            $('#Invoice').val(ttt);
+            $("#Receipt").val(ttt);
+            var ball = 0;
+
+            var newBal = parseFloat($('#AccBal').html()) + parseFloat(amt);
+
+            if ($('#balance_' + chek).html() > 0) {
+                ball = parseFloat(amt);
+                Unallocated = Unallocated + (parseFloat(amt) - parseFloat($('#balance_' + chek).html()));
+                newBal = newBal - parseFloat($('#balance_' + chek).html())
+                Allocated = parseFloat(Allocated) - (parseFloat(amt) - parseFloat($('#balance_' + chek).html()));
+            }
+            else {
+                ball = parseFloat(amt);
+                Allocated = parseFloat(Allocated) - parseFloat(amt);
+                Unallocated = Unallocated + parseFloat(amt);
+            }
+
+            $('#Allocated').html(Allocated);
+            $('#NewBalance').html(Unallocated);
+            $('#AccBal').html(newBal);
+            $('#balance_' + chek).html(ball);
+
+            if ($("#balances").val() == ball) {
+                
+                ttt = $("#balances").val().replace(ball, '');
+            }
+            else {
+                ttt = $("#balances").val().replace(',' + ball, '');
+            }
+
+            $("#balances").val(ttt);
+        }
+        else { 
+            if (Unallocated != 0) {
+                $("#" + chek + " input:checkbox")[0].checked = true;
+                var ttt;
+                if ($("#Receipt").val() == "") {
+                    ttt = id;
+                }
+                else {
+                    ttt = $("#Receipt").val() + ',' + id;
+                }
+                $('#Invoice').val(ttt);
+                $("#Receipt").val(ttt);
+                var ball = 0;
+               
+               
+               
+                var newBal = parseFloat($('#AccBal').html()) - parseFloat(amt);
+
+                if (parseFloat(Unallocated) >= parseFloat(amt))
+                {
+                    ball = 0;
+                    Allocated = parseFloat(Allocated) + parseFloat(amt);
+                    Unallocated = parseFloat(AllocationBalance) - parseFloat(Allocated);
+
+                }
+                else 
+                {
+                    ball = parseFloat(amt) - Unallocated;
+                    newBal = parseFloat($('#AccBal').html()) - parseFloat(Unallocated);
+                    Allocated = Allocated + Unallocated;
+                    Unallocated = 0;
+                }
+                
+               
+                $('#Allocated').html( Allocated);
+                $('#NewBalance').html(Unallocated);
+                $('#AccBal').html(newBal);
+                $('#balance_' + chek).html(ball);
+                
+                if ($("#balances").val() == "") {
+                    ttt = ball;
+                }
+                else {
+                    ttt = $("#balances").val() + ',' + ball;
+                }
+
+                $("#balances").val(ttt);
+            }
+            else
+            {
+                $("#" + chek + " input:checkbox")[0].checked = false;
+                alert("There are no more funds to allocate");
+            }
+        }
+    }
+
+    function KnockOff() {
+        $.fancybox.close();
+    }
+
+    function CancelInv() {
+        $("#balances").val('');
+        $('#Invoices').val('');
+        $("#Receipt").val('');
+        $.fancybox.close();
+    }
+</script>

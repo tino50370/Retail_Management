@@ -1,0 +1,147 @@
+﻿@model RetailKing.Models.Infographic
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites"
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+
+                $("#panel").html(result);
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#Profilep").ajaxForm(options);
+
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (tinymce.editors.length != 0 || tinymce.activeEditor != undefined) {
+            setTimeout(function () {
+                // alert(tinymce.editors.length);
+                tinymce.init({
+                    selector: "Description",
+                    plugins: [
+                        "advlist autolink autosave link lists base64_image charmap hr pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars fullscreen media ",
+                        "table contextmenu directionality textcolor paste fullpage textcolor colorpicker textpattern"
+                    ],
+
+                    toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table",
+                    toolbar2: "formatselect | cut copy paste | searchreplace  |  undo redo | link unlink base64_image | forecolor backcolor",
+                    menubar: false,
+                    paste_data_images: true,
+                    height: "300",
+                    width: "400"
+                });
+                tinymce.execCommand('mceAddEditor', true, "Description");
+            }, 1000);
+        }
+        else {
+            tinymce.init({
+                selector: "Description",
+                plugins: [
+                    "advlist autolink autosave link lists base64_image charmap hr pagebreak spellchecker",
+                    "searchreplace wordcount visualblocks visualchars fullscreen media ",
+                    "table contextmenu directionality textcolor paste fullpage textcolor colorpicker textpattern"
+                ],
+                toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table",
+                toolbar2: "formatselect | cut copy paste | searchreplace  |  undo redo | link unlink base64_image | forecolor backcolor",
+                menubar: false,
+                paste_data_images: true,
+                height: "300",
+                width: "400",
+
+
+            });
+            tinyMCE.execCommand('mceAddEditor', true, 'Description');
+        }
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Create @ViewData["Section"]</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+
+                    @using (Html.BeginForm("Create", "Inforgraphics", FormMethod.Post, new { enctype = "multipart/form-data", @name = "ProfileP", id = "Profilep" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                            <legend></legend>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Title)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Title,new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Title)
+                            </div>
+                          
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Type)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(m => m.Type, new SelectList((IEnumerable<SelectListItem>)ViewBag.type, "Value", " Text"),new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Type)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Description)
+                            </div>
+                            <div class="editor-field" style="width:100%">
+                                @Html.TextAreaFor(model => model.Description)
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </div>
+
+
+                            <br />
+                            <p>
+                                <button class="btn btn-black" type="submit">Save</button>
+                                <button class="btn btn-black" type="button" onclick="GetView('@Url.Action("Index", "Inforgraphics")')">Cancel</button>
+                            </p>
+                        </fieldset>
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

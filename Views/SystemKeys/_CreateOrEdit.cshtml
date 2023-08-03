@@ -1,0 +1,35 @@
+@model RetailKing.Models.Syskey
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Value)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Value, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Value)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Module)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Module, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Module)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Description )
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Description , new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Description )
+</div>

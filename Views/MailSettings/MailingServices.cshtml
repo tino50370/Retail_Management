@@ -1,0 +1,124 @@
+@model IEnumerable<RetailKing.Models.MailingService>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Mailing Services</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+
+            <table style="width:100%" class="table table-stripe">
+                <tr>
+                    <th>
+                        Company
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Start Mode
+                    </th>
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                       
+                        <button class="btn btn-info" style="float: right; margin-right:5px" onclick="GetView('@Url.Action("RestartAllServices", "MailSettings")')">Reset Services</button>
+                        <button class="btn btn-warning" style="float: right; margin-right:5px" onclick="GetView('@Url.Action("CreateMailingService", "MailSettings")')">Create Services</button>
+                    </th>
+                </tr>
+
+                @{
+
+                    int cnt = 0;
+                    foreach (var item in Model)
+                    {
+                        cnt += 1;
+                        if (cnt % 2 == 0)
+                        {
+                            <tr style=" background-color: #EEEEEE">
+
+                                <td>
+                                    @item.Company
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    @item.StartMode
+                                </td>
+                                <td>
+                                    @if (item.Status.Trim() == "Running")
+                                    {
+                                        <span class="label label-success">@item.Status </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-danger">@item.Status </span>
+                                    }
+                                </td>
+
+                                <td>
+                                  
+                                    <button class="btn btn-danger btn-sm" style="float: right; margin-right:5px" onclick="GetView('@Url.Action("StopService", "MailSettings")', '@item.Id')">Stop</button>
+                                    <button class="btn btn-success btn-sm" style="float: right; margin-right:5px" onclick="GetView('@Url.Action("StartService", "MailSettings")', '@item.Id')">Start</button>
+                                    <button class="btn btn-primary btn-sm" style="float: right; margin-right:5px" onclick="GetView('@Url.Action("EditMailingService", "MailSettings")', '@item.Id')">Edit</button> 
+                                    <button class="btn btn-warning btn-sm" style="float: right; margin-right:5px" onclick="GetFancy('@Url.Action("ServiceDetails", "MailSettings")','@item.Id')">Preview </button>
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr style=" background-color :#FCFDFF">
+
+                                <td>
+                                    @item.Company
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    @item.StartMode
+                                </td>
+                                <td>
+                                    @if (item.Status.Trim() == "Running")
+                                    {
+                                        <span class="label label-success">@item.Status </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-danger">@item.Status </span>
+                                    }
+                                </td>
+                                <td>
+
+                                    <button class="btn btn-danger btn-sm" style="float: right; margin-right:5px" onclick="GetView('@Url.Action("StopService", "MailSettings")', '@item.Id')">Stop</button>
+                                    <button class="btn btn-success btn-sm" style="float: right; margin-right:5px" onclick="GetView('@Url.Action("StartService", "MailSettings")', '@item.Id')">Start</button>
+                                    <button class="btn btn-primary btn-sm" style="float: right; margin-right:5px" onclick="GetView('@Url.Action("EditMailingService", "MailSettings")', '@item.Id')">Edit</button>
+                                    <button class="btn btn-warning btn-sm" style="float: right; margin-right:5px" onclick="GetFancy('@Url.Action("ServiceDetails", "MailSettings")','@item.Id')">Preview </button>
+                                </td>
+
+                            </tr>
+                        }
+                    }
+                }
+            </table>
+
+        </div>
+    </div>
+</div>
+<div id="RightPanel" class="col-md-5 col-sm-5 col-xs-12">
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        //GetSideView('@Url.Action("CreateMailingService", "MailSettings")')
+    })
+</script>

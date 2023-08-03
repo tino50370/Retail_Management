@@ -1,0 +1,72 @@
+﻿@model IEnumerable<RetailKing.Models.Faq>
+
+@{
+    ViewBag.Title = "Faq";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".toggle_container").hide();
+       
+        $(".toggle").click(function () {
+            $(this).toggleClass("toggle_active").next().slideToggle("slow");
+        });
+
+        $(".toggle_button").click(function () {
+            $(this).toggleClass("toggle_active").next().slideToggle("slow");
+            if ($(this).find('.HideAdd').is(':hidden')) {
+                $(this).find('.ShowAdd').hide();
+                $(this).find('.HideAdd').show();
+            } else {
+                $(this).find('.ShowAdd').show();
+                $(this).find('.HideAdd').hide();
+            }
+        });
+        // $(".toggle_active").trigger('click');
+    });
+</script>
+
+<div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="breadcrumbs">
+            <p><a href="#">Home</a> <i class="icons icon-right-dir"></i>About</p>
+        </div>
+    </div>
+
+    <section class="main-content col-lg-12 col-md-12 col-sm-12">
+      
+
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="carousel-heading">
+                        <h4>FAQs</h4>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="blog-item">
+                        <div class="blog-info">
+
+                            <!-- End Accordion -->
+                            @foreach (var item in Model)
+                            {
+                                <div class="toogle_box">
+                                    <div class="toggle opened_toggle">
+                                        <div class="icon"></div>
+                                       @item.Question
+                                    </div>
+                                    <div class="toggle_container">
+                                        <div id="ProfImageData">
+                                            <p>@item.Answer </p>
+                                        </div>   
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+     </div> 
+    </section>
+</div>

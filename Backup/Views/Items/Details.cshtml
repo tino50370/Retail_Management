@@ -1,0 +1,74 @@
+@model RetailKing.Models.Items
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<fieldset>
+    <legend>Item</legend>
+
+    <div class="display-label">Item1</div>
+    <div class="display-field">@Model.Item</div>
+
+    <div class="display-label">Quantity</div>
+    <div class="display-field">@Model.Quantity</div>
+
+    <div class="display-label">BuyingPrice</div>
+    <div class="display-field">@String.Format("{0:F}", Model.BuyingPrice)</div>
+
+    <div class="display-label">SellingPrice</div>
+    <div class="display-field">@String.Format("{0:F}", Model.SellingPrice)</div>
+
+    <div class="display-label">Expected</div>
+    <div class="display-field">@String.Format("{0:F}", Model.Expected)</div>
+
+    <div class="display-label">sold</div>
+    <div class="display-field">@Model.sold</div>
+
+    <div class="display-label">transfer</div>
+    <div class="display-field">@Model.transfer</div>
+
+    <div class="display-label">Balance</div>
+    <div class="display-field">@Model.Balance</div>
+
+    <div class="display-label">Amount</div>
+    <div class="display-field">@String.Format("{0:F}", Model.Amount)</div>
+
+    <div class="display-label">NewStock</div>
+    <div class="display-field">@Model.NewStock</div>
+
+    <div class="display-label">Returns</div>
+    <div class="display-field">@Model.Returned</div>
+
+    <div class="display-label">company</div>
+    <div class="display-field">@Model.company</div>
+
+    <div class="display-label">category</div>
+    <div class="display-field">@Model.category</div>
+
+    <div class="display-label">SubCategory</div>
+    <div class="display-field">@Model.SubCategory</div>
+
+    <div class="display-label">Swaps</div>
+    <div class="display-field">@Model.Swaps</div>
+
+    <div class="display-label">Reorder</div>
+    <div class="display-field">@Model.Reorder</div>
+
+    <div class="display-label">status</div>
+    <div class="display-field">@Model.status</div>
+
+    <div class="display-label">ItemCode</div>
+    <div class="display-field">@Model.ItemCode</div>
+
+    <div class="display-label">tax</div>
+    <div class="display-field">@Model.tax</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

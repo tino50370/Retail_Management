@@ -1,0 +1,577 @@
+﻿@model  RetailKing.Models.HomeData
+
+@{
+    ViewBag.Title = ViewData["Catecory"];
+    int pColumn = 0;
+}
+<script src="@Url.Content("~/Scripts/store/main-script.js")"></script>
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        try{
+            var id = localStorage.getItem('sessionId')
+            if(id=! '' || id == undefined){
+                id='@ViewData["Sessionid"]';
+            }
+            localStorage.setItem('sessionId',id);
+        }
+        catch(Exception){
+            
+        }
+        $('#SizeR').change(function (event) {
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("Index", "Category")',
+                dataType: 'html',
+                data: {
+                    Id: '@ViewData["Catecory"].ToString()',
+                    catId:'@ViewData["CatId"]',
+                    iDisplayStart: @ViewData["ThisPage"],
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+    });
+
+    function GetPageR(thispage) {
+        $.ajax({
+            type: "Get",
+            url: '@Url.Action("Index", "Category")',
+            dataType: 'html',
+            data: {
+                Id: '@ViewData["Catecory"].ToString()',
+                catId:'@ViewData["CatId"]',
+                iDisplayStart: thispage,
+                iDisplayLength: '$("#SizeR").val()',
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+    function GetPageC(thiscol) {
+        $.ajax({
+            type: "Get",
+            url: '@Url.Action("Index", "Category")',
+            dataType: 'html',
+            data: {
+                Id: '@ViewData["Catecory"].ToString()',
+                catId:'@ViewData["CatId"]',
+                iDisplayStart: (thiscol * 5) + 1,
+                iColumns: thiscol,
+                iDisplayLength: '$("#SizeR").val()',
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+
+</script>
+
+<div>
+   
+    <!-- Banner -->
+    <section class="banner col-lg-12 col-md-12 col-sm-12">
+
+        <div class="left-side-banner banner-item icon-on-right gray">
+            <h4>263 (4) 570106</h4>
+            <p>Monday - Saturday: 8am - 5pm </p>
+            <i class="icons icon-phone-outline"></i>
+        </div>
+
+        <a href="#">
+            <div class="middle-banner banner-item icon-on-left light-blue">
+                <h4>Free Delivery</h4>
+                <p>on all orders over $99</p>
+                <span class="button">Learn more</span>
+                <i class="icons icon-truck-1"></i>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="right-side-banner banner-item orange">
+                <h4>Crazy sale!</h4>
+                <p>on selected items</p>
+                <span class="button">Shop now</span>
+            </div>
+        </a>
+
+    </section>
+    <!-- /Banner -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="breadcrumbs">
+            <p><a href="#">Home</a> <i class="icons icon-right-dir"></i> @ViewData["Catecory"]</p>
+        </div>
+    </div>
+ 
+  
+    <!-- Main Content -->
+    <section class="main-content col-lg-9 col-md-9 col-sm-9">
+
+        <!-- Featured Products -->
+        <div class="products-row row">
+
+            <!-- Carousel Heading -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="carousel-heading">
+                    <h4>@ViewData["Catecory"]</h4>
+                    <div class="carousel-arrows">
+                        <i class="icons icon-left-dir"></i>
+                        <i class="icons icon-right-dir"></i>
+                    </div>
+                </div>
+                @{
+                    var ct = (from e in Model.Categories.Where(u => u.AccountName.Trim() == ViewData["Catecory"].ToString()) select e).FirstOrDefault();
+                    var subs = (from e in Model.Categories.Where(u => u.AccountCode.StartsWith(ct.AccountCode + "-"))  select e).ToList();
+                }
+                @if (subs.Count() > 0) 
+                { 
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+
+                    <div class="row subcategories">
+                       @foreach (var sc in subs)
+                       {
+                            <!-- Subcategory -->
+                        <div class="col-lg-fifth col-md-fifth col-sm-fifth subcategory">
+                            @if (sc.Icon != null)
+                            {
+                               
+                                <a href="@Url.Action("Index", "Category", new { Id = sc.AccountName, catId = ct.ID })"><img src="@Url.Content(sc.Icon)" alt="@sc.AccountName"></a>
+                            }
+                           
+                            <div class="product-info">
+                                <h6><a href="@Url.Action("Index", "Category", new { Id= sc.AccountName, catId = ct.ID })">@sc.AccountName</a></h6>
+                            </div>
+
+                        </div>
+                        <!-- /Subcategory -->
+
+                       }
+                       
+
+                    </div>
+
+                </div>
+                }
+            </div>
+            <!-- /Carousel Heading -->
+
+
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="category-results">
+                        <p>@ViewData["RecordData"]</p>
+                        <p>
+                            Show
+                            <select id="SizeR" class="chosen-select">
+                                <option>21</option>
+                                <option>35</option>
+                                <option>70</option>
+                            </select>
+                            per page
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="pagination">
+                        @if (int.Parse(@ViewData["Columns"].ToString()) > 1)
+                        {
+                            pColumn = int.Parse(@ViewData["Columns"].ToString()) - 1;
+                            <a onclick="GetPageC(@pColumn"><div class="previous"><i class="icons icon-left-dir"></i></div></a>
+                        }
+                        @if (int.Parse(@ViewData["Pages"].ToString()) <= 5)
+                        {
+                            for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                            {
+                                if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                {
+                                    <a onclick="GetPageR(@i)"><div style="background-color:#DDE3E6" class="page-button">@i</div></a>
+                                }
+                                else
+                                {
+                                    <a onclick="GetPageR(@i)"><div class="page-button">@i</div></a>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (int i = (pColumn * 5) + 1; i <= (int.Parse(@ViewData["Columns"].ToString()) * 5); i++)
+                            {
+                                if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                {
+                                    <a onclick="GetPageR(@i)"><div style="background-color:#DDE3E6" class="page-button">@i</div></a>
+                                }
+                                else
+                                {
+                                    <a onclick="GetPageR(@i)"><div class="page-button">@i</div></a>
+                                }
+                            }
+
+                            <a onclick="GetPageC(@ViewData["Columns"])"><div class="next"><i class="icons icon-right-dir"></i></div></a>
+                        }
+
+
+                    </div>
+
+                </div>
+
+            <!-- Carousel -->
+            <div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
+                @{
+                    var featured = (from e in Model.items.OrderByDescending(u=> u.Balance) select e).ToList();
+                }
+               
+                 @foreach (var c in featured)
+                 {
+                        if(c.SellingPrice != null)
+                        { 
+                	    <!-- Product item -->
+                            <div class="col-lg-4 col-md-4 col-sm-4 product">
+       
+                <!-- Product Item -->
+
+
+                <div class="product-image">
+                    @if (string.IsNullOrEmpty(c.ThumbImage))
+                    {
+                    <img src="@Url.Content("~/Content/Template/img/bag.png")" alt="@c.ItemName">
+                    }
+                    else
+                    {
+
+                        <img src="@Url.Content(c.ThumbImage)" alt="@c.ItemName" )">
+                    }
+                    <a href="@Url.Action("Details", "items", new { id = c.ID })" class="product-hover">
+                        <i class="icons icon-eye-1"></i> Quick View
+                    </a>
+                </div>
+
+                <div class="product-info">
+                    <h5><a class="capitalize" href="@Url.Action("Details", "items", new { id = c.ID })">@c.ItemName </a></h5>
+                    <span class="itemprice">$@c.SellingPrice.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span>
+
+                    <div id="Error_@c.ID" style="display:none; border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:99%;height:40px">
+
+                    </div>
+                    <div id="Success_@c.ID" style="display:none;border: 1px solid #2ECC9F;color:#2ECC9F; padding:8px 8px 8px 8px ;  margin-top:10px;margin-bottom: 20px; width:99%;height:40px">
+
+                    </div>
+                </div>
+
+                <div class="product-actions">
+            
+                  @if (c.Balance > 0)
+                  {
+                     <span class="add-to-cart">
+                        <span class="action-wrapper">
+                            <i class="icons icon-basket-2"></i>
+                            <a onclick="AddToCartList('@c.ID','@c.SellingPrice')">
+
+                                <span class="action-name" style="color:#ffffff">Add to Cart</span>
+
+                            </a>
+                        </span>
+                    </span>
+                    <span class="add-to-cart-green">
+                        <span class="action-wrapper">
+                            <i class="icons icon-book-2"></i>
+                            <a href="@Url.Action("Details", "items", new { id = c.ID })">
+
+                                <span class="action-name" style="color:#ffffff">View Details</span>
+
+                            </a>
+                        </span>
+                    </span>
+                }
+                else
+                {
+                    <span class="add-to-favorites">
+                        <span class="action-wrapper">
+                            <i class="icons icon-basket-2"></i>
+                            <a>
+                                <span class="action-name" style="color:#ffffff">Out Of Stock</span>
+                            </a>
+                        </span>
+                    </span>
+                    <span class="add-to-cart-green">
+                        <span class="action-wrapper">
+                            <i class="icons icon-book-2"></i>
+                            <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                <span class="action-name" style="color:#ffffff">View Details</span>
+                            </a>
+                        </span>
+                    </span>
+                }
+                    <span class="add-to-compare">
+                        <span class="action-wrapper">
+                            <i class="icons icon-heart-empty"></i>
+                            <span class="action-name">Add to wishlist</span>
+                        </span>
+                    </span>
+                    <div id="Error_@c.ID" style="display:none; border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:99%;height:40px">
+
+                    </div>
+                    <div id="Success_@c.ID" style="display:none;border: 1px solid #2ECC9F;color:#2ECC9F; padding:8px 8px 8px 8px ;  margin-top:10px;margin-bottom: 20px; width:99%;height:40px">
+
+                    </div>
+                </div>
+           
+            </div>
+                        <!-- /Product Item -->  
+                        }
+                }
+
+             </div>
+            <!-- /Carousel -->
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="category-results">
+                    <p>@ViewData["RecordData"]</p>
+                    <p>
+                        Show
+                        <select id="SizeR" class="chosen-select">
+                            <option>21</option>
+                            <option>35</option>
+                            <option>70</option>
+                        </select>
+                        per page
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="pagination">
+                    @if (int.Parse(@ViewData["Columns"].ToString()) > 1)
+                    {
+                        pColumn = int.Parse(@ViewData["Columns"].ToString()) - 1;
+                        <a onclick="GetPageC(@pColumn"><div class="previous"><i class="icons icon-left-dir"></i></div></a>
+                    }
+                               @if (int.Parse(@ViewData["Pages"].ToString()) <= 5)
+                               {
+                                   for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                                   {
+                                       if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                       {
+                                        <a onclick="GetPageR(@i)"><div style="background-color:#DDE3E6" class="page-button">@i</div></a>
+                                       }
+                                       else
+                                       {
+                                        <a onclick="GetPageR(@i)"><div class="page-button">@i</div></a>
+                                       }
+                                   }
+                               }
+                               else
+                               {
+                                   for (int i = (pColumn * 5) + 1; i <= (int.Parse(@ViewData["Columns"].ToString()) * 5) ; i++)
+                                   {
+                                       if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                       {
+                                        <a onclick="GetPageR(@i)"><div style="background-color:#DDE3E6" class="page-button">@i</div></a>
+                                       }
+                                       else
+                                       {
+                                        <a onclick="GetPageR(@i)"><div class="page-button">@i</div></a>
+                                       }
+                                   }
+                                   
+                                <a onclick="GetPageC(@ViewData["Columns"])"><div class="next"><i class="icons icon-right-dir"></i></div></a>
+                               }
+
+                    
+                </div>
+            </div>
+
+        </div>
+       
+        <!-- Product Brands -->
+        <div class="products-row row">
+
+            <!-- Carousel Heading -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="carousel-heading">
+                    <h4>Product Brands</h4>
+                    <div class="carousel-arrows">
+                        <i class="icons icon-left-dir"></i>
+                        <i class="icons icon-right-dir"></i>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Carousel Heading -->
+            <!-- Carousel -->
+
+            <div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
+
+                <div class="owl-carousel" data-max-items="5">
+                    @foreach (var partner in Model.Partners)
+                    {
+									<!-- Slide -->
+                        <div>
+                            <div class="product">
+                                <a href="#"><img src="@Url.Content(partner.Logo)" alt="@partner.Name"></a>
+                            </div>
+                        </div>
+									<!-- /Slide -->
+                    }
+
+                </div>
+
+            </div>
+            <!-- /Carousel -->
+
+        </div>
+        <!-- /Product Brands -->
+
+
+    </section>
+    <!-- /Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="sidebar right-sidebar col-lg-3 col-md-3 col-sm-3">
+        <!-- Filter -->
+      
+
+        <!-- Categories -->
+        <div class="row sidebar-box purple">
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="sidebar-box-heading">
+                    <i class="icons icon-folder-open-empty"></i>
+                    <h4>Categories</h4>
+                </div>
+                @{
+                    var cats = (from e in Model.Categories.Where(u => u.AccountCode.Length == 4) select e).ToList();
+
+                }
+                <div class="sidebar-box-content">
+                    <ul>
+                        @foreach (var cat in cats)
+                        {
+                            var subcats = (from e in Model.Categories.Where(u => u.AccountCode.StartsWith(cat.AccountCode + "-")) select e).ToList();
+                            <li>
+                                <a href="@Url.Action("Index", "Category", new { id=cat.AccountName  })">@cat.AccountName <i class="icons icon-right-dir"></i></a>
+                                @if (subcats.Count() > 0)
+                                {
+                                    int runs = subcats.Count() / 8;
+                                    if (subcats.Count() % 8 != 0)
+                                    { runs = runs + 1; }
+                                    <ul class="sidebar-dropdown">
+                                        @for (int i = 0; i < runs; i++)
+                                        {
+                                            var top8 = (from e in subcats.Skip(i * 8) select e).Take(8);
+                                            <li>
+                                                <ul>
+                                                    @foreach (var scat in top8)
+                                                    {
+                                                        <li>
+                                                            <a href="@Url.Action("Index", "Category", new { id = scat.AccountName, catId = cat.ID}) ">@scat.AccountName</a>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                }
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /Categories -->
+
+        <!-- Compare Products -->
+       
+        <!-- /Compare Products -->
+        <!-- Carousel -->
+        <div class="row sidebar-box">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 sidebar-carousel">
+                @{
+                    var sideAd = (from e in Model.items.Where(u => u.Promotion == "YES" && u.AdPosition.StartsWith("Side")) select e).ToList();
+                }
+                <!-- Slider -->
+                <section class="sidebar-slider">
+                    <div class="sidebar-flexslider">
+                        <ul class="slides">
+                            @foreach (var slid in sideAd)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Details", "items", new { id = slid.ID })"><img src="@Url.Content(slid.PromoImage)" alt=" slide1" /></a>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="slider-nav"></div>
+                </section>
+                <!-- /Slider -->
+
+            </div>
+
+        </div>
+        <!-- /Carousel -->
+
+        <!-- Bestsellers -->
+        <div class="row sidebar-box red">
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="sidebar-box-heading">
+                    <i class="icons icon-award-2"></i>
+                    <h4>Bestsellers</h4>
+                </div>
+
+                <div class="sidebar-box-content">
+                    <table class="bestsellers-table">
+                        @{
+                            var topsellers = (from e in Model.items.OrderByDescending(u => u.sold) select e).Take(5);
+                        }
+                        @foreach (var item in topsellers)
+                        {
+                            <tr>
+                                @if (item.ThumbImage == null)
+                                {
+                                    <td class="product-thumbnail"><a href="@Url.Action("Details", "items", new { id = item.ID })"><img src="@Url.Content("~/Content/Template/img/bag.png")" alt="@item.ItemName"></a></td>
+                                }
+                                else
+                                {
+                                    <td class="product-thumbnail"><a href="@Url.Action("Details", "items", new { id = item.ID })"><img src="@Url.Content(item.ThumbImage)" alt="@item.ItemName"></a></td>
+                                }
+                                <td class="product-info">
+                                    <p><a href="@Url.Action("Details", "items", new { id = item.ID })">@item.ItemName</a></p>
+                                    <span class="price">$@item.SellingPrice.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /Bestsellers -->
+
+    </aside>
+    <!-- /Sidebar -->
+    
+</div> 

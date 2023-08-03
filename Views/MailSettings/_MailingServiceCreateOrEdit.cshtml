@@ -1,0 +1,358 @@
+@model RetailKing.Models.MailingService 
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="col-md-10">
+    <div style="display: none">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Company)
+        </div>
+        <div class="editor-field">
+
+            @Html.DropDownListFor(model => model.Company,
+                           new SelectList(
+                             ViewBag.Company,
+                             "Value",
+                                              "Text"), new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.Company)
+        </div>
+    </div>
+    <div class="editor-label">
+        @Html.Label("Service Name")
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="editor-label">
+        @Html.Label("Service Description")
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Description)
+    </div>
+    <br />
+    <div style="display:none">
+        <div class="alert alert-warning alert-dismissible fade in" role="alert">
+
+            <strong>Please Note!</strong> All listening folders should be in the root folder of the server or target machine.
+            if remote machine enter path as follows <strong><em>ipadress\foldername</em></strong>
+        </div>
+        <div class="editor-label">
+            @Html.Label("Folder Path")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.ListiningFolder, new { @class = "form-control", placeholder = "foldername" })
+            @Html.ValidationMessageFor(model => model.ListiningFolder)
+        </div>
+        <div class="editor-label">
+            @Html.Label("File Extension")
+        </div>
+        <div class="editor-field">
+            @if (!string.IsNullOrEmpty(Model.FileFilter))
+            {
+                @Html.DropDownListFor(model => model.FileFilter, new SelectList(new[] { "*.txt", "*.pdf", "*.docx", "*.xlsx" }, Model.FileFilter.Trim()), new { @class = "form-control" })
+            }
+            else
+            {
+                @Html.DropDownListFor(model => model.FileFilter, new SelectList(new[] { "*.txt", "*.pdf", "*.docx", "*.xlsx" }, Model.FileFilter), new { @class = "form-control" })
+            }
+            @Html.ValidationMessageFor(model => model.FileFilter)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("File Actions")
+        </div>
+        <div class="editor-field">
+            @if (!string.IsNullOrEmpty(Model.SendFileAs))
+            {
+              @Html.DropDownListFor(model => model.SendFileAs, new SelectList(new[] { "Send As Attachment", "Send Content", "No Action" }, Model.SendFileAs.Trim()), new { @class = "form-control" })
+            }
+            else
+            {
+                @Html.DropDownListFor(model => model.SendFileAs, new SelectList(new[] { "Send As Attachment", "Send Content", "No Action" }, Model.SendFileAs), new { @class = "form-control" })
+            }
+            @Html.ValidationMessageFor(model => model.SendFileAs)
+        </div>
+
+        <br />
+
+        <div class="alert alert-warning alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+            <strong>Please Note!</strong> the first item when filename is split will be 0 then 1, 2, 3 etc<em>ipadress/foldername</em>
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.Label("Use MailingList")
+    </div>
+    <div class="editor-field">
+    @if (!string.IsNullOrEmpty(Model.HasMailingList))
+    {
+        @Html.DropDownListFor(model => model.HasMailingList, new SelectList(new[] { "No", "Yes" }, Model.HasMailingList.Trim() ), new { @class = "form-control" })
+    }
+    else
+    {
+        @Html.DropDownListFor(model => model.HasMailingList, new SelectList(new[] { "No", "Yes" }, Model.HasMailingList), new { @class = "form-control" })
+    }
+
+    @Html.ValidationMessageFor(model => model.HasMailingList)
+    </div>
+    <div style="display:none">
+        <div id="TemplateCheck" class="editor-field ">
+            <div class="editor-label">
+                @Html.Label("Get Parameters From")
+            </div>
+            <div class="editor-field">
+            @if (!string.IsNullOrEmpty(Model.SendingDetails))
+            {
+                @Html.DropDownListFor(model => model.SendingDetails, new SelectList(new[] { "File Name", "Text File" }, Model.SendingDetails.Trim()), new { @class = "form-control" })
+
+            }
+            else
+            {
+                @Html.DropDownListFor(model => model.SendingDetails, new SelectList(new[] { "File Name", "Text File" }, Model.SendingDetails), new { @class = "form-control" })
+            }
+            @Html.ValidationMessageFor(model => model.HasMailingList)
+            </div>
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBox("HasTemplate", Model.HasTemplate.Value, new { @class = "flat", @checked = "checked" }) Use Template Data <em style="color:orange"> (Untick to use text file for data)</em>
+                </label>
+            </div>
+            @Html.ValidationMessageFor(model => model.HasTemplate)
+        </div>
+
+
+        <div class="col-md-6">
+            <div id="EmailCheck" class="editor-field">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBox("HasEmail", Model.HasEmail.Value, new { @class = "flat" }) Send Emails
+                    </label>
+                </div>
+                @Html.ValidationMessageFor(model => model.HasEmail)
+            </div>
+            @if(Model.HasEmail == true)
+     {
+                <div id="emailData" style="display:block">
+                    <div class="MessagePositions" style="display:none">
+                        <div class="editor-label">
+                            @Html.Label("Email Message Position")
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.EmailMessagePosition, new { @class = "form-control", type = "number" })
+                            @Html.ValidationMessageFor(model => model.SmsPosition)
+                        </div>
+
+
+                    </div>
+                    <div class="editor-label">
+                        @Html.Label("Email Address Position")
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.StartPossition, new { @class = "form-control", placeholder = "eg 1", type = "number" })
+                        @Html.ValidationMessageFor(model => model.StartPossition)
+                    </div>
+                </div>
+     }
+     else
+     {
+                <div id="emailData" style="display:none">
+                    <div class="MessagePositions" style="display:none">
+                        <div class="editor-label">
+                            @Html.Label("Email Message Position")
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.EmailMessagePosition, new { @class = "form-control", type = "number" })
+                            @Html.ValidationMessageFor(model => model.SmsPosition)
+                        </div>
+
+
+                    </div>
+                    <div class="editor-label">
+                        @Html.Label("Email Address Position")
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.StartPossition, new { @class = "form-control", placeholder = "eg 1", type = "number" })
+                        @Html.ValidationMessageFor(model => model.StartPossition)
+                    </div>
+                </div>
+     }
+        </div>
+
+        <div class="col-md-6">
+            <div id="SmsCheck" class="editor-field">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBox("HasSms", Model.HasSms.Value, new { @class = "flat" }) Send Sms
+                    </label>
+                </div>
+                @Html.ValidationMessageFor(model => model.HasSms)
+            </div>
+            @if(Model.HasSms == true)
+     {
+                <div id="smsData" style="display:block">
+                    <div class="MessagePositions" style="display:none">
+                        <div class="editor-label">
+                            @Html.Label("Sms Message Position")
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.SmsMessagePosition, new { @class = "form-control", type = "number" })
+                            @Html.ValidationMessageFor(model => model.SmsMessagePosition)
+                        </div>
+                    </div>
+                    <div class="editor-label">
+                        @Html.Label("Mobile Number Position")
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.SmsPosition, new { @class = "form-control", placeholder = "eg 1", type = "number" })
+                        @Html.ValidationMessageFor(model => model.StartPossition)
+                    </div>
+                </div>
+     }
+else
+{
+                <div id="smsData" style="display:none">
+                    <div class="MessagePositions" style="display:none">
+                        <div class="editor-label">
+                            @Html.Label("Sms Message Position") <em style="color:orange">(leave blank if no SMS)</em>
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.SmsMessagePosition, new { @class = "form-control", type = "number" })
+                            @Html.ValidationMessageFor(model => model.SmsMessagePosition)
+                        </div>
+                    </div>
+                    <div class="editor-label">
+                        @Html.Label("Mobile Number Position")
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.SmsPosition, new { @class = "form-control", placeholder = "eg 1", type = "number" })
+                        @Html.ValidationMessageFor(model => model.StartPossition)
+                    </div>
+                </div>
+}
+        </div>
+    </div>
+</div>
+    <div class="col-md-10">
+        <div style="display:none">
+            <div class="editor-label">
+                @Html.Label("Delimeter")
+            </div>
+            <div class="editor-field">
+                @if(!string.IsNullOrEmpty(Model.EmailSeparator))
+                { 
+                    @Html.DropDownListFor(model => model.EmailSeparator, new SelectList(new[] { ",", "-", "_", "|", "/" }, Model.EmailSeparator.Trim()), new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(model => model.EmailSeparator, new SelectList(new[] { ",", "-", "_", "|", "/" }, Model.EmailSeparator), new { @class = "form-control" })
+                }
+
+                @Html.ValidationMessageFor(model => model.EmailSeparator)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Start Service")
+        </div>
+        <div class="editor-field">
+        @if (!string.IsNullOrEmpty(Model.StartMode))
+        {
+
+            @Html.DropDownListFor(model => model.StartMode, new SelectList(new[] { "Automatic", "Manual" }, Model.StartMode.Trim()), new { @class = "form-control" })
+        }
+        else
+        {
+            @Html.DropDownListFor(model => model.StartMode, new SelectList(new[] { "Automatic", "Manual" }, Model.StartMode), new { @class = "form-control" })
+        }
+            @Html.ValidationMessageFor(model => model.Company)
+        </div>
+    </div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#FixedEmail").change(function () {
+            if (this.checked) {
+                $("#emailPw").hide();
+            }
+            else {
+                $("#emailPw").show();
+            }
+        });
+
+        $("#HasSms").change(function () {
+            if (this.checked) {
+                $("#smsDetails").hide();
+            }
+            else {
+                $("#smsDetails").show();
+            }
+        });
+
+        $("#HasTemplate").change(function () {
+            if (this.checked) {
+                $(".MessagePositions").hide();
+            }
+            else {
+                $(".MessagePositions").show();
+            }
+        });
+        $("#HasEmail").change(function () {
+            if (this.checked) {
+                $("#emailData").show();
+            }
+            else {
+                $("#emailData").hide();
+            }
+        });
+        $("#HasSms").change(function () {
+            if (this.checked) {
+                $("#smsData").show();
+            }
+            else {
+                $("#smsData").hide();
+            }
+        });
+
+        $("#FileFilter").change(function () {
+            var vv = $("#FileFilter").val();
+            
+            if(vv == "*.txt")
+            {
+                $("#TemplateCheck").show();    
+            } 
+            else
+            {
+                $("#TemplateCheck").hide();
+                if ($("#HasTemplate").checked)
+                {  
+                }
+                else
+                {
+                    $("#HasTemplate").prop('checked', true);  
+                }
+            }
+            
+        });
+
+        $("#Service").click(function () {
+            GetFancy('@Url.Action("ServiceList", "MailSettings")')
+        });
+
+        $("#ListName").click(function () {
+            GetFancy('@Url.Action("SelectMailing", "MailSettings")')
+        });
+    });
+
+    // Prevent bootstrap dialog from blocking focusin
+    $(document).on('focusin', function (e) {
+        if ($(e.target).closest(".mce-window").length) {
+            e.stopImmediatePropagation();
+        }
+    });
+</script>

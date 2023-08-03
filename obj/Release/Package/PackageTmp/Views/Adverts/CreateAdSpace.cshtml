@@ -1,0 +1,137 @@
+﻿@model RetailKing.Models.AdSpace 
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites"
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+
+                $("#panel").html(result);
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#createAd").ajaxForm(options);
+
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Create Ad Space </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                   
+                     @using (Html.BeginForm("CreateAdSpace", "Adverts", FormMethod.Post, new { id = "createSuppliers" }))
+                     {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                           
+                            <div class="editor-label">
+                                @Html.Label("Name Of Space") <em>eg. forbes</em>
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.LocationName, new {  @class = "form-control" })
+                                @Html.HiddenFor(model => model.SupplierId)
+                                @Html.HiddenFor(model => model.Id)
+                                @Html.ValidationMessageFor(model => model.LocationName)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Url") <em>e.g www.forbes.com</em>
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.LocationUrl, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.LocationUrl)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Advert Size") <em>ie width x height</em>
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.LocationSize, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.LocationSize)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Minimum age")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.TargetMinAge, new { @class = "form-control", type="numeric" })
+                                @Html.ValidationMessageFor(model => model.TargetMinAge)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Country")
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.Country, new SelectList((IEnumerable<SelectListItem>)ViewBag.Country, "Value", " Text"), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Country )
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Target Sex")
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.TargetSex , new SelectList(new[] { "Both", "Male", "Female"}, Model.TargetSex), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TargetSex)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("Revenue Share") <em>e.g 70:30 ie publisher:platform</em>
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.RevenueShare, new { @class = "form-control", value="50:50" })
+                                @Html.ValidationMessageFor(model => model.RevenueShare)
+                            </div>
+                            <p>
+
+                            </p>
+                        </fieldset>
+                    }
+                    <br />
+                    <div>
+                        <button class="btn btn-success" onclick="SaveView('createSuppliers')">Save</button>
+                        <button class="btn btn-warning" onclick="GetView('@Url.Action("AdSpaces", "Adverts",new { Id = Model.SupplierId})')">Cancel</button>
+                    </div>
+                    <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+                    <div id="Images"></div>
+               </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

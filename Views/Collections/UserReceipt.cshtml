@@ -1,0 +1,127 @@
+﻿@model RetailKing.Models.ShoppingCart
+
+@{
+    ViewBag.Title = "Dispatch";
+    decimal total = 0;
+    decimal vat = 0;
+    decimal subtotal = 0;
+}
+
+
+<div id="product-single" style="margin:10px 10px; background:#fff" class="row">
+    <br />
+    <div class="col-lg-12 col-md-12 col-sm-12">
+
+        <table style="" class="order-table">
+
+            <tr style="background-color:#9B59B6;color:#ffffff">
+                <td >@ViewData["Document"] Number</td>
+                <td>@ViewData["OrderNumber"]</td>
+                <td>Status</td>
+                <td colspan="2">@ViewData["OrderStatus"]</td>
+            </tr>
+
+            <tr>
+                <th>Quantity</th>
+                <th>Description</th>
+                <th>Unit Price</th>
+                <th>Discount</th>
+                <th>Total</th>
+            </tr>
+
+            @if (Model.orderlines.Count() != 0)
+            {
+                foreach (var item in Model.orderlines)
+                {
+                    total = total + (decimal)item.priceinc;
+                    vat = vat + (decimal)item.tax;
+                    <tr>
+                        <td class="order-number">
+                            <p>
+                                <span><a href="#">@item.quantity.Value.ToString("0", System.Globalization.CultureInfo.InvariantCulture) </a></span>
+
+                            </p>
+                        </td>
+
+                        <td><p>@item.item</p></td>
+                        <td><p>$@item.price.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</p></td>
+                        <td><p>$@item.Discount.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</p></td>
+                        <td><span class="price">$@item.priceinc.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span></td>
+                    </tr>
+                }
+
+                if (Model.order == null || Model.order.CollectionId == 0)
+                {
+                    <tr id="delivery">
+                        <td>DELIVERY ADDRESS</td>
+                        <td colspan="3"> @Model.customer.Address1,@Model.customer.Address2<br />@Model.customer.Suburb, @Model.customer.City
+
+                        <td><span class="price">$</span><span id="DeliveryPrice" class="price">@Model.region.DeliveryRate.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span></td>
+                        @{
+                    total = total + Convert.ToDecimal(Model.region.DeliveryRate);
+                        }
+                    </tr>
+                    <tr id="CollectionAd" style="display:none">
+                        <td>COLLECTION ADDRESS</td>
+                        <td colspan="3" id="address"></td>
+
+                        <td><span class="price" style="float: right">$0.00</span></td>
+                    </tr>
+                }
+                else if (Model.order == null || Model.order.CollectionId == 1)
+                {
+
+                    <tr id="delivery" style="display:none">
+                        <td>DELIVERY ADDRESS</td>
+                        <td colspan="2"> @Model.customer.Address1,@Model.customer.Address2<br />@Model.customer.Suburb, @Model.customer.City
+                        <td><span class="price" >$</span> <span id="DeliveryPrice" class="price">@Model.region.DeliveryRate.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span></td>
+                    </tr>
+                    <tr id="CollectionAd">
+                        <td>COLLECTION ADDRESS</td>
+                        <td colspan="2" id="address">@Model.collectxn.Address,<br />@Model.collectxn.City, @Model.collectxn.Country<br /> Collection Time: @Model.collectxn.Time </td>
+                        <td colspan="2"><a class="button green" style="cursor:pointer; float:right " onclick="DeliverToAddress()">Deliver</a></td>
+                        <td><span class="price" style="float:right">$0.00</span></td>
+                    </tr>
+
+                }
+
+                <tr style="font-weight:bold">
+
+                    @{
+                var sbtotal = total - vat;
+                    }
+                    <th colspan="2"></th>
+                    <th colspan="2" style="text-align:left ">Sub Total</th>
+                    <th><span style="text-align:left " id="InvoiceTotal">$@sbtotal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span></th>
+                </tr>
+                <tr style="font-weight:bold">
+                    <th colspan="2"></th>
+                    <th colspan="2" style="text-align:left ">VAT</th>
+                    <th><span style="text-align:left " id="InvoiceTotal">$@vat.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span></th>
+                </tr>
+                <tr style="font-weight:bold">
+                    <th colspan="2"></th>
+                    <th colspan="2" style="text-align:left ">Total</th>
+                    <th><span style="text-align:left " id="InvoiceTotal">$@total.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span></th>
+                </tr>
+                <tr>
+                    <td colspan="5"></td>
+                </tr>
+
+            }
+            else
+            {
+
+                <tr style="background-color:#F5791F;color:#fff;font-weight:bold">
+                    <td colspan="5">There are no items in the cart</td>
+
+                </tr>
+            }
+        </table>
+
+    </div>
+
+</div>
+
+
+

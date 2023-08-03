@@ -1,0 +1,227 @@
+﻿@model RetailKing.Models.Advert
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script type="text/javascript">
+    $(function () {
+      
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+               // $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites"
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+
+                $("#panel").html(result);
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#createAd").ajaxForm(options);
+
+    });
+</script>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Create Advert </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                    @using (Html.BeginForm("Create", "Adverts", FormMethod.Post, new { enctype = "multipart/form-data", @name = "CreateAd", id = "createAd" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>                           
+                            <div class="col-md-6">
+                                <div class="editor-label">
+                                    @Html.Label("Advert Position")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.AdPosition, new SelectList(new[] { "HOME", "INAPP", "OWNPAGE" }),  new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AdPosition)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Title)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Title)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Description")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Description)
+                                </div>
+                                <div class="editor-label">
+                                    @Html.Label("Sex")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.Sex , new SelectList(new[] { "Both", "Male", "Female" }), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Sex)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Target Age",new {id = "min" })
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.MinAge, new SelectList(
+                                 ViewBag.Min,
+                                 "Value",
+                                 "Text"), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MinAge)
+                                </div>
+                                <div id="max" style="display: none">
+                                    <div class="editor-label">
+                                        @Html.Label("Max Target Age")
+                                    </div>
+                                    <div class="editor-field">
+                                        @Html.DropDownListFor(model => model.MaxAge, new SelectList(
+                                 ViewBag.Max,
+                             "Value",
+                             "Text"), new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.MaxAge)
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="editor-label">
+                                    @Html.Label("Expirery Date")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.ExpireryDate, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ExpireryDate)
+                                </div>
+                                <br />
+                                <div class="editor-label">
+                                    @Html.Label("Maximum Daily Budget")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.DailyMax, new { @class = "form-control", type="Number", step="0.01" })
+                                    @Html.ValidationMessageFor(model => model.DailyMax)
+                                </div>
+                                <br />
+                          
+                                <div class="editor-label">
+                                    @Html.Label("Physical Location")
+                                </div>
+                                <div class="editor-field">
+                                   <input type="text" id="txtAutocomplete" class="form-control"/>
+                                    @Html.HiddenFor(model => model.Location)
+                                    @Html.HiddenFor(model => model.minLatitude)
+                                    @Html.HiddenFor(model => model.minLongitude)
+                                    
+                                    @Html.ValidationMessageFor(model => model.ExpireryDate)
+                                </div>
+                                <br/>
+                                <div class="editor-label">
+                                    @Html.Label("Radius Coverage")<em> Radius in kilometers</em>
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Radius, new { @class = "form-control", type = "Number", step = "1" })
+                                    @Html.ValidationMessageFor(model => model.Radius)
+                                </div>
+                                <br />
+                                <label id="lblResult" />
+                                <div class="editor-field">
+                                    <div class="btn btn-navy">Select Upload File: <input type="file" name="Image" id="Image" /></div>
+                                </div>
+                                <p></p>
+                                <div class="grid_10" style="margin-top:20px">
+                                    <button class="btn btn-success" type="submit">Save</button>
+                                    <button class="btn btn-warning" type="button" onclick="GetView('@Url.Action("Index", "Accounts")')">Cancel</button>
+                                    
+                                </div>
+                                </div>                            
+                            <p>
+                            </p>
+                        </fieldset>
+                    }
+                    <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+                    <div id="Images"></div>
+               </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="@Url.Content("~/Content/Administration/js/datepicker/daterangepicker.js")"></script>
+<script src="@Url.Content("~/Content/Administration/js/moment/moment.min.js")"></script>
+
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#MinAge").change(function () {
+            if ($("#MinAge").val() == "Any") {
+                $("#max").hide();
+                $("#min").val("Target Age");
+            }
+            else {
+                $("#max").show();
+                $("#min").val("Minimum Target Age");
+            }
+        });
+        $('#ExpireryDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+ });
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZAGw8a22s7WaSUA5Gw9Ha0UEHbVm-6Lc&libraries=places&callback=initialize"></script>
+
+<script type="text/javascript">
+    //google.maps.event.addDomListener(window, 'load', initialize);
+
+    function initialize() {
+        var input = document.getElementById('txtAutocomplete');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            // Get the place details from the autocomplete object.
+            var place = autocomplete.getPlace();
+           // var location = "<b>Address</b>: " + place.formatted_address + "<br/>";
+            //location += "<b>Latitude</b>: " + place.geometry.location.lat() + "<br/>";
+            //location += "<b>Longitude</b>: " + place.geometry.location.lng();
+            //document.getElementById('lblResult').innerHTML = location
+            $("#Location").val(place.formatted_address);
+            $("#minLatitude").val(place.geometry.location.lat());
+            $("#minLongitude").val(place.geometry.location.lng());
+        });
+    }
+</script>

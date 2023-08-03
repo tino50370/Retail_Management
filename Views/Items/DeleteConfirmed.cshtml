@@ -1,0 +1,74 @@
+@model RetailKing.Models.Recipe
+
+@{
+    ViewBag.Title = "Delete";
+}
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>
+
+<script type="text/javascript">
+        $(function () {
+            var status = $('#ajaxStatuss');
+            var percent = $('.percent');
+            var bar = $('.bar');
+            var options = {
+                beforeSend: function () {
+                    $(".alert-danger").hide();
+                    $("input[type='submit']", this)
+                    .val("Please Wait...")
+                    .attr('disabled', 'disabled');
+
+                    status.fadeIn();
+                    $.fancybox.showLoading();
+                    percent.html('0%');
+                },
+                uploadProgress: function (event, position, total, percentComplete) {
+                    var pVel = percentComplete + '%';
+                    if (percentComplete == 100) {
+                        pVel = "Processing file on server might take a few minuites"
+                    }
+                    percent.html(pVel);
+
+                },
+                success: function (result) {
+                    $.fancybox.hideLoading();
+                    var res = result.split(':');
+                    if (res[0] == "Stock") {
+                        $(".alert-danger").html(res[1]);
+                        $(".alert-danger").show();
+                    } else {
+                        $("#panel").html(result);
+                    }
+
+                },
+
+                error: function (xhr, textStatus, errorThrown) {
+                    $('#fileresp').html(errorThrown);
+                    $('#fileresp').show();
+                    status.fadeOut(800);
+                }
+
+            };
+            $("#Profilep").ajaxForm(options);
+
+        });
+</script>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Delete Complete </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <div class="alert alert-success alert-dismissible fade in" style="display:none" role="alert">
+                        Item was deleted successfully
+                    </div>
+                    <button class="btn btn-warning" type="button" onclick="CloseCancel()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

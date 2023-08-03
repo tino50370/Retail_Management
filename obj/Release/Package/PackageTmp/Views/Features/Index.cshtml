@@ -1,0 +1,38 @@
+﻿@model IEnumerable<RetailKing.Models.Feature>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Features</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+            <table style="width:100% ">
+                <thead>
+                    <tr>
+                        <th>Name </th>
+                        <th>Description</th>
+                        <th><button class="btn btn-black" onclick="GetView('@Url.Action("Create", "Features", new { Id=ViewData["ItemCode"]})')">Create New</button></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name </td>
+                            <td>@item.Description</td>
+                            <td></td>
+                        </tr>
+                    }
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+</div>

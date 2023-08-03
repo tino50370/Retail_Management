@@ -1,0 +1,260 @@
+﻿@{
+    ViewBag.Title = "Tender";
+}
+
+
+<div class="col-md-12 " style="width:500px">     
+    <div id="Existing" class="col-md-12">
+          <div style="color: #67217A; font-size:30px;"> Customer</div>
+        
+         <div class="alert alert-danger alert-dismissible fade in" style="display:none" role="alert">
+        </div>
+             <div id="customerAccount"class="col-md-10">
+                 <input type="text" id="Creditq" autocomplete="off" class="form-control" style="width : 100%; " placeholder="Account or Phone Number" />
+                 <div id="customers" style="position:absolute; top:34px; z-index:9999; width: 100%"></div>    
+             </div>
+              
+              <div id="clear" class="col-md-2">
+                  <button type="button" onclick="Back()" class="btn btn-success"><i class="fa fa-arrow-left"></i> Back</button>
+              </div> 
+                <div id="newCustomer" class="col-md-12" style="display: none">
+                        <input type="text" id="CustomerName" class="form-control" style="width: 100%;" placeholder="Customer Name" />
+                    <br />
+                        <input type="text" id="ContactPerson" class="form-control" style="width: 100%;" placeholder="Contact Person" />
+                    <br />
+                        <input type="text" id="Phone1" class="form-control" style="width: 100%;" placeholder="Phone Number" />
+                    <br />
+                    <input type="text" id="Email" class="form-control" style="width: 100%;" placeholder="Email" />
+                    <br />
+                        <input type="text" id="Phone2" class="form-control" style="width: 100%;" placeholder="Id Number" />
+                    <br />
+               </div>
+             
+                <div id="cPeriod" class="col-md-4" style="height:30px; ">
+                    @Html.DropDownList("Collection", new SelectList((IEnumerable<SelectListItem>)ViewBag.ResortArea, "Value", " Text"), new { style = "height:33px" })
+                </div>
+
+                <div class="col-md-6">
+                    <input type="text" id="Date" class="form-control" autocomplete="false" value="@ViewData["Date"]" disabled/>
+                </div> 
+
+                <div id="newC" class="col-md-2 ">
+                      <button type="button" onclick="New()" class="btn btn-warning"><i class="fa fa-user"></i> New </button>
+                  </div> 
+
+                <div id="EC" class="col-md-2 " style="display:none">
+                    <button type="button" onclick="Existing()" class="btn btn-warning"><i class="fa fa-user"></i> Old </button>
+                </div>
+
+                <div id="cCity" class="col-md-4" >
+                    @Html.DropDownList("City", new SelectList((IEnumerable<SelectListItem>)ViewBag.Cities, "Value", " Text", ViewData["ActiveCity"].ToString()), new { style = "height:33px" })
+                    <br />
+                </div>
+       
+                <div id="cPoint" class="col-md-8">
+                    @Html.DropDownList("CollectionPoint", new SelectList((IEnumerable<SelectListItem>)ViewBag.CollectionPoint, "Value", " Text"), new { style = "height:33px" })
+                </div>
+
+                <div  id ="saveCustomerr" class="col-md-12" style="display:none">
+                    <div class="col-md-12" style="margin-top:15px;   height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; font-weight: bold; cursor: pointer" id="Enter" onclick="setCustomer()">Save User</div>
+                </div>
+
+                <div class="col-md-12" id="Btns" style="margin-top:10px; width: 100%; height:400px;  ">
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="7" onclick="onNumber('7')">7</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="8" onclick="onNumber('8')">8</div>
+                  <div class="col-md-4" style="margin-top:15px;   width:32%; height:65px; background-color: #67217A; color: White;font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="9" onclick="onNumber('9')">9</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="4" onclick="onNumber('4')">4</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="5" onclick="onNumber('5')">5</div>
+                  <div class="col-md-4" style="margin-top:15px; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="6" onclick="onNumber('6')">6</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="1" onclick="onNumber('1')">1</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="2" onclick="onNumber('2')">2</div>
+                  <div class="col-md-4" style="margin-top:15px;  width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="3" onclick="onNumber('3')">3</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="." onclick="onNumber('.')">.</div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="0" onclick="onNumber('0')">0</div>
+                  <div class="col-md-4" style="margin-top:15px;  width:32%; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; font-weight: bold; cursor: pointer" id="Enter" onclick="setCustomer('@ViewData["Action"]')">Enter</div>
+              </div>
+             
+        </div> 
+    
+</div> 
+    
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        customerSelected = "";
+        product = 'Credit';
+        $('#Creditq').focus;
+
+        $('#Date').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_2"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+ 
+        $("#Creditq").bind('input propertychange', function (e) {
+            $(".alert-danger").hide();
+            var txt = $("#Creditq").val();
+            if (txt.length > 5) {
+                txt = $("#Creditq").val();
+                $.ajax({
+                    type: "Get",
+                    url: '@Url.Action("Search", "Customers")',
+                    dataType: 'html',
+                    data: { searchtext: $("#Creditq").val() },
+                    success: function (resp) {
+                        $('#customers').html(resp);
+                    },
+                    error: function (data) {
+                    }
+                });
+
+            } else {
+                $('#customers').html('');
+            }
+        });
+
+        $("#Collection").bind('input propertychange', function (e) {
+            if($("#Collection").val() == "Collect Now")
+            {
+                $("#Date").prop('disabled', true);
+            }else
+            {
+                $("#Date").prop('disabled', false);
+            }
+        });
+
+        $("#City").change(function () {
+            var xx = $("#City").val();
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("PointbyCity", "Cities")',
+                dataType: 'html',
+                data: {
+                    CityId: xx
+                },
+                success: function (resp) {
+                    var ddl = $("#CollectionPoint");
+                    ddl.empty();
+                    var subjects = $.parseJSON(resp);
+                    //alert(subjects);
+                    $.each(subjects, function (index, value) {
+                        // alert(value.Name);
+                        ddl.append(
+                        $('<option/>', {
+                            value: value.Id,
+                            text: value.Name
+                        })
+                      );
+                    });
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+    });
+    
+
+
+    function New() {
+        //  alert(id);
+        $('#newCustomer').show();
+        $('#customerAccount').hide();
+        $('#clear').hide();
+        $('#Btns').hide();
+        $('#newC').hide();
+        $('#EC').show();
+        $('#saveCustomerr').show();
+        $("#Creditq").val('');
+        customerSelected = 'N';
+    }
+
+    function Existing() {
+        //  alert(id);
+        $('#newCustomer').hide();
+        $('#customerAccount').show();
+        $('#clear').show();
+        $('#Btns').show();
+        $('#newC').show();
+        $('#EC').hide();
+        $('#saveCustomerr').hide();
+        customerSelected = '';
+    }
+
+    function placeText(id) {
+        //  alert(id);
+        $('#Creditq').val(id);
+        $('#customers').html('');
+        customerSelected = 'Y';
+    }
+
+    function setCustomer() {
+        var cpnt = $('#CollectionPoint').val();
+        if (customerSelected == '') {
+            $(".alert-danger").html("Please select the customer");
+            $(".alert-danger").show();
+        }
+        else if (cpnt == "--Select Collection point--")
+        {
+            $(".alert-danger").html("Please Select Collection point");
+            $(".alert-danger").show();
+        }
+        else {
+            $(".alert-danger").hide();
+            if (customerSelected == 'N' && ($("#CustomerName").val() !== undefined || $("#CustomerName").val() !== '')) {
+                $.ajax({
+                    type: "Post",
+                    url: '@Url.Action("CreateCustomer", "Pos")',
+                    dataType: 'html',
+                    data: {
+                        CustomerName: $("#CustomerName").val(),
+                        ContactPerson: $("#ContactPerson").val(),
+                        Phone1: $("#Phone1").val(),
+                        Phone2: $("#Phone2").val(),
+                        Email: $("#Email").val()
+                    },
+                    success: function (resp) {
+                        try {
+                            var rp = $.parseJSON(resp);
+                            if (rp != "Error" && rp != "Created" && rp != "Valid") {
+                                customerName = $.parseJSON(resp) + "_" + $('#Date').val();
+                                creditPeriod = $('#Collection').val();
+                                collecttionPoint = $('#CollectionPoint').val();
+                                GetPartialView('@Url.Action("TenderData", "Pos",new { type = @ViewData["Type"].ToString() + "_Yes" })', 'Cash', 'N');
+                            }
+                            else if (rp == "Created") {
+                                $(".alert-danger").html("This customer already exists");
+                                $(".alert-danger").show();
+                            }
+                            else if (rp == "Valid") {
+                                $(".alert-danger").html("Please enter a valid mobile number");
+                                $(".alert-danger").show();
+                            }
+                            else {
+                                $(".alert-danger").html("customer not created. Make sure all fields are entered if there is n");
+                                $(".alert-danger").show();
+                            }
+                        }
+                        catch (e) {
+                            $(".alert-danger").html("customer was not created ");
+                            $(".alert-danger").show();
+                        }
+                    },
+                    error: function (data) {
+                    }
+                });
+            }
+            else {
+                customerName = $('#Creditq').val() + "_" + $('#Date').val();
+
+                creditPeriod = $('#Collection').val();
+                collecttionPoint = $('#CollectionPoint').val();
+                GetPartialView('@Url.Action("TenderData", "Pos", new { type = @ViewData["Type"].ToString() + "_Yes" })', 'Cash', 'N');
+            }
+            
+        }
+       
+    }
+</script>

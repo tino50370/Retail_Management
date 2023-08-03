@@ -1,0 +1,299 @@
+﻿@model IEnumerable<RetailKing.Models.PosPrinter>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+     $(document).ready(function (event) {
+        // $("#DateCreated").datepicker({ dateFormat: "d MM yy" });
+         //$("#Date").datepicker({ dateFormat: "d MM yy" });
+         setDatePicker('DateCreated');
+         setDatePicker('Date');
+         $("#SearchInItems").focus();
+
+         $("#category").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Orders")',
+                 dataType: 'html',
+                 data: {
+
+                     category: $("#category").val(),
+                     ItemCode: "",
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $("#panel").html(resp);
+                 },
+                 error: function (data) {
+                     alert(data);
+                 }
+             });
+         });
+
+         $("#SizeR").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Orders")',
+                 dataType: 'html',
+                 data: {
+                     category: $("#category").val(),
+                     ItemCode: '',
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $('#panel').html(resp);
+                 },
+                 error: function (data) {
+                 }
+             });
+         });
+
+         $("#SearchInItems").keyup(function () {
+             // event.preventDefault();
+             var s = $('#SearchInItems').val();
+            // alert(s);
+             //clearTimeout(typinTimer);
+            // typinTimer = setTimeout(function () {
+                // alert($('#SearchInItems').val() );
+                 if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                     $.ajax({
+                         type: "Post",
+                         url: '@Url.Action("Index", "Orders")',
+                         dataType: 'html',
+                         data: {
+                             category: $("#category").val(),
+                             ItemCode: $("#SearchInItems").val(),
+                             iDisplayLength: $("#SizeR").val(),
+                             sEcho: 1
+                         },
+                         success: function (resp) {
+                             $('#panel').html(resp);
+                         },
+                         error: function (data) {
+                         }
+                     });
+                 }
+          //   }, 2000);
+         });
+
+         $("#tableData input").keypress(function (e) {
+             if (e.keyCode == 13) {
+                 if (this.value == '') {
+                     alert($("#" + this.id).val());
+                 }
+                 else {
+                     if (isNaN(this.value / 1) == false) {
+                         var dd = this.id;
+                         $.ajax({
+                             type: "Post",
+                             url: '@Url.Action("newStock", "Items")',
+                             dataType: 'html',
+                             data: {
+                                 Qty: $("#" + this.id).val(),
+                                 ItemCode: this.id
+                             },
+                             success: function (resp) {
+
+                                 var jsonItem = $.parseJSON(resp);
+                                 $('.' + dd).text(jsonItem.NewStock);
+                                 $('.balance_' + dd).text(jsonItem.Balance);
+                                 $('#' + dd).val('');
+
+                             },
+                             error: function (data) {
+                             }
+                         });
+                     }
+                     else {
+                         alert("Please enter number only");
+                     }
+                 }
+             }
+         });
+
+
+     });
+</script>
+
+<script type="text/javascript">
+     function GetPageR(thispage) {
+         $.ajax({
+             type: "Post",
+             url: '@Url.Action("Index", "Orders")',
+             dataType: 'html',
+             data: {
+                 category: $("#category").val(),
+                 ItemCode: '',
+                 iDisplayStart: thispage,
+                 iDisplayLength: $("#SizeR").val(),
+                 sEcho: 1
+             },
+             success: function (resp) {
+                 $('#panel').html(resp);
+             },
+             error: function (data) {
+             }
+         });
+     }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Dispatch </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <p></p>
+
+                <table id="gradient-style" style="width:100%; border-style: none ">
+                    <tbody>
+                        <tr>
+                            <td style="border-style: none">
+                                <div class="editor-field">
+                                    Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR" })
+                                </div>
+                            </td>
+                            <td style="border-style: none; display: none ">
+                                <div class="editor-field">
+                                    Category
+                                    @Html.DropDownList("Category", new SelectList((IEnumerable<SelectListItem>)ViewBag.Cat, "Value", " Text"), new { id = "category" })
+                                </div>
+                            </td>
+                            <td style="border-style: none">
+                                <div class="editor-field">
+                                    Start Date
+                                    <input type="text" name="DateCreated" id="DateCreated" value="@ViewData["sdate"]" style="width: 100px" />
+                                </div>
+                            </td>
+                            <td style="border-style: none">
+                                <div class="editor-field">
+                                    End Date
+                                    <input type="text" class="input_text" name="Date" id="Date" value="@ViewData["edate"]" style="width: 100px" />
+                                </div>
+                            </td>
+                            <td style="border-style: none">
+                                <div class="editor-field">
+                                    Search by ItemCode <input type="text" id="SearchInItems" />
+                                    <button class="btn-icon btn-green btn-person" onclick="GetOdersProduct()"><span></span>Go</button>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table" style="width:100%;">
+                    <tr>
+                        <th style="width: 6%"></th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Location )
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Type)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                       
+                        <tr>
+                         
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Location)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Type)
+                            </td>
+                            
+                            <td>
+                                
+                            </td>
+
+                        </tr>
+                    
+                    }
+                    <tr>
+                        <th colspan="12" style="background-color: #E2E4FF; ">
+                            <div onclick="GetPageR()" style="float: left; padding-left: 10px"> Pages</div>
+                            @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                            {
+                                if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                {
+                                    <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                                }
+                                else
+                                {
+                                    <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                                }
+                            }
+                            <div style=" float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <div id="toprint" style="display: none">
+            </div>
+            <iframe id="ifrOutput" style="display:none;"></iframe>
+        </div>
+</div>
+</div>
+
+<script src="@Url.Content("~/Content/Administration/js/datepicker/daterangepicker.js")"></script>
+<script src="@Url.Content("~/Content/Administration/js/moment/moment.min.js")"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#Date').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+        $('#AquisitionDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+        $('#DisposalDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+        $('#DateCreated').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+        $('#ExpireryDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+    })
+</script>

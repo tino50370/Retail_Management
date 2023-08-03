@@ -1,0 +1,63 @@
+﻿@model RetailKing.Models.login 
+@{
+    ViewBag.Title = "TopMenu";
+}
+   <div class="grid_12">
+            <ul class="nav main">
+                <li class="ic-dashboard"><a href="@Url.Action("Index", "Home")"><span>Dashboard</span></a></li>
+                <li class="ic-form-style"><a><span>Inventory Management</span></a>
+                    <ul>
+                       <li><a onclick="GetView('@Url.Action("Stocks", "Items")')"><span>View Products</span></a> </li>
+                       <li><a onclick="GetView('@Url.Action("Index", "Items")')"><span>Goods Received (GRV)</span></span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("Create", "Items")')"><span>Create New Product</span></a></li>
+                        <li><a onclick="GetView('@Url.Action("CategoryList", "Category")')"><span>Product Categories</span></a></li>
+                     </ul>
+                </li>
+                <li class="ic-charts">
+                    <a><span>Dispatch</span></a>
+                    <ul>
+                        <li><a onclick="GetView('@Url.Action("DeliverySammery", "Deliveries")')"><span>Delivery Picking List</span></a></li>
+                        <li><a onclick="GetView('@Url.Action("DeliveryPickingList", "Deliveries")')"><span>Delivery Hamper Picking</span></a></li>
+                        <li><a onclick="GetView('@Url.Action("Index", "Deliveries")')"><span>Ready Deliveries</span></a></li>
+                        <li><a onclick="GetView('@Url.Action("CollectionsSammary", "Deliveries")')"><span>Collection Picking List</span></a></li>
+                        <li><a onclick="GetView('@Url.Action("CollectionPickingList", "Deliveries")')"><span>Collection Hamper Picking</span></a></li>
+                        <li><a onclick="GetView('@Url.Action("Collections", "Deliveries")')"><span>Ready Collections</span></a></li>
+                    </ul>
+                </li>
+                    <li class="ic-grid-tables">
+                        <a><span>Account Management</span></a>
+                        <ul>
+                            <li><a onclick="GetView('@Url.Action("Index", "Accounts")')"><span>View Accounts</a></span> </li>
+                            @if (@ViewData["Location"].ToString() == "HEADQUARTERS" && @ViewData["Access"].ToString() == "ADMINISTRATOR")
+                            {
+                                <li><a onclick="GetView('@Url.Action("Index", "Customers")')"><span>Customers Accounts</span></a> </li>
+                            }
+                            <li><a onclick="GetView('@Url.Action("Index", "Suppliers")')"><span>Suppliers Accounts</span></a> </li>
+                            <li><a onclick="GetView('@Url.Action("Payments", "Accounts")')"><span>Payments</span></a> </li>
+                            <li><a onclick="GetView('@Url.Action("Receipts", "Accounts")')"><span>Receipts</span></a> </li>
+                            <li><a onclick="GetView('@Url.Action("Index", "Transactions")')"><span>Transaction Management</span></a> </li>
+                        </ul>
+                    </li>
+                    @if (@ViewData["Location"] == "HEADQUARTERS" && @ViewData["Access"] == "ADMINISTRATOR")
+                    {
+                        <li class="ic-gallery dd">
+                            <a><span>User Management</span></a>
+                            <ul>
+                                <li><a onclick="GetView('@Url.Action("Index", "User")')"><span>List Users</span></a> </li>
+                                <li><a onclick="GetView('@Url.Action("Create", "User")')"><span>New User</span></a> </li>
+                            </ul>
+                        </li>
+
+                        <li class="ic-notifications">
+                            <a><span>System Management</span></a>
+                            <ul>
+                                <li><a onclick="GetView('@Url.Action("Index", "Partners")')"><span>Partner Manager</span></a> </li>
+                                <li><a onclick="GetView('@Url.Action("Index", "Companies")')"><span>Company Manager</span></a> </li>
+                                <li><a onclick="GetView('@Url.Action("ItemMenu", "Items")')"><span>Pos Manager</span></a> </li>
+                            </ul>
+                        </li>
+                    }
+                    <li class="ic-Key"><a href="@Url.Action("RetailLogOff", "Login")"><span>Log Out</span></a></li>
+                </ul>
+        </div>
+        <div class="clear"></div>

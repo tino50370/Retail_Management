@@ -1,0 +1,710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventoryModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="InventoryEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="InventoryModel.Account" />
+    <EntitySet Name="Activecoes" EntityType="InventoryModel.Activeco" />
+    <EntitySet Name="Categories" EntityType="InventoryModel.Category" />
+    <EntitySet Name="Companies" EntityType="InventoryModel.Company" />
+    <EntitySet Name="CreditNotes" EntityType="InventoryModel.CreditNote" />
+    <EntitySet Name="Customers" EntityType="InventoryModel.Customer" />
+    <EntitySet Name="Discounts" EntityType="InventoryModel.Discount" />
+    <EntitySet Name="Expenses" EntityType="InventoryModel.Expens" />
+    <EntitySet Name="Invoices" EntityType="InventoryModel.Invoice" />
+    <EntitySet Name="Items" EntityType="InventoryModel.Item" />
+    <EntitySet Name="logins" EntityType="InventoryModel.login" />
+    <EntitySet Name="menus" EntityType="InventoryModel.menu" />
+    <EntitySet Name="Orders" EntityType="InventoryModel.Order" />
+    <EntitySet Name="Purchases" EntityType="InventoryModel.Purchase" />
+    <EntitySet Name="Returns" EntityType="InventoryModel.Return" />
+    <EntitySet Name="Sales" EntityType="InventoryModel.Sale" />
+    <EntitySet Name="Sales_Lines" EntityType="InventoryModel.Sales_Lines" />
+    <EntitySet Name="seats" EntityType="InventoryModel.seat" />
+    <EntitySet Name="shifts" EntityType="InventoryModel.shift" />
+    <EntitySet Name="Trannames" EntityType="InventoryModel.Tranname" />
+    <EntitySet Name="Transactions" EntityType="InventoryModel.Transaction" />
+    <EntitySet Name="Transfers" EntityType="InventoryModel.Transfer" />
+    <EntitySet Name="Trantypes" EntityType="InventoryModel.Trantype" />
+  </EntityContainer>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountCode" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="AccountName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Opening" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="LinkAccount" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Activeco">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="company" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="status" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="location" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="dated" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="status" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="location" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Address1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Address2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Contact1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Contact2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="dated" Type="DateTime" />
+    <Property Name="Footer1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Footer2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Footer3" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="footer4" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Logo" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="VatNo" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="CreditNote">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Invoice" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="user" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Dated" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountCode" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="ContactPerson" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Address1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Address2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Phone1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Phone2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Username" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Dated" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Discount">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dated" Type="DateTime" />
+    <Property Name="amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Receipt" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Username" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Expens">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountCode" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="AccountName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="value" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Payee" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Dated" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Receipt" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="type" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="cashier" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="till" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item3" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item4" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item5" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item6" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item7" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item8" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item9" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item10" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item11" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item12" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item13" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item14" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item15" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item16" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item17" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item18" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item19" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item20" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="quantity1" Type="Int32" />
+    <Property Name="quantity2" Type="Int32" />
+    <Property Name="quantity3" Type="Int32" />
+    <Property Name="quantity4" Type="Int32" />
+    <Property Name="quantity5" Type="Int32" />
+    <Property Name="quantity6" Type="Int32" />
+    <Property Name="quantity7" Type="Int32" />
+    <Property Name="quantity8" Type="Int32" />
+    <Property Name="quantity9" Type="Int32" />
+    <Property Name="quantity10" Type="Int32" />
+    <Property Name="quantity11" Type="Int32" />
+    <Property Name="quantity12" Type="Int32" />
+    <Property Name="quantity13" Type="Int32" />
+    <Property Name="quantity14" Type="Int32" />
+    <Property Name="quantity15" Type="Int32" />
+    <Property Name="quantity16" Type="Int32" />
+    <Property Name="quantity17" Type="Int32" />
+    <Property Name="quantity18" Type="Int32" />
+    <Property Name="quantity19" Type="Int32" />
+    <Property Name="quantity20" Type="Int32" />
+    <Property Name="price1" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price2" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price3" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price4" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price5" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price6" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price7" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price8" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price9" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price10" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price11" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price12" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price13" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price14" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price15" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price16" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price17" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price18" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price19" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price20" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="discount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="company" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="dated" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Customer" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Reciept" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Invoice1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="shift" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="User" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="BuyingPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SellingPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Expected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="sold" Type="Int32" />
+    <Property Name="transfer" Type="Int32" />
+    <Property Name="Balance" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="NewStock" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Returns" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="company" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="category" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="SubCategory" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Swaps" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Reorder" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="ItemCode" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="tax" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="accesslevel" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Firstname" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Surname" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="prefix" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Location" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="PosUser" Type="Boolean" />
+    <Property Name="RetailUser" Type="Boolean" />
+    <Property Name="UsesBoth" Type="Boolean" />
+    <Property Name="Shifts" Type="Boolean" />
+    <Property Name="ManagerMenu" Type="Boolean" />
+    <Property Name="Tables" Type="Boolean" />
+    <Property Name="Payments" Type="Boolean" />
+    <Property Name="Reporting" Type="Boolean" />
+    <Property Name="Sales" Type="Boolean" />
+    <Property Name="Pricing" Type="Boolean" />
+    <Property Name="Barcoding" Type="Boolean" />
+    <Property Name="AddsProducts" Type="Boolean" />
+    <Property Name="Purchases" Type="Boolean" />
+    <Property Name="ManageUsers" Type="Boolean" />
+    <Property Name="ManagePos" Type="Boolean" />
+    <Property Name="Transfers" Type="Boolean" />
+    <Property Name="Accounts" Type="Boolean" />
+    <Property Name="OnShift" Type="Boolean" />
+    <Property Name="xreport" Type="Boolean" />
+    <Property Name="zreport" Type="Boolean" />
+    <Property Name="voidsale" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="button" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="caption" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="code" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="color" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="company" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item3" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item4" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item5" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item6" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item7" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item8" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item9" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item10" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item11" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item12" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item13" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item14" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item15" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item16" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item17" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item18" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item19" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item20" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="quantity1" Type="Int32" />
+    <Property Name="quantity2" Type="Int32" />
+    <Property Name="quantity3" Type="Int32" />
+    <Property Name="quantity4" Type="Int32" />
+    <Property Name="quantity5" Type="Int32" />
+    <Property Name="quantity6" Type="Int32" />
+    <Property Name="quantity7" Type="Int32" />
+    <Property Name="quantity8" Type="Int32" />
+    <Property Name="quantity9" Type="Int32" />
+    <Property Name="quantity10" Type="Int32" />
+    <Property Name="quantity11" Type="Int32" />
+    <Property Name="quantity12" Type="Int32" />
+    <Property Name="quantity13" Type="Int32" />
+    <Property Name="quantity14" Type="Int32" />
+    <Property Name="quantity15" Type="Int32" />
+    <Property Name="quantity16" Type="Int32" />
+    <Property Name="quantity17" Type="Int32" />
+    <Property Name="quantity18" Type="Int32" />
+    <Property Name="quantity19" Type="Int32" />
+    <Property Name="quantity20" Type="Int32" />
+    <Property Name="price1" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price2" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price3" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price4" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price5" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price6" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price7" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price8" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price9" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price10" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price11" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price12" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price13" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price14" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price15" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price16" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price17" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price18" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price19" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price20" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="discount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="button" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="dated" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="customer" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="cashier" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="table" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="guests" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item3" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item4" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item5" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item6" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item7" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item8" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item9" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item10" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item11" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item12" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item13" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item14" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item15" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item16" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item17" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item18" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item19" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item20" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="quantity1" Type="Int32" />
+    <Property Name="quantity2" Type="Int32" />
+    <Property Name="quantity3" Type="Int32" />
+    <Property Name="quantity4" Type="Int32" />
+    <Property Name="quantity5" Type="Int32" />
+    <Property Name="quantity6" Type="Int32" />
+    <Property Name="quantity7" Type="Int32" />
+    <Property Name="quantity8" Type="Int32" />
+    <Property Name="quantity9" Type="Int32" />
+    <Property Name="quantity10" Type="Int32" />
+    <Property Name="quantity11" Type="Int32" />
+    <Property Name="quantity12" Type="Int32" />
+    <Property Name="quantity13" Type="Int32" />
+    <Property Name="quantity14" Type="Int32" />
+    <Property Name="quantity15" Type="Int32" />
+    <Property Name="quantity16" Type="Int32" />
+    <Property Name="quantity17" Type="Int32" />
+    <Property Name="quantity18" Type="Int32" />
+    <Property Name="quantity19" Type="Int32" />
+    <Property Name="quantity20" Type="Int32" />
+    <Property Name="price1" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price2" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price3" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price4" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price5" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price6" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price7" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price8" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price9" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price10" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price11" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price12" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price13" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price14" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price15" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price16" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price17" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price18" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price19" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price20" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="discount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="company" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="dated" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="supplier" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Reciept" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Invoice" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="shift" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Return">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item3" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item4" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item5" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item6" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item7" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item8" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item9" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item10" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item11" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item12" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item13" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item14" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item15" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item16" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item17" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item18" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item19" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item20" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="quantity1" Type="Int32" />
+    <Property Name="quantity2" Type="Int32" />
+    <Property Name="quantity3" Type="Int32" />
+    <Property Name="quantity4" Type="Int32" />
+    <Property Name="quantity5" Type="Int32" />
+    <Property Name="quantity6" Type="Int32" />
+    <Property Name="quantity7" Type="Int32" />
+    <Property Name="quantity8" Type="Int32" />
+    <Property Name="quantity9" Type="Int32" />
+    <Property Name="quantity10" Type="Int32" />
+    <Property Name="quantity11" Type="Int32" />
+    <Property Name="quantity12" Type="Int32" />
+    <Property Name="quantity13" Type="Int32" />
+    <Property Name="quantity14" Type="Int32" />
+    <Property Name="quantity15" Type="Int32" />
+    <Property Name="quantity16" Type="Int32" />
+    <Property Name="quantity17" Type="Int32" />
+    <Property Name="quantity18" Type="Int32" />
+    <Property Name="quantity19" Type="Int32" />
+    <Property Name="quantity20" Type="Int32" />
+    <Property Name="price1" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price2" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price3" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price4" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price5" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price6" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price7" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price8" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price9" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price10" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price11" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price12" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price13" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price14" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price15" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price16" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price17" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price18" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price19" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price20" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="discount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="company" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="dated" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="customer" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Reciept" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Invoice" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="shift" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item3" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item4" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item5" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item6" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item7" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item8" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item9" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item10" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item11" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item12" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item13" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item14" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item15" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item16" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item17" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item18" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item19" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item20" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="quantity1" Type="Int32" />
+    <Property Name="quantity2" Type="Int32" />
+    <Property Name="quantity3" Type="Int32" />
+    <Property Name="quantity4" Type="Int32" />
+    <Property Name="quantity5" Type="Int32" />
+    <Property Name="quantity6" Type="Int32" />
+    <Property Name="quantity7" Type="Int32" />
+    <Property Name="quantity8" Type="Int32" />
+    <Property Name="quantity9" Type="Int32" />
+    <Property Name="quantity10" Type="Int32" />
+    <Property Name="quantity11" Type="Int32" />
+    <Property Name="quantity12" Type="Int32" />
+    <Property Name="quantity13" Type="Int32" />
+    <Property Name="quantity14" Type="Int32" />
+    <Property Name="quantity15" Type="Int32" />
+    <Property Name="quantity16" Type="Int32" />
+    <Property Name="quantity17" Type="Int32" />
+    <Property Name="quantity18" Type="Int32" />
+    <Property Name="quantity19" Type="Int32" />
+    <Property Name="quantity20" Type="Int32" />
+    <Property Name="price1" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price2" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price3" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price4" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price5" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price6" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price7" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price8" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price9" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price10" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price11" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price12" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price13" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price14" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price15" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price16" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price17" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price18" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price19" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price20" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="discount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="company" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="dated" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="customer" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Account" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Reciept" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Invoice" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="shift" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="state" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Sales_Lines">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Reciept" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="tax" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="priceinc" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="seat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TableNumber" Type="Int32" />
+  </EntityType>
+  <EntityType Name="shift">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dated" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="ShiftNumber" Type="Int32" />
+    <Property Name="Manager" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tranname">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tname" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Type" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Debit1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Debit2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Debit3" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Debit4" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Debit5" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Debit6" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Credit1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Credit2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Credit3" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Credit4" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Credit5" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Credit6" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Transfer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item3" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item4" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item5" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item6" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item7" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item8" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item9" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item10" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item11" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item12" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item13" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item14" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item15" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item16" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item17" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item18" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item19" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="item20" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="quantity1" Type="Int32" />
+    <Property Name="quantity2" Type="Int32" />
+    <Property Name="quantity3" Type="Int32" />
+    <Property Name="quantity4" Type="Int32" />
+    <Property Name="quantity5" Type="Int32" />
+    <Property Name="quantity6" Type="Int32" />
+    <Property Name="quantity7" Type="Int32" />
+    <Property Name="quantity8" Type="Int32" />
+    <Property Name="quantity9" Type="Int32" />
+    <Property Name="quantity10" Type="Int32" />
+    <Property Name="quantity11" Type="Int32" />
+    <Property Name="quantity12" Type="Int32" />
+    <Property Name="quantity13" Type="Int32" />
+    <Property Name="quantity14" Type="Int32" />
+    <Property Name="quantity15" Type="Int32" />
+    <Property Name="quantity16" Type="Int32" />
+    <Property Name="quantity17" Type="Int32" />
+    <Property Name="quantity18" Type="Int32" />
+    <Property Name="quantity19" Type="Int32" />
+    <Property Name="quantity20" Type="Int32" />
+    <Property Name="price1" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price2" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price3" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price4" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price5" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price6" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price7" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price8" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price9" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price10" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price11" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price12" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price13" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price14" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price15" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price16" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price17" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price18" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price19" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="price20" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="discount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="company" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="dated" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="customer" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Reciept" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Invoice" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="shift" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Trantype">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tname" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="type" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+  </EntityType>
+</Schema>

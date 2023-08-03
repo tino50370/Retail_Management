@@ -1,0 +1,321 @@
+@model IEnumerable<RetailKing.Models.Currency>
+
+@{
+    ViewBag.Title = "changeBaseCurrency";
+    int cnt = 0;
+}
+<style>
+    .frmclss{
+        width:50%;
+        margin-right;
+    }
+</style>
+<script type="text/javascript">
+     $(document).ready(function (event) {
+         $("#SearchInItems").focus();
+         var typinTimer;
+         $("#category").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Accounts")',
+                 dataType: 'html',
+                 data: {
+                     company: $("#activeco").text(),
+                     category: $("#category").val(),
+                     ItemCode: "",
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $("#panel").html(resp);
+                 },
+                 error: function (data) {
+                     alert(data);
+                 }
+             });
+         });
+
+         $("#SubCategory").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Accounts")',
+                 dataType: 'html',
+                 data: {
+                     SubCategory: $("#SubCategory").val(),
+                     ItemCode: "",
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $("#panel").html(resp);
+                 },
+                 error: function (data) {
+                     alert(data);
+                 }
+             });
+         });
+
+         $("#SizeR").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Accounts")',
+                 dataType: 'html',
+                 data: {
+                     company: $("#activeco").text(),
+                     category: $("#category").val(),
+                     ItemCode: '',
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $('#panel').html(resp);
+                 },
+                 error: function (data) {
+                 }
+             });
+         });
+
+         $("#SearchInItems").keyup(function () {
+             // event.preventDefault();
+             var s = $('#SearchInItems').val();
+            // alert(s);
+             clearTimeout(typinTimer);
+             typinTimer = setTimeout(function () {
+                // alert($('#SearchInItems').val() );
+                 if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                     $.ajax({
+                         type: "Post",
+                         url: '@Url.Action("Index", "Accounts")',
+                         dataType: 'html',
+                         data: {
+                             company: $("#activeco").text(),
+                             category: $("#category").val(),
+                             ItemCode: $("#SearchInItems").val(),
+                             iDisplayLength: $("#SizeR").val(),
+                             sEcho: 1
+                         },
+                         success: function (resp) {
+                             $('#panel').html(resp);
+                         },
+                         error: function (data) {
+                         }
+                     });
+                 }
+            }, 2000);
+         });
+
+         $("#tableData input").keypress( function (e) {
+             if (e.keyCode == 13) {
+
+                 if (this.value == '') {
+                     alert($("#" + this.id).val());
+                 }
+                 else {
+                     if (isNaN(this.value / 1) == false) {
+                         var dd = this.id;
+                         $.ajax({
+                             type: "Post",
+                             url: '@Url.Action("newStock", "Accounts")',
+                             dataType: 'html',
+                             data: {
+                                 company: $("#activeco").text(),
+                                 Qty: this.value,
+                                 ItemCode: this.id
+                             },
+                             success: function (resp) {
+                                 var jsonItem = $.parseJSON(resp);
+                               //  alert($('#' + dd).val());
+                                 $('.' + dd).html(jsonItem.NewStock);
+                                 $('#balance_' + dd).html(jsonItem.Balance);
+                                 $('#' + dd).val('');
+                             },
+                             error: function (data) {
+                             }
+                         });
+                     }
+                     else {
+                         alert("Please enter number only");
+                     }
+                 }
+             }
+         });
+
+     });
+</script>
+
+<script type="text/javascript">
+     function GetPageR(thispage) {
+         $.ajax({
+             type: "Post",
+             url: '@Url.Action("Index", "Items")',
+             dataType: 'html',
+             data: {
+                 company: $("#activeco").text(),
+                 category: $("#category").val(),
+                 ItemCode: '',
+                 iDisplayStart: thispage,
+                 iDisplayLength: $("#SizeR").val(),
+                 sEcho: 1
+             },
+             success: function (resp) {
+                 $('#panel').html(resp);
+             },
+             error: function (data) {
+             }
+         });
+     }
+</script>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Change Company Base Currency</h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <p></p>
+
+                <table id="gradient-style" class="table" style="width:100%; ">
+                    <tbody>
+                        <tr>
+                            <td style="border-style: none">
+                                <div class="editor-field">
+                                    Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR", @class = "form-control" })
+                                </div>
+                            </td>
+
+
+                            <td style="border-style: none">
+                                <div class="editor-field">
+                                    Search by ItemCode <input type="text" class="form-control" id="SearchInItems" />
+                                </div>
+                            </td>
+                            <td style="border-style: none">
+                                <div class="editor-field">
+                                    <br />
+                                    <button class="btn-icon btn-success btn-person" onclick="GetSalesProduct()"><span></span>Go</button>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+
+                <table class="table table-striped" style="width: 100%">
+                    <tbody>
+                        <tr>
+
+                            <th style="margin-left">
+                                Id
+                            </th>
+                            <th style="margin-left">
+                                Currency
+                            </th>
+                            <th style="margin-left">
+                                Description
+                            </th>
+                            <th style="margin-left">
+                                Is Base
+                            </th>
+                            <th style="margin-left">
+                                Rate
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <table class="table table-striped" id="currency_lines" name="currency_lines" style="width: 100%">
+                    <tbody>
+
+                        @{
+                            int count = 0;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            count++;
+
+                            <tr style="width: 100%">
+                                <td id="Id" class="Id">
+                                    @item.Id
+                                </td>
+                                <td>
+                                    @item.Curency
+                                </td>
+                                <td>
+                                    @item.Description
+                                </td>
+
+                                @using (Html.BeginForm("changeBaseCurrency", "Accounts", FormMethod.Post, new { enctype = "multipart/form-data", @name = "changeBaseCurrency", id = "changeBaseCurrency" }))
+                                {
+
+                                    <td class="IsBase" id="IsBase">
+                                        <input type="radio" value="true" name="isbase" id="isbase_@item.Id" />
+                                    </td>
+                                    <td class="ExchangeRate" id="ExchangeRate">
+
+                                        <input class="form-control" type="text" value="@item.ExchangeRate" name="exchangerate" id="exchangerate_@item.Id" />
+                                    </td>
+                                }
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+
+                <table>
+                    <tbody>
+
+                        @*<tr>
+                    <th colspan="12" style="background-color: #E2E4FF; ">
+                        <div onclick="GetPageR()" style="float: left; padding-left: 10px"> Pages</div>
+                        @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                        {
+                            if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                            {
+                                <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange; cursor:pointer">@i</div>
+                            }
+                            else
+                            {
+                                <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black;cursor:pointer ">@i</div>
+                            }
+                        }
+                        <div style="float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                    </th>
+                </tr>*@
+                        
+
+                        <tr>
+
+                            <td>
+                                <button class="btn btn-success " onclick="saveCurrency()">Save</button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+</div>
+</div>
+
+<script>
+
+    function showSubmit(id) {
+        $("#btn_"+id).show();
+    }
+
+</script>

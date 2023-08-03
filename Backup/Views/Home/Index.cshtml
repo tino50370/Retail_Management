@@ -1,0 +1,420 @@
+﻿@model RetailKing.ViewModels.HomeVM 
+
+@{
+    ViewBag.Title = "Mobistore";
+}
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Dashboard Brainstorm Admin</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Administration/css/reset.css")" media="screen" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Administration/css/text.css")" media="screen" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Administration/css/grid.css")" media="screen" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Administration/css/layout.css")" media="screen" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Administration/css/nav.css")" media="screen" />
+    <!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css" media="screen" /><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
+     
+    <!-- BEGIN: load jquery -->
+    <script src="@Url.Content("~/Content/Administration/js/jquery-1.6.4.min.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Administration/js/jquery-ui/jquery.ui.core.min.js")"></script>
+    <script src="@Url.Content("~/Content/Administration/js/jquery-ui/jquery.ui.widget.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Administration/js/jquery-ui/jquery.ui.accordion.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Administration/js/jquery-ui/jquery.effects.core.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Administration/js/jquery-ui/jquery.effects.slide.min.js")" type="text/javascript"></script>
+    <!-- END: load jquery -->
+    <!-- BEGIN: load jqplot -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Administration/css/jquery.jqplot.min.css")" />
+    <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="js/jqPlot/excanvas.min.js"></script><![endif]-->
+    <script language="javascript" type="text/javascript" src="@Url.Content("~/Content/Administration/js/jqPlot/jquery.jqplot.min.js")"></script>
+    <script language="javascript" type="text/javascript" src="@Url.Content("~/Content/Administration/js/jqPlot/plugins/jqplot.barRenderer.min.js")"></script>
+    <script language="javascript" type="text/javascript" src="@Url.Content("~/Content/Administration/js/jqPlot/plugins/jqplot.pieRenderer.min.js")"></script>
+    <script language="javascript" type="text/javascript" src="@Url.Content("~/Content/Administration/js/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js")"></script>
+    <script language="javascript" type="text/javascript" src="@Url.Content("~/Content/Administration/js/jqPlot/plugins/jqplot.highlighter.min.js")"></script>
+    <script language="javascript" type="text/javascript" src="@Url.Content("~/Content/Administration/js/jqPlot/plugins/jqplot.pointLabels.min.js")"></script>
+    <!-- END: load jqplot -->
+    <script src="@Url.Content("~/Content/Administration/js/setup.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/backOffice/inventoryGesture.js")" type="text/javascript"></script>
+
+  <script type="text/javascript">
+      $(document).ready(function (event) {
+          setupLeftMenu();
+          setSidebarHeight();  
+      });
+   </script>
+
+</head>
+<body>
+    <div class="container_12">     
+        <div class="clear">
+        </div>
+        <div class="grid_12">
+            <ul class="nav main">
+                <li class="ic-dashboard"><a onclick="GetView('@Url.Action("Index", "Home")')"><span>Dashboard</span></a></li>
+                <li class="ic-form-style"><a onclick="GetView('@Url.Action("Index", "Items")')"><span>Invoicing</span></a>
+                    <ul>
+                        <li><a onclick="GetView('@Url.Action("Create", "Items")')">New Item</a> </li>
+                        <li><a href="buttons.html">Buttons</a> </li>
+                        <li><a href="form-controls.html">Full Page Example</a> </li>
+                        <li><a href="table.html">Page with Sidebar Example</a> </li>
+                    </ul>
+                </li>
+                <li class="ic-typography"><a onclick="GetView('@Url.Action("Index", "Items")')"><span>Stock Transfer</span></a></li>
+				<li class="ic-charts"><a onclick="GetView('@Url.Action("Index", "Items")')"><span>Charts & Graphs</span></a></li>
+                <li class="ic-grid-tables"><a onclick="GetView('@Url.Action("Index", "Items")')"><span>Data Table</span></a></li>
+                <li class="ic-gallery dd"><a href="javascript:"><span>Image Galleries</span></a>
+               		 <ul>
+                        <li><a href="image-gallery.html">Pretty Photo</a> </li>
+                        <li><a href="gallery-with-filter.html">Gallery with Filter</a> </li>
+                    </ul>
+                </li>
+                <li class="ic-notifications"><a href="notifications.html"><span>Notifications</span></a></li>
+
+            </ul>
+        </div>
+        <div class="clear"></div>
+        <div id="Content">
+    <div id="side_menu">
+        <div class="grid_2">
+            <div class="box sidemenu">
+                <div class="block" id="section-menu">
+                    <ul class="section menu">
+                        <li class="ic-charts"><a class="menuitem">Companies</a>
+                            <ul class="submenu">
+                            @foreach (var com in Model.companies)
+                            {
+                            <li><a onclick="GetAd()">@com.company  </a> </li>
+                            }
+                            
+                            </ul>
+                        </li>
+                        <li><a class="menuitem">Sales Reports</a>
+                            <ul class="submenu">
+                                <li><a onclick="GetDateRange()">By Date Range</a> </li>
+                                <li><a onclick="GetAgeRange()">By Age</a> </li>
+                            </ul>
+                        </li>
+                        <li><a class="menuitem">Stock Movement</a>
+                            <ul class="submenu">
+                                <li><a onclick="GetCreate()">Create Advert</a></li>
+                                <li><a>Stop Advert</a> </li>
+                                <li><a>Delete Advert</a> </li>
+                            </ul>
+                        </li>
+                        
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="panel">
+       @{
+           var g = (from e in Model.items
+                     .Where(e => e.Balance <= e.Reorder)
+                     .OrderBy(e => e.Item)
+                    select e).Take(10).ToList();
+
+           var t = (from e in Model.items
+                    .OrderByDescending(e => e.sold)
+                    select e).Take(10).ToList();
+                    
+                     <div class="grid_10">
+            <div class="box round">
+                
+                <div class="block">
+                    <div class="stat-col">
+                        <span>Monthly Target</span>
+                      
+                        @if (@Model.activeco == null)
+                        {
+                              <p class="purple"> 
+                          @String.Format("{0:F}", 0)
+                              </p>
+                        }
+                        else
+                        {
+                                    <p class="purple">         
+                      @String.Format("{0:F}", @Model.activeco.monthlyTarget)
+                        </p>
+                        }
+                    </div>
+                    <div class="stat-col">
+                        <span>Last Month Sales</span>
+                          @if (@Model.monthlysale == null)
+                          {
+                             <p class="blue">
+                       @String.Format("{0:F}", 0)
+                         </p>
+                          }
+                          else
+                          {           
+                        <p class="blue">
+                       @String.Format("{0:F}", @Model.monthlysale.Sales) 
+                         </p>
+                          }
+                    </div>
+                    <div class="stat-col">
+                        <span>This Month Sales</span>
+                        <p class="yellow">
+                       @String.Format("{0:F}", @ViewData["ThisMonth"])
+                           </p>
+                    </div>
+                    <div class="stat-col">
+                        <span>Daily Target</span>
+                         @if (@Model.activeco == null)
+                         {
+                              <p class="green"> 
+                          @String.Format("{0:F}", 0)  
+                              </p>
+                         }
+                         else
+                         {
+                                     <p class="green">
+                        @String.Format("{0:F}", @Model.activeco.dailyTarget)
+                            </p>
+                         }
+                       
+                    </div>
+                    <div class="stat-col">
+                        <span>Yesterday's Sales</span>
+                         @if (@Model.dailysales == null)
+                         {
+                              <p class="blue"> 
+                            @String.Format("{0:F}", 0)
+                              </p>
+                         }
+                         else
+                         {
+                                     <p class="blue">
+                       @String.Format("{0:F}", @Model.dailysales.Sales)
+                            </p>
+                         }
+                       
+                    </div>
+                    <div class="stat-col">
+                        <span>Today's Sales</span>
+                        <p class="red">
+                          @String.Format("{0:F}", @ViewData["Nhasi"])
+                           </p>
+                    </div>
+                
+                    <div class="clear">
+                    </div>
+                </div>
+            
+            </div> 
+  </div> 
+     
+            <div class="grid_5" > 
+              <div class="box round">
+                <h2>These Items need re-ordering</h2>
+                <div class="block" style= " height: 430px">
+                <div id="gradient-styl" style="width:100%; border-style: none; padding-bottom: 10px ">
+        <div class="floatleft" style=" padding-bottom:5px; padding-right :30px">
+              Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeO" }) 
+    </div> 
+           <div  >
+         Search by Product <input type="text" id="SearchInLocation"/>  
+         </div> 
+         </div>
+       
+                <div id="low Stock" >
+                @if (g.Count() == 0)
+                {
+                    <div><h2> Your inventory is well stocked</h2></div>
+                }
+                else
+                {
+                <table>
+    <tr>
+        
+        <th>
+            Product
+        </th>
+         <th>
+            ItemCode
+        </th>
+        <th>
+            Opening Balance
+        </th>
+        <th>
+            SellingPrice
+        </th>
+        <th>
+            sold
+        </th>
+        <th>
+            transfer
+        </th>
+        <th>
+            Balance
+        </th>    
+    </tr>
+
+@foreach (var item in g)
+{
+    if (item.Balance <= 0)
+    {
+    <tr style = "background-color: Fuchsia">  
+        <td>
+			@item.Item 
+        </td>
+          <td>
+			@item.ItemCode
+        </td>
+        <td>
+			@item.Quantity
+        </td>
+        <td>
+			@String.Format("{0:F}", item.SellingPrice)
+        </td>
+        <td>
+			@item.sold
+        </td>
+        <td>
+			@item.transfer
+        </td>
+        <td>
+			@item.Balance
+        </td>
+       
+    </tr>
+    }
+    else
+    {
+    <tr >       
+        <td>
+			@item.Item 
+        </td>
+          <td>
+			@item.ItemCode
+        </td>
+        <td>
+			@item.Quantity
+        </td>
+        <td>
+			@String.Format("{0:F}", item.SellingPrice)
+        </td>
+        <td>
+			@item.sold
+        </td>
+        <td>
+			@item.transfer
+        </td>
+        <td>
+			@item.Balance
+        </td>   
+    </tr>  
+    }
+}
+
+</table>
+                }
+                </div>
+                  </div> 
+                  </div> 
+  </div>              
+           
+            <div class="grid_5" >
+              <div class="box round">
+                <h2>Top selling products</h2>
+                
+                <div class="block" style= "height: 430px">
+                  <div id="gradient" style="width:100%; border-style: none; padding-bottom: 10px ">
+        <div class="floatleft" style=" padding-bottom:5px; padding-right :30px">
+              Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeL" }) 
+    </div> 
+           <div >
+         Search by Product <input type="text" id="top"/>  
+         </div> 
+         </div>
+                   <div id="Top Seller" >
+                    @if (g.Count() == 0)
+                    {
+                    <div><h2> There are no sales Yet</h2></div>
+                    }
+                    else
+                    {
+                  <table>
+    <tr>    
+        <th>
+            Product
+        </th>
+         <th>
+            ItemCode
+        </th>
+        <th>
+            Opening Balance
+        </th>
+        <th>
+            SellingPrice
+        </th>
+        <th>
+            sold
+        </th>
+        <th>
+            transfer
+        </th>
+        <th>
+            Balance
+        </th>    
+    </tr>
+
+@foreach (var item in t)
+{
+    
+    <tr>
+        
+        <td>
+			@item.Item 
+        </td>
+          <td>
+			@item.ItemCode
+        </td>
+        <td>
+			@item.Quantity
+        </td>
+        <td>
+			@String.Format("{0:F}", item.SellingPrice)
+        </td>
+        <td>
+			@item.sold
+        </td>
+        <td>
+			@item.transfer
+        </td>
+        <td>
+			@item.Balance
+        </td>
+       
+    </tr>
+}
+
+</table>
+                    }
+</div>
+                 </div> 
+                 </div> 
+                </div>
+            
+  
+                        }   
+        </div> 
+</div>    
+    </div>
+    <div class="clear"></div>
+    <div id="site_info">
+        <p>
+            Copyright <a href="#">Brainstorm Academy</a>. All Rights Reserved.
+        </p>
+    </div>
+</body>
+
+
+
+
+
+ 
+
+

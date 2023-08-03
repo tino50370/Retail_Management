@@ -1,0 +1,31 @@
+﻿@model IEnumerable<RetailKing.Models.YomoneyResponse>
+
+@{
+
+}
+
+    <div class="col-md-12" style="width:510px">
+        @foreach (var itm in Model)
+        {
+            decimal paid = 0;
+            //if (ViewData["Paid"] != null)
+            //{
+            //    paid = decimal.Parse(ViewData["Paid"].ToString());
+            //}
+            var paytype = "";
+
+            //paytype = "Cash";                                                // amount                           currency       rate
+           
+                <div class="col-md-12" onclick="GetFancy('@Url.Action("AccountNumber", "Pos")','@ViewData["type"]~@ViewData["Amount"]~@ViewData["Curr"]~@ViewData["TransactionType"]')" style="margin-top:3px; height:35px; background-color: #FF7514; color: white; font-size:22px; vertical-align: middle; cursor: pointer">
+                    <div class="col-md-4"> @itm.Name</div>
+                    <div class="col-md-4">  @ViewData["Curr"] </div>
+                    <div class="col-md-4 pull-right">  @ViewData["Amount"] </div>
+                </div>
+           
+               
+           
+
+
+        }
+    </div>
+

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<RetailKing.Models.Partner>
+
+@{
+    ViewBag.Title = "Index";
+    var cnt = 0;
+}
+<div class="grid_10">
+    <div class="box round ">
+        <h2>Partners</h2>
+        <p></p>
+        <p>
+            <button class="btn btn-navy" onclick="GetView('@Url.Action("Create", "Partners")')">Create</button>
+        </p>
+        <table style="width:100%">
+            <tr>
+                <th>
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Url)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+
+                cnt += 1;
+                if (cnt % 2 == 0)
+                {
+                    <tr style=" background-color: #EEEEEE">
+                        <td>
+                            <img style="width:60px" alt="" src="@Url.Content(item.Logo)" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Image)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Url)
+                        </td>
+
+                        <td>
+                            <button class="btn btn-navy" onclick="GetView('@Url.Action("Edit", "Partners")','@item.Id')">Edit</button>
+                            <button class="btn btn-red" onclick="GetView('@Url.Action("Edit", "Partners")','@item.Id')">Delete</button>
+
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr style=" background-color :#FCFDFF">
+                        <td>
+                            <img style="width:60px" alt="" src="@Url.Content(item.Logo)" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Image)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Url)
+                        </td>
+
+                        <td>
+                            <button class="btn btn-navy" onclick="GetView('@Url.Action("Edit", "Partners")','@item.Id')">Edit</button>
+                            <button class="btn btn-red" onclick="GetView('@Url.Action("Edit", "Partners")','@item.Id')">Delete</button>
+
+                        </td>
+                    </tr>
+                }
+            }
+
+        </table>
+</div>
+</div>

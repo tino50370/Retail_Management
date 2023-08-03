@@ -1,0 +1,191 @@
+@model RetailKing.Models.Account
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+ <script type="text/javascript">
+     $(document).ready(function (event) {
+         $("#Level").change(function (event) {
+             //  event.preventDefault();
+             // alert($("#Level").val());
+             if ($("#Level").val() == "SECOND") {
+                 $("#Level1").show();
+                 $("#Level2").show();
+                 $("#Level3").hide();
+                 $("#second").hide();
+                 $("#minu2").hide();
+                 $("#Level2").val('');
+                 $("#Level3").val('');
+             }
+             else if ($("#Level").val() == "THIRD") {
+                 $("#Level1").show();
+                 $("#second").show();
+                 $("#Level2").hide();
+                 $("#Level3").show();
+                 $("#minu2").show();
+                 $("#Level2").val('');
+                 $("#Level3").val('');
+             }
+         });
+
+         $("#Level1").change(function (event) {
+
+             if ($("#Level").val() == "THIRD")
+             {
+                 $.ajax({
+                     type: "Get",
+                     url: 'Accounts/secondLevel',
+                     dataType: 'html',
+                     data: { json_str: $("#Level1").val() },
+                     success: function (resp) {
+                         var data = $.parseJSON(resp);
+                         var ddl = $('#second');
+                         ddl.empty();
+                      //  alert(data)
+                         // $(resp).each(function () {
+                         for (var i = 0; i < data.length; i++) {
+                             var obj = data[i];
+                             var valu = obj['Value'];
+                             var text = obj['Text'];
+                            
+                             ddl.append(
+                                 $('<option/>', {
+                                     Value: valu,
+                                      text: text
+                                         })
+                             );
+                         };
+                     },
+                     error: function (data) {
+                     }
+                 });
+             }
+             else if ($("#Level").val() == "SECOND")
+             {
+                 $.ajax({
+                     type: "Get",
+                     url: 'Accounts/AccountNumber',
+                     dataType: 'html',
+                     data: {
+                         json_str: $("#Level1").val(),
+                         level: $("#Level").val()
+                     },
+                     success: function (resp) {
+                         var data = $.parseJSON(resp);
+                         var ddl = $('#Level2');
+                       
+                         ddl.val(data);
+ 
+                     },
+                     error: function (data) {
+                     }
+                 });
+             }
+         });
+
+         $("#second").change(function () {     
+             $("#Level2").val($("#second").val());
+             $.ajax({
+                 type: "Get",
+                 url: 'Accounts/AccountNumber',
+                 dataType: 'html',
+                 data: {
+                     json_str: $("#Level1").val(),
+                     level: $("#Level").val()
+                 },
+                 success: function (resp) {
+                     var data = $.parseJSON(resp);
+                     var ddl = $('#Level3');
+                    
+                     ddl.val(data);
+
+                 },
+                 error: function (data) {
+                 }
+             });
+         })
+
+         $("#Level2").keyup(function (e) {
+             // alert("oyiroyryi");
+             var txt = $("#Level2").val();
+             if (txt.length > 2) {
+                 var n = $("#Level2").val()
+                 $("#Level2").val(n.substring(0, n.length - 1));
+                 $("#Level2").focus();
+             }
+         });
+
+         $("#Level3").keyup(function (e) {
+             // alert("oyiroyryi");
+             var txt = $("#Level3").val();
+             if (txt.length > 3) {
+                 var n = $("#Level3").val()
+                 $("#Level3").val(n.substring(0, n.length - 1));
+                 $("#Level3").focus();
+             }
+         });
+     })
+ </script>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.AccountCode)
+</div>
+<div class="editor-field">
+    <span> <input type="text" id="Level1" style="width:50px" disabled="disabled" value="@Model.Level1" /></span><span> -</span>
+   
+    <span> 
+        <input type="text" id="Level2" style="width:50px" disabled="disabled" value="@Model.Level2"  />
+    </span>
+    <span id="minu2" style=" display: none">-</span>
+    <span><input type="text"  id="Level3" style="width:50px; display:none" disabled="disabled"  /></span>
+    @Html.HiddenFor(model => model.Level1)
+    @Html.HiddenFor(model => model.Level2)
+    @Html.HiddenFor(model => model.Level3)
+    @Html.HiddenFor(model => model.AccountCode)
+    @Html.HiddenFor(model => model.image)
+    @Html.ValidationMessageFor(model => model.AccountCode)
+</div>
+
+<div class="editor-field">
+    @Html.HiddenFor(model => model.LinkAccount) 
+    @Html.HiddenFor(model => model.CompanyId)
+    
+    @Html.ValidationMessageFor(model => model.LinkAccount)
+</div>
+@*
+    <div class="editor-label">
+        @Html.Label("Company")
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(m => m.CompanyId , new SelectList((IEnumerable<SelectListItem>)ViewBag.Company, "Value", " Text", ViewData["Comp"].ToString()))
+        @Html.ValidationMessageFor(model => model.CompanyId )
+    </div>*@
+<div class="editor-label">
+    @Html.Label("Account Name")
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.AccountName)
+    @Html.ValidationMessageFor(model => model.AccountName)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Balance)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Balance)
+    @Html.ValidationMessageFor(model => model.Balance)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Opening)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Opening)
+    @Html.ValidationMessageFor(model => model.Opening)
+</div>
+<p></p>
+<div class="editor-field">
+    <div class="btn btn-orange">Select Promotion Image: <input type="file" name="Image" id="PImage" /></div>
+</div>
+
+
+

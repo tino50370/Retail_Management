@@ -1,0 +1,55 @@
+@model RetailKing.Models.Reward
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+@Html.HiddenFor(model => model.SupplierId)
+@Html.HiddenFor(model => model.SupplerName)
+@Html.HiddenFor(model => model.SchemeId)
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Name, new {@class = "form-control" })  
+    @Html.ValidationMessageFor(model => model.Name, "", new { style = "color:red" })
+</div>
+
+<div class="editor-label">
+   @Html.Label("Payment Type") <br />
+   <em style="color:orange">What the customer gets a reward</em>
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.RewardType, new SelectList(new[] { "Prize", "Cash", "Instore Discount", "Yomoney Discount" }, Model.RewardType), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.RewardType, "", new { style = "color:red" })
+</div>
+
+
+<div class="editor-label">
+    @Html.Label("Enter points required for this reward")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Points, new { @class = "form-control", type = "number", step = ".001" })
+    @Html.ValidationMessageFor(model => model.Points, "", new { style = "color:red" })
+</div>
+
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#PaymentType").change(function () {
+            var w = $("#PaymentType").val();
+            if (w != "Free") 
+            {
+                $("#other").show();
+                if(w == "Points")
+                {
+                   $("#sublabel").html("Subscription Points")
+                }
+            }
+            else
+            {
+                $("#other").hide();
+            }
+        })
+    });
+</script>
+
+

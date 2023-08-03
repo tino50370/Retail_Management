@@ -1,0 +1,194 @@
+﻿@model IEnumerable<RetailKing.Models.Expens>
+
+@{
+    ViewBag.Title = "PaymentLines";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Payments</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table id="gradient-style" class="table" style="width:100%; border-style: none ">
+                            <tbody>
+                                <tr>
+                                    <td class="style3" style="border-style: none">
+                                        <div class="editor-field">
+                                            Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR" })
+                                        </div>
+                                    </td>
+
+                                    <td style="border-style: none">
+                                        <div class="editor-field" style="float:right ">
+                                            Search by ItemCode <input type="text" id="SearchInItems" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <table style="width: 100%">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Amount)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.value)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Balance)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AccountCode)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AccountName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Dated)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Payee)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Receipt)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.cashier)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.type)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.till)
+                                </th>
+
+                            </tr>
+                            @{
+
+                                int cnt = 0;
+                                foreach (var item in Model)
+                                {
+                                    cnt += 1;
+                                    if (cnt % 2 == 0)
+                                    {
+                                        <tr style=" background-color: #EEEEEE">
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Amount)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.value)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Balance)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.AccountCode)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.AccountName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Dated)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Payee)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Receipt)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cashier)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.type)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.till)
+                                            </td>
+
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        <tr style=" background-color :#FCFDFF">
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Amount)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.value)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Balance)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.AccountCode)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.AccountName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Dated)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Payee)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Receipt)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cashier)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.type)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.till)
+                                            </td>
+
+                                        </tr>
+                                    }
+                                }
+                            }
+                            <tr>
+                            <th colspan="12" style=" background-color: #E2E4FF; ">
+                                <div onclick="GetPageR()" style=" float: left; padding-left: 10px"> Pages</div>
+                                @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                                {
+                                    if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                    {
+                                        <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                                    }
+                                    else
+                                    {
+                                        <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                                    }
+                                }
+                                <div style=" float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                            </th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+

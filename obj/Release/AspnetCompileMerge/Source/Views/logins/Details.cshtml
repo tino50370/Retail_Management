@@ -1,0 +1,101 @@
+@model RetailKing.Models.login
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>login</legend>
+
+    <div class="display-label">username</div>
+    <div class="display-field">@Model.username</div>
+
+    <div class="display-label">password</div>
+    <div class="display-field">@Model.password</div>
+
+    <div class="display-label">accesslevel</div>
+    <div class="display-field">@Model.accesslevel</div>
+
+    <div class="display-label">Firstname</div>
+    <div class="display-field">@Model.Firstname</div>
+
+    <div class="display-label">Surname</div>
+    <div class="display-field">@Model.Surname</div>
+
+    <div class="display-label">prefix</div>
+    <div class="display-field">@Model.prefix</div>
+
+    <div class="display-label">Location</div>
+    <div class="display-field">@Model.Location</div>
+
+    <div class="display-label">PosUser</div>
+    <div class="display-field">@Model.PosUser</div>
+
+    <div class="display-label">RetailUser</div>
+    <div class="display-field">@Model.RetailUser</div>
+
+    <div class="display-label">UsesBoth</div>
+    <div class="display-field">@Model.UsesBoth</div>
+
+    <div class="display-label">Shifts</div>
+    <div class="display-field">@Model.Shifts</div>
+
+    <div class="display-label">ManagerMenu</div>
+    <div class="display-field">@Model.ManagerMenu</div>
+
+    <div class="display-label">Tables</div>
+    <div class="display-field">@Model.Tables</div>
+
+    <div class="display-label">Payments</div>
+    <div class="display-field">@Model.Payments</div>
+
+    <div class="display-label">Reporting</div>
+    <div class="display-field">@Model.Reporting</div>
+
+    <div class="display-label">Sales</div>
+    <div class="display-field">@Model.Sales</div>
+
+    <div class="display-label">Pricing</div>
+    <div class="display-field">@Model.Pricing</div>
+
+    <div class="display-label">Barcoding</div>
+    <div class="display-field">@Model.Barcoding</div>
+
+    <div class="display-label">AddsProducts</div>
+    <div class="display-field">@Model.AddsProducts</div>
+
+    <div class="display-label">Purchases</div>
+    <div class="display-field">@Model.Purchases</div>
+
+    <div class="display-label">ManageUsers</div>
+    <div class="display-field">@Model.ManageUsers</div>
+
+    <div class="display-label">ManagePos</div>
+    <div class="display-field">@Model.ManagePos</div>
+
+    <div class="display-label">Transfers</div>
+    <div class="display-field">@Model.Transfers</div>
+
+    <div class="display-label">Accounts</div>
+    <div class="display-field">@Model.Accounts</div>
+
+    <div class="display-label">OnShift</div>
+    <div class="display-field">@Model.OnShift</div>
+
+    <div class="display-label">xreport</div>
+    <div class="display-field">@Model.xreport</div>
+
+    <div class="display-label">zreport</div>
+    <div class="display-field">@Model.zreport</div>
+
+    <div class="display-label">voidsale</div>
+    <div class="display-field">@Model.voidsale</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

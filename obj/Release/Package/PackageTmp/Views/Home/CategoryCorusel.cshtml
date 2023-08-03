@@ -1,0 +1,151 @@
+﻿@model RetailKing.Models.HomeData
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+	
+	<script>
+        curr = '@ViewData["ThisPage"]';
+        scrollpage = '@ViewData["ThisPage"]';
+    </script>
+
+ <script src="@Url.Content("~/Content/Template/js/main-script.js")"></script>
+				
+
+					<!-- New Collection -->
+					<div class="products-row row">
+						
+						<!-- Carousel Heading -->
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							
+							<div class="carousel-heading">
+								<h4>@ViewData["Category"]</h4>
+								<div class="carousel-arrows">
+                                   <a href="@Url.Action("Index", "Category", new { id = @ViewData["Category"] })"><i class="icons icon-th-3 active-button"></i></a>
+									<i class="icons icon-left-dir"></i>
+									<i class="icons icon-right-dir"></i>
+								</div>
+							</div>
+							
+						</div>
+						<!-- /Carousel Heading -->
+						
+						<!-- Carousel -->
+						<div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
+						
+								@{
+                                    var newStock = (from e in Model.items.OrderByDescending(u => u.ID) select e).Take(10);
+                                }
+                                <div class="owl-carousel" data-max-items="4">
+                                    @foreach (var c in newStock)
+                                    {
+           	<!-- Slide -->
+                                        <div>
+                                            <!-- Carousel Item -->
+                                            <div class="product">
+
+                                                <div class="product-image">
+                                                     @if (c.ThumbImage == null)
+                                                     {
+                                                         <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                                            <img src="@Url.Content("~/Content/Template/img/bag.png")" alt="@c.ItemName">
+                                                         </a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                                            <img src="@Url.Content(c.ThumbImage)" alt="@c.ItemName">
+                                                            </a> 
+                                                    }
+                                                            <a href="@Url.Action("Details", "items", new { id = c.ID })" class="product-hover">
+                                                                <i class="icons icon-eye-1"></i> Quick View
+                                                            </a>
+</div>
+
+                                                <div class="product-info">
+                                                    <h5><a class="capitalize" href="@Url.Action("Details", "items", new { id = c.ID })">@c.ItemName </a></h5>
+                                                    <span class="price">$@c.SellingPrice.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span>
+                                                    <div class="rating readonly-rating" data-score="4"></div>
+                                                    <div id="Error_@c.ID" style="display:none; border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:99%;height:40px">
+
+                                                    </div>
+                                                    <div id="Success_@c.ID" style="display:none;border: 1px solid #2ECC9F;color:#2ECC9F; padding:8px 8px 8px 8px ;  margin-top:10px;margin-bottom: 20px; width:99%;height:40px">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="product-actions">
+                                                    @if (c.Balance > 0)
+                                                    {
+                                                        <span class="add-to-cart">
+                                                            <span class="action-wrapper">
+                                                                <i class="icons icon-basket-2"></i>
+                                                                <a onclick="AddToCartQ('@c.ID','@c.SellingPrice')">
+
+                                                                    <span class="action-name" style="color:#ffffff">Add to Cart</span>
+
+                                                                </a>
+                                                            </span>
+                                                        </span>
+                                                        <span class="add-to-cart-green">
+                                                            <span class="action-wrapper">
+                                                                <i class="icons icon-book-2"></i>
+                                                                <a href="@Url.Action("Details", "items", new { id = c.ID })">
+
+                                                                    <span class="action-name" style="color:#ffffff">View Details</span>
+
+                                                                </a>
+                                                            </span>
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="add-to-favorites">
+                                                            <span class="action-wrapper">
+                                                                <i class="icons icon-basket-2"></i>
+                                                                <a>
+                                                                    <span class="action-name" style="color:#ffffff">Out Of Stock</span>
+                                                                </a>
+                                                            </span>
+                                                        </span>
+                                                        <span class="add-to-cart-green">
+                                                            <span class="action-wrapper">
+                                                                <i  class=" icons icon-book-2"></i>
+                                                                <a href="@Url.Action("Details", "items", new { id = c.ID })">
+
+                                                                    <span class="action-name" style="color:#ffffff">View Details</span>
+
+                                                                </a>
+                                                            </span>
+                                                        </span>
+                                                    }
+                                                    <span class="add-to-compare">
+                                                        <span class="action-wrapper">
+                                                            <i class="icons icon-heart-empty"></i>
+                                                            <span class="action-name">Add to wishlist</span>
+                                                        </span>
+                                                    </span>
+                                                   
+                                                </div>
+                                               
+                                            </div>
+                                            <!-- /Carousel Item -->
+                                           
+                                        </div>
+									<!-- /Slide -->
+
+                                    }
+
+                                </div>
+									
+							</div>
+						</div>
+						<!-- /Carousel -->
+						
+			
+				
+						
+			
+				
+      

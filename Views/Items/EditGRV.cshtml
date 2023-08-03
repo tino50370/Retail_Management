@@ -1,0 +1,135 @@
+﻿@model RetailKing.Models.PurchaseLine
+
+@{
+    ViewBag.Title = "EditGRV";
+}
+
+<style type="text/css" media="all">
+    /* fix rtl for demo */
+    .chosen-rtl .chosen-drop {
+        left: -9000px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Manage Batch </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+
+                    @using (Html.BeginForm("EditGRV", "Items", FormMethod.Post, new { enctype = "multipart/form-data", @name = "NewUser", id = "createUser" }))
+                    {
+                        @*<div class="editor-field">
+                                Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR", @class = "form-control", style = "width:90%" })
+                            </div>*@
+
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                            @Html.HiddenFor(model => model.ID)
+                            @Html.HiddenFor(model => model.ItemCode)
+                            @Html.HiddenFor(model => model.item)
+                            <div class="col-md-6">
+
+                                <div>
+                                    <br />
+                                </div>
+                                <div class="editor-label">
+                                    @Html.Label("Product Name")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.item, new { disabled = "disabled", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.item)
+                                </div>
+
+
+                                <div class="editor-label">
+                                    @Html.Label("Product Code")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.ItemCode, new { disabled = "disabled", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ItemCode)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Start Date")
+                                </div>
+                                <div class="editor-field">
+                                    <input type="text" name="StartDate" id="StartDate" class="form-control" value="@ViewData["sdate"]" style="width: 90%" />
+
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("End Date")
+                                </div>
+                                <div class="editor-field">
+                                    <input type="text" name="EndDate" id="EndDate" class="form-control" value="@ViewData["edate"]" style="width: 90%" />
+
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Expiry Date")
+                                </div>
+                                <div class="editor-field">
+                                    <input type="text" name="DeshelfingDate" id="DeshelfingDate" class="form-control" value="@ViewData["edate"]" style="width: 90%" />
+
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+                    }
+                    <br />
+                    <div>
+                        <button class="btn btn-success" onclick="SaveView('createUser')">Save</button>
+                        @*<button class="btn btn-success" type="submit">Save</button>*@
+                        <button class="btn btn-warning" onclick="GetView('@Url.Action("GrvList", "Items")')">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="@Url.Content("~/Content/Administration/js/datepicker/daterangepicker.js")"></script>
+<script src="@Url.Content("~/Content/Administration/js/moment/moment.min.js")"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#StartDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+
+        $('#EndDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+        $('#DeshelfingDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+
+
+    })
+</script>
+

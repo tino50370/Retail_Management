@@ -1,0 +1,66 @@
+@model RetailKing.Models.ProxySetting
+
+@{
+    ViewBag.Title = "Edit";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Proxy Settings</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="col-md-8">
+                @using (Html.BeginForm("ProxySettings", "MailSettings", FormMethod.Post, new { id = "editUser" }))
+                {
+                    @Html.ValidationSummary(true)
+                    @Html.AntiForgeryToken()
+                    <fieldset>
+                        @if (ViewData["Success"] == "Success")
+                        {
+                            <div class="alert alert-success alert-dismissible fade in" role="alert">
+
+                                <strong>Success!</strong> Domain User was saved successfully.
+                            </div>
+                        }
+                        else if (ViewData["Success"] == "Error")
+                        {
+                            <div class="alert alert-success alert-dismissible fade in" role="alert">
+
+                                <strong>Error!</strong> An Error occured Domain User was not saved. Check your name and retry.
+
+                            </div>
+                        }
+                        <br />
+                        @Html.HiddenFor(m => m.Id)
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.IpAddress )
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.IpAddress, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IpAddress)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Port)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.Port, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Port)
+                        </div>
+
+                        <br />
+                    </fieldset>
+                }
+                <div>
+                    <button class="btn btn-success" onclick="SaveView('editUser')">Save </button>
+                    
+                </div>
+            </div>
+        </div>
+        <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+        <div id="Images"></div>
+    </div>
+</div>

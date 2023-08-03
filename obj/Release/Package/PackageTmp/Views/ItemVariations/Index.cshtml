@@ -1,0 +1,56 @@
+﻿@model IEnumerable<RetailKing.Models.ItemVariation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Item Variation</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+
+            <p>
+                <button class="btn btn-primary" onclick="GetView('@Url.Action("Create", "ItemVariations")','@ViewData["ItemCode"]')">Create New</button>
+            </p>
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ItemCode)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Quantity)
+                    </th>
+                    <th></th>
+                </tr>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ItemCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" onclick="GetView('@Url.Action("Edit", "Asset")','@ViewData["ItemCode"]')">Edit</button>
+                                <button class="btn btn-danger" onclick="GetView('@Url.Action("Delete", "Asset")','@ViewData["ItemCode"]')">Delete</button>
+                           </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

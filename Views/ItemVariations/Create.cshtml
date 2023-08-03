@@ -1,0 +1,59 @@
+﻿@model RetailKing.Models.ItemVariation
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="row">
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Create Variation</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="row">
+
+                @using (Html.BeginForm("Create", "ItemVariations", FormMethod.Post, new { enctype = "multipart/form-data", @name = "ProfileP", id = "Profilep" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+
+                    <fieldset>
+                        <legend>ItemVariation</legend>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.ItemCode)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.ItemCode, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ItemCode)
+                        </div>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Description)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </div>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Quantity)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.Quantity, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Quantity)
+                        </div>
+
+                        <p>
+                            <input type="submit" class="btn btn-success" value="Create" />
+                        </p>
+                    </fieldset>
+                }
+
+               </div>
+          </div>
+       </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+﻿@model IEnumerable<RetailKing.Models.Item>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+ 
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyingPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SellingPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Expected)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sold)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.transfer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Balance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Returned)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.company)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Swaps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reorder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TopSeller)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Measure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThumbImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DicountType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Promotion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manufacturer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdPosition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PromoImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Featured)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

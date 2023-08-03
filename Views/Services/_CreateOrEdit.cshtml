@@ -1,0 +1,160 @@
+@model RetailKing.Models.YomoneyService
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+ 
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name )
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Name, new {  @class="form-control"})
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Description )
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Description)
+</div>
+<div class="editor-label">
+    @Html.LabelFor(model => model.ServiceProvider  )
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.ServiceProvider, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ServiceProvider)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Transaction Type")
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.TransactionType, new SelectList((IEnumerable<SelectListItem>)ViewBag.Trantype, "Value", " Text"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.TransactionType)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Service Audience")
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.ServiceAudience, new SelectList(new[] { "All","Suppliers", "Customers" }), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ServiceAudience)
+</div>
+
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.ChargeType )
+</div>
+<div class="editor-field">
+   @Html.DropDownListFor(model => model.ChargeType, new SelectList(new[] { "Fixed", "Percent" }), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ChargeType)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.ChargeFrequency )
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.ChargeFrequency, new SelectList(new[] { "Transactional", "Daily", "Weekly", "Monthly", "Annualy" }), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ChargeFrequency)
+</div>
+
+
+<div class="editor-label">
+    @Html.Label("Service Charge")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.ServicePrice, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ServicePrice)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Buying Price")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.ServiceCharge , new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ServiceCharge)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Minimunm Sale")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.MinSale, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.MinSale)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Maximunm Sale")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.MaxSale , new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.MaxSale)
+</div>
+
+
+<div class="editor-label">
+    @Html.Label("Service Type")
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.ServiceType, new SelectList(new[] { "Merchant", "Bank", "Tickets","Insurance","Employment" }), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ServiceType)
+</div>
+
+<br />
+<div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.Label("Is External")
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.IsExternal, new { @class = "form-control ", style = "float:left" })
+                @Html.ValidationMessageFor(model => model.IsExternal)
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.Label("External Service Id")
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.ExtServiceId, new { @class = "form-control pull-left" })
+                @Html.ValidationMessageFor(model => model.ExtServiceId)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.Label("Service HasProducts")
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.HasProduct, new { @class = "form-control ", style="float:left"})
+                @Html.ValidationMessageFor(model => model.HasProduct)
+            </div>
+            <div class="editor-label">
+                @Html.Label("Is Supplier Service")
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.IsSupplierService, new { @class = "form-control pull-left" })
+                @Html.ValidationMessageFor(model => model.IsSupplierService)
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.Label("Require Service Balance")
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.RequireServiceBalance, new { @class = "form-control pull-left" })
+                @Html.ValidationMessageFor(model => model.RequireServiceBalance)
+            </div>
+            <div class="editor-label">
+                @Html.Label("Allow Multiple ") <em>Allow suppliers to create this service type serveral times</em>
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.CreateMultiple, new { @class = "form-control pull-left" })
+                @Html.ValidationMessageFor(model => model.CreateMultiple)
+            </div>
+        </div>
+    </div>
+</div>

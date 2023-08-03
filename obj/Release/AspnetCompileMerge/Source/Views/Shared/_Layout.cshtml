@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title> Mobistore Network</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        
+        <link rel="stylesheet" href="@Url.Content("~/Content/Template/css/bootstrap.min.css")">
+        <link rel="stylesheet" href="@Url.Content("~/Content/Template/css/jquery.nouislider.min.css")">
+        
+        @System.Web.Optimization.Styles.Render("~/Content/css")
+        @System.Web.Optimization.Scripts.Render("~/bundles/modernizr")
+        <script src="@Url.Content("~/Content/Template/js/jquery-1.11.0.min.js")"></script>
+    </head>
+    <body>
+        <div class="container">
+        	<!-- Header -->
+		<!-- Header -->
+			<header class="row">
+				
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					
+					<!-- Top Header -->
+					<div id="top-header">
+						
+						<div class="row">
+							
+							<nav id="top-navigation" class="col-lg-7 col-md-7 col-sm-7">
+								<ul class="pull-left">
+                                    @if (Request.IsAuthenticated)
+                                    {
+									<li><a href="@Url.Action("DashBoard", "Accounts")">My Account</a></li>
+                                    <li><a href="@Url.Action("CreateAcount", "Accounts", new { Company = @ViewData["Company"]})">Create Account</a></li>
+									<li><a href="@Url.Action("Cartitems", "Cart")">List Order</a></li>
+									<li><a id="MyLists"href="@Url.Action("Mylist", "Cart")">Shopping List </a></li>
+                                    }
+									<li><a href="@Url.Action("About","Home")">About Us</a></li>
+									<li><a href="contact.html">Contact</a></li>
+								</ul>
+							</nav>
+							
+					
+							
+						</div>
+						
+					</div>
+					<!-- /Top Header -->
+					
+					
+					
+					<!-- Main Header -->
+					<div id="main-header">
+						
+						<div class="row">
+							
+							<div id="logo" class="col-lg-4 col-md-4 col-sm-4">
+								<a href="home_v1.html"><img src="@Url.Content("~/Content/Template/img/logo.png")" alt="@ViewData["Company"]"></a>
+							</div>
+							
+							<nav id="middle-navigation" class="col-lg-8 col-md-8 col-sm-8">
+								<ul class="pull-right">
+                                    <li class="blue">
+                                        <a id="WishlistSize" href="wishlist.html"><i class="icons icon-heart-empty"></i>0 Items</a>
+                                    </li>
+									<li  class="orange">
+                                        <a id="ChartSize" href="@Url.Action("Cartitems", "Cart")"><i class="icons icon-basket-2"></i></a>                                    	
+                                    </li>
+                                    @if(!Request.IsAuthenticated)
+                                    { 
+									<li class="login-create purple">
+                                    	<i class="icons icon-user"></i>
+                                        <p><a href="#">Login</a></p>
+										<ul id="login-dropdown" class="box-dropdown">
+											<li id="loginform">
+											</li>
+										</ul>
+                                    </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="login-create purple">
+                                            <i class="icons icon-user"></i>
+                                            <p id="loginform"></p>
+                                            <ul id="login-dropdown" class="box-dropdown">
+                                                <li>
+                                                    @using (Html.BeginForm("Logout", "Accounts", FormMethod.Post, new { enctype = "multipart/form-data", @name = "loginAccount", id = "loginAccount" }))
+                                                    {
+                                                        <div class="box-wrapper">
+                                                            <h4>LOGIN OUT</h4>
+
+                                                            <div class="pull-left">
+                                                                <input type="submit" class="orange" value="Logout" style="width:100%">
+                                                            </div>
+
+                                                            <br class="clearfix">
+                                                        </div>
+                                                        <div class="footer">
+
+                                                        </div>
+                                                    }
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    }
+								</ul>
+							</nav>
+							
+						</div>
+						
+					</div>
+					<!-- /Main Header -->
+					
+					
+						<!-- Main Navigation -->
+					<nav id="main-navigation" class="style2">
+ 
+					</nav>
+					<!-- /Main Navigation -->
+					
+				</div>
+				
+			</header>
+			<!-- /Header -->
+      
+        <div id="body" class="row content">     
+            <section class="content-wrapper main-content clear-fix">
+                <div id="panel">
+                    @RenderBody()
+                </div>
+            </section>
+        </div>
+        <!-- Footer -->
+			<footer id="footer" class="row">
+				
+				<!-- Upper Footer -->
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					
+					<div id="upper-footer">
+					
+						<div class="row">
+							
+							<!-- Newsletter -->
+							<div class="col-lg-7 col-md-7 col-sm-7">
+								<form id="newsletter" action="http://inthe7heaven.com/homeshop-html/php/newsletter.php">
+									<h4>Newsletter Sign Up</h4>
+									<input type="text" name="newsletter-email" placeholder="Enter your email address">
+									<input type="submit" name="newsletter-submit" value="Submit">
+								</form>
+							</div>
+							<!-- /Newsletter -->
+							
+							
+							<!-- Social Media -->
+							<div class="col-lg-5 col-md-5 col-sm-5 social-media">
+								<h4>Stay Connected</h4>
+								<ul>
+									<li class="social-googleplus tooltip-hover" data-toggle="tooltip" data-placement="top" title="Google+"><a href="#"></a></li>
+									<li class="social-facebook tooltip-hover" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="#"></a></li>
+									<li class="social-pinterest tooltip-hover" data-toggle="tooltip" data-placement="top" title="Pinterest"><a href="#"></a></li>
+									<li class="social-twitter tooltip-hover" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="#"></a></li>
+									<li class="social-youtube tooltip-hover" data-toggle="tooltip" data-placement="top" title="Youtube"><a href="#"></a></li>
+								</ul>
+							</div>
+							<!-- /Social Media -->
+							
+						</div>
+					
+					</div>
+					
+				</div>
+				<!-- /Upper Footer -->
+				
+				
+				@*
+    <!-- Main Footer -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
+
+        <div id="main-footer">
+
+            <div class="row">
+
+                <!-- The Service -->
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <h4>The Service</h4>
+                    <ul>
+                        <li><a href="#"><i class="icons icon-right-dir"></i> My account</a></li>
+                        <li><a href="#"><i class="icons icon-right-dir"></i> Order history</a></li>
+                        <li><a href="#"><i class="icons icon-right-dir"></i> Vendor contact</a></li>
+                        <li><a href="#"><i class="icons icon-right-dir"></i> Shop page</a></li>
+                        <li><a href="#"><i class="icons icon-right-dir"></i> Categories</a></li>
+                        <li><a href="#"><i class="icons icon-right-dir"></i> Search results</a></li>
+                    </ul>
+                </div>
+                <!-- /The Service -->
+
+
+                <!-- Like us on Facebook -->
+                <div class="col-lg-3 col-md-3 col-sm-6 facebook-iframe">
+                    <h4>Like us on Facebook</h4>
+                    <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width=270&amp;height=250&amp;colorscheme=light&amp;header=false&amp;show_faces=true&amp;stream=false&amp;show_border=false" style="border:none; overflow:hidden; width:100%; height:290px;"></iframe>
+                </div>
+                <!-- /Like us on Facebook -->
+
+
+                <!-- Information -->
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#"><i class="icons icon-right-dir"></i> About Us</a></li>
+                        <li><a href="#"><i class="icons icon-right-dir"></i> New Collection</a></li>
+                        <li><a href="#"><i class="icons icon-right-dir"></i> Bestsellers</a></li>
+                        <li><a href="#"><i class="icons icon-right-dir"></i> Manufacturers</a></li>
+                        <li><a href="#"><i class="icons icon-right-dir"></i> Privacy Policy</a></li>
+                        <li><a href="#"><i class="icons icon-right-dir"></i> Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+                <!-- /Information -->
+
+
+                <!-- Contact Us -->
+                <div class="col-lg-3 col-md-3 col-sm-6 contact-footer-info">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="icons icon-location"></i> 8901 Marmora Road,<br>Glasgow, D04 89GR.</li>
+                        <li><i class="icons icon-phone"></i> +1 800 603 6035</li>
+                        <li><i class="icons icon-mail-alt"></i><a href="mailto:mail@company.com"> mail@companyname.com</a></li>
+                        <li><i class="icons icon-skype"></i> homeshop</li>
+                    </ul>
+                </div>
+                <!-- /Contact Us -->
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /Main Footer -->
+
+                *@
+				
+				<!-- Lower Footer -->
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					
+					<div id="lower-footer">
+					
+						<div class="row">
+							
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<p class="copyright">Copyright 2015 <a href="#">Mobistore</a>. All Rights Reserved. System by Faithwork Systems</p>
+							</div>
+							
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<ul class="payment-list">
+									<li class="payment1"></li>
+									<li class="payment2"></li>
+									<li class="payment3"></li>
+									<li class="payment4"></li>
+									<li class="payment5"></li>
+								</ul>
+							</div>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				<!-- /Lower Footer -->
+				
+			</footer>
+			<!-- Footer -->
+ </div> 
+       
+        <script src ="@Url.Content("~/Content/Template/js/jquery-ui.min.js")"></script>
+        <script src ="@Url.Content("~/Content/Template/js/jquery.raty.min.js")"></script>
+          <script src ="@Url.Content("~/Content/Template/js/perfect-scrollbar.min.js")"></script>
+          <script src ="@Url.Content("~/Content/Template/js/zoomsl-3.0.min.js")"></script>
+         <script src ="@Url.Content("~/Content/Template/js/jquery.themepunch.plugins.min.js")"></script>
+         <script src ="@Url.Content("~/Content/Template/js/jquery.themepunch.revolution.min.js")"></script>
+         <script src ="@Url.Content("~/Content/Template/js/flexslider.min.js")"></script>
+		 <script src ="@Url.Content("~/Content/Template/js/jquery.iosslider.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/jquery.nouislider.min.js")"></script>
+       
+         <script src ="@Url.Content("~/Content/Template/js/owl.carousel.min.js")"></script>
+         <script src ="@Url.Content("~/Content/Template/js/chosen.jquery.min.js")"></script>
+         <script src ="@Url.Content("~/Content/Template/js/bootstrap.min.js")"></script>
+        <script src ="@Url.Content("~/Content/Template/js/modernizr.min.js")"></script>
+        <script src="@Url.Content("~/Content/Template/js/tinynav.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>   
+   
+        @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+        <script src="@Url.Content("~/Content/Template/js/main-script.js")"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="RetailKing.Models.Category, RetailKing" table="Categories" >
+
+    <id name="Id" column="ID" type="System.Int64" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+
+    <property name="name" column="name"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="location" column="location"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="status" column="status"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="dated" column="dated"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+   
+  </class>
+</hibernate-mapping>

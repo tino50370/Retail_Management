@@ -1,0 +1,137 @@
+﻿@model RetailKing.Models.Transfer
+
+@{
+    ViewBag.Title = "Purchases";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Goods Received by Transfer</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    @using (Html.BeginForm("Purchases", "GRVTransfer", FormMethod.Post, new { enctype = "multipart/form-data", @name = "Purchase", id = "createPurchase" }))
+                    {
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+
+                            <div class="editor-label">
+                                @Html.Label("Transfer Receipt")
+                            </div>
+                            <div class="editor-field">
+                                @Html.HiddenFor(model => model.company)
+                                <span> @Html.EditorFor(model => model.Reciept)</span><span> <button id="browse" class="btn btn-navy" type="button" onclick="BrowseTransfers()">...</button></span>
+                                @Html.ValidationMessageFor(model => model.Reciept)
+                            </div>
+                            <div id="Suppliers" style=" position:absolute; top:90px; width: 98%"></div>
+                            @*<div class="editor-label">
+                                @Html.Label("Invoice Total")
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.total)
+                                @Html.ValidationMessageFor(model => model.total)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Invoice Discount")
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.discount)
+                                @Html.ValidationMessageFor(model => model.discount)
+                            </div>*@
+
+                            <div class="editor-label">
+                                @Html.Label("Invoice Number")
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Invoice)
+                                @Html.ValidationMessageFor(model => model.Invoice)
+                            </div>
+
+
+                        </fieldset>
+                    }
+                    <br/>
+                    <p>
+                        <button class="btn btn-success" onclick="SaveView('createPurchase')">Next</button>
+                        <a class="btn btn-warning" href="@Url.Action("DashBoard","MailSettings")">Cancel</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+            $(document).ready(function () {
+                // document.getElementById("Creditq").focus();
+                $('#supplier').focus;
+                $("#supplier").bind('input propertychange', function (e) {
+                    // alert("oyiroyryi");
+                    var txt = $("#supplier").val();
+                    if (txt.length > 1) {
+                        $.ajax({
+                            type: "Get",
+                            url: '@Url.Action("Search", "Suppliers")',
+                            dataType: 'html',
+                            data: { searchtext: $("#supplier").val() },
+                            success: function (resp) {
+                                $('#Suppliers').html(resp);
+                            },
+                            error: function (data) {
+                            }
+                        });
+                    } else {
+                        $('#Suppliers').html('');
+                    }
+                });
+
+
+                //  changeTextarea();
+                // onFocused();
+            });
+
+            function Cancel(url) {
+                parent.$.fancybox.close();
+                $.ajax({
+                    type: "Get",
+                    url: url,
+                    dataType: 'html',
+                    data: {
+                        Company: Company,
+                    },
+                    success: function (resp) {
+                        $("#panel").html(resp);
+                    },
+                    error: function (data) {
+                        // alert(data);
+                    }
+                });
+            }
+            function placeText(id) {
+                Supplier = id;
+                $('#supplier').val(id);
+                $('#Suppliers').html('');
+                supplierSelected = 'Y';
+            }
+
+            function setCustomer() {
+                customerName = $('#Creditq').val();
+                creditPeriod = $('#Days').val();
+                if (IsCredit == "N") {
+                    if (customerSelected == 'Y') {
+                        GetPartialView('/Pos/Tender', 'total', 'N');
+                    }
+                }
+                else {
+                    if (customerSelected == 'Y') {
+                        Savesale();
+                    }
+                }
+            }
+</script>

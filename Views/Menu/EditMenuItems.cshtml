@@ -1,0 +1,88 @@
+﻿@model RetailKing.Models.MenuItem
+
+@{
+    ViewBag.Title = "CreatePoint";
+}
+<div class="row">
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Edit MenuItem</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+
+                @using (Html.BeginForm("EditMenuItems", "Menu", FormMethod.Post, new { enctype = "multipart/form-data", @name = "PointP", id = "Pointp" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+
+                    <fieldset>
+
+                        <div class="editor-field">
+                            @Html.HiddenFor(model => model.MenuId)
+                            @Html.HiddenFor(model => model.Id)
+                            @Html.LabelFor(model => model.Title)
+                        </div>
+
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.Title, new { @class = "form-control form-cascade-control input-small" })
+                            @Html.ValidationMessageFor(model => model.Title)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.HasSubMenu)
+                        </div>
+                        <div class="editor-field">
+                            @Html.DropDownListFor(model => model.HasSubMenu, new SelectList(new[] { "NO", "YES" }), new { @class = "form-control form-cascade-control input-small" })
+                            @Html.ValidationMessageFor(model => model.HasSubMenu)
+                        </div>
+                        <div id="link">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.LinkUrl)
+                            </div>
+
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.LinkUrl, new { @class = "form-control form-cascade-control input-small" })
+                                @Html.ValidationMessageFor(model => model.LinkUrl)
+                            </div>
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.LinkType)
+                        </div>
+                        <div class="editor-field">
+                            @Html.DropDownListFor(model => model.LinkType, new SelectList(new[] { "DIRECT", "AJAX" }), new { @class = "form-control form-cascade-control input-small" })
+                            @Html.ValidationMessageFor(model => model.LinkType)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.CssClass)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.CssClass, new { @class = "form-control form-cascade-control input-small" })
+                            @Html.ValidationMessageFor(model => model.CssClass)
+                        </div>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Section)
+                        </div>
+                        <div class="editor-field">
+                            @Html.DropDownListFor(m => m.Section,
+                         new SelectList(
+                      (IEnumerable<SelectListItem>)ViewBag.section,
+                             "Value",
+                        "Text", Model.Section), new { @Class = "form-control form-cascade-control input-small", style = " height: 30px" })
+                            @Html.ValidationMessageFor(model => model.Section)
+                        </div>
+
+                        <p></p>
+                        <p>
+                            <input type="submit" class="btn btn-primary" value="Save Menu" />
+                        </p>
+                    </fieldset>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

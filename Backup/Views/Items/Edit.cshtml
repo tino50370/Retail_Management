@@ -1,0 +1,29 @@
+@model RetailKing.Models.Items
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+@using (Html.BeginForm("Create", "Items", FormMethod.Post, new { id = "editItems" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Item</legend>
+
+        @Html.HiddenFor(model => model.Id)
+		@Html.Partial("_CreateOrEdit", Model)
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+  
+<button class="btn btn-black"  onclick="SaveView('editItems')" >Save</button>
+<button class="btn btn-black" onclick="GetView('@Url.Action("Index", "Items")')">Cancel</button>
+  
+</div>

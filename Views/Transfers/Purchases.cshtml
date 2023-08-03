@@ -1,0 +1,137 @@
+﻿@model RetailKing.Models.Transfer
+
+@{
+    ViewBag.Title = "Purchases";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>New Transfer </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    @using (Html.BeginForm("Purchases", "Transfers", FormMethod.Post, new { enctype = "multipart/form-data", @name = "Purchase", id = "createPurchase" }))
+                    {
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+
+
+                            @*<div class="editor-label">
+                                @Html.Label("Total Shrinkage Amount ")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.total, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.total)
+                            </div>*@
+
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.destination)
+                            </div>
+                            <div class="editor-field">
+                                @if (ViewData["ShowText"].ToString() == "true")
+                                {
+                                    @Html.DropDownListFor(m => m.destination, new SelectList((IEnumerable<SelectListItem>)ViewBag.Branch, "Value", " Text"), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.destination)
+                                }
+                                else
+                                {
+                                    @Html.TextBoxFor(model => model.destination, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.destination)
+                                }
+                            </div>
+
+                            @*<div class="editor-label">
+                                @Html.Label("Shrinkage Description")
+                            </div>
+                            <div class="editor-field">
+                               
+                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </div>*@
+                           
+                        </fieldset>
+                    }
+                    <br />
+                    <p>
+                        <button class="btn btn-success" onclick="SaveView('createPurchase')">Next</button>
+                        <a class="btn btn-warning" href="@Url.Action("DashBoard","MailSettings")">Cancel</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+            $(document).ready(function () {
+                // document.getElementById("Creditq").focus();
+                $('#supplier').focus;
+                $("#supplier").bind('input propertychange', function (e) {
+                    // alert("oyiroyryi");
+                    var txt = $("#supplier").val();
+                    if (txt.length > 1) {
+                        $.ajax({
+                            type: "Get",
+                            url: '@Url.Action("Search", "Customer")',
+                            dataType: 'html',
+                            data: { searchtext: $("#supplier").val() },
+                            success: function (resp) {
+                                $('#Suppliers').html(resp);
+                            },
+                            error: function (data) {
+                            }
+                        });
+                    } else {
+                        $('#Suppliers').html('');
+                    }
+                });
+
+
+                //  changeTextarea();
+                // onFocused();
+            });
+
+            function Cancel(url) {
+                parent.$.fancybox.close();
+                $.ajax({
+                    type: "Get",
+                    url: url,
+                    dataType: 'html',
+                    data: {
+                        Company: Company,
+                    },
+                    success: function (resp) {
+                        $("#panel").html(resp);
+                    },
+                    error: function (data) {
+                        // alert(data);
+                    }
+                });
+            }
+            function placeText(id) {
+                Supplier = id;
+                $('#supplier').val(id);
+                $('#Suppliers').html('');
+                supplierSelected = 'Y';
+            }
+
+            function setCustomer() {
+                customerName = $('#Creditq').val();
+                creditPeriod = $('#Days').val();
+                if (IsCredit == "N") {
+                    if (customerSelected == 'Y') {
+                        GetPartialView('/Pos/Tender', 'total', 'N');
+                    }
+                }
+                else {
+                    if (customerSelected == 'Y') {
+                        Savesale();
+                    }
+                }
+            }
+</script>

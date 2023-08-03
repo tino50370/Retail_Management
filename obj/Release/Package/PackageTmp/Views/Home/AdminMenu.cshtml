@@ -1,0 +1,201 @@
+﻿@model RetailKing.ViewModels.HomeVM 
+@{
+    ViewBag.Title = "SideMenu";
+    int cntt = 0;
+    string company = "";
+}
+<script src="@Url.Content("~/Content/Administration/js/custom.js")"></script>
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+    <div class="menu_section">
+       <h3>Main menu</h3>
+        <ul id="side_menu" class="nav side-menu">
+            <li class="active"><a href="@Url.Action("RetailKing", "Home", new { Company = @ViewData["Location"].ToString() })" data-original-title="Dashboard"><i class="fa fa-dashboard"></i><span class="hidden-minibar"> Dashboard </span></a></li>
+@*
+        <li>
+            <a><i class="fa fa-briefcase"></i> Companies <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                @if (@ViewData["Location"].ToString() == "HEADQUARTERS")
+                {
+                    foreach (var com in Model.companies)
+                    {
+                        cntt = +1;
+                        if (cntt == 1)
+                        {
+                            company = com.company;
+                        }
+                        <li><a href="@Url.Action("RetailKing", "Home", new { Company = @com.company })" data-original-title="Top Navbar"><span class="hidden-minibar">@com.company </span> </a> </li>
+                    }
+                }
+                else
+                {
+                    <li><a href="@Url.Action("RetailKing", "Home", new { Company = @ViewData["Location"]})" data-original-title="Top Navbar"><span class="hidden-minibar">@ViewData["Location"]</span></a> </li>
+                }
+            </ul>
+        </li>
+
+    <li>
+        <a><i class="fa fa-edit"></i> Sales Reports <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu">
+            <li><a onclick="GetSalesProduct()" data-original-title="Top Navbar"><span class="hidden-minibar">Sales by Product</span></a> </li>
+            <li><a onclick="GetSalesCategory()" data-original-title="Top Navbar"><span class="hidden-minibar">Sales by Category</span></a> </li>
+            <li><a onclick="GetSalesSummary()" data-original-title="Top Navbar"><span class="hidden-minibar">Sales Summary</span></a> </li>
+        </ul>
+    </li>
+
+    <li>
+        <a><i class="fa fa-home"></i> Stock Movement <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu">
+            <li><a onclick="GetView('@Url.Action("Payments", "Accounts")')" data-original-title="Top Navbar"><span class="hidden-minibar">Purchases</span></a></li>
+            <li><a onclick="GetView('@Url.Action("Payments", "Accounts")')" data-original-title="Top Navbar"><span class="hidden-minibar">Transfers</span></a> </li>
+        </ul>
+    </li>
+
+    <li>
+            <a><i class="fa fa-money"></i> Cash Movement <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                <li><a onclick="GetView('@Url.Action("Payments", "Accounts")')" data-original-title="Top Navbar"><span class="hidden-minibar">Payments</span></a></li>
+                <li><a onclick="GetView('@Url.Action("Receipts", "Accounts")')" data-original-title="Top Navbar"><span class="hidden-minibar">Receipts</span></a></li>
+                <li><a onclick="GetView('@Url.Action("PaymentLines", "Accounts")')" data-original-title="Top Navbar"><span class="hidden-minibar">Carpex</span></a></li>
+                <li><a onclick="GetView('@Url.Action("CashPosition", "Reports")')" data-original-title="Top Navbar"><span class="hidden-minibar">Cash Position</span></a></li>
+            </ul>
+        </li>
+
+    <li>
+        <a><i class="fa fa-edit"></i> Inventory Management <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu">
+            <li><a onclick="GetView('@Url.Action("Create", "Items")')" data-original-title="Top Navbar"><span class="hidden-minibar">Create New Product</span></a></li>
+            <li><a onclick="GetView('@Url.Action("File", "Upload")')" data-original-title="Top Navbar"><span class="hidden-minibar">Upload Vouchers</span></a></li>
+            <li><a onclick="GetView('@Url.Action("Stocks", "Items")')" data-original-title="Top Navbar"><span class="hidden-minibar">View Products</span></a> </li>
+            <li><a onclick="GetView('@Url.Action("Index", "Items")')" data-original-title="Top Navbar"><span class="hidden-minibar">Goods Received (GRV)</span></a> </li>
+            <li><a onclick="GetView('@Url.Action("CategoryList", "Category")')" data-original-title="Top Navbar"><span class="hidden-minibar">Product Categories</span></a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a><i class="fa fa-truck"></i> Dispatch <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu">
+            <li><a onclick="GetView('@Url.Action("DeliverySammery", "Deliveries")')" data-original-title="Top Navbar"><span class="hidden-minibar">Delivery Stock Picking</span></a></li>
+            <li><a onclick="GetView('@Url.Action("DeliveryPickingList", "Deliveries")')" data-original-title="Top Navbar"><span class="hidden-minibar">Delivery Humper</span></a></li>
+            <li><a onclick="GetView('@Url.Action("Index", "Deliveries")')" data-original-title="Top Navbar"><span class="hidden-minibar">Ready Deliveries</span></a></li>
+            <li><a onclick="GetView('@Url.Action("CollectionsSammary", "Deliveries")')" data-original-title="Top Navbar"><span class="hidden-minibar">Collection Stock Picking</span></a></li>
+            <li><a onclick="GetView('@Url.Action("CollectionPickingList", "Deliveries")')" data-original-title="Top Navbar"><span class="hidden-minibar"> Collection Humper</span></a></li>
+            <li><a onclick="GetView('@Url.Action("Collections", "Deliveries")')" data-original-title="Top Navbar"><span class="hidden-minibar">Ready Collections</span></a></li>
+        </ul>
+    </li>
+
+
+               <li class="ic-gallery dd">
+                    <a><i class="fa fa-building"></i> Asset Management <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: none">
+                        <li><a onclick="GetView('@Url.Action("Index", "Asset")')" data-original-title="Top Navbar"><span class="hidden-minibar">List Assets</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("Tickets", "Project")')" data-original-title="Top Navbar"><span class="hidden-minibar">Tickets </span></a> </li>
+                    </ul>
+                </li>
+                <li class="ic-gallery dd">
+                    <a><i class="fa fa-building"></i> Valuations <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: none">
+                        <li><a onclick="GetView('@Url.Action("Index", "Valuation")')" data-original-title="Top Navbar"><span class="hidden-minibar">Valuation List</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("Tickets", "Project")')" data-original-title="Top Navbar"><span class="hidden-minibar">Tickets </span></a> </li>
+                    </ul>
+                </li>
+*@
+           
+            @if (@ViewData["Access"].ToString() == "ADMINISTRATOR")
+            {
+            <li>
+                <a><i class="fa fa-edit"></i> Account Management <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a onclick="GetView('@Url.Action("Index", "Accounts")')" data-original-title="Top Navbar"><span class="hidden-minibar">View Accounts</span></a> </li>
+                    <li><a onclick="GetView('@Url.Action("Index", "Customers")')" data-original-title="Top Navbar"><span class="hidden-minibar">Customers Accounts</span></a> </li>
+                    <li><a onclick="GetView('@Url.Action("Index", "Suppliers")')" data-original-title="Top Navbar"><span class="hidden-minibar">Suppliers Accounts</span></a> </li>
+                    <li><a onclick="GetView('@Url.Action("Payments", "Accounts")')" data-original-title="Top Navbar"><span class="hidden-minibar">Payments</span></a> </li>
+                    <li><a onclick="GetView('@Url.Action("Receipts", "Accounts")')" data-original-title="Top Navbar"><span class="hidden-minibar">Receipts</span></a> </li>
+                    <li><a onclick="GetView('@Url.Action("Index", "Transactions")')" data-original-title="Top Navbar"><span class="hidden-minibar">Transaction Management</span></a> </li>
+                </ul>
+            </li>
+            <li>
+                <a><i class="fa fa-gears"></i> Service Management  <span class="fa fa-chevron-down"></span></a>
+                 <ul class="nav child_menu">
+                    <li><a onclick="GetView('@Url.Action("Index", "Services")')" data-original-title="Top Navbar"><span class="hidden-minibar">Yomoney Services</span></a> </li>
+                    <li><a onclick="GetView('@Url.Action("CreateActionType", "Services")')" data-original-title="Top Navbar"><span class="hidden-minibar">Action Types</span></a> </li>
+                     <li><a onclick="GetView('@Url.Action("Index", "SupplierServices")')" data-original-title="Top Navbar"><span class="hidden-minibar">Customer Services</span></a> </li>
+                  </ul>
+             </li>
+            <li class="ic-notifications">
+                <a><i class="fa fa-edit"></i> System Manager <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a onclick="GetView('@Url.Action("Index", "MailSettings")')" data-original-title="Top Navbar"><span class="hidden-minibar">Mail Settings</span></a> </li>
+                    <li><a onclick="GetView('@Url.Action("EditDomainUser", "MailSettings")')" data-original-title="Top Navbar"><span class="hidden-minibar">Domain User</span></a></li>
+                    <li><a onclick="GetView('@Url.Action("ProxySettings", "MailSettings")')" data-original-title="Top Navbar"><span class="hidden-minibar">Proxy Settings</span></a></li>
+                    <li><a onclick="GetView('@Url.Action("Index", "Menu")')" data-original-title="Top Navbar"><span class="hidden-minibar">Admin Menu</span></a> </li>
+                    @*
+                        <li><a onclick="GetView('@Url.Action("Index", "SystemKeys")')" data-original-title="Top Navbar"><span class="hidden-minibar">SystemKey Manager</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("Index", "Partners")')" data-original-title="Top Navbar"><span class="hidden-minibar">Partner Manager</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("Index", "Companies")')" data-original-title="Top Navbar"><span class="hidden-minibar">Company Manager</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("ItemMenu", "Items")')" data-original-title="Top Navbar"><span class="hidden-minibar">Pos Manager</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("Create", "Inforgraphics")')" data-original-title="Top Navbar"><span class="hidden-minibar">Create Infographic</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("Create", "Cities")')" data-original-title="Top Navbar"><span class="hidden-minibar">City Manager</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("CreateRegion", "Cities")')" data-original-title="Top Navbar"><span class="hidden-minibar">Region Manager</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("CreateSuburbs", "Cities")')" data-original-title="Top Navbar"><span class="hidden-minibar">Surburb Manager</span></a> </li>
+                    *@
+                </ul>
+            </li>
+            }
+            <li>
+                <a onclick="GetView('@Url.Action("Index", "SubSuppliers")')"><i class="fa fa-bank"></i> Branch Management <span></span></a>
+            </li>
+            <li><a onclick="GetView('@Url.Action("CustomerLoyalty", "Loyalty")')"><i class="fa fa-users"></i><span class="hidden-minibar">Customers Accounts</span></a> </li>
+            <li><a onclick="GetView('@Url.Action("TransactionHistory", "Loyalty")')"><i class="fa fa-reorder"></i><span class="hidden-minibar">Transaction History</span></a> </li>
+         @if (@ViewData["Access"].ToString() == "ADMINISTRATOR")
+         {
+              <li>
+                <a><i class="fa fa-edit"></i> Loyalty Management <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a onclick="GetView('@Url.Action("SupplierLoyalty", "Loyalty")')" data-original-title="Top Navbar"><span class="hidden-minibar">View Campaigns</span></a> </li>
+                    <li><a onclick="GetView('@Url.Action("CustomerUpload", "Loyalty")')" data-original-title="Top Navbar"><span class="hidden-minibar">Customers Import</span></a> </li>
+                    <li><a onclick="GetView('@Url.Action("RewardHistory", "Loyalty")')" data-original-title="Top Navbar"><span class="hidden-minibar">Manage Rewards</span></a> </li>
+                 </ul>
+            </li>
+              <li>
+                    <a><i class="fa fa-envelope"></i> Email Management <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a onclick="GetView('@Url.Action("MailTemplate", "MailSettings")')" data-original-title="Top Navbar"><span class="hidden-minibar">Mail Template</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("MailGroups", "MailSettings")')" data-original-title="Top Navbar"><span class="hidden-minibar">Mailing Groups</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("MailingList", "MailSettings")')" data-original-title="Top Navbar"><span class="hidden-minibar">Mailing List</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("MailingServices", "MailSettings")')" data-original-title="Top Navbar"><span class="hidden-minibar">Mailing Service</span></a></li>
+                    </ul>
+              </li>
+
+              <li class="ic-gallery dd">
+                <a><i class="fa fa-edit"></i> Advert Management <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a onclick="GetView('@Url.Action("Index", "Adverts")')" data-original-title="Top Navbar"><span class="hidden-minibar">List Adverts</span></a> </li>
+                    <li><a onclick="GetView('@Url.Action("Publishers", "Adverts")')" data-original-title="Top Navbar"><span class="hidden-minibar">List Ad-Publishers</span></a> </li>
+                </ul>
+            </li>
+               
+              <li class="ic-gallery dd">
+                    <a><i class="fa fa-edit"></i> User Management <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: none">
+                        <li><a onclick="GetView('@Url.Action("Index", "AgentUser")')" data-original-title="Top Navbar"><span class="hidden-minibar">List Users</span></a> </li>
+                        <li><a onclick="GetView('@Url.Action("Create", "AgentUser")')" data-original-title="Top Navbar"><span class="hidden-minibar">New User</span></a> </li>
+                    </ul>
+                </li>
+                <li class="ic-gallery dd">
+                    <a><i class="fa fa-edit"></i> Spani Management <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: none">
+                        <li><a onclick="GetView('@Url.Action("JobCategories", "Spani")')" data-original-title="Top Navbar"><span class="hidden-minibar">List Categories</span></a> </li>
+                    </ul>
+                </li>
+                <li class="ic-gallery dd">
+                    <a><i class="fa fa-edit"></i> Menu Management <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: none">
+                        <li><a onclick="GetView('@Url.Action("Index", "Menu")')" data-original-title="Top Navbar"><span class="hidden-minibar">List Menus</span></a> </li>
+                    </ul>
+                </li>
+         }
+
+        </ul>
+    </div>
+</div>
+

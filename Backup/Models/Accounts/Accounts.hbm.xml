@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="RetailKing.Models.Accounts, RetailKing" table="Accounts" >
+
+    <id name="Id" column="ID" type="System.Int64" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+
+    <property name="LinkAccount" column="LinkAccount"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="AccountName" column="AccountName"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="AccountCode" column="AccountCode"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Balance" column="Balance"  not-null="false" type="System.Decimal"  length="40" insert="true" update="true"/>
+    <property name="Opening" column="Opening"  not-null="false" type="System.Decimal"  length="40" insert="true" update="true"/>
+   
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+﻿@model RetailKing.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @name = "loginAccount", id = "loginAccount" }))
+{
+<div class="box-wrapper">
+    <h4>LOGIN</h4>
+    <div class="iconic-input">
+        @Html.TextBoxFor(m => m.User, new { placeholder = "Email Address" })
+        <i class="icons icon-user-3"></i>
+    </div>
+    <div class="iconic-input">
+        @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+        <i class="icons icon-lock"></i>
+    </div>
+    <input type="checkbox" id="Rememberme"> <label for="loginremember">Remember me</label>
+    <br />
+    <br />
+    <div class="pull-left">
+        <input type="submit" class="orange" value="Login">  
+    </div>
+    <div class="pull-right">
+        <a href="@Url.Action("Forgot","Account")">Forgot your password?</a> 
+        <br />
+    </div>
+    <div>
+        <span class="error"></span>
+    </div>
+    <br class="clearfix"/>
+</div>
+<div class="footer"></div>
+}

@@ -1,0 +1,68 @@
+@model RetailKing.Models.Equipment 
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+    @Html.HiddenFor(model => model.FacilityId  )
+    @Html.HiddenFor(model => model.EntityId)
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Item Code" )
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.EqCode, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.EqCode , "", new { style ="color:red"})
+</div>
+
+<div class="editor-label">
+    @Html.Label("Manufacturer")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Manufacturer , new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Manufacturer , "", new { style = "color:red" })
+</div>
+
+<div class="editor-label">
+    @Html.Label("Make")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Make, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Make , "", new { style = "color:red" })
+</div>
+
+<div class="editor-label">
+    @Html.Label("Aquisition Date")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.AquisitionDate  , new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.AquisitionDate)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Quantity")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Custodian , new { @class = "form-control", @type = "Number" })
+    @Html.ValidationMessageFor(model => model.Custodian)
+</div>
+
+<p></p>
+<div class="col-md-12" style="margin-top:10px">
+    @if (Model.Thumbnail  != null)
+    {
+        <div class="editor-field">
+            <img src="@Url.Content(@Model.Thumbnail)" alt="@ViewData["Company"]">
+        </div><br />
+    }
+    <div class="editor-field">
+        <div class="btn btn-navy">Select Product Image: <input type="file" name="Images" id="Image" /></div>
+    </div>
+</div>
+
+

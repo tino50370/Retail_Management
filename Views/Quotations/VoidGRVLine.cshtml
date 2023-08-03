@@ -1,0 +1,83 @@
+@model RetailKing.Models.PurchaseLine
+
+@{
+    ViewBag.Title = "Delete";
+}
+<script type="text/javascript">
+        $(function () {
+            var status = $('#ajaxStatuss');
+            var percent = $('.percent');
+            var bar = $('.bar');
+            var options = {
+                beforeSend: function () {
+                    status.fadeIn();
+                    $.fancybox.showLoading();
+                    percent.html('0%');
+                },
+                uploadProgress: function (event, position, total, percentComplete) {
+                    var pVel = percentComplete + '%';
+                    if (percentComplete == 100) {
+                        pVel = "Processing file on server might take a few minuites"
+                    }
+                    percent.html(pVel);
+
+                },
+                success: function (result) {
+                    $.fancybox.hideLoading();
+
+                        $("#panel").html(result);
+                        $.fancybox.close();
+                },
+
+                error: function (xhr, textStatus, errorThrown) {
+                    $('#fileresp').html(errorThrown);
+                    $('#fileresp').show();
+                    status.fadeOut(800);
+                }
+
+            };
+            $("#Profilep").ajaxForm(options);
+
+        });
+</script>
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Void Line</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <h3>Are you sure you want to delete this?</h3>
+                    <fieldset>
+                        <legend>Item</legend>
+
+                        <div class="display-label">Item</div>
+                        <div class="display-field">@Model.item</div>
+
+                        <div class="display-label">Quantity</div>
+                        <div class="display-field">@Model.quantity</div>
+
+                        <div class="display-label">BuyingPrice</div>
+                        <div class="display-field">@String.Format("{0:F}", Model.priceinc)</div>
+
+
+                    </fieldset>
+                    @using (Html.BeginForm("VoidGRVLineConfirmed", "Items", FormMethod.Post, new { enctype = "multipart/form-data", @name = "ProfileP", id = "Profilep" }))
+                    {
+                        @Html.HiddenFor(model => model.ID)
+                        <p>
+                            <button class="btn btn-success" type="submit">Void Line</button>
+                            <button class="btn btn-warning" type="button" onclick="CloseCancel()">Cancel</button>
+                        </p>
+                    }
+                    <div>
+                        <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+                        <div id="Images"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

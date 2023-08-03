@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="RetailKing.Models.Companies, RetailKing" table="Companies" >
+
+    <id name="Id" column="ID" type="System.Int64" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+
+    <property name="name" column="name"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="location" column="location"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="dated" column="dated"  not-null="false" type="System.String"  insert="true" update="true"/>
+    <property name="Address1" column="Address1"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Address2" column="Address2"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Contact1" column="Contact1"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Contact2" column="Contact2"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Footer1" column="Footer1"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Footer2" column="Footer2"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Footer3" column="Footer3"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="footer4" column="footer4"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Logo" column="Logo"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="status" column="status"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="VatNo" column="VatNo"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+
+
+  </class>
+</hibernate-mapping>

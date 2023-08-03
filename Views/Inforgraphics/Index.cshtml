@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RetailKing.Models.Infographic>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Infographic List</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                       
+                        <table style="width:100%" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Title)
+                                    </th>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Position)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Type)
+                                    </th>
+                                    <th>
+                                        <button class="btn btn-success" onclick="GetView('@Url.Action("Create", "Inforgraphics")')">Create New</button>
+                                    </th>
+                                </tr>
+                            <thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Title)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Position)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Type)
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm" onclick="GetView('@Url.Action("Edit", "Inforgraphics")','@item.Id')">Edit</button>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   

@@ -1,0 +1,367 @@
+﻿@model RetailKing.Models.Posdata  
+@{
+    ViewBag.Title = "Accusale Pos";
+}
+
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $("#grumbleq").focus();
+          $("#grumbleq").val('');
+          product = 'grumble';
+          transactionList = '';
+          var Balance = 0;
+          var Grandtotal = 0; //used for cash collection and end of shift 
+          var Partpayment = 0;
+          var partpaymentTotal = 0;
+          Company = '@Model.uzar.Location';
+          if('@Model.uzar.PosUser'== false)
+          {
+              getLogin();
+          }
+          $('#product_lines tbody').on('click', 'tr', function () {
+              
+              if (action == "voidline") {
+                  var id = this.id;
+                  var amt = $("#" + id + "a").text();
+                  var total = parseFloat($("#total").text()) - amt;
+                  $("#total").text(parseFloat(total).toFixed(2));
+                  this.remove();
+                  action = "";
+                  $("#grumbleq").focus();
+              }
+          });
+
+          $("#product_lines tbody").on('keypress', function (e) {
+              //alert(e.keyCode);
+              if (e.keyCode == 13) {
+                  if ($("#" + product + "q").is(':visible') && product != "grumble") {
+                      CommitProduct();
+                  }
+              }
+          });
+          $("#product_lines tbody").focusout(function(){
+                  if ($("#" + product + "q").is(':visible') && product != "grumble") {
+                      CommitProduct();
+                  }
+          });
+
+          var typingTimer;
+          $("#grumbleq").on('change keyup paste mouseup', function (e) {
+
+              var id = $("#grumbleq").val().toUpperCase();
+              if (e.which == 13) {
+                 
+                  if ($("#" + id).length) {
+                      if (action == "voidline") {
+                          //var id = $("#grumbleq").val();
+                          var amt = $("#" + id + "a").text();
+                          var total = parseFloat($("#total").text()) - amt;
+                          $("#total").text(parseFloat(total).toFixed(2));
+                          if ($("#total").text() == 'NaN') {
+                              $("#total").text('0.00')
+                          }
+                          $("#" + id).remove();
+                          action = "";
+                          $("#grumbleq").val('');
+                          $("#grumbleq").focus();
+                      }
+                      else {
+                          search();
+                      }
+                  }
+              }
+              else if (e.which == 123) {
+                  //F12
+              
+              }
+              else if (e.which == 121) {
+                  //F10
+                  GetPartialView('/Pos/Tender', 'Credit', 'N', 'Cash Sale')
+              }
+              else if (e.which == 120) {
+                  //f9
+              }
+              else if (e.which == 119) {
+                  //F8
+              }
+              else if (e.which == 118) {
+                  //F7
+              }
+              else if (e.which == 117) {
+                  //F6
+              }
+              else if (e.which == 115) {
+                  //f4
+                  GetPartialView('/Pos/voidSale', 'Pass', 'N', 'Void');
+              }
+              else if (e.which == 114) {
+                  //f3
+                  GetActions('/Pos/ActionMenu', 'Actions')
+              }
+              else if (e.which == 113) {
+                  //f2
+              }
+              else if (e.which == 111) {
+                  //f1
+              }
+              else if (e.which == 18) {
+                  //alt
+              }
+              else
+              {
+                  s = $('#grumbleq').val();
+                 // clearTimeout(typingTimer);
+                  typingTimer = setTimeout(function () {
+                      if ($('#grumbleq').val() == s && $('#grumbleq').val() != "") {
+                          $.ajax({
+                              type: "GET",
+                              url: '@Url.Action("getPosItems","pos")',
+                              dataType: "html",
+                              data: { json_str: $("#grumbleq").val() },
+                              success: function (data) {
+                                  try {
+                                      var G1 = $.parseJSON(data).split(",");
+                                  } catch (e) {
+                                      G1 = "";
+                                     // alert(e);
+                                  }
+                                  if (G1.length == 9){
+
+                                      var id;
+                                      var description;
+                                      var price;
+                                      var tax;
+                                      var Qty;
+                                      var dcount;
+                                      var type;
+                                      var tax;
+                                      var givesDiscounts;
+                                      
+
+                                      $.each(G1, function (i, item) {
+                                          if (i == 0) {
+                                              description = item;
+                                          }
+                                          if (i == 1) {
+                                              id = item;
+                                          }
+                                          if (i == 2) {
+                                              prize = item;
+                                          }
+                                          if (i == 3) {
+                                              tax = item;
+                                          }
+                                          if (i == 4) {
+                                              instock = item;
+                                              Qty = item;
+                                          }
+                                          if (i == 5) {
+                                              dcount = item;
+                                          }
+                                          if (i == 6) {
+                                              type = item;
+                                          }
+                                          if (i == 7) {
+                                              tax = item;
+                                          }
+                                          if (i == 8) {
+                                              givesDiscounts = item;
+                                          }
+                                          
+                                      });
+                                      if ($("#" + id).length) {
+                                          if (action == "voidline") {
+                                              //  var id = $("#grumbleq").val();
+                                              var amt = $("#" + id + "a").text();
+                                              var total = parseFloat($("#total").text()) - amt;
+                                              $("#total").text(parseFloat(total).toFixed(2));
+                                              $("#" + id).remove();
+                                              if ($("#total").text() == 'NaN') {
+                                                  $("#total").text('0.00')
+                                              }
+                                              action = "";
+                                              $("#grumbleq").val('');
+                                              $("#grumbleq").focus();
+                                              
+                                          }
+                                          else {
+                                              var dd = parseFloat($("#" + id + "t").text())
+                                              prize = parseFloat($("#" + id + "a").text()) / dd
+                                              $("#" + id + "t").text(dd + 1);
+                                              var total = parseFloat($("#total").text()) + prize;
+                                              $("#" + id + "a").text((parseFloat($("#" + id + "a").text()) + prize).toFixed(2))
+                                              $("#total").text(total.toFixed(2));
+                                              product = 'grumble';
+                                              $("#grumbleq").val('');
+                                              $("#grumbleq").focus();
+                                          }
+                                      }
+                                  else {
+                                          
+                                          if (instock > 0 || action == "CREDIT NOTE") {
+                                              
+                                              
+                                              if (dcount != null && dcount != undefined && dcount != "" && dcount != 0 && givesDiscounts == "True") {
+
+                                                  verifyDiscount(id, description, prize, Qty, dcount, type, tax);
+
+                                              } else {
+                                                  
+                                                  $('#product_lines > tbody:first').append('<tr id="' + id + '"  style=" cursor: pointer;border-bottom-color: White; border-left-style:none; border-right-style: none"><td id="' + id + 'desc" class="desc" style="width: 50%;font-size: 15px; border-bottom-color: White; border-left-style:none; border-right-style: none">' +
+                                                 description + '</td><td id="' + id + 't" class="qty" style="width: 20%;font-size: 15px;border-bottom-color: White; border-left-style:none; border-right-style: none"><input id="' +
+                                                  id + 'q" type="number" class="dt" style="width : 48%;" /></td><td id="' + id + 'disc" class= "space" style="width: 50%;font-size: 15px; border-bottom-color: White; border-left-style:none; border-right-style: none">' +
+                                                     "       " + '</td><td id="' + id + 'a" class="amnt" style="width: 30%;text-align: right;font-size: 15px; border-bottom-color: White; border-left-style:none; border-right-style: none">' +
+                                                 parseFloat(prize).toFixed(2) + '</td><td style="display:none">' + tax + '</td><td id="' + id + 'stk" style="display:none">' + Qty + '</td></tr>');
+                                                  product = id;
+                                                  $("#grumbleq").val('');
+                                                  $("#" + id + "q").focus();
+                                                  var height = $('#details')[0].scrollHeight;
+                                                  $('#details').scrollTop(height);
+                                              }
+                                          }else 
+                                          {
+                                              OutOfStock(description);
+                                              $("#grumbleq").val('');
+                                          }
+                                      }
+                                  }
+                                  else {
+                                      $('#results').html(data);
+                                  }
+                              }
+                          });
+                      }
+                  }, 2000);
+              }
+          });
+
+
+          $(".openDialog").fancybox({
+              type: 'ajax',
+              openEffect: 'none',
+              closeEffect: 'none'
+          });
+          
+        qz.printers.getDefault().then(function (data) {
+          setPrinter(data); 
+        }).catch();
+          
+      });
+    </script>
+
+  <div class="row">     
+      <div class="col-md-6 col-sm-12 col-xs-12">
+          @Html.Hidden("OrderReceipt")
+          <div id="tender">
+              <div class="col-md-3 col-sm-12 col-xs-12" onclick="Saveorder('','No', 'Order')" style="cursor: pointer;margin-top:10px; margin-right: 2%; width:23%; height:50px; background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center">
+                  <i class="fa fa-save" style="margin-top:15px"></i>
+              </div>
+              <div class="col-md-3 col-sm-12 col-xs-12" onclick="GetPartialView('/Pos/Tender','Tender','N','Cash Sale')" style="cursor: pointer;margin-top:10px; margin-right: 2%; width:23%;   height:50px; background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center">
+                  <i class="fa fa-money" style="margin-top:15px"></i>
+              </div>
+              <div class="col-md-3 col-sm-12 col-xs-12" onclick="GetPartialView('/Pos/voidSale','Pass','N','Void')" style="cursor: pointer; margin-top:10px; margin-right: 2%; width:23%; height:50px; background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center">
+                  <i class="fa fa-trash" style="margin-top:15px"></i>
+              </div>
+              <div class="col-md-3 col-sm-12 col-xs-12" onclick="GetActions('/Pos/ActionMenu', 'Actions')" style="cursor: pointer;margin-top:10px;  height:50px; width:25%;background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center">
+                  <i class="fa fa-angle-double-down" style="margin-top:15px"></i>
+              </div>
+          </div>
+
+          <div id="ActionMenu" style="display:none">
+              <div class="col-md-6 col-sm-12 col-xs-12" onclick="SaveCreditnote()" style="cursor: pointer;margin-top:10px; margin-right: 2%; width:48%; height:50px; background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center">
+                  <i class="fa fa-save" style="margin-top:15px"></i><span id="actionName" style="margin-left:3px"></span>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12" onclick="CancelActions()" style="cursor: pointer;margin-top:10px; margin-right: 2%; width:48%;   height:50px; background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center">
+                  <i class="fa fa-ban" style="margin-top:15px"></i>
+              </div>       
+          </div>
+
+          <div class="col-md-12" style="margin-top:10px; background-color:#17806E;height:41px;">
+              <div class="col-md-10" style="margin-top:4px;">
+                  <div class="input-group">
+                      <input id="grumbleq" class="form-control" type="text">
+                      <span class="input-group-btn">
+                          <button type="button" onclick="search()" class="btn btn-success"><i class="fa fa-search"></i></button>
+                      </span>
+                  </div>
+              </div>
+              <div class="col-md-2" style="margin-top:4px;">
+                  <button type="button" onclick="Back()" class="btn btn-success"><i class="fa fa-arrow-left"></i> Back</button>
+              </div>
+          </div>
+          <div id="menu" style="width:100% ;margin-top:10px; overflow:auto">
+              <div class="x_panel" style="height:520px;max-height:520px;">
+                  <div class="row">
+                      <div class="x_content">
+                          <div id="results">
+                              <table class="table" style="border:1px solid #00B294; width:100% ">
+                                  <tbody>
+                                      @foreach (var menu in Model.menu)
+                                      {
+                                          <tr onclick="getItem('@menu.code.Trim()','@menu.caption.Trim()','@menu.button.Trim()','@menu.tax.Trim()')" style="background-color: #00B294; cursor: pointer">
+                                              <td style="width: 20%; border:1px solid #00B294; border-right-style: none; background-color: White; vertical-align: middle"><img alt="" src="@Url.Content("~/Content/Images/bag.png")" style="width: 100%; max-width: 40px" /> </td>
+                                              <td style="width: 50%;border-bottom-color: White; border-left-style:none; border-right-style: none;text-align:center"><span style="font-size: 15px; color: White; ">@menu.caption </span><br /><span style="color:#FFFF00; font-weight: bold ">@menu.code</span></td>
+                                              <td style="width: 30%;border-bottom-color: White; border-left-style:none; border-right-style: none; font-size: 13px; vertical-align: middle; text-align:center; color: White; font-weight: bold">@String.Format("{0:F}", @menu.button)</td>
+                                          </tr>
+                                      }
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div id="toprint" style="display: none">
+          </div>
+          <iframe id="ifrOutput" style="display:none;"></iframe>
+      </div>
+      <div class="col-md-6 col-sm-12 col-xs-12"style="margin-top:10px;">
+          <div class="x_panel">
+              <div class="row">
+                  <div class="x_content">
+                      <div id="center" >
+                          
+                              <div id="time" class="col-md-4 col-sm-12 col-xs-12" style="height:30px; font-size:18px; vertical-align: middle; text-align: center">
+                                <img alt="" src="@Url.Content("~/Content/Images/Logo.jpg")" style="max-width:180px" />
+                              </div>    
+                              <div class="col-md-8 col-sm-12 col-xs-12" style="height:30px; background-color:#299BFF; color: White; font-size:22px; vertical-align: middle">
+                                  <span id="name" style="float: left">@Model.uzar.Firstname</span>
+                                  <span id="total" style="float: right">0.00</span>
+                                  <span id="caption" style="float: right; margin-right:20px ">TOTAL</span>
+                              </div>
+                        
+                          <div class="clear">
+                          </div>
+                          <div id="details" style="margin-top:10px; background-color: #EAEAEA; width: 100%; height:290px; max-height:290px; overflow:auto; ">
+                              <table id="product_lines" style="border-style: none; background-color: #EAEAEA; width:100%">
+                                  <tbody></tbody>
+                              </table>
+                          </div>
+                          <div class="clear">
+                          </div>
+                              <div class="col-md-4" style="margin-top:10px; margin-right: 2%; width:32%;  height:55px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="1" onclick="onNumber('1')">1</div>
+                              <div class="col-md-4" style="margin-top:10px; margin-right: 2%; width:32%; height:55px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="2" onclick="onNumber('2')">2</div>
+                              <div class="col-md-4" style="margin-top:10px; width:32%; height:55px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="3" onclick="onNumber('3')">3</div>
+                              <div class="col-md-4" style="margin-top:10px; margin-right: 2%; width:32%;  height:55px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="4" onclick="onNumber('4')">4</div>
+                              <div class="col-md-4" style="margin-top:10px; margin-right: 2%; width:32%; height:55px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="5" onclick="onNumber('5')">5</div>
+                              <div class="col-md-4" style="margin-top:10px; width:32%;  height:55px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="6" onclick="onNumber('6')">6</div>
+                              <div class="col-md-4" style="margin-top:10px; margin-right: 2%; width:32%; height:55px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="7" onclick="onNumber('7')">7</div>
+                              <div class="col-md-4" style="margin-top:10px; margin-right: 2%; width:32%;  height:55px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="8" onclick="onNumber('8')">8</div>
+                              <div class="col-md-4" style="margin-top:10px; width:32%;  height:55px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="9" onclick="onNumber('9')">9</div>
+                              <div class="col-md-4" style="margin-top:10px; margin-right: 2%; width:32%;  height:55px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="." onclick="onNumber('.')">.</div>
+                              <div class="col-md-4" style="margin-top:10px; margin-right: 2%; width:32%; height:55px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="0" onclick="onNumber('0')">0</div>
+                              <div class="col-md-4" style="margin-top:10px; width:32%;  height:55px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; font-weight: bold; cursor: pointer" id="Enter" onclick="CommitProduct()">Enter</div>
+                          
+                      </div>
+
+                  </div>
+          </div>
+      </div>  
+     </div>  
+   
+</div> 
+
+
+
+

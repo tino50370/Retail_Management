@@ -1,0 +1,82 @@
+﻿@model RetailKing.Models.AgentUser
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Edit User </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                    @using (Html.BeginForm("Edit", "AgentUser", FormMethod.Post, new { enctype = "multipart/form-data", @name = "NewUser", id = "createUser" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+
+                            <div class="col-md-6">
+                                @Html.HiddenFor(model => model.DeviceId)
+                                @Html.HiddenFor(model => model.UserName)
+                                <div class="editor-label">
+                                    @Html.Label("Select Branch")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.AccountNumber, new SelectList((IEnumerable<SelectListItem>)ViewBag.Supplier, "Value", " Text", Model.AccountNumber.Trim()), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AccountNumber)
+                                </div>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.FullName)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FullName)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Username")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", disabled=true})
+                                    @Html.ValidationMessageFor(model => model.UserName)
+                                </div>
+                                <div class="editor-label">
+                                    @Html.Label("Password")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.PasswordFor(model => model.SessionCode, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.SessionCode)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Access Level")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.Role, new SelectList((IEnumerable<SelectListItem>)ViewBag.Role, "Value", "Text", Model.Role.Trim()), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Role)
+                                </div>
+
+                            </div>
+
+                            <p>
+
+                            </p>
+                        </fieldset>
+                    }
+                    <br/>
+                    <div>
+                        <button class="btn btn-success" onclick="SaveView('createUser')">Save</button>
+                        <button class="btn btn-warning" onclick="GetView('@Url.Action("Index", "AgentUser")')">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

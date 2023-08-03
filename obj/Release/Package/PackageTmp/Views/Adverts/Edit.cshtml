@@ -1,0 +1,134 @@
+﻿@model RetailKing.Models.Advert
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites"
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+
+                $("#panel").html(result);
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#createAd").ajaxForm(options);
+
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Create User </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                    @using (Html.BeginForm("Create", "Advert", FormMethod.Post, new { enctype = "multipart/form-data", @name = "CreateAd", id = "createAd" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+
+                            <div class="col-md-6">
+                                <div class="editor-label">
+                                    @Html.Label("Advert Position")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.AdPosition, new SelectList(new[] { "Home", "InApp", "Section", "100" }), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AdPosition)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Title)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Title)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Description")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Description)
+                                </div>
+                                <div class="editor-label">
+                                    @Html.Label("Sex")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.Sex, new SelectList(new[] { "Both", "Male", "Female" }), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Sex)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Target Age")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.MinAge, new SelectList(new[] { "Any", "18", "19", "20" }), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MinAge)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Max Age")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.MaxAge, new SelectList(new[] { "19", "20", "21", "100" }), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MaxAge)
+                                </div>
+                                <br />
+                                <img src="@Url.Content(Model.Image)" />
+                                <br />
+                                <div class="editor-field">
+                                    <div class="btn btn-navy">Change Image File: <input type="file" name="Image" id="Image" /></div>
+                                </div>
+                                <p></p>
+                                <div class="grid_10" style="margin-top:20px">
+                                    <button class="btn btn-success" type="submit">Save</button>
+                                    <button class="btn btn-warning" type="button" onclick="GetView('@Url.Action("Index", "Accounts")')">Cancel</button>
+                                </div>
+                            </div>
+
+                            <p>
+
+                            </p>
+                        </fieldset>
+                    }
+                    <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+                    <div id="Images"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

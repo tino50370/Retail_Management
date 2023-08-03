@@ -1,0 +1,76 @@
+@model IEnumerable<RetailKing.Models.MailingService>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Mail Settings</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+
+            <table style="width:100%" class="table table-stripe">
+                <tr>
+                    <th>
+                        Name 
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                   
+                </tr>
+
+                @{
+
+                    int cnt = 0;
+                    foreach (var item in Model)
+                    {
+                        cnt += 1;
+                        if (cnt % 2 == 0)
+                        {
+                            <tr onclick="SelectService('@item.Id','@item.Name')" style=" background-color: #EEEEEE">
+
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    @item.Description
+                                </td>
+
+
+
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr onclick="SelectService('@item.Id','@item.Name')" style=" background-color :#FCFDFF">
+
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    @item.Description
+                                </td>
+
+                            </tr>
+                        }
+                    }
+}
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function SelectService(id, name)
+    {
+        $('#ServiceId').val(id);
+        $('#Service').val(name);
+        $.fancybox.close();
+    }
+</script>

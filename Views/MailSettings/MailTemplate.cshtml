@@ -1,0 +1,71 @@
+﻿@model IEnumerable<RetailKing.Models.MailTemplate >
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Mail Templates</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+            <table style="width:100%" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Subject </th>
+                        <th>Sevice</th>
+                        <th>Mailing List</th>
+                        <th>Use My Email</th>
+                        <th><button class="btn btn-success btn-sm" style="float: right;" onclick="GetView('@Url.Action("CreateMailTemplate", "MailSettings")')">Create Template</button></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Subject  </td>
+                            <td>
+                                @if (item.Service != null)
+                                {
+                                    @item.Service 
+                                }
+                                else
+                                {
+                                 <p>n/a</p>
+                                } 
+                            </td>
+                            <td>
+                                @if (item.ListName != null)
+                                {
+                                    @item.ListName
+                                }
+                                else
+                                {
+                                    <p>n/a</p>
+                                }
+                            </td>
+                            <td>
+                                @item.FixedEmail
+                                </td>
+                            <td>
+                                <button class="btn btn-danger btn-xs" style="float: right;" onclick="GetView('@Url.Action("DeleteMailTemplate", "MailSettings")','@item.Id')">Delete</button>
+                                <button class="btn btn-primary btn-xs" style="float: right; margin-right:5px" onclick="GetView('@Url.Action("EditMailTemplate", "MailSettings")','@item.Id')">Edit </button>
+                                <button class="btn btn-warning btn-xs" style="float: right; margin-right:5px" onclick="GetFancy('@Url.Action("TemplateDetail", "MailSettings")','@item.Id')">Preview </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+    //    GetSideView('@Url.Action("CreateMailTemplate", "MailSettings")');
+    })
+</script>

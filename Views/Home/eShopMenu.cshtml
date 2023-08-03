@@ -1,0 +1,124 @@
+﻿@model IEnumerable<RetailKing.Models.Account>
+
+@{
+    ViewBag.Title = "eShopMenu";
+}
+
+@{
+    var cats = (from e in Model.Where(u => u.AccountCode.Length == 4) select e).ToList();
+    var cyc = 0;
+}
+
+<ul>
+    <li class="home-green current-item">
+        <a href="@Url.Action("Index", "Home")">
+            <span class="nav-caption">Home</span>
+            <span class="nav-description"></span>
+        </a>
+    </li>
+    @foreach (var cat in cats)
+    {
+        var subcats = (from e in Model.Where(u => u.AccountCode.StartsWith(cat.AccountCode + "-")) select e).ToList();
+        cyc+=1;
+        var w = "green";
+        if(cyc == 2)
+        { w = "green"; }
+        if (cyc == 3)
+        { w = "green"; }
+        if (cyc == 4)
+        { w = "green"; }
+        if (cyc == 5)
+        { w = "green"; }
+        if (cyc == 6)
+        { w = "green"; }
+        <li class="@w">
+            <a href="@Url.Action("Index", "Category", new { id=cat.AccountName  })">
+                <span class="nav-caption">@cat.AccountName</span> 
+                <span class="nav-description">@cat.Description</span>
+            </a>
+            @if (subcats.Count > 0)
+            {
+                int runs = subcats.Count / 8;
+                if (subcats.Count % 8 != 0)
+                { runs = runs + 1; }
+                <ul class="wide-dropdown normalAniamtion">
+                    @for (int i = 0; i < runs; i++)
+                    {
+                        var top8 = (from e in subcats.Skip(i * 8) select e).Take(8);
+                        <li >
+                            <ul>
+                                @foreach (var scat in top8)
+                                {
+                                    <li class="capitalize">
+                                        <a href="@Url.Action("Index", "Category", new { id = scat.AccountName, catId = cat.ID })"><i class="icons icon-right-dir"></i>@scat.AccountName</a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+
+                </ul>
+            }
+        </li>
+    }
+       <li class="nav-search">
+          <i class="icons icon-search-1"></i>
+       </li>
+   </ul>
+
+
+<div id="search-bar">
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <table id="search-bar-table">
+            <tr>
+                <td class="search-column-1">
+                    <p><span class="white">Popular Searches:</span> <a href="#" style="color:white">groceries</a>, <a href="#">audio</a>, <a href="#">camera</a>, <a href="#">phone</a>, <a href="#">storage</a>, <a href="#">more</a></p>
+                    <input id="searchTextMain"type="text" placeholder="Enter your keyword">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="search-button">
+        <input type="submit" value="">
+        <i class="icons icon-search-1"></i>
+    </div>
+   
+    <table id="product_search" style="border-style: none; background-color:#EAEAEA; width:97%; margin:15px">
+        <tbody id="itm"></tbody>
+    </table> 
+</div>
+<script type="text/javascript">
+    $("#searchTextMain").keyup(function () {
+         event.preventDefault();
+         var s = $('#searchTextMain').val();
+      // alert(s);
+        //clearTimeout(typinTimer);
+        //typinTimer = setTimeout(function () {
+           // alert("here");
+         if ($('#searchTextMain').val() == s && $('#searchTextMain').val() != "") {
+                $.ajax({
+                    type: "Post",
+                    url: '@Url.Action("Indexsearch", "Home")',
+                    dataType: 'html',
+                    data: {
+                        company: $("#activeco").text(),
+                        category: $("#category").val(),
+                        ItemCode: $("#searchTextMain").val(),
+                        iDisplayLength: $("#SizeR").val(),
+                        sEcho: 1
+                    },
+                    success: function (resp) {
+                         $('#product_search').html(resp);
+                        //$('#product_search').html(data);
+                    },
+                    error: function (data) {
+                        //alert("Please specify Category");
+                    }
+                });
+            }
+       // }, 2000);
+
+    });
+   
+    </script>

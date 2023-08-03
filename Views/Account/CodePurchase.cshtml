@@ -1,0 +1,83 @@
+﻿@model IEnumerable<RetailKing.Models.RegCode>
+@{
+    ViewBag.Title = "Puchase Reg code";
+}
+
+
+    <div id="AccountBody">
+        <div class=" products-row row">
+
+            <!-- Heading -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="carousel-heading no-margin">
+                    <h4>Registration Codes</h4>
+
+                </div>
+
+            </div>
+            <!-- /Heading -->
+
+        </div>
+
+
+        <div class=" products-row row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                @{
+                    var mnt = DateTime.Now.Month;
+                    decimal Commtotal = 0;
+                }
+
+                <table class="order-table">
+                    <tr style="background-color:#fff">
+                        <td>
+                            <h4> What is a registartion code?</h4>
+                            
+                            <p>This code is designed to give the Mobistore user marketing leverage by allocating a code that any new user can use to join the network. This code is unique and only allocates new users to the owner. Main functions of this code would be for use on social networks like Whatsapp, Facebook, Google+ and also for use on flyers and business cards, all this so that a user can grow his/her Mobistore market share. 
+                            To register with the code, a potential user just needs to go to footer on the Mobistore Home Page to enter the registration code, if the code is valid a registration form will appear. Once you receive a code it will be your default code for life. Validity of the code is renewable every month.</p>
+                        </td>
+                    </tr>
+
+                </table>
+
+
+                <table class="order-table">
+                    <tr>
+                        <th>Level</th>
+                        <th>Quantity</th>
+                        <th>Price / month</th>
+                        <th colspan="2">Access</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr style="background-color:#fff;">
+                            <td style="vertical-align:middle">@item.Name</td>
+                            <td style="vertical-align:middle">@item.Size</td>
+                            <td style="vertical-align:middle">$@item.Price.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </td>
+                            <td>
+                               <a style="cursor:pointer" href="@Url.Action("CodePay", "Account", new { id = item.Id })">
+                                <span class="add-to-cart">
+                                    <span class="action-wrapper">
+                                        <i class="icons icon-basket-2"></i>
+                                        <span class="action-name">Buy Now</span>
+                                    </span>
+                                </span>
+                               </a>
+                            </td>
+                        </tr>
+                       
+                    }
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<!-- /Main Content -->
+
+

@@ -1,0 +1,29 @@
+@model RetailKing.Models.DomainUser
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Password)
+    </div>
+    <div class="editor-field">
+        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+  
+    <div class="editor-label">
+    @Html.LabelFor(model => model.Domain)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Domain, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Domain)
+</div>
+
+

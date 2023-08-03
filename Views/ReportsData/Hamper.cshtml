@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RetailKing.Models.Sales_Lines>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<table style="width :94%; float: right">
+    <tr>
+        <th  style="background-color:#ff7514; border-color: #fff;color: #fff">
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th style="background-color:#ff7514; border-color: #fff; color: #fff">
+            @Html.DisplayNameFor(model => model.item)
+        </th>
+        <th style="background-color:#ff7514; border-color: #fff; color: #fff">
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th style="background-color:#ff7514; border-color: #fff; color: #fff">
+            @Html.DisplayNameFor(model => model.tax)
+        </th>
+        <th style="background-color:#ff7514; border-color: #fff; color: #fff">
+            @Html.DisplayNameFor(model => model.priceinc)
+        </th>
+        <th style="background-color:#ff7514; border-color: #fff; color: #fff">
+            @Html.DisplayName("Description")
+        </th>
+        <th style="width: 3%;background-color:#ff7514; border-color: #fff; color: #fff"></th>
+    </tr>
+<tbody>
+@foreach (var item in Model) 
+{
+    var size = Model.Count();
+        
+    if (item.Picked == null) { item.Picked = false; }
+    <tr>
+        <td style="background-color:#EEEEEE; border-color: #fff">
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td style="background-color:#EEEEEE; border-color: #fff">
+            @Html.DisplayFor(modelItem => item.item)
+        </td>
+        <td style="background-color:#EEEEEE; border-color: #fff">
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td style="background-color:#EEEEEE; border-color: #fff">
+            @Html.DisplayFor(modelItem => item.tax)
+        </td>
+        <td style="background-color:#EEEEEE; border-color: #fff">
+            @Html.DisplayFor(modelItem => item.priceinc)
+        </td>
+         <td style="background-color:#EEEEEE; border-color: #fff">
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td id="@item.ID" onclick="PickHamper('@item.ID','@size')"style="background-color:#EEEEEE; border-color: #fff">
+          @Html.CheckBoxFor(modelItem => item.Picked.Value, new { id = "Picked_" + @item.ID})
+        </td>
+    </tr>
+}
+</tbody>
+</table>

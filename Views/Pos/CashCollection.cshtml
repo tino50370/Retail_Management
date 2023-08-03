@@ -1,0 +1,191 @@
+﻿@model RetailKing.Models.login   
+@{
+    ViewBag.Title = "Tender";
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>
+
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatus');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                $(".alert-danger").html("");
+                $(".alert-danger").hide();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                // bar.width(pVel);
+                // alert("progress");
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                try {
+                    var resp = result.split('-');
+                    
+                    if (resp[0] == "success") {
+                        SaveCashcollection(resp[1]);
+                    }
+                    else  {
+                        $(".alert-danger").html("Enter Correct Supervisor password");
+                        $(".alert-danger").show();
+                    }
+                    
+                }
+                catch (error) {
+                    $(".alert-danger").html(error);
+                    $(".alert-danger").show();
+                   // $('#panel').html(result);
+                    status.fadeOut(800);
+                }
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                // $('#panel').html(errorThrown);
+                status.fadeOut(800);
+            }
+
+        };
+        $("#createMailTemplate").ajaxForm(options);
+
+    });
+</script>
+
+<div class="col-md-12 " style="width:500px; background-color:#fff">     
+        <div class="col-md-12">
+            <div style="color: #67217A; font-size:32px;"> Cash Collection</div>
+            <div style="width: 100%;">
+              <table id="Collection_lines" style="border-style: none; background-color:#fff; width:100%">
+                  <thead>
+                      <tr>
+                          <th>Currency</th> 
+                          <th>Denomination</th>
+                          <th>Quantity</th>
+                          <th>Total</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                         <td colspan="3">
+                             <strong>Total</strong>
+                         </td>
+                         <td id="GrandTotal">
+                            0.00
+                         </td>
+                     </tr>
+                  </tbody>
+              </table>
+                
+                    <br />
+                </div>
+            <div class="editor-field" >
+                <div class="col-md-4">
+                    <div class="editor-field">
+                        
+                        @Html.DropDownList("currencyq", new SelectList(
+                                    (IEnumerable<SelectListItem>)ViewBag.currency,
+                                          "Value",
+                                          "Text"), new { style = " height: 30px", @class = "chosen-select form-control" })
+
+
+                        <span id="currency_error" style="color:red"></span>
+                        </div>
+                    </div>
+                <div class="col-md-4">
+                    <div class="editor-field">
+                        <input type="number" class="form-control" id="denominationq" placeholder="Denomination" step="0.01" />
+                        <span id="denomination_error" style="color:red"></span>
+                    </div>
+                    </div>
+                <div class="col-md-3">
+                    <div class="editor-field">
+                        <input type="number" class="form-control" id="quantityq" placeholder="Quantity" step="1" />
+                        <span id="quantity_error" style="color:red"></span>
+                    </div>
+                    </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="newCollectionLine()"><i class="fa fa-plus"></i></button>
+                </div>
+                <br />
+            </div>
+            <br />
+            <br />
+            <div class="alert alert-danger alert-dismissible fade in" style="display:none" role="alert">
+            </div>
+            <div class="alert alert-success alert-dismissible fade in" style="display:none" role="alert">
+            </div>
+            @using (Html.BeginForm("Authenticate", "Pos", FormMethod.Post, new { enctype = "multipart/form-data", @name = "createMailTemplateP", id = "createMailTemplate" , autocomplete = "off" }))
+            {
+                <div class="editor-field">
+                    @Html.PasswordFor(model =>model.password,new { @class = "form-control", autocomplete = "off",Placeholder="Collector's Password" })
+                    @Html.HiddenFor(model=> model.Account)
+                    
+                </div>
+                <br />
+                <div class="editor-field">
+                    <button type="submit" class="btn btn-success" > Authorise Collection</button>
+                </div>
+            }
+            </div> 
+  </div> 
+    
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // document.getElementById("Creditq").focus();
+        
+        $("#currencyq").on('keypress', function (e) {
+            product = 'currency';
+            $('#currency_error').html('');
+        });
+        $("#denominationq").on('keypress', function (e) {
+            product = 'denomination';
+            $('#denomination_error').html('');
+        });
+        $("#quantityq").on('keypress', function (e) {
+            product = 'quantity';
+            $('#quantity_error').html('');
+        });
+
+        if (IsCredit == "N") {
+            $('#cPeriod').hide();
+        }
+
+      //  changeTextarea();
+       // onFocused();
+    });
+
+
+ 
+    function placeText(id) {
+        //  alert(id);
+        $('#Creditq').val(id);
+        $('#customers').html('');
+        customerSelected = 'Y';
+    }
+
+    function setCustomer() {
+        customerName = $('#Creditq').val();
+        creditPeriod = $('#Days').val();
+        if (IsCredit == "N")
+        {
+            if (customerSelected == 'Y')
+            {
+                GetPartialView('@Url.Action("Tender","Pos",new { type = "", DataCollected = "Yes" })', 'total', 'N');
+            }
+        }
+        else
+        {
+            if (customerSelected == 'Y')
+            {
+               Savesale();
+            }
+        }
+    }
+</script>

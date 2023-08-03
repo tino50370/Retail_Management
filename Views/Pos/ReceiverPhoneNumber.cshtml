@@ -1,0 +1,79 @@
+﻿@model RetailKing.Models.YomoneyRequest
+@{
+    ViewBag.Title = "Tender";
+}
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = { 
+            beforeSend: function () {
+                status.fadeIn();
+                $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites"
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+
+                try {
+                    alert(result)
+                    var resp = $.parseJSON(result);
+                    alert(resp)
+                    if (resp.ResponseCode == "00000")
+                    {
+                        alert("in")
+                        alert(resp.Amount)
+                        setPayment('','','External')
+
+                    } else
+                    {
+                        alert("Error")
+                    }
+
+                } catch (exception) {
+                    alert("not json error")
+                };
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#createAccount").ajaxForm(options);
+
+    });
+</script>
+<div class="col-md-12" style="width:510px">
+    @using (Html.BeginForm("ReceiverPhoneNumber", "Pos", FormMethod.Post, new { enctype = "multipart/form-data", @name = "createAccount", id = "createAccount" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="editor-label">
+            @Html.Label("Phone Number")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CustomerMSISDN, new { @class = "form-control", autocomplete = "off", Placeholder = "Phone Number" })
+        </div>
+
+        <br />
+
+        <div class="editor-field">
+            <button type="submit" class="btn btn-success"> Check-Out</button>
+        </div>
+
+    }
+</div>
+

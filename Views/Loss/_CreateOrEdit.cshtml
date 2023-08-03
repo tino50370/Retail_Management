@@ -1,0 +1,411 @@
+@model RetailKing.Models.Item
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+   <script  type="text/javascript">
+       $(document).ready(function () {
+  
+           $('#SDate').daterangepicker({
+               singleDatePicker: true,
+               calender_style: "picker_2"
+           }, function (start, end, label) {
+               console.log(start.toISOString(), end.toISOString(), label);
+           });
+           $('#EDate').daterangepicker({
+               singleDatePicker: true,
+               calender_style: "picker_2"
+           }, function (start, end, label) {
+               console.log(start.toISOString(), end.toISOString(), label);
+           });
+          $("#company").change(function () {
+              $.ajax({
+                  type: "Post",
+                  url: '@Url.Action("GetCategories", "Items")',
+                  dataType: 'html',
+                  data: {
+                      Id: $("#company").val(),
+                      Company: Company
+                  },
+                  success: function (resp) {
+                      var ddl = $("#category");
+                      ddl.empty();
+                      var subjects = $.parseJSON(resp);
+                      //alert(subjects);
+                      $.each(subjects, function (index, value) {
+                         // alert(value.Name);
+                          ddl.append(
+                          $('<option/>', {
+                              value: value.Id,
+                              text: value.Name
+                          })
+                        );
+                      });
+                  },
+                  error: function (data) {
+                  }
+              });
+          });
+
+          $("#category").change(function () {
+              var xx = $("#category").val();
+              $.ajax({
+                  type: "Post",
+                  url: '@Url.Action("GetSubCategories", "Items")',
+                  dataType: 'html',
+                  data: {
+                      Id: xx,
+                      Company: $("#company").val()
+                  },
+                  success: function (resp) {
+                      var ddl = $("#SubCategory");
+                      ddl.empty();
+                      var subjects = $.parseJSON(resp);
+                      //alert(subjects);
+                      $.each(subjects, function (index, value) {
+                          // alert(value.Name);
+                          ddl.append(
+                          $('<option/>', {
+                              value: value.Id,
+                              text: value.Name
+                          })
+                        );
+                      });
+                  },
+                  error: function (data) {
+                  }
+              });
+          });
+
+          $("#DicountType").change(function () {
+              var vv = $("#DicountType").val();
+              if (vv == "PERCENT") {
+                  $("#discountLabel").html('Dicount %');
+              }
+              else {
+                  $("#discountLabel").html('Dicount Amount');
+              }
+          });
+
+          $("#Promotion").change(function () {
+              var vv = $("#Promotion").val();
+              if (vv == "YES") {
+                  $("#PromotionData").show();
+              }
+              else {
+                  $("#PromotionData").hide();
+              }
+          });
+
+          $("#AdPosition").change(function () {
+              var ap = $("#AdPosition").val();
+              if (ap == "Banner") {
+                  $("#PromoImg").show();
+                  $("#PromoDimentions").html("Image should be width 870px X height 397px");
+              }
+              else if (ap == "Side") {
+                  $("#PromoImg").show();
+                  $("#PromoDimentions").html("Image should be width 270px X height 400px");
+              }
+              else {
+                  $("#PromoImg").hide();
+              }
+          });
+
+       });
+      
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (tinymce.editors.length != 0 || tinymce.activeEditor != undefined) {
+            setTimeout(function () {
+                // alert(tinymce.editors.length);
+                tinymce.init({
+                    selector: "ItmDescription",
+                    plugins: [
+                        "advlist autolink autosave link lists base64_image charmap hr pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars fullscreen media ",
+                        "table contextmenu directionality textcolor paste fullpage textcolor colorpicker textpattern"
+                    ],
+
+                    toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table",
+                    toolbar2: "formatselect | cut copy paste | searchreplace  |  undo redo | link unlink base64_image | forecolor backcolor",
+                    menubar: false,
+                    paste_data_images: true,
+                    height: "300",
+                    width: "400"
+                });
+                tinymce.execCommand('mceAddEditor', true, "ItmDescription");
+            }, 1000);
+        }
+        else {
+            tinymce.init({
+                selector: "ItmDescription",
+                plugins: [
+                    "advlist autolink autosave link lists base64_image charmap hr pagebreak spellchecker",
+                    "searchreplace wordcount visualblocks visualchars fullscreen media ",
+                    "table contextmenu directionality textcolor paste fullpage textcolor colorpicker textpattern"
+                ],
+                toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table",
+                toolbar2: "formatselect | cut copy paste | searchreplace  |  undo redo | link unlink base64_image | forecolor backcolor",
+                menubar: false,
+                paste_data_images: true,
+                height: "300",
+                width: "400",
+            });
+            tinyMCE.execCommand('mceAddEditor', true, 'ItmDescription');
+        }
+    });
+</script>
+
+
+ <div class="col-md-6">
+
+<div class="editor-label">
+    @Html.Label("Item Name")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.ItemName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ItemName)
+</div>
+</div> 
+ <div class="col-md-6">
+<div class="editor-label">
+    @Html.Label("Item Code")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.ItemCode, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ItemCode)
+</div>
+</div> 
+ <div class="col-md-6">
+<div class="editor-label">
+    @Html.Label("Buying Price")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.BuyingPrice, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.BuyingPrice)
+</div>
+</div>
+<div class="col-md-6">
+    <div class="editor-label">
+        @Html.Label("Selling Price")
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.SellingPrice, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.SellingPrice)
+    </div>
+</div> 
+<div class="col-md-6">
+    <div class="editor-label">
+        @Html.Label("Manufacturer")
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Manufacturer, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Manufacturer)
+    </div>
+</div> 
+<div class="col-md-6">
+    <div class="editor-label">
+        @Html.Label("Manufacturing Country")
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(m => m.Nation, new SelectList((IEnumerable<SelectListItem>)ViewBag.Country, "Value", " Text", Model.Nation), new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Nation)
+    </div>
+
+</div>
+
+<div class="col-md-6">
+    <div class="editor-label">
+        @Html.Label("Company")
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.company,
+                         new SelectList(
+                             Model.companies,
+                             "name",
+                                      "name", ViewData["Compan"].ToString()), new { id = "company" , @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.company)
+    </div>
+</div>
+
+<div class="col-md-6">
+    <div class="editor-label">
+        @Html.Label("Category")
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.category,
+                         new SelectList(
+                             Model.categories,
+                             "AccountCode",
+                                      "AccountName", Model.category), new { id = "category" , @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.category)
+    </div>
+</div> 
+<div class="col-md-6">
+    <div class="editor-label">
+        @Html.Label("Reorder Level")
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Reorder, new { style = "width: 100px" , @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Reorder)
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="editor-label">
+        @Html.Label("Subcategory")
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.SubCategory,
+                           new SelectList(
+                             Model.SubCategories,
+                             "AccountName",
+                                      "AccountName", Model.SubCategory), new { id = "SubCategory",@class = "form-control" })
+        @Html.ValidationMessageFor(model => model.SubCategory)
+    </div>
+</div> 
+<div class="col-md-6">
+    <div class="editor-label">
+        @Html.Label("Tax")
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.tax, new SelectList(new[] { "Taxed", "Not Taxed" }, Model.tax), new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.tax)
+    </div>
+</div> 
+<div class="col-md-6">
+    <div class="editor-label">
+        @Html.Label("Featured Item")
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.Featured, new SelectList(new[] { "NO", "YES" }, Model.Featured), new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Featured)
+    </div>
+</div>
+
+<div class="col-md-6">
+    <div class="editor-label">
+        @Html.Label("Item Description")
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.ItmDescription, new { style = "width:80%", @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.ItmDescription)
+    </div>
+</div>
+
+
+
+<div class="col-md-12" style="display:none">
+    <div class="editor-label">
+        @Html.Label("On Promotion")
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.Promotion, new SelectList(new[] { "NO", "YES" }, Model.Promotion), new { id = "Promotion" , @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.DicountType)
+    </div>
+</div> 
+
+<div id="PromotionData" style="display:none;border: 1px solid #DDDDDD;background-color:#DDDDDD ">
+
+    <div class="col-md-6">
+        @Html.HiddenFor(model => model.Image)
+        @Html.HiddenFor(model => model.ThumbImage)
+        <div class="editor-label">
+            @Html.Label("Title")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="editor-label">
+            @Html.Label("Description")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+    </div> 
+
+    <div class="col-md-6">
+        @Html.HiddenFor(model => model.Image)
+        @Html.HiddenFor(model => model.ThumbImage)
+        <div class="editor-label">
+            @Html.Label("Start Date")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.SDate, new { style = "width:200px" , @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SDate)
+        </div>
+    </div> 
+
+    <div class="col-md-6">
+        <div class="editor-label">
+            @Html.Label("End Date")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.EDate, new { style = "width:200px" , @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.EDate)
+        </div>
+    </div> 
+
+    <div class="col-md-6">
+        <div class="editor-label">
+            @Html.Label("Discount Type")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.DicountType, new SelectList(new[] { "-- Select Discount--", "PERCENT", "AMOUNT" }, Model.DicountType), new { id = "DicountType" , @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DicountType)
+        </div>
+    </div> 
+
+    <div class="col-md-6 last">
+        <div class="editor-label">
+            @Html.Label("Discount", new { id = "discountLabel" })
+        </div>
+
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Discount, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Discount)
+        </div>
+    </div> 
+
+    <div class="col-md-12">
+        <div class="editor-label">
+            @Html.Label("Promotion Position")
+        </div>
+        <div class="editor-field">
+
+            @Html.DropDownListFor(model => model.AdPosition,
+                           new SelectList(
+                             ViewBag.Adposition,
+                             "Value",
+                                      "Text", Model.SubCategory), new { id = "AdPosition" , @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DicountType)
+        </div>
+    </div> 
+@*
+    <div id="PromoImg" class="grid_10" style="margin-top:10px; display:none">
+       <div id="PromoDimentions"></div>
+            <div class="editor-field">
+                <div class="btn btn-orange">Select Promotion Image: <input type="file" name="Images" id="PImage" /></div>
+            </div>
+        </div>
+*@
+</div>
+
+<p></p>
+<div class="col-md-12" style="margin-top:10px">
+    @if (Model.ThumbImage != null)
+    {
+        <div class="editor-field">
+            <img src="@Url.Content(@Model.ThumbImage)" alt="@ViewData["Company"]">
+        </div><br />
+    }
+    <div class="editor-field">
+        <div class="btn btn-navy">Select Product Image: <input type="file" name="Images" id="Image" /></div>
+    </div>
+</div>
+ 

@@ -1,0 +1,42 @@
+@model RetailKing.Models.AgentUser
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Delete User</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                @using (Html.BeginForm("Delete", "AgentUser", FormMethod.Post, new { enctype = "multipart/form-data", @name = "NewUser", id = "deleteUser" }))
+                {
+                  @Html.AntiForgeryToken()
+
+                    <h3>Are you sure you want to delete this?</h3>
+                    <fieldset>
+
+                        @Html.HiddenFor(model => model.Id)
+                        <div class="display-label">Account Number</div>
+                        <div class="display-field">@Model.AccountNumber</div>
+
+                        <div class="display-label">Full Name</div>
+                        <div class="display-field">@Model.FullName</div>
+                        
+                    </fieldset>
+
+                }
+                <p>
+                    <button class="btn btn-danger" onclick="SaveView('deleteUser')">Delete</button>
+                    <button class="btn btn-warning" onclick="GetView('@Url.Action("Index", "AgentUser")')">Cancel</button>
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

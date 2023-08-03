@@ -1,0 +1,128 @@
+@model RetailKing.Models.Facility 
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+<script type="text/javascript" src="@Url.Content("~/Content/tinymce/tinymce.min.js")"></script>
+
+<script type="text/javascript">
+    $(function () {
+        if (tinymce.editors.length != 0 || tinymce.activeEditor != undefined) {
+            setTimeout(function () {
+                // alert(tinymce.editors.length);
+                tinymce.init({
+                    selector: "Description",
+                    plugins: [
+                        "advlist autolink autosave link lists base64_image charmap hr pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars fullscreen media ",
+                        "table contextmenu directionality textcolor paste fullpage textcolor colorpicker textpattern"
+                    ],
+
+                    toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table",
+                    toolbar2: "formatselect | cut copy paste | searchreplace  |  undo redo | link unlink base64_image | forecolor backcolor",
+                    menubar: false,
+                    paste_data_images: true,
+                    height: "300",
+                    width: "400"
+                });
+                tinymce.execCommand('mceAddEditor', true, "Description");
+            }, 1000);
+        }
+        else {
+            tinymce.init({
+                selector: "Description",
+                plugins: [
+                    "advlist autolink autosave link lists base64_image charmap hr pagebreak spellchecker",
+                    "searchreplace wordcount visualblocks visualchars fullscreen media ",
+                    "table contextmenu directionality textcolor paste fullpage textcolor colorpicker textpattern"
+                ],
+                toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table",
+                toolbar2: "formatselect | cut copy paste | searchreplace  |  undo redo | link unlink base64_image | forecolor backcolor",
+                menubar: false,
+                paste_data_images: true,
+                height: "300",
+                width: "400",
+            });
+            tinyMCE.execCommand('mceAddEditor', true, 'Description');
+        }
+
+        $("#FixedEmail").change(function () {
+            if (this.checked) {
+                $("#emailPw").hide();
+            }
+            else {
+                $("#emailPw").show();
+            }
+        });
+
+        $("#Service").click(function () {
+            GetFancy('@Url.Action("ServiceList", "MailSettings")')
+        });
+        $("#ListName").click(function () {
+            GetFancy('@Url.Action("SelectMailing", "MailSettings")')
+        });
+    });
+
+    // Prevent bootstrap dialog from blocking focusin
+    $(document).on('focusin', function (e) {
+        if ($(e.target).closest(".mce-window").length) {
+            e.stopImmediatePropagation();
+        }
+    });
+</script>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+    @Html.HiddenFor(model => model.AssetId )
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Category  )
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.Category, new SelectList(new[] { "Non-Movable", "Movable" }, Model.Category), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Category , "", new { style ="color:red"})
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Type)
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.Type, new SelectList(new[] { "Non-Movable", "Movable" }, Model.Category), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Type, "", new { style = "color:red" })
+</div>
+
+<div class="editor-label">
+    @Html.Label("Facility Description")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Description  , new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Description )
+</div>
+
+<div class="editor-label">
+    @Html.Label("Quantity")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Units, new { @class = "form-control", @type = "Money" })
+    @Html.ValidationMessageFor(model => model.Units)
+</div>
+
+<p></p>
+@*
+<div class="col-md-12" style="margin-top:10px">
+    @if (Model.Thumbnail  != null)
+    {
+        <div class="editor-field">
+            <img src="@Url.Content(@Model.Thumbnail)" alt="@ViewData["Company"]">
+        </div><br />
+    }
+    <div class="editor-field">
+        <div class="btn btn-navy">Select Product Image: <input type="file" name="Images" id="Image" /></div>
+    </div>
+</div>
+    *@
+
+

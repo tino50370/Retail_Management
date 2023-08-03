@@ -1,0 +1,78 @@
+﻿@model IEnumerable<RetailKing.Models.DeliveryAddress>
+@{
+    ViewBag.Title = "SaveList";
+}
+
+<script src="@Url.Content("~/Content/Template/js/main-script.js")"></script>
+
+<script type="text/javascript">
+
+ </script>
+
+<section class="main-content col-lg-13 col-md-12 col-sm-12">
+        <div class="row">
+
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="breadcrumbs">
+                    <p><a href="@Url.Action("Index","Home")">Home</a> <i class="icons icon-right-dir"></i> <a href="#">Collections </a> <i class="icons icon-right-dir"></i> Save Shopping List  </p>
+                </div>
+            </div>
+
+
+            <section class="main-content col-lg-12 col-md-12 col-sm-12">
+                <div id="product-single">
+
+                    <div class="carousel-heading no-margin">
+                        <h4>Address List</h4>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <table class="order-table">
+                            <tr id="Adshow" style="background:#21BF64; color:#ffffff; margin-top:10px; height:40px; text-align:start ">
+
+                                <th style="border: solid 1px #ffffff">
+                                    <a href="@Url.Action("ChangeAddress", "Cart")" style=" color:#ffffff" class="FancyPop">Add New Address</a>  
+                                </th>
+
+                            </tr>
+                            <tr id="adform" style="display:none">
+                                <td id="CreateAd">
+
+                                </td>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr style="cursor:pointer" onclick="AddAddress('@item.Id')">
+                                        <td style="width:100%">
+                                            @Html.DisplayFor(modelItem => item.Address),
+                                            @Html.DisplayFor(modelItem => item.Suburb),
+                                            @Html.DisplayFor(modelItem => item.City),
+                                        </td>
+
+                                    </tr>
+                            }
+
+                            </table>
+                            <br />
+                            <br />
+                            <div class="row">
+
+                                <div id="SuccessList" style="border: 1px solid #2ECC9F;color:#2ECC9F; padding:8px 8px 8px 8px ;  margin-top:10px;margin-bottom: 20px; width:80%;height:40px; display:none">
+                                    Your List was saved successfully.
+                                </div>
+
+                                <div id="ErrorList" style="border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:80%;height:40px; display:none">
+                                    Sorry the list was not saved an error occured
+                                </div>
+
+                            </div>
+
+                           
+                </div>
+                </div>
+
+
+            </section>
+
+        </div>
+</section>

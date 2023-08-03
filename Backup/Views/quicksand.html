@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>jQuery Quicksand plugin</title>
+    
+    <link rel="stylesheet" href="styles/main.css" />
+    <!--[if IE 7]><link rel="stylesheet" href="styles/ie7.css" /><![endif]-->    
+    
+    <!-- DO NOT USE THESE FILES. they are compiled for fast http access -->
+    <!-- if you’re looking for source, download or read documentation -->
+    <script src="scripts/assets/jquery-1.4.1-and-plugins.min.js" type="text/javascript"></script>
+    <script src="scripts/main.js" type="text/javascript"></script>
+
+  </head>
+  <body>
+    
+    <div id="wrapper">
+      <div id="site">
+        <div id="title">
+          <h1>Quicksand<span></span></h1>
+          <p>Reorder and filter items with a nice shuffling animation.</p>
+        </div>
+
+        <!-- this isn’t part of the plugin, just a control for demo -->
+        <ul class="splitter"><li>Filter by type:<ul><li class="segment-1 selected-1"><a href="quicksand.html#" data-value="all">Everything</a></li><li class="segment-0"><a href="quicksand.html#" data-value="app">Applications</a></li><li class="segment-2"><a href="quicksand.html#" data-value="util">Utilities</a></li></ul></li><li>Sort by:<ul><li class="segment-1 selected-1"><a href="quicksand.html#" data-value="name">Name</a></li><li class="segment-2"><a href="quicksand.html#" data-value="size">Size</a></li></ul></li></ul>
+
+        <div class="demo">
+          <!-- read the documentation to understand what’s going on here -->
+          <ul id="list" class="image-grid">
+            <li data-id="id-1" class="util">
+              <img src="content/images/activity-monitor.png" width="128" height="128" alt="" />
+              <strong>Activity Monitor</strong>
+              <span>348 KB</span>
+            </li>
+            <li data-id="id-2" class="app">
+              <img src="content/images/address-book.png" width="128" height="128" alt="" />
+              <strong>Address Book</strong><span>1904 KB</span>
+            </li>
+            <li data-id="id-3" class="app">
+              <img src="content/images/finder.png" width="128" height="128" alt="" />
+              <strong>Finder</strong>
+              <span>1337 KB</span>
+            </li>
+            <li data-id="id-4" class="app">
+              <img src="content/images/front-row.png" width="128" height="128" alt="" />
+              <strong>Front Row</strong>
+              <span>401 KB</span>
+            </li>
+            <li data-id="id-5" class="app">
+              <img src="content/images/google-pokemon.png" width="128" height="128" alt="" />
+              <strong>Google Pokémon</strong>
+              <span>12875 KB</span>
+            </li>
+            <li data-id="id-6" class="app">
+              <img src="content/images/ical.png" width="128" height="128" alt="" />
+              <strong>iCal</strong>
+              <span>5273 KB</span>
+            </li>
+            <li data-id="id-7" class="app">
+              <img src="content/images/ichat.png" width="128" height="128" alt="" />
+              <strong>iChat</strong>
+              <span>5437 KB</span>
+            </li>
+            <li data-id="id-8" class="app">
+              <img src="content/images/interface-builder.png" width="128" height="128" alt="" />
+              <strong>Interface Builder</strong>
+              <span>2764 KB</span>
+            </li>
+            <li data-id="id-9" class="app">
+              <img src="content/images/ituna.png" width="128" height="128" alt="" />
+              <strong>iTuna</strong>
+              <span>17612 KB</span>
+            </li>
+            <li data-id="id-10" class="util">
+              <img src="content/images/keychain-access.png" width="128" height="128" alt="" />
+              <strong>Keychain Access</strong>
+              <span>972 KB</span>
+            </li>
+            <li data-id="id-11" class="util">
+              <img src="content/images/network-utility.png" width="128" height="128" alt="" />
+              <strong>Network Utility</strong>
+              <span>245 KB</span>
+            </li>
+            <li data-id="id-12" class="util">
+              <img src="content/images/sync.png" width="128" height="128" alt="" />
+              <strong>Sync</strong>
+              <span>3788 KB</span>
+            </li>
+            <li data-id="id-13" class="app">
+              <img src="content/images/textedit.png" width="128" height="128" alt="" />
+              <strong>TextEdit</strong>
+              <span>1669 KB</span>
+            </li>
+          </ul>
+        </div>
+        
+        <p id="performance-toggle">Demo seems sluggish? <a href="quicksand.html#toggle">Disable CSS3 scaling</a> and try again.</p>
+
+        <p class="splitter">Isn’t it cool? Now, choose your fighter:</p>
+
+        <div class="actions">
+          <p>
+            <a class="download" href="https://github.com/razorjack/quicksand/raw/master/jquery.quicksand.js">
+              <strong>Download</strong>
+              <span>Version <span class="version">1.2.2</span></span>
+            </a>
+          </p>
+          <p>
+            <a class="demos-n-docs" href="docs-and-demos.html">
+              <strong>Demos &amp; Docs</strong>
+            </a>
+          </p>
+          <p>
+            <a class="fork" href="http://github.com/razorjack/quicksand/">
+              <strong>Fork on GitHub</strong>
+            </a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+    
+    <p class="footer">
+      <span>Powered by <a href="../jquery.com/jquery_default.html">jQuery</a> – Made by <a href="../twitter.com/razorjack.htm">@razorjack</a> from <a href="../agilope.com/agilope_default.html">agilope</a>, <a href="../www.artua.com/www_artua_default.html">
+      icons design</a> by Artua</span>
+      <span>Design by <a href="../twitter.com/riddle.htm">@riddle</a></span>
+    </p>
+    
+	<script type="text/javascript">
+	  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	  try {
+	    var pageTracker = _gat._getTracker("UA-1121012-6");
+	    pageTracker._trackPageview();
+	    } catch(err) {}
+	</script>
+	    
+  </body>
+</html>

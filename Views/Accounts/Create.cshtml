@@ -1,0 +1,75 @@
+@model RetailKing.Models.Account
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites"
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+
+                $("#panel").html(result);
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#createAccount").ajaxForm(options);
+
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Create Account</h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                @using (Html.BeginForm("Create", "Accounts", FormMethod.Post, new { enctype = "multipart/form-data", @name = "createAccount", id = "createAccount" }))
+                {
+                    <span style="color:red">@Html.ValidationSummary(true)</span>
+                    <fieldset>
+
+                        @Html.Partial("_CreateOrEdit", Model)
+                        <p></p>
+                        <div class="col-md-10" style="margin-top:20px">
+                            <button class="btn btn-success" type="submit">Save</button>
+                            <button class="btn btn-warning " type="button" onclick="GetView('@Url.Action("Index", "Accounts")')">Cancel</button>
+                        </div>
+                    </fieldset>
+                }
+
+                <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+                <div id="Images"></div>
+
+            </div>
+        </div>
+    </div>
+</div>

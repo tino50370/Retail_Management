@@ -1,0 +1,98 @@
+﻿@model IEnumerable<RetailKing.Models.Reward>
+
+@{
+    ViewBag.Title = "Search";
+   
+}
+
+<div>
+    @using (Html.BeginForm("RedeemPoints", "Loyalty", FormMethod.Post, new { id = "awardPoints" }))
+    {
+    @Html.ValidationSummary(true)
+    <fieldset>
+
+        @Html.Hidden("SupplierId", ViewData["Supplier"] )
+        @Html.Hidden("CardNumber", new { @Value = ViewData["Card"] })
+        @Html.Hidden("Points", ViewData["Points"] )
+        @Html.Hidden("MonetaryValue", ViewData["Money"] )
+        @Html.Hidden("SchemeId")
+    </fieldset>
+    }
+    <div>
+        @ViewData["Name"] <br/>
+        Available Points @ViewData["Points"] <br/>
+        Worth $ @ViewData["Money"]
+    </div>
+    <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="check-all" class="flat"></th>
+                <th>Name</th>
+                <th>Points</th>
+                <th>Money Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model != null && Model.Count()>0)
+            { 
+            foreach (var item in Model)
+             {
+                <tr>
+                    <td><input id="@item.Id" type="checkbox" class="flat chkbox" onchange="toggleCheckbox(this)" name="table_records"></td>
+                    <td id="name_@item.Id">
+                        @item.Name.Trim()
+                    </td>
+                    <td>
+                        @item.Points
+                    </td>
+                    <td id="mail_@item.Id">
+                        @item.MonetaryValue.
+                    </td>
+                                    
+                </tr>
+             }
+            }
+            else
+            {
+            <tr>
+                <td colspan="4">
+                  there are no redeemable points
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    
+</div>
+<br />
+<div>
+    <button id="cancel" class="btn btn-warning pull-right" onclick="GetView('@Url.Action("CustomerLoyalty", "Loyalty")')" disabled >Cancel</button>
+    <button id ="submit" class="btn btn-success pull-right" onclick="SaveView('awardPoints')" disabled>Save</button>
+</div>
+
+
+<script type="text/javascript">
+    var dd;
+    function toggleCheckbox(element) {
+       
+        if (element.checked)
+        {
+            $('#datatable-checkbox').find('input[type=checkbox]:checked').removeAttr('checked');
+            var txt = element.id;
+            // alert(txt);
+            document.getElementById(txt).checked = true;
+            $('#' + txt).attr('checked', 'checked');
+            $("#cancel").removeAttr('disabled');
+            $("#submit").removeAttr('disabled');
+            document.getElementById('SchemeId').value = txt;
+           
+        }
+        else
+        {
+            $('#datatable-checkbox').find('input[type=checkbox]:checked').removeAttr('checked');
+            $("#cancel").attr('disabled', 'disabled');
+            $("#submit").attr('disabled', 'disabled');
+            document.getElementById('EmailList').value = "";
+        }
+    }
+</script>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<RetailKing.Models.MailList >
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Mailing List</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+            <table style="width:100% " class="table table-striped ">
+                <thead>
+                    <tr>
+                        <th>Name </th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.Name </td>
+
+                        <td>
+                            <button class="btn btn-primary btn-sm" onclick="GetSideView('@Url.Action("EditMailingList", "MailSettings", new {Id = item.Id })')">Edit New</button>
+                            <button class="btn btn-danger btn-sm" onclick="GetView('@Url.Action("DeleteMailingList", "MailSettings", new {Id = item.Id })')">Delete New</button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+</div>
+<div id="RightPanel" class="col-md-8 col-sm-8 col-xs-12">
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        GetSideView('@Url.Action("CreateMailingList", "MailSettings")')
+    })
+</script>

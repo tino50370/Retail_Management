@@ -1,0 +1,18 @@
+﻿@model IEnumerable<RetailKing.Models.Customer>
+
+@{
+    ViewBag.Title = "Search";
+   
+}
+
+<table id="Sresults" style="background-color: white">
+@foreach (var item in Model) {
+    var ww = item.CustomerName.Trim() + "_" + item.AccountCode;
+    <tr onclick="placeText('@ww')">     
+        <td id="@item.AccountCode">
+            @Html.DisplayFor(modelItem => item.CustomerName)_@Html.DisplayFor(modelItem => item.AccountCode)
+        </td>   
+    </tr>
+}
+
+</table>

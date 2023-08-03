@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--shopping list-->
+<Items>
+  <Item>
+    <ItemId>GR000078                  </ItemId>
+    <Quantity>1.0000</Quantity>
+  </Item>
+  <Item>
+    <ItemId>GR000198                 </ItemId>
+    <Quantity>2.0000</Quantity>
+  </Item>
+  <Item>
+    <ItemId>VASELINEFASTABSORBINGBC500G</ItemId>
+    <Quantity>1.0000</Quantity>
+  </Item>
+  <Item>
+    <ItemId>CERESMANGO1LT</ItemId>
+    <Quantity>3.0000</Quantity>
+  </Item>
+  <Item>
+    <ItemId>CERESORANGE1LT</ItemId>
+    <Quantity>1.0000</Quantity>
+  </Item>
+</Items>

@@ -1,0 +1,29 @@
+@model RetailKing.Models.MailGroup
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+
+<div class="editor-label">
+    @Html.Label("Main Email")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Receiver , new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Receiver)
+</div>
+<div class="editor-label">
+    @Html.LabelFor(model => model.Cc )
+</div>
+<div class="editor-field">
+    @Html.TextAreaFor(model => model.Cc, new { @class = "form-control", placeholder ="separate emails with comma" })
+    @Html.ValidationMessageFor(model => model.Cc)
+</div>
+<div class="editor-label">
+    @Html.LabelFor(model => model.Bcc  )
+</div>
+<div class="editor-field">
+    @Html.TextAreaFor(model => model.Bcc, new { @class = "form-control", placeholder = "separate emails with comma" })
+    @Html.ValidationMessageFor(model => model.Bcc )
+</div>
+
+
+

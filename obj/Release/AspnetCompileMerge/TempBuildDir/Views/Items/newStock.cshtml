@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "newStock";
+}
+ 
+<div class="container_12" style="width:230px">  
+<div >
+<div class="box round ">
+<p>You are adding new stock from  @ViewData["Supplier"] </p>
+  <div> 
+        <span class="display-label">@ViewData["Qty"] @ViewData["ItemName"] at </span>
+        <span class="display-field">
+           $<input type="text" id="Amount" style="width: 35px"/> each 
+        </span>
+  </div>
+    <p></p>
+  <div> 
+        <button class="btn btn-black"  onclick="AddStock()">Save</button>
+        <button class="btn btn-black" onclick="CloseCancel()">Cancel</button>
+  </div>
+
+</div> 
+</div> 
+</div> 

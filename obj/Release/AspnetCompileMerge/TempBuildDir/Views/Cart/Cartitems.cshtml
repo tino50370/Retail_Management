@@ -1,0 +1,212 @@
+﻿@model RetailKing.Models.ShoppingCart 
+
+@{
+    ViewBag.Title = "AddToChart";
+    decimal total = 0;
+}
+
+
+	<!-- Content -->
+
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="breadcrumbs">
+            <p><a href="#">Home</a> <i class="icons icon-right-dir"></i>Shopping Chart</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="main-content col-lg-9 col-md-9 col-sm-9">
+
+        <div class="row">
+
+            <!-- Heading -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="carousel-heading">
+                    <h4>Orders List</h4>
+                   
+                </div>
+
+            </div>
+            <!-- /Heading -->
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <table class="order-table">
+                    <tr style="background-color:#9B59B6;color:#ffffff">
+                        <td>Order Number</td>
+                        <td colspan="2">@ViewData["OrderNumber"]</td>
+                        <td>Status</td>
+                        <td colspan="2">@ViewData["OrderStatus"]</td>
+                    </tr>
+                    <tr>
+                        <th>Quantity</th>
+                        <th>Item Code</th>
+                        <th>Description</th>
+                        <th>Unit Price</th>
+                        <th>Discount</th>
+                        <th>Total</th>
+                    </tr>
+                   
+                    @if (Model.orderlines.Count() != 0)
+                    { 
+                        foreach (var item in Model.orderlines)
+                        {
+                            total = total + (decimal)item.priceinc;
+                            <tr>
+                                <td class="order-number">
+                                   <p>
+                                    <span><a href="#">@item.quantity.Value.ToString("0", System.Globalization.CultureInfo.InvariantCulture) </a></span>
+                                    <span class="green" style="float:right;padding:0 5px 0 5px ; margin-right:5px;border:solid 1px #A1AAAF; cursor:pointer" onclick="RemoveOrderline(@item.ID)">Remove</span>
+                                       <span class="green" style="float:right; padding:0 5px 0 5px; margin-right:5px; border:solid 1px #A1AAAF; font-weight:bold ;cursor:pointer" onclick="PlusOneOrderLine('@item.ItemCode' ,@item.price,@item.quantity)">+</span>
+                                       <span class="green" style="float:right;padding:0 5px 0 5px ; margin-right:5px;border:solid 1px #A1AAAF; font-weight:bold ;cursor:pointer" onclick="MinusOneOrderLine('@item.ItemCode',@item.price,@item.quantity)">-</span>
+                                  </p>
+                                </td>
+                                <td><p>@item.ItemCode</p></td>
+                                <td><p>@item.item</p></td>
+                                <td><p>$@item.price.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</p></td>
+                                <td><p>$@item.Discount.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</p></td>
+                                <td><span class="price">$@item.priceinc.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span></td>
+                            </tr>
+                        }
+                   
+                        if(Model.order == null || Model.order.CollectionId ==0)
+                        {
+                                <tr id="delivery">
+                                <td>DELIVERY ADDRESS</td>
+                                <td colspan="2"> @Model.customer.Address1,@Model.customer.Address2<br />@Model.customer.Suburb, @Model.customer.City
+                                <td colspan="2"><a href="@Url.Action("Index","Collections")" id="Collection" class="button green" style="cursor:pointer; float:right "> I Will Collect</a></td>
+                                <td><span class="price">$</span> <span id="DeliveryPrice" class="price">@Model.region.DeliveryRate.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span></td>
+                                @{
+                                    total=   total + Convert.ToDecimal(Model.region.DeliveryRate);
+                                }
+                            </tr>
+                                <tr id="CollectionAd" style="display:none">
+                                    <td>COLLECTION ADDRESS</td>
+                                    <td colspan="2" id="address"></td>
+                                    <td colspan="2"><a class="button green" style="cursor:pointer; float:right " onclick="DeliverToAddress()">Deliver</a></td>
+                                    <td><span class="price">$0.00</span></td>
+                                </tr>
+                        }
+                        else
+                        {
+
+                            <tr id="delivery" style="display:none">
+                                <td>DELIVERY ADDRESS</td>
+                                <td colspan="2"> @Model.customer.Address1,@Model.customer.Address2<br />@Model.customer.Suburb, @Model.customer.City
+                                <td colspan="2"><a href="@Url.Action("Index","Collections")" id="Collection" class="button green" style="cursor:pointer; float:right "> I Will Collect</a></td>
+                                <td><span class="price">$</span> <span id="DeliveryPrice" class="price">@Model.region.DeliveryRate.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span></td>
+                            </tr>
+                            <tr id="CollectionAd" >
+                                <td>COLLECTION ADDRESS</td>
+                                <td colspan="2" id="address">@Model.collectxn.Address,<br/>@Model.collectxn.City, @Model.collectxn.Country<br/> Collection Time: @Model.collectxn.Time </td>
+                                <td colspan="2"><a class="button green" style="cursor:pointer; float:right " onclick="DeliverToAddress()">Deliver</a></td>
+                                <td><span class="price">$0.00</span></td>
+                            </tr>
+
+                        }
+                    
+                   
+                        <tr style="background-color:#F5791F;color:#fff;font-weight:bold">
+                            <td colspan="5">Total</td>
+                            <td>$<span id="InvoiceTotal">@total.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span></td>
+                        
+                        </tr>
+                        <tr style="background-color:#FFF" >
+                            <td colspan="6"></td>
+
+                        </tr>
+                        <tr >
+                            <td colspan="6">
+                                
+                                <a style="float:right; margin-left:10px" class="button red" href="@Url.Action("EmptyCart", "Cart", new { id = @ViewData["OrderNumber"] })">Empty Cart</a>
+                                <a href="@Url.Action("SaveList", "Cart")" id="ShoppingList" style="float:right; margin-left:10px" class="button big blue">Save List</a>
+                                <a style="float:right" class="button big" href="@Url.Action("Payment", "Cart")">Check Out</a>
+
+                            </td>
+
+                        </tr>
+                    }
+                    else
+                    {
+
+                        <tr style="background-color:#F5791F;color:#fff;font-weight:bold">
+                            <td colspan="6">There are no items in the cart</td>
+                           
+                        </tr>
+                    }
+                </table>
+   
+            </div>
+
+        </div>
+
+
+    </section>
+    <!-- /Main Content -->
+    <!-- Sidebar -->
+    <aside class="sidebar col-lg-3 col-md-3 col-sm-3 right-sidebar">
+
+        <!-- Categories -->
+        <div class="row sidebar-box purple">
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="sidebar-box-heading">
+                    <i class="icons icon-folder-open-empty"></i>
+                    <h4>Categories</h4>
+                </div>
+                @{
+                    var cats = (from e in Model.categories.Where(u => u.AccountCode.Length == 4) select e).ToList();
+                }
+                <div class="sidebar-box-content">
+                    <ul>
+                        @foreach (var cat in cats)
+                        {
+                            var subcats = (from e in Model.categories.Where(u => u.AccountCode.StartsWith(cat.AccountCode + "-")) select e).ToList();
+                            <li>
+                                <a href="@Url.Action("Index", "Category", new { id=cat.AccountName  })">@cat.AccountName <i class="icons icon-right-dir"></i></a>
+                                @if (subcats.Count > 0)
+                                {
+                                    int runs = subcats.Count / 5;
+                                    if (subcats.Count % 5 != 0)
+                                    { runs = runs + 1; }
+                                    <ul class="sidebar-dropdown">
+                                        @for (int i = 0; i < runs; i++)
+                                        {
+                                            var top5 = (from e in subcats.Skip(i) select e).Take(5);
+                                            <li>
+                                                <ul>
+                                                    @foreach (var scat in subcats)
+                                                    {
+                                                        <li>
+                                                            <a href="@Url.Action("Index", "Category", new { id = scat.AccountName }) ">@scat.AccountName</a>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                }
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /Categories -->
+
+    </aside>
+    <!-- /Sidebar -->
+
+
+<!-- /Content -->

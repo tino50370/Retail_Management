@@ -1,0 +1,307 @@
+﻿@model RetailKing.Models.Posdata  
+@{
+    ViewBag.Title = "Accusale Pos";
+}
+
+    <!-- Add jQuery library -->
+	<!--script type="text/javascript" src="@Url.Content("~/Scripts/fancybox/jquery-1.10.1.min.js")"></script-->
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="@Url.Content("~/Scripts/fancybox/jquery.mousewheel-3.0.6.pack.js")"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="@Url.Content("~/Scripts/fancybox/source/jquery.fancybox.js?v=2.1.5")"></script>
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/fancybox/source/jquery.fancybox.css?v=2.1.5")" media="screen" />
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5")" />
+	<script type="text/javascript" src="@Url.Content("~/Scripts/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5")"></script>
+
+	<!-- Add Thumbnail helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7")" />
+	<script type="text/javascript" src="@Url.Content("~/Scripts/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7")"></script>
+
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="@Url.Content("~/Scripts/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6")"></script>
+  
+  <script type="text/javascript">
+      $(document).ready(function () {
+          setupLeftMenu();
+          setSidebarHeight();
+          $("#grumbleq").focus();
+          product = 'grumble';
+
+          $('#product_lines tbody').on('click', 'tr', function () {
+              if (action == "voidline") {
+                  var id = this.id;
+                  var amt = $("#" + id + "a").text();
+                  var total = parseFloat($("#total").text()) - amt;
+                  $("#total").text(parseFloat(total).toFixed(2));
+                  this.remove();
+                  action = "";
+                  $("#grumbleq").focus();
+              }
+          });
+
+          
+          
+          $("#product_lines tbody").on('keypress', function (e) {
+              //alert(e.keyCode);
+              if (e.keyCode == 13) {
+                  if ($("#" + product + "q").is(':visible') && product != "grumble") {
+                      CommitProduct();
+                  }
+              }
+          });
+
+          var typingTimer;
+          $("#grumbleq").keyup(function (e) {
+              var id = $("#grumbleq").val().toUpperCase();
+              if (e.which == 13) {
+                  if ($("#" + id).length) {
+                      if (action == "voidline") {
+                          //var id = $("#grumbleq").val();
+                          var amt = $("#" + id + "a").text();
+                          var total = parseFloat($("#total").text()) - amt;
+                          $("#total").text(parseFloat(total).toFixed(2));
+                          if ($("#total").text() == 'NaN') {
+                              $("#total").text('0.00')
+                          }
+                          $("#" + id).remove();
+                          action = "";
+                          $("#grumbleq").val('');
+                          $("#grumbleq").focus();
+                      }
+                      else {
+                          search();
+                      }
+                  }
+              }
+              else if (e.which == 123) {
+                  //F12
+                  GetPartialView('/Pos/Tender', 'total')
+              }
+              else if (e.which == 121) {
+                  //F10
+              }
+              else if (e.which == 120) {
+                  //f9
+              }
+              else if (e.which == 119) {
+                  //F8
+              }
+              else if (e.which == 118) {
+                  //F7
+              }
+              else if (e.which == 117) {
+                  //F6
+              }
+              else if (e.which == 115) {
+                  //f4
+              }
+              else if (e.which == 114) {
+                  //f3
+                  GetPartialView('/Pos/voidSale', 'Pass');
+              }
+              else if (e.which == 113) {
+                  //f2
+              }
+              else if (e.which == 111) {
+                  //f1
+              }
+              else {
+                  s = $('#grumbleq').val();
+                  clearTimeout(typingTimer);
+                  typingTimer = setTimeout(function () {
+                      if ($('#grumbleq').val() == s && $('#grumbleq').val() != "") {
+                          $.ajax({
+                              type: "GET",
+                              url: '@Url.Action("getItems","pos")',
+                              dataType: "html",
+                              data: { json_str: $("#grumbleq").val() },
+                              success: function (data) {
+                                  var G1 = $.parseJSON(data).split(",");
+                                  if (G1.length == 4) {
+
+                                      var id;
+                                      var description;
+                                      var price;
+                                      var tax;
+
+                                      $.each(G1, function (i, item) {
+                                          if (i == 0) {
+                                              description = item;
+                                          }
+                                          if (i == 1) {
+                                              id = item;
+                                          }
+                                          if (i == 2) {
+                                              prize = item;
+                                          }
+                                          if (i == 3) {
+                                              tax = item;
+                                          }
+                                      });
+                                      if ($("#" + id).length) {
+                                          if (action == "voidline") {
+                                              //  var id = $("#grumbleq").val();
+                                              var amt = $("#" + id + "a").text();
+                                              var total = parseFloat($("#total").text()) - amt;
+                                              $("#total").text(parseFloat(total).toFixed(2));
+                                              $("#" + id).remove();
+                                              if ($("#total").text() == 'NaN') {
+                                                  $("#total").text('0.00')
+                                              }
+                                              action = "";
+                                              $("#grumbleq").val('');
+                                              $("#grumbleq").focus();
+                                              
+                                          }
+                                          else {
+                                              var dd = parseInt($("#" + id + "t").text())
+                                              prize = parseFloat($("#" + id + "a").text()) / dd
+                                              $("#" + id + "t").text(dd + 1);
+                                              var total = parseFloat($("#total").text()) + prize;
+                                              $("#" + id + "a").text((parseFloat($("#" + id + "a").text()) + prize).toFixed(2))
+                                              $("#total").text(total.toFixed(2));
+                                              product = 'grumble';
+                                              $("#grumbleq").val('');
+                                              $("#grumbleq").focus();
+                                          }
+                                      }
+                                      else {
+                                          $('#product_lines > tbody:first').append('<tr id="' + id + '" style=" cursor: pointer;border-bottom-color: White; border-left-style:none; border-right-style: none"><td class= "desc" style="width: 50%;font-size: 15px; border-bottom-color: White; border-left-style:none; border-right-style: none">' +
+                                             description + '</td><td id="' + id + 't" class="qty" style="width: 20%;font-size: 15px;border-bottom-color: White; border-left-style:none; border-right-style: none"><input id="' +
+                                              id + 'q" type="text" class="dt" style="width : 48%;" /></td><td id="' + id + 'a" class="amnt" style="width: 30%;font-size: 15px; border-bottom-color: White; border-left-style:none; border-right-style: none">' +
+                                             parseFloat(prize).toFixed(2) + '</td><td style="display:none">' + tax + '</td></tr>');
+
+                                          $("#" + id + "q").focus();
+                                          product = id;
+                                          $("#grumbleq").val('');
+                                          var height = $('#details')[0].scrollHeight;
+                                          $('#details').scrollTop(height);
+                                      }
+                                  }
+                                  else {
+                                      $('#results').html(data);
+                                  }
+                              }
+                          });
+                      }
+                  }, 1000);
+              }
+          });
+          $(".openDialog").fancybox({
+              type: 'ajax',
+              openEffect: 'none',
+              closeEffect: 'none'
+          });
+
+      });
+    </script>
+
+
+    <div class="container_12">     
+        <div class="grid_12">
+          <div class="box round fullpage">
+          <div class="block ">
+         <div class="grid_2">
+           <div id="logo" style="float:left">
+           <img alt="" src="@Url.Content("~/Content/Images/Logo.jpg")"  width="100%"/> 
+           </div>
+           <div id="shop" style="width: 100%; height: 290px; margin-top: 40px;"> <img alt="" src="@Url.Content("~/Content/Images/shop.jpg")"  width="100%" height="290"/> </div>
+           <div class="clear">
+          </div>
+         
+          <div style=" margin-top:10px">
+                 <div class="grid_6"  style="margin-top:10px;  height:50px; background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center"><div>F6</div><div style=" font-size: 14px; margin-top: -5px">Credit Note</div></div>
+                 <div onclick="GetPartialView('/Pos/Tender','total')" class="grid_6"  style="margin-top:10px;  height:50px; background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center"><div>F12</div><div style=" font-size: 14px; margin-top: -5px">Cash </div></div>
+                 <div class="grid_6" style="margin-top:10px; height:50px; background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center"><div>F4</div><div style=" font-size: 14px; margin-top: -5px">Deposit</div></div>
+                 <div class="grid_6" style="margin-top:10px;  height:50px; background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center"><div>F10</div><div style=" font-size: 14px; margin-top: -5px">Cheque</div></div>
+                 <div onclick="GetPartialView('/Pos/voidSale','Pass')" class="grid_6"  style="margin-top:10px;  height:50px; background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center"><div>F3</div><div style=" font-size: 14px; margin-top: -5px">Void</div></div>
+                 <div class="grid_6"  style="margin-top:10px;  height:50px; background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center"><div>F9</div><div style=" font-size: 14px; margin-top: -5px">Card</div></div>
+                 <div class="grid_6"  style="margin-top:10px;  height:50px; background-color: #FF7514; color: White;font-size:20px; vertical-align: middle; text-align: center"><div>F2</div><div style=" font-size: 14px; margin-top: -5px">Cash Up</div></div>
+                 <div class="grid_6"  style="margin-top:10px;  height:50px; background-color: #FF7514; color: White; font-size:20px;  vertical-align: middle; text-align: center"><div>F8</div><div style=" font-size: 14px; margin-top: -5px">Mobile</div></div>
+                 <div class="grid_6" style="margin-top:10px; height:50px; background-color: #FF7514; color: White; font-size:20px; vertical-align: middle; text-align: center"><div></div><div style=" font-size: 14px; margin-top: -5px"></div></div> 
+               <div class="grid_6"  style="margin-top:10px;  height:50px; background-color: #FF7514; color: White; font-size:22px; vertical-align: middle; text-align: center"><div>F7</div><div style=" font-size: 14px; margin-top: -5px">Tables</div></div>
+           </div>     
+         </div> 
+       
+         <div id="center" class="grid_6 floatleft">
+         <div >
+           <div id="time" class="grid_2" style="height:30px; background-color:#299BFF; color: White; font-size:18px; vertical-align: middle; text-align: center">12:00</div>
+           <div id="name" class="grid_5" style="height:30px; background-color:#299BFF; color: White; font-size:18px; vertical-align: middle; text-align: center"></div>
+           <div  class="grid_5" style="height:30px; background-color:#299BFF; color: White; font-size:22px; vertical-align: middle"><span id="caption" style ="float: left">TOTAL</span><span id="total" style ="float: right">0.00</span></div>
+         </div>
+          <div class="clear">
+          </div>
+           <div id="details" style=" margin-top:10px; background-color: #EAEAEA; width: 98%; height:290px; max-height:290px; overflow:auto; float: left; margin-left: 1%">  
+           
+           <table id="product_lines" width="100%" style=" border-style: none; background-color: #EAEAEA">
+            <tbody >
+           </tbody> 
+           </table> 
+             
+           </div>
+           <div class="clear">
+          </div>
+       
+          <div id="Btns" style=" margin-top:10px; width: 100%; height:400px; ">
+               <div class="grid_4" style="margin-top:10px; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id ="7" onclick="onNumber('7')">7</div> 
+               <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="8" onclick="onNumber('8')">8</div>
+                <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="9" onclick="onNumber('9')">9</div>
+                 <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id ="4" onclick="onNumber('4')">4</div>
+                 <div class="grid_4" style="margin-top:10px; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="5" onclick="onNumber('5')">5</div> 
+               <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="6"  onclick="onNumber('6')">6</div>
+                <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="1" onclick="onNumber('1')">1</div>
+                 <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="2" onclick="onNumber('2')">2</div>
+                 <div class="grid_4" style="margin-top:10px; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="3" onclick="onNumber('3')">3</div> 
+               <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="." onclick="onNumber('.')">.</div>
+                <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id= "0" onclick="onNumber('0')">0</div>
+                 <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; font-weight: bold; cursor: pointer" id="Enter"  onclick="CommitProduct()">Enter</div>        
+          </div>
+         </div> 
+        
+           <div id="right" class="grid_4"  >
+             <div class="grid_4" style="height:30px; background-color:#17806E; color: white;font-size:18px; vertical-align: middle; text-align: center;cursor: pointer ">X Report</div>
+             <div class="grid_4" style="height:30px; background-color:#17806E; color: white ; font-size:18px; vertical-align: middle; text-align: center;cursor: pointer">Z Report</div>
+             <div class="grid_4" style="height:30px; background-color:#17806E; color: white;font-size:18px; vertical-align: middle; text-align: center; cursor: pointer">Logout</div>
+              <div class="clear">
+          </div>
+             <div style="margin-top: 10px">
+             <div class="grid_5" style="height:30px;">
+              <input type="text" id="grumbleq" style="width : 98%; height: 25px" />
+             </div>
+              <div id="search"  onclick="search()" class="grid_3" style="height:30px; background-color:#17806E; vertical-align: top"><img alt="" src="@Url.Content("~/Content/Images/zoom_icon.png")" style=" margin-top: -10%; margin-left: 20%"/></div>
+               <div class="grid_4" style="height:30px; background-color:#17806E" onclick="Back()"><img alt="" src="@Url.Content("~/Content/Images/clear.png")" style=" margin-top: -10%; margin-left: 20%"/></div>
+              </div>
+               <div class="clear">
+          </div>
+          <div id="menu" style=" width :100% ;margin-top:10px; max-height:560px; overflow:auto">
+          <div id="results" >
+              <table  width="100%" style=" border:1px solid #00B294; ">
+              <tbody>
+              @foreach (var menu in Model.menu)
+              {
+              <tr onclick="getItem('@menu.code.Trim()','@menu.caption.Trim()','@menu.button.Trim()','@menu.tax.Trim()')" style=" background-color: #00B294; cursor: pointer">
+              <td style="width: 20%; border:1px solid #00B294; border-right-style: none; background-color: White; vertical-align: middle"><img alt="" src="@Url.Content("~/Content/Images/bag.png")" style="width: 100%; max-width: 40px" /> </td>
+              <td style="width: 50%;border-bottom-color: White; border-left-style:none; border-right-style: none;text-align:center"><span style=" font-size: 15px; color: White; ">@menu.caption</span><br /><span style="color:#FFFF00; font-weight: bold ">@menu.code</span></td>
+              <td style="width: 30%;border-bottom-color: White; border-left-style:none; border-right-style: none; font-size: 13px; vertical-align: middle; text-align:center; color: White; font-weight: bold">@String.Format("{0:F}",@menu.button)</td>
+              </tr>
+              }
+              </tbody>
+              </table>
+              </div>
+              </div> 
+             </div>
+          </div> 
+          </div>
+        </div>  
+        
+        <div id="toprint" style="display: none" >
+     </div> 
+     <iframe id="ifrOutput" style="display:none;"></iframe>    
+    </div>
+ 
+
+ 

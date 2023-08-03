@@ -1,0 +1,41 @@
+@model RetailKing.Models.Tranlog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Transaction Detail</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                    <fieldset>
+                        <div class="jumbotron">
+                            <h3>@ViewData["CustomerName"]</h3>
+                            <p>Mobile: @ViewData["CustomerMobile"] <br/>
+                               Id Number: @ViewData["CustomerId"]
+                            </p>
+                            <p> Amount Paid: @Model.Amount <br />
+                                Receipt Number: @Model.ReceiptNumber <br/>
+                                Date: @Model.DateCreated<br />
+                                Till Number: @Model.TerminalId<br />
+                                Cashier Name: @Model.Username<br />
+                                Deacription: @Model.Description
+                            </p>
+                        </div>
+
+                       
+                        
+                    </fieldset>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

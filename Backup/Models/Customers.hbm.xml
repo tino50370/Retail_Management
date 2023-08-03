@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="RetailKing.Models.Customers, RetailKing" table="Customers" >
+
+    <id name="Id" column="ID" type="System.Int64" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+
+    <property name="AccountCode" column="AccountCode"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="CustomerName" column="CustomerName"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Dated" column="Dated"  not-null="false" type="System.DateTime"  insert="true" update="true"/>
+    <property name="ContactPerson" column="ContactPerson"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Address1" column="Address1"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Address2" column="Address2"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Phone1" column="Phone1"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Phone2" column="Phone2"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Username" column="Username"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+
+  </class>
+</hibernate-mapping>

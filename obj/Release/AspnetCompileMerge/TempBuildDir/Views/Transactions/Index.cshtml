@@ -1,0 +1,111 @@
+﻿@model IEnumerable<RetailKing.Models.TransactionData>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="grid_10">
+ <div class="box round ">
+     <h2>Transactions</h2>
+<p></p>
+<table style="width: 100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Debit1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Debit2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Debit3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Debit4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Debit5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Debit6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credit1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credit2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credit3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credit4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credit5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credit6)
+        </th>
+        <th><button class="btn btn-black" style="float: right" onclick="GetView('@Url.Action("Create", "Transactions")')">Create New </button></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Debit1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Debit2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Debit3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Debit4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Debit5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Debit6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Credit1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Credit2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Credit3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Credit4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Credit5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Credit6)
+        </td>
+        <td>
+             <button class="btn btn-navy" onclick="GetView('@Url.Action("Edit", "Transactions")','@item.ID')">Edit</button>
+          
+        </td>
+    </tr>
+}
+
+</table>
+</div> 
+</div> 

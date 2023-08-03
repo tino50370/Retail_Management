@@ -1,0 +1,197 @@
+@model IEnumerable<RetailKing.Models.login>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            username
+        </th>
+        <th>
+            password
+        </th>
+        <th>
+            accesslevel
+        </th>
+        <th>
+            Firstname
+        </th>
+        <th>
+            Surname
+        </th>
+        <th>
+            prefix
+        </th>
+        <th>
+            Location
+        </th>
+        <th>
+            PosUser
+        </th>
+        <th>
+            RetailUser
+        </th>
+        <th>
+            UsesBoth
+        </th>
+        <th>
+            Shifts
+        </th>
+        <th>
+            ManagerMenu
+        </th>
+        <th>
+            Tables
+        </th>
+        <th>
+            Payments
+        </th>
+        <th>
+            Reporting
+        </th>
+        <th>
+            Sales
+        </th>
+        <th>
+            Pricing
+        </th>
+        <th>
+            Barcoding
+        </th>
+        <th>
+            AddsProducts
+        </th>
+        <th>
+            Purchases
+        </th>
+        <th>
+            ManageUsers
+        </th>
+        <th>
+            ManagePos
+        </th>
+        <th>
+            Transfers
+        </th>
+        <th>
+            Accounts
+        </th>
+        <th>
+            OnShift
+        </th>
+        <th>
+            xreport
+        </th>
+        <th>
+            zreport
+        </th>
+        <th>
+            voidsale
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+        <td>
+			@item.username
+        </td>
+        <td>
+			@item.password
+        </td>
+        <td>
+			@item.accesslevel
+        </td>
+        <td>
+			@item.Firstname
+        </td>
+        <td>
+			@item.Surname
+        </td>
+        <td>
+			@item.prefix
+        </td>
+        <td>
+			@item.Location
+        </td>
+        <td>
+			@item.PosUser
+        </td>
+        <td>
+			@item.RetailUser
+        </td>
+        <td>
+			@item.UsesBoth
+        </td>
+        <td>
+			@item.Shifts
+        </td>
+        <td>
+			@item.ManagerMenu
+        </td>
+        <td>
+			@item.Tables
+        </td>
+        <td>
+			@item.Payments
+        </td>
+        <td>
+			@item.Reporting
+        </td>
+        <td>
+			@item.Sales
+        </td>
+        <td>
+			@item.Pricing
+        </td>
+        <td>
+			@item.Barcoding
+        </td>
+        <td>
+			@item.AddsProducts
+        </td>
+        <td>
+			@item.Purchases
+        </td>
+        <td>
+			@item.ManageUsers
+        </td>
+        <td>
+			@item.ManagePos
+        </td>
+        <td>
+			@item.Transfers
+        </td>
+        <td>
+			@item.Accounts
+        </td>
+        <td>
+			@item.OnShift
+        </td>
+        <td>
+			@item.xreport
+        </td>
+        <td>
+			@item.zreport
+        </td>
+        <td>
+			@item.voidsale
+        </td>
+    </tr>
+}
+
+</table>
+
+

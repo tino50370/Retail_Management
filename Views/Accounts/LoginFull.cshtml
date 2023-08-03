@@ -1,0 +1,60 @@
+﻿@model RetailKing.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+ <section class="main-content col-lg-13 col-md-12 col-sm-12">
+    
+         <div class="row">
+             @using (Html.BeginForm("Login", "Accounts", FormMethod.Post, new { enctype = "multipart/form-data", @name = "loginAccount", id = "loginAccount" }))
+             {
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+
+                     <div class="carousel-heading no-margin">
+                         <h4>Your account details</h4>
+                     </div>
+
+                     <div class="page-content">
+                         <p>If you are already registered please login directly here</p>
+                         <div class="row">
+                             <div class="col-lg-6 col-md-6 col-sm-6">
+                                 <div class="iconic-input">
+                                     @Html.TextBoxFor(m => m.User, new { placeholder = "Email Address" })
+                                     @Html.ValidationMessageFor(model => model.User )
+                                     <i class="icons icon-user-3"></i>
+                                 </div>
+                             </div>
+                             <div class="col-lg-6 col-md-6 col-sm-6">
+                                 <div class="iconic-input">
+                                     @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+                                     @Html.ValidationMessageFor(model => model.Password )
+                                     <i class="icons icon-lock"></i>
+                                 </div>
+                             </div>
+                         </div>
+                         <input type="checkbox" id="login-remember-2"> <label for="login-remember-2">Remember me</label>
+                         <br /><br />
+                         @Html.ValidationSummary(true)
+                         <div class="row">
+                             <div class="col-lg-6 col-md-6 col-sm-6 align-left">
+                                 <input type="submit" class="orange" value="Login">
+                             </div>
+                             <div class="col-lg-6 col-md-6 col-sm-6 align-right">
+                                 <small>
+                                     <a class="align-right" href="#">Forgot your password?</a>
+                                     <br>
+                                     <a class="align-right" href="#">Forgot your username?</a>
+                                     <br>
+                                 </small>
+                             </div>
+                         </div>
+                     </div>
+
+                 </div>
+             }
+         </div>
+     
+</section>
+
+
+            

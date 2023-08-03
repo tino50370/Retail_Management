@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/themes/base/jquery.ui.datepicker.css")" media="screen" />
+
+    <link href="@Url.Content("~/Content/Administration/css/bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Administration/fonts/css/font-awesome.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Administration/css/animate.min.css")" rel="stylesheet">
+    <!-- Custom styling plus plugins -->
+    <link href="@Url.Content("~/Content/Administration/css/custom.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Administration/css/icheck/flat/green.css")" rel="stylesheet">
+
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/fancybox/jquery-1.10.2.min.js")"></script>
+    <script src="@Url.Content("~/Content/Administration/js/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/backOffice/inventoryGesture.js")" type="text/javascript"></script>
+
+   
+    @if (Request.IsAuthenticated)
+    {
+        <script type="text/javascript">
+            $(document).ready(function (event) {
+                Company = '@ViewData["ActiveCo"]';
+                $("#activeco").val(Company);
+                GetSidemenu();
+                GetTopmenu();
+                GetActiveCo();
+
+            });
+        </script>
+    }
+</head>
+<body class="login">
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+        <div class="login_wrapper">
+            @RenderBody()
+        </div>
+    </div>
+
+        <script src="@Url.Content("~/Content/Administration/js/bootstrap.min.js")"></script>
+        <!-- bootstrap progress js -->
+        <script src="@Url.Content("~/Content/Administration/js/progressbar/bootstrap-progressbar.min.js")"></script>
+        <script src="@Url.Content("~/Content/Administration/js/nicescroll/jquery.nicescroll.min.js")"></script>
+        <!-- icheck -->
+        <script src="@Url.Content("~/Content/Administration/js/icheck/icheck.min.js")"></script>
+        <script src="@Url.Content("~/Content/Administration/js/custom.js")"></script>
+        <!-- pace -->
+        <script src="@Url.Content("~/Content/Administration/js/pace/pace.min.js")"></script>
+
+</body>
+
+
+</html>

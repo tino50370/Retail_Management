@@ -1,0 +1,94 @@
+@model RetailKing.Models.Asset
+
+@{
+    ViewBag.Title = "Edit";
+}
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatus');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                //bar.width('0%');
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                // bar.width(pVel);
+                // alert("progress");
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                try {
+                    var resp = $.parseJSON(result);
+
+                    if (resp == "error") {
+                        alert("An error occured during upload.\r\n Your file has not been uploaded")
+                        status.fadeOut(800);
+                    }
+                    else if (resp == "Format") {
+                        alert("Your file format is not supported. Please select a video file")
+                        status.fadeOut(800);
+                    }
+                    else if (resp == "No File") {
+                        alert("Please select a video to upload")
+                        status.fadeOut(800);
+                    }
+                }
+                catch (error) {
+
+                    $('#panel').html(result);
+                    status.fadeOut(800);
+                }
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                // $('#panel').html(errorThrown);
+                status.fadeOut(800);
+            }
+
+        };
+        $("#createMailTemplate").ajaxForm(options);
+
+    });
+</script>
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Edit Asset</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <div class="col-md-8">
+                        @using (Html.BeginForm("Edit", "Asset", FormMethod.Post, new { enctype = "multipart/form-data", @name = "createMailTemplateP", id = "createMailTemplate" }))
+                        {
+                            @Html.ValidationSummary(true)
+                            @Html.AntiForgeryToken()
+                            <fieldset>
+                               
+
+                                @Html.HiddenFor(model => model.Id)
+                                @Html.Partial("_CreateOrEdit", Model)
+
+                                <p>
+                                    <input type="submit" value="Save" />
+                                </p>
+                            </fieldset>
+                        }
+                        <br />
+                        <div>
+                            <button class="btn btn-success" onclick="SaveView('editAsset')">Save</button>
+                            <button class="btn btn-warning" onclick="GetView('@Url.Action("Index", "Asset")')">Cancel</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

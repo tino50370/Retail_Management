@@ -1,0 +1,196 @@
+﻿@model RetailKing.Models.Invite 
+
+@{
+    ViewBag.Title = "CreateAcount";
+}
+<script type="text/javascript">
+       $(document).ready(function () {
+         
+           $("#City").change(function () {
+             
+              $.ajax({
+                  type: "Get",
+                  url: '@Url.Action("GetRegions", "Accounts")',
+                  dataType: 'html',
+                  data: {
+                      Id: $("#City").val()
+                    
+                  },
+                  success: function (resp) {
+
+                      $("#Region_select").html(resp);
+                      $("#Suburb").empty();
+                  },
+                  error: function (data) {
+                  }
+              });
+          });
+
+           $("#Region").change(function () {
+              
+              var xx = $("#Region").val();
+              $.ajax({
+                  type: "Get",
+                  url: '@Url.Action("GetSuburbs", "Accounts")',
+                  dataType: 'html',
+                  data: {
+                      Id: xx 
+                  },
+                  success: function (resp) {
+                       $("#Suburb_select").html(resp);
+                      
+                  },
+                  error: function (data) {
+                  }
+              });
+          });
+
+         
+      });
+</script>
+
+<div>
+
+    @using (Html.BeginForm("Invite", "Accounts", FormMethod.Post, new { id = "createCustomers" }))
+    {
+        @Html.AntiForgeryToken()
+     
+
+        @Html.HiddenFor(m => m.ParentId)
+
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="breadcrumbs">
+                <p><a href="#">Home</a> <i class="icons icon-right-dir"></i> Friend Invite</p>
+            </div>
+        </div>
+
+            <!-- Main Content -->
+        <section class="main-content col-lg-9 col-md-9 col-sm-9">
+
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 register-account">
+
+                    <div class="carousel-heading no-margin">
+                        <h4>Friend Invite</h4>
+                    </div>
+
+                    <div class="page-content">
+                        
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <p><strong>Friend's information</strong></p>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Friend's Name*</p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.TextBoxFor(m => m.FriendName, new { placeholder = "Friend's Name" })
+                                @Html.ValidationMessageFor(model => model.FriendName)
+                            </div>
+
+                          
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Friend's E-Mail*</p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.TextBoxFor(m => m.Email, new { placeholder = "Friend's Email Address" })
+                                @Html.ValidationMessageFor(model => model.Email )
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <input class="big" type="submit" value="Send Invite">
+                                <input class="big" type="reset" value="Clear">
+                            </div>
+                            @if (ViewData["Resp"].ToString() == "Success")
+                            {
+                                <div class="col-lg-12 col-md-12 col-sm-12" id="Succes" style=" border: 1px solid #2ECC9F;color:#2ECC9F; padding:8px 8px 8px 8px ;  margin-top:10px;margin-bottom: 20px; width:99%;height:40px">
+                                    An invitation email has been sent to you friend successfully.
+                                </div>
+                            }
+                            else if (ViewData["Resp"].ToString() == "Error")
+                            {
+                                <div class="col-lg-12 col-md-12 col-sm-12"  id="Erro" style=" border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:99%;height:40px">
+                                    Your invite has not been sent. an error occured.
+                                </div>
+                            }
+                           
+                        </div>
+             
+            
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    }
+            <!-- /Main Content -->
+            <!-- Sidebar -->
+    <aside class="sidebar col-lg-3 col-md-3 col-sm-3 right-sidebar">
+
+        <!-- Categories -->
+        <div class="row sidebar-box purple">
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="sidebar-box-heading">
+                    <i class="icons icon-folder-open-empty"></i>
+                    <h4>Categories</h4>
+                </div>
+                @{
+                         var cats = (from e in Model.categories.Where(u => u.AccountCode.Length == 4) select e).ToList();
+                }
+                <div class="sidebar-box-content">
+                    <ul>
+                        @foreach (var cat in cats)
+                            {
+                                var subcats = (from e in Model.categories.Where(u => u.AccountCode.StartsWith(cat.AccountCode + "-")) select e).ToList();
+                            <li>
+                                <a href="@Url.Action("Index", "Category", new { id=cat.AccountName  })">@cat.AccountName <i class="icons icon-right-dir"></i></a>
+                                @if (subcats.Count > 0)
+                                    {
+                                        int runs = subcats.Count / 5;
+                                        if (subcats.Count % 5 != 0)
+                                        { runs = runs + 1; }
+                                    <ul class="sidebar-dropdown">
+                                        @for (int i = 0; i < runs; i++)
+                                            {
+                                                var top5 = (from e in subcats.Skip(i) select e).Take(5);
+                                            <li>
+                                                <ul>
+                                                    @foreach (var scat in subcats)
+                                                        {
+                                                        <li>
+                                                            <a href="@Url.Action("Index", "Category", new { id = scat.AccountName }) ">@scat.AccountName</a>
+                                                        </li>
+                                                        }
+                                                </ul>
+                                            </li>
+                                            }
+
+                                    </ul>
+                                    }
+                            </li>
+                            }
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /Categories -->
+       
+ 
+
+    </aside>
+
+            <!-- /Sidebar -->
+    </div>

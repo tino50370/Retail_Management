@@ -1,0 +1,171 @@
+@model RetailKing.Models.Item
+
+@{
+    ViewBag.Title = Model.ItemName;
+}
+
+<!-- Main Content -->
+    <div id="monthdata">
+        <section class="main-content col-lg-12 col-md-12 col-sm-12">
+            <div style="margin:10px 10px" id="product-single">
+                <!-- Product -->
+                <div class="product-single">
+
+                    <div class="row">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 product-single-info">
+
+                            <h2>@Model.ItemName</h2>
+
+                            @if (Model.Promotion.Trim() == "YES")
+                            {
+                                if (Model.DicountType.Trim() == "PERCENT")
+                                {
+                                    var newpriz = Model.SellingPrice - (Model.SellingPrice * (Model.Discount / 100));
+                                    <span class="price"><del>$@Model.SellingPrice.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</del> $@newpriz.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)  </span>
+                                }
+                                else
+                                {
+                                    var newpriz = Model.SellingPrice - Model.Discount;
+                                    <span class="price"><del>$@Model.SellingPrice.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</del> $@newpriz.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </span>
+                                }
+                            }
+                            else
+                            {
+                                <span class="price"> $@Model.SellingPrice.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) </span>
+                            }
+                            <br />
+                            <table class="table" style="width:100%">
+                                <tbody>
+                                    @{
+                                        var cnt = 0;
+                                        var pmonth = "";
+                                    }
+                                    @foreach (var item in Model.Availability)
+                                    {
+                                        if (pmonth == "")
+                                        {
+                                            pmonth = item.DeshelvingDate.Value.ToString("MMMM");
+
+                                            <tr>
+                                                <td style="text-align:center" >
+                                                    <div class="cart-carousel-heading">
+
+                                                        <h4> @item.DeshelvingDate.Value.ToString("MMMM yyyy")</h4>
+                                                        <div class="cart-carousel-arrows">
+                                                            <i class="icons icon-right-dir" onclick="NextMonth('@ViewData["Id"]','@ViewData["Today"].ToString()')"></i>
+                                                            <i class="icons icon-right-2" onclick="NextQuarter('@ViewData["Id"]','@ViewData["Today"].ToString()')"></i>
+                                                        </div>
+                                                        <div class="cart-carousel-arrows" style="float:left">
+                                                            <i class="icons icon-left-2" onclick="PrevQuarter('@ViewData["Id"]','@ViewData["Today"].ToString()')"></i>
+                                                            <i class="icons icon-left-dir" onclick="PrevMonth('@ViewData["Id"]','@ViewData["Today"].ToString()')" style="border-right: 1px solid white "></i>
+
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        }
+                                        else if (pmonth != item.DeshelvingDate.Value.ToString("MMMM"))
+                                        {
+                                            pmonth = item.DeshelvingDate.Value.ToString("MMMM");
+                                            <tr>
+                                                <td style="text-align:center; font-size:large; font-weight:bold; color:orange" >
+                                                    <div class="carousel-heading">
+
+                                                        <h4> @item.DeshelvingDate.Value.ToString("MMMM yyyy")</h4>
+                                                        <div class="carousel-arrows">
+                                                            <i class="icons icon-right-dir"></i>
+                                                            <i class="icons icon-right-2 "></i>
+                                                        </div>
+                                                        <div class="carousel-arrows" style="float:left">
+                                                            <i class="icons icon-left-2"></i>
+                                                            <i class="icons icon-left-dir" style="border-right: 1px solid white "></i>
+
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        }
+                                        cnt++;
+                                        <tr style="border-bottom:1px solid #eeeeee">
+                                            <td  style="background-color:#fff;color:#000">
+                                                <div class="col-md-1 col-md-12 col-sm-12">
+                                                    <label style="color:#2E3192">Week</label>
+                                                    @item.Barcode
+                                                </div>
+                                                <div class="col-md-2 col-md-12 col-sm-12">
+                                                    <label style="color:#2E3192">Delivery Date</label>
+                                                    @item.DeshelvingDate.Value.ToString("dddd dd")
+                                                </div>
+                                                <div class="col-md-3 col-md-12 col-sm-12">
+                                                    <label style="color:#2E3192">Collection Points</label>
+                                                    @{ string dnam = "Cpoints_" + item.ID;}
+                                                    @Html.DropDownList(dnam, new SelectList((IEnumerable<SelectListItem>)item.collectionPoints, "Value", " Text"))
+                                                </div>
+                                                <div class="col-md-2 col-md-12 col-sm-12">
+                                                    <label style="color:#2E3192">Chicks Available</label>
+                                                    @String.Format("{0:0,0}", item.quantity)
+                                                </div>
+                                                <div class="col-md-2 col-md-12 col-sm-12">
+                                                    <label style="color:#2E3192">Order Quantity</label>
+                                                    <div class="numeric-input">
+                                                        <input id="quantity_@item.ID" type="text" value="1">
+                                                        <span class="arrow-up"><i class="icons icon-up-dir"></i></span>
+                                                        <span class="arrow-down"><i class="icons icon-down-dir"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-md-12 col-sm-12">
+                                                    <a style="cursor:pointer" onclick="AddToCartFinal('@Model.ID','@Model.SellingPrice','@item.ID')">
+                                                        <span class="add-to-cart">
+                                                            <span class="action-wrapper">
+                                                                <i class="icons icon-basket-2"></i>
+                                                                <span class="action-name">Add to cart</span>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                            <table class="product-actions-single">
+                                @if (Model.ItemVariations.Count() != 0)
+                                {
+                                    <tr>
+                                        <td>@Model.ItemVariations.FirstOrDefault().VariationType:</td>
+                                        <td>
+                                            <select class="chosen-select">
+                                                @foreach (var it in Model.ItemVariations)
+                                                {
+                                                    <option value="@it.Id">@it.Description</option>
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                }
+
+
+                            </table>
+
+                            <div id="Error" style="display:none; border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:80%;height:40px">
+
+                            </div>
+                            <div id="Success" style="display:none; border: 1px solid #2ECC9F;color:#2ECC9F; padding:8px 8px 8px 8px ;  margin-top:10px;margin-bottom: 20px; width:80%;height:40px">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+<!-- /Main Content -->

@@ -1,0 +1,97 @@
+@model RetailKing.Models.Company
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.name)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.name)
+</div>
+
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.location)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.location, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.location)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Address1)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Address1, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Address1)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Address2)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Address2, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Address2)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Contact1)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Contact1, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Contact1)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Contact2)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Contact2, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Contact2)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Footer1)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Footer1, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Footer1)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Footer2)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Footer2, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Footer2)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Footer3)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Footer3, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Footer3)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.footer4)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.footer4, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.footer4)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.VatNo)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.VatNo, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.VatNo)
+</div>
+
+<div class="editor-field">
+    Upload Company logo : <input id="Image" type="file" name="Image" />
+    @Html.ValidationMessageFor(model => model.Logo)
+</div>

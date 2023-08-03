@@ -1,0 +1,129 @@
+﻿@model RetailKing.Models.MailList
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+<div class="editor-label">
+    @Html.Label("List Type")
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.ListType, new SelectList(new[] { "Mail", "Sms" }), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ListType)
+</div>
+<div class="editor-label">
+    @Html.Label("Service") <em style="color:orange"> use this to link list to a service</em>
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.ServiceId,
+                           new SelectList(
+                            ViewBag.Services,
+                             "Value",
+                                              "Text"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ServiceId)
+</div>
+<div class="editor-label">
+    @Html.LabelFor(model => model.EmailList)
+</div>
+
+<div class="editor-field">
+  @Html.Hidden("Contacts")
+    @Html.TextAreaFor(model => model.EmailList, new { @class = "form-control" })
+  @Html.ValidationMessageFor(model => model.EmailList)
+</div>
+<br/>
+
+<table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
+    <thead>
+        <tr>
+            <th><input type="checkbox" id="check-all" class="flat"></th>
+            <th>Name</th>
+            <th>Contact Person</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in ViewBag.Customer)
+        { 
+        <tr>
+            <td><input id="@item.Id" type="checkbox" class="flat chkbox" onchange="toggleCheckbox(this)" name="table_records"></td>
+            <td id="name_@item.Id">
+                @item.Name.Trim()
+            </td>
+            <td>
+                @item.ContactPerson
+            </td>
+            <td id="mail_@item.Id">
+                @item.Email
+            </td>
+            <td id="sms_@item.Id">
+                @item.PhoneNumber
+            </td>
+        </tr>
+        }
+    </tbody>
+    </table>
+
+    
+    <script type="text/javascript" >
+        var dd;
+        function toggleCheckbox(element) {
+            if (element.checked)
+            {
+                var vv = $("#ListType").val();
+                if (vv == "Mail") {
+                   // $('#EmailList').text($('#EmailList').val() + "," + $("#name_" + element.id).html().trim());
+                    var txt =$('#Contacts').text();
+                    $('#Contacts').text(txt + "," + $("#mail_" + element.id).html().trim());
+                    dd = $('#Contacts').text();
+                    document.getElementById('EmailList').value = dd;
+                    dd = "";
+
+                }
+                else
+                {
+                   // $('#EmailList').text($('#EmailList').val() + "," + $("#name_" + element.id).html().trim());
+                    var txt = $('#Contacts').text();
+                    $('#Contacts').text($('#Contacts').val() + "," + $("#sms_" + element.id).html().trim());
+                    dd = $('#Contacts').text();
+                    document.getElementById('EmailList').value = dd;
+                    dd = "";
+                }
+            }
+            else 
+            {
+                var vv = $("#ListType").val();
+                if (vv == "Mail") {
+                    var rr = $("#mail_" + element.id).html().trim();
+                    rr = ',' + rr;
+                    dd = $('#Contacts').text();
+                   var neu= dd.replace(rr, '');
+                   $('#Contacts').text(neu);
+                    dd = neu
+                   document.getElementById('EmailList').value = neu;
+                   rr = "";
+                   neu = "";
+                  
+                }else 
+                {
+                    var rr = $("#sms_" + element.id).html().trim();
+                    rr = ',' + rr;
+                    dd = $('#Contacts').text();
+                    var neu = dd.replace(rr, '');
+                    $('#Contacts').text(neu);
+                    dd = neu
+                    document.getElementById('EmailList').value = neu;
+                    rr = "";
+                    neu = "";
+                    
+                }
+            }
+        }
+    </script>
+

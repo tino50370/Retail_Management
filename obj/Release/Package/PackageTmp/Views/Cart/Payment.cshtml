@@ -1,0 +1,144 @@
+﻿@model IEnumerable<RetailKing.Models.PaymentType>
+
+@{
+    ViewBag.Title = "Payment";
+    double dd = double.Parse(ViewData["Total"].ToString());
+}
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="breadcrumbs">
+        <p><a href="#">Home</a> <i class="icons icon-right-dir"></i>Payment</p>
+    </div>
+</div>
+
+<!-- Main Content -->
+<section class="main-content col-lg-12 col-md-12 col-sm-12">
+
+    <div class="row">
+
+        <!-- Heading -->
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="carousel-heading">
+                <h4>Payment Options</h4>
+
+            </div>
+
+        </div>
+        <!-- /Heading -->
+
+    </div>
+
+    
+    <div class="row">
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <table class="order-table">
+                <tr style="background-color:#9B59B6;color:#ffffff">
+                    <td>Order Number</td>
+                    <td>@ViewData["OrderNumber"]</td>
+                    <td>Status</td>
+                    <td>@ViewData["OrderStatus"]</td>
+                    <td>Total</td>
+                    <td>@dd.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</td>
+                </tr>
+                <tr>
+                    <th colspan="6">Select a payment method</th>
+                    
+                </tr>
+                @foreach (var item in Model)
+                {
+
+                    if (item.trantype.Trim() == "MobileMoney")
+                    {
+                        <tr style="cursor: pointer" onclick="ShowPayOption('@item.ID')">
+                            <td style="vertical-align:middle " colspan="2"><img style=" width:100px" src="@Url.Content(@item.Logo)" alt=""></td>
+                            <td style="vertical-align:middle " colspan="4">@item.Name</td>
+                        </tr>
+                    <tr id="details-@item.ID"style="background-color:#F5791F;color:#fff;font-weight:bold;display:none ">
+                        <td style="vertical-align:middle ">@item.AccountName</td>
+                        <td style="vertical-align:middle ">@item.ProviderAccount</td>
+                        <td style="vertical-align:middle " colspan="4">@Html.TextBox("merchant", "", new { Id = "v_" + item.ID, @style = "width:100%; color:#596067", placeholder = "Enter Transaction Reference" })</td>
+                    </tr>
+                    <tr id="action-@item.ID" style="display:none;background-color:#fff;height:70px">
+                        <td style="vertical-align:middle " colspan="6">
+                            <div>
+                                <span><a onclick="Pay('@item.ID')" style="float:right; margin-left:10px;" class="button big blue">Verify Payment</a></span>
+                                <span><a style="float:right" class="button big" onclick="HidePayOption('@item.ID')">Cancel</a></span>
+                            </div>
+
+                        </td>
+                    </tr>
+                        if (ViewData["Status"].ToString() == "Error" && ViewData["Type"].ToString() == "MobileMoney")
+                        {
+                            <tr id="error_@item.ID" style="background-color:#E74C3C;color:#fff;font-weight:bold ">
+                                <td id="error_td_@item.ID" colspan="6"> This payment can not be initiated please try again later!</td>
+                            </tr>
+                        }
+                        else if (ViewData["Status"].ToString() != "init" && ViewData["Type"].ToString() == "MobileMoney")
+                        {
+                            <tr id="error_@item.ID" style="background-color:#E74C3C;color:#fff;font-weight:bold ">
+                                <td id="error_td_@item.ID" colspan="6"> @ViewData["Status"]</td>
+                            </tr>
+                        }
+
+                    }
+                    else if (item.trantype.Trim() == "PaymentGateway")
+                    {
+                        <tr style="cursor: pointer">
+                            <td style="vertical-align:middle " colspan="2"><a href="@Url.Action("Paynow", "Cart", new { Id = ViewData["OrderNumber"] })"><img src="@Url.Content(@item.Logo)" alt=""></a></td>
+                            <td style="vertical-align:middle " colspan="4">@item.Name</td>
+                        </tr>
+                        if (ViewData["Status"].ToString() == "Error" && ViewData["Type"].ToString() == "PaymentGateway")
+                        { 
+                            <tr id="error_@item.ID" style="background-color:#E74C3C;color:#fff;font-weight:bold ">
+                                <td id="error_td_@item.ID" colspan="6"> This payment can not be initiated please try again later!</td>
+                            </tr>
+                        }
+                        else if (ViewData["Status"].ToString() != "init" && ViewData["Type"].ToString() == "PaymentGateway")
+                        {
+                            <tr id="error_@item.ID" style="background-color:#E74C3C;color:#fff;font-weight:bold ">
+                                <td id="error_td_@item.ID" colspan="6"> @ViewData["Status"]</td>
+                            </tr>
+                        }
+                    }
+                    else if (item.trantype.Trim() == "PaymentWallet")
+                    {
+                        <tr style="cursor: pointer">
+                            <td style="vertical-align:middle " colspan="2"><a href="@Url.Action("Wallet", "Cart", new { Id = ViewData["OrderNumber"] })"><img style=" width:100px" src="@Url.Content(@item.Logo)" alt=""></a></td>
+                            <td style="vertical-align:middle " colspan="4">@item.Name</td>
+                        </tr>
+                        if (ViewData["Status"].ToString() == "Error" && ViewData["Type"].ToString() == "PaymentWallet")
+                        {
+                            <tr id="error_@item.ID" style="background-color:#E74C3C;color:#fff;font-weight:bold ">
+                                <td id="error_td_@item.ID" colspan="6"> This payment can not be initiated please try again later!</td>
+                            </tr>
+                        }
+                        else if (ViewData["Status"].ToString() != "init" && ViewData["Type"].ToString() == "PaymentWallet")
+                        {
+                            <tr id="error_@item.ID" style="background-color:#E74C3C;color:#fff;font-weight:bold ">
+                                <td id="error_td_@item.ID" colspan="6"> @ViewData["Status"]</td>
+                            </tr>
+                        }
+                    }
+                }
+                <tr id="error" style="background-color:#E74C3C;color:#fff;font-weight:bold;display:none ">
+                    <td id="error_td">
+                        Sorry the is an error in the payment. Please try again.
+                    </td>
+                </tr>
+                <tr id="No" style="background-color:#E74C3C;color:#fff;font-weight:bold;display:none ">
+                    <td id="No_td">
+                        Your transaction was not found please try to confirm payment again checking your respense code.
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+
+</section>
+<!-- /Main Content -->

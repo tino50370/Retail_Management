@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Quicksand</title>
+		
+		<link rel="stylesheet" href="styles/main.css" />
+		<!--[if IE 7]><link rel="stylesheet" href="styles/ie7.css" /><![endif]-->		 
+		
+		<!-- DO NOT USE THESE FILES. they are compiled for fast http access -->
+		<!-- if you’re looking for source, download or read documentation -->
+		<script src="scripts/assets/jquery-1.4.1-and-plugins.min.js" type="text/javascript"></script>
+		<script src="scripts/main.js" type="text/javascript"></script>
+
+	</head>
+	<body>
+
+		<div id="wrapper">
+			<div id="site">
+				<div id="title">
+					<h1>Quicksand<span></span></h1>
+					<p>Reorder and filter items with a nice shuffling animation.</p>
+					<a href="index.html">Home</a>
+				</div>
+			
+				<h2 class="splitter">About</h2>
+			
+				<p>I love Mac apps, especially for their attention to detail. CoreAnimation makes it so easy to create useful
+				and eye-pleasing effects, <a href="http://www.viddler.com/explore/37signals/videos/90/8.805/">like the one in
+				this video</a>. Quicksand aims at providing a similar experience for users on the web.</p>
+
+				<h2 class="splitter">Documentation</h2>
+			
+				<h3 class="header">How it works</h3>
+
+				<p>At the very basic level, <strong>Quicksand replaces one collection of items with another</strong>. All you
+				need to do is provide those two sets of items. You can do it in a couple of ways:</p>
+			
+				<ol>
+					<li>Use plain HTML, like an unordered list.</li>
+					<li>Download data by an Ajax call</li>
+					<li>Transform HTML items by JavaScript (for example, sort them differently)</li>
+				</ol>
+			
+				<h3 class="header">Calling</h3>
+			
+				<pre><code>$('<span class="code-source">#source</span>').quicksand( $('<span class="code-dest">#destination</span> <span class="code-dest-item">li</span>') );</code></pre>
+			
+				<p>This will work for the following HTML:</p>
+			
+	<pre><code>&lt;ul <span class="code-source">id=&quot;source&quot;</span>&gt;
+	&lt;li data-id=&quot;iphone&quot;&gt;iPhone OS&lt;/li&gt;
+	&lt;li data-id=&quot;android&quot;&gt;Android&lt;/li&gt;
+	&lt;li data-id=&quot;winmo&quot;&gt;Windows Mobile&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul <span class="code-dest">id=&quot;destination&quot;</span> class=&quot;hidden&quot;&gt;
+	<span class="code-dest-item">&lt;li data-id=&quot;macosx&quot;&gt;</span>Mac OS X<span class="code-dest-item">&lt;/li&gt;</span>
+	<span class="code-dest-item">&lt;li data-id=&quot;macos9&quot;&gt;</span>Mac OS 9<span class="code-dest-item">&lt;/li&gt;</span>
+	<span class="code-dest-item">&lt;li data-id=&quot;iphone&quot;&gt;</span>iPhone OS<span class="code-dest-item">&lt;/li&gt;</span>
+&lt;/ul&gt;</code></pre>
+
+				<p class="note"><strong>Please note that <code>data-*</code> is a perfectly valid HTML5 attribute</strong>. If
+				you’re using older doctype, you can use a different attribute or even a custom function to
+				identify unique elements. See the <a href="docs-and-demos.html#examples">examples</a> for more.</p>
+				
+				 <p>First container (<code>source</code>) is visible to the user. Second container (<code>destination</code>)
+				is provided as the first argument of Quicksand.</p>
+				
+				 <p>You need <code>data-id</code> attributes so that the plugin can identify the same elements within source
+				and destination collections. If elements exists in both collections (the same <code>data-id</code>), it’s the
+				same to Quicksand.</p>
+			
+				<p>If you want to include a callback function, add it as a <strong>last argument</strong>:</p>
+			
+				<pre><code>$('#source').quicksand( $('#destination li'), function() {
+	// callback code
+});</code></pre>
+			  
+			  
+			  <h3 class="header">CSS recommendations</h3>
+			  
+			  <ol>
+			    <li>When styling your items and their container, please use CSS class. Using ID may lead to strange results. Quicksand clones the container to simulate destination frame of the animation. Since it's impossible for two elements of the same ID to exist, styling your items/container via container ID should be avoided.</li>
+			    <li>Quicksand needs to know the margin of body, container and collection items. If these elements have their margins, please use px (pixels), not ems. The plugin doesn't understand ems for now.</li>
+			  </ol>
+			  
+				<h3 class="header">Parameters</h3>
+			
+				<p>You can modify Quicksand by using optional parameters argument.</p>
+			
+				<pre><code>$('#source').quicksand( $('#destination li'), {
+	name: value
+});</code></pre>
+
+				<p>Or</p>
+			
+				<pre><code>$('#source').quicksand( $('#destination li'), {
+	name: value
+}, function() {
+	// callback code
+});</code></pre>
+			
+				<p>List of available params:</p>
+			
+				<table>
+					<colgroup>
+						<col class="param-name" />
+						<col class="param-default" />
+						<col class="param-desc" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">Name</th>
+							<th scope="col">Default</th>
+							<th scope="col">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>adjustHeight</code></td>
+							<td><code>'auto'</code></td>
+							<td>Adjusts the height of container to fit all the items, <code>'auto'</code> for automatically adjusting before or after the animation (determined automatically), <code>'dynamic'</code> for height adjustment animation, <code>false</code> for keeping the height constant.</td>
+						</tr>
+						<tr>
+							<td><code>attribute</code></td>
+							<td><code>'data-id'</code></td>
+							<td>Attribute used to match items in collections. You can provide custom function to extract unique values (see the <a href="docs-and-demos.html#examples">demos</a>)</td>
+						</tr>
+						<tr>
+							<td><code>duration</code></td>
+							<td><code>750</code></td>
+							<td>How long the animation will take. In milliseconds.</td>
+						</tr>
+						<tr>
+							<td><code>easing</code></td>
+							<td><code>'swing'</code></td>
+							<td>Easing for the animation. Use <a href="../gsgd.co.uk/sandbox/jquery/easing/easing.html">jQuery easing plugin</a> for more easing options.</td>
+						</tr>
+						<tr>
+							<td><code>enhancement</code></td>
+							<td><code>function() {}</code></td>
+							<td>If you wish to integrate their visual enhancements (eg. font replacement), specify a function that refreshes or re-applies enhancement to an item during the animation.</td>
+						</tr>
+						<tr>
+							<td><code>useScaling</code></td>
+							<td><code>true</code></td>
+							<td>Use scaling (CSS3 transform) animation. Requires to include <a href="../www.zachstronaut.com/posts/2009/08/07/jquery-animate-css-rotate-scale.html">this plugin</a> to your project. Turned off automatically if you did not.</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<h3 class="header" id="performance">Performance</h3>
+				
+				<p><strong>Version 1.2</strong> features major performance tweaks out of the box. To improve performance, you can:</p>
+				<ol>
+					<li>turn off <code>useScaling</code> option to stop using CSS3 transforms in the animation</li>
+					<li>stop using <code>adjustHeight: 'dynamic'</code> in favor of <code>false</code> or <code>'auto'</code>.</li>
+				</ol>
+				
+				<h3 class="header" id="integration">Integration with other plugins</h3>
+				<p>When your items have functional enhancements (eg. tooltips), remember to use callback to apply them on newly cloned objects:</p>
+
+				<pre><code>
+$("#content").quicksand($("#data > li"), 
+  {
+    duration: 1000,
+  }, function() { // callback function
+    $('#content a').tooltip();
+  }
+);
+        </code></pre>
+        
+        <p>When your items are visually enhanced (eg. font replacement), use <code>enhancement</code> function to refresh/apply the effect during the animation:</p>
+
+        <pre><code>
+$("#content").quicksand($("#data > li"), 
+  {
+    duration: 1000,
+    enhancement: function() {
+      Cufon.refresh('#content span');
+    }
+  }
+);
+				</code></pre>
+				
+				
+				
+				
+				<h2 class="splitter" id="examples">Examples</h2>
+			
+				<p>As it was stated earlier, Quicksand works by comparing two collections of items and replacing them. It’s
+				that simple.</p>
+				
+				 <p>Advanced demonstrations include custom jQuery code to achieve some of the goals, like sorting or making
+				Ajax calls. This code can be copied &amp; used freely, but it’s not part of the plugin.</p>
+			
+				<ol>
+					<li><a href="demos/two-sets-diff.html">Two different sets of HTML</a></li>
+					<li class="spaced"><a href="demos/two-sets-replace.html">Two sets of HTML with overlapping elements</a></li>
+					<li><a href="demos/one-set-clone.html">Advanced: Sorting one set of HTML (cloning)</a></li>
+					<li><a href="demos/attribute.html">Advanced: Custom attribute function (getting rid of <code>data-*</code> attributes)</a></li>
+					<li><a href="demos/ajax.html">Advanced: Ajax call</a></li>
+				</ol>
+			
+				<h2 class="splitter">So, go ahead and…</h2>
+
+				<div class="actions actions-two">
+					<p>
+						<a class="download" href="https://github.com/razorjack/quicksand/raw/master/jquery.quicksand.js">
+							<strong>Download</strong>
+							<span>Version <span class="version">1.2.2</span></span>
+						</a>
+					</p>
+					<p>
+						<a class="fork" href="http://github.com/razorjack/quicksand/">
+							<strong>Fork on GitHub</strong>
+						</a>
+					</p>
+				</div>
+						
+				
+				
+				<h2 class="splitter">FAQ</h2>
+				<ol class="faq">
+				  <li>
+				    <p class="question">I get an error <q>TypeError: Result of expression ... easing ...  [undefined] is not a function</q>. What happened?</p>
+				    <p>You are using easing effect that's not built-in and forgot to include jQuery.easing plugin. You can <a href="../gsgd.co.uk/sandbox/jquery/easing/easing.html">download it from its home page</a>. Alternatively, remove easing from your Quicksand options to stick with the default <code>swing</code> effect. It's not that bad!</p>
+				  </li>
+				  <li>
+				    <p class="question">I would like to filter my items in a different way. How can I do it?</p>
+				    <p>There's only one thing that Quicksand can do and it's performing the animation. <strong>Quicksand does not filter and does not do any sorting</strong>. It's up to you to provide initial collection and destination collection. Yeah, a little custom programming is required.</p>
+				  </li>
+				  <li>
+				    <p class="question">How can I use Quicksand with radio buttons instead of links? I want to combine criteria when filtering my collection.</p>
+				    <p>You need to learn how to use callbacks in jQuery to handle changes in forms. Next, you have to study jQuery selectors to filter items the way you like. Quicksand generates the animated transition between elements. It's up to you to filter and sort.</p>
+				  </li>
+				  <li>
+				    <p class="question">I'm a designer and I don't know how to start...</p>
+				    <p>This plugin requires basic programming skills: using jQuery selectors and callbacks is a minimum knowledge required to implement it on your website. Copy-paste is cool but sorry dude, not this time. Good luck studying jQuery, it's not that hard!</p>
+				  </li>
+				</ol>
+						
+				
+				<h2 class="splitter misc">Other crap</h2>
+
+				<h3 class="header">Requirements and dependencies</h3>
+			
+				<ul>
+					<li class="spaced">Required: <strong>jQuery 1.3+</strong></li>
+					<li>Extra: Use <a href="../gsgd.co.uk/sandbox/jquery/easing/easing.html">jQuery Easing</a> for additional easing options (the best – <code>easeInOutQuad</code>)</li>
+					<li>Extra: Use <a
+					href="../www.zachstronaut.com/posts/2009/08/07/jquery-animate-css-rotate-scale.html">jQuery Animate CSS
+					Rotation and Scaling</a> for additional CSS3 scaling animation; works fine without this plugin (utilizes
+					fade efect instead)</li>
+				</ul>
+			
+				<h3 class="header">Browser compatibility</h3>
+
+				<p>Tested under:</p>
+
+				<ul>
+					<li>Safari 4+</li>
+					<li>Chrome 4+</li>
+					<li>Firefox 3.5+, Firefox 3.0</li>
+					<li>Opera 10.15+</li>
+					<li>Internet Explorer 7</li>
+					<li>Internet Explorer 8</li>
+				</ul>
+
+				<p><strong>No Internet Explorer 6 support</strong> is planned. Ever.</p>
+
+				<h3 class="header">Extra credits</h3>
+
+				<p>Huge thanks go to <a href="../riddle.pl/riddle_default.html">Piotr Petrus</a> for organizing the documentation, making
+				demos and creating this stunning design.</p>
+
+				<h3 class="header">Licensing</h3>
+
+				<p>Copyright © 2010 Jacek Galanciak, released under both <a
+				href="http://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt">MIT</a> and <a
+				href="http://github.com/jquery/jquery/blob/master/GPL-LICENSE.txt">GPL version 2</a> license.</p>
+			
+			</div>
+		</div>
+		
+		<p class="footer">
+			<span>Powered by <a href="../jquery.com/jquery_default.html">jQuery</a> – Made by <a href="../twitter.com/razorjack.htm">@razorjack</a> from <a href="../agilope.com/agilope_default.html">agilope</a></span>
+			<span>Design by <a href="../twitter.com/riddle.htm">@riddle</a></span>
+		</p>
+		
+		<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+			try {
+				var pageTracker = _gat._getTracker("UA-1121012-6");
+				pageTracker._trackPageview();
+			} catch(err) {}
+		</script>
+	
+	</body>
+</html>

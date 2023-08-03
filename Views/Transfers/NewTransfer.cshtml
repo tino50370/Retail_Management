@@ -1,0 +1,394 @@
+@model RetailKing.Models.TransfersQuote
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@if(Model.quote != null)
+{ 
+  <script type="text/javascript">
+    $(function (event) {
+
+        $("#SearchInItems").focus();
+        var typinTimer;
+      
+      
+        
+            Reciept = '@Model.quote.Reciept';
+          
+        
+        $("#Gcategory").change(function (event)
+        {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("IndexSearches", "PurchaseOrders")',
+                dataType: 'html',
+                data: {
+                    company: $("#activeco").text(),
+                    category: $("#Gcategory").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $.fancybox(resp, {
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+                   // $("#panel").html(resp);
+                },
+                error: function (data) {
+
+                }
+            });
+        });
+
+        $("#GSubCategory").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("IndexSearches", "PurchaseOrders")',
+                dataType: 'html',
+                data: {
+                    SubCategory: $("#GSubCategory").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                  //  $("#panel").html(resp);
+                    $.fancybox(resp, {
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+                },
+                error: function (data) {
+
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("IndexSearches", "Transfers")',
+                dataType: 'html',
+                data: {
+                    company: $("#activeco").text(),
+                    category: $("#Gcategory").val(),
+                    SubCategory: $("#GSubCategory").val(),
+                    ItemCode: '',
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    //$('#panel').html(resp);
+                    $.fancybox(resp, {
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#GSearchInItems").keyup(function () {
+            // event.preventDefault();
+            var s = $('#GSearchInItems').val();
+            // alert(s);
+            clearTimeout(typinTimer);
+            typinTimer = setTimeout(function () {
+                // alert($('#SearchInItems').val() );
+                if ($('#GSearchInItems').val() == s && $('#GSearchInItems').val() != "") {
+                    $.ajax({
+                        type: "Post",
+                        url: '@Url.Action("IndexSearches", "Transfers")',
+                        dataType: 'html',
+                        data: {
+                            company: $("#activeco").text(),
+                            category: $("#Gcategory").val(),
+                            SubCategory: $("#SGubCategory").val(),
+                            ItemCode: $("#SearchInItems").val(),
+                            iDisplayLength: $("#SizeR").val(),
+                            sEcho: 1
+                        },
+                        success: function (resp) {
+                            //$('#panel').html(resp);
+                            $.fancybox(resp, {
+                                openEffect: 'none',
+                                closeEffect: 'none'
+                            });
+                        },
+                        error: function (data) {
+                        }
+                    });
+                }
+            }, 2000);
+        });
+
+        $("#tableData input").keypress(function (e) {
+
+            if (e.keyCode == 13 || e.keyCode == 9) {
+                if (this.value == '') {
+                }
+                else {
+                    if (isNaN(this.value / 1) == false) {
+                        var dd = this.id;
+                        ItemCode = dd;
+                        Qty = this.value;
+                        $.ajax({
+                            type: "Get",
+                            url: '@Url.Action("newStock", "Transfers")',
+                            dataType: 'html',
+                            data: {
+                                company: $("#activeco").text(),
+                                Qty: this.value,
+                                Reciept: Reciept,
+                                Supplier: Supplier,
+                                ItemCode: this.id
+                            },
+                            success: function (resp) {
+                                $.fancybox(resp, {
+                                    openEffect: 'none',
+                                    closeEffect: 'none'
+                                });
+                            },
+                            error: function (data) {
+                            }
+                        });
+                    }
+                    else {
+                        alert("Please enter numbers only");
+                    }
+                }
+            }
+        });
+
+        $("#tableData input").focusout(function () {
+            if (this.value == '') {
+            }
+            else {
+                if (isNaN(this.value / 1) == false) {
+                    var dd = this.id;
+                    ItemCode = dd;
+                    Qty = this.value;
+                    $.ajax({
+                        type: "Get",
+                        url: '@Url.Action("newStock", "Transfers")',
+                        dataType: 'html',
+                        data: {
+                            company: $("#activeco").text(),
+                            Qty: this.value,
+                            Reciept: Reciept,
+                            Supplier: Supplier,
+                            ItemCode: this.id
+                        },
+                        success: function (resp) {
+                            $.fancybox(resp, {
+                                openEffect: 'none',
+                                closeEffect: 'none'
+                            });
+                        },
+                        error: function (data) {
+                        }
+                    });
+                }
+                else {
+                    alert("Please enter numbers only");
+                }
+            }
+        })
+
+    });
+
+      function AddItem() {
+          event.preventDefault();
+          $.ajax({
+              type: "Get",
+              url: '@Url.Action("IndexSearches", "Transfers")',
+              dataType: 'html',
+              data: {
+                  company: $("#activeco").text(),
+                  sEcho: 1
+              },
+              success: function (resp) {
+                  //$('#panel').html(resp);
+                  $.fancybox(resp, {
+                      openEffect: 'none',
+                      closeEffect: 'none'
+                  });
+              },
+              error: function (data) {
+              }
+          });
+      };
+
+</script>
+  <div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <div class="row">
+  
+                    <section class="content invoice">
+                        <!-- title row -->
+                        <div class="row">
+                            <div class="col-xs-12 invoice-header">
+                                <h1>
+                                     Transfers
+                                    <small class="pull-right">Date: @Model.quote.dated.Value.ToString("dd/MM/yyyy")</small>
+                                </h1>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- info row -->
+                        <div class="row invoice-info">
+                            <div class="col-sm-4 invoice-col">
+                                
+                                <address>
+                                    <strong> </strong>
+                                    
+                                </address>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4 invoice-col">
+                                
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4 invoice-col">
+                                <br />
+                                <b>Transfer To :</b><br /> @Model.quote.destination<br />
+
+                                <br/>
+                                <br/>
+                                <br>
+                               
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                     
+                        <!-- Table row -->
+                        <div class="row">
+                            <div class="col-xs-12 table">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Product Code</th>
+                                            <th style="width: 59%">Product</th>
+                                            <th>Quantity</th>
+                                            <th>Subtotal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            var cnt = 0;
+                                         }
+                                        @foreach (var item in Model.quotationlines)
+                                        {
+                                           cnt++;
+                                         <tr onclick="GetFancy('@Url.Action("VoidGRVLine", "Transfers")','@item.ID')">
+                                            <td>@cnt</td>
+                                            <td>@item.ItemCode</td>
+                                            <td style="width: 59%">@item.items </td>
+                                            <td>
+                                                @String.Format("{0:F}", @item.quantity) 
+                                            </td>
+                                            <td>@String.Format("{0:F}", @item.priceinc)</td>
+                                        </tr>
+                                        }
+                                       <tr id="nextLine">
+                                           <td>
+                                               @if(Model.uzar.LossAuthorize == true)
+                                               {
+                                                  <button type="button" class="btn btn-primary btn-sm" onclick="CompleteAutho()"><strong>Authorize</strong></button> 
+
+                                               }
+
+                                               else
+                                               {
+                                                   if (Model.quote.State == "OQ")
+                                                   {
+                                                   <button type="button" class="btn btn-primary btn-sm" onclick="AddItem()"><strong>+</strong></button>
+                                                   <button type="button" class="btn btn-success btn-sm" onclick="CompleteTransfer()"><strong>Close Transfer</strong></button>
+                                                   }
+                                               }
+
+                                           </td>
+                                           <td colspan="4"></td>
+                                       </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <!-- accepted payments column -->
+                            <div class="col-xs-6">
+                               
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-xs-6">
+                              
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                @*<th style="width:50%">Sub Subtotal:</th>
+                                                <td>$ @String.Format("{0:F}", @Model.quote.total) </td>
+                                            </tr> 
+                                            <tr>
+                                                <th style="width:50%">Discount:</th>
+                                                <td>$ @String.Format("{0:F}", @Model.quote.discount) </td>
+                                            </tr>   
+                                            <tr>
+                                                <th style="width:50%">VAT:</th>
+                                                <td>$ @String.Format("{0:F}", @Model.quote.Tax ) </td>
+                                            </t>*@
+                                            <tr>
+                                                <th style="width:50%">Shrinkage By Potential Sale:</th>
+                                                <td>$ @String.Format("{0:F}", @Model.quote.total) </td>
+                                            </tr>
+                                            <tr>
+                                                <th style="width:50%">Shrinkage By Cost:</th>
+                                                <td>$ @*@String.Format("{0:F}", @Model.quote.CostPrice)*@ </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                        <!-- this row will not appear when printing -->
+                        <div class="row no-print">
+                            <div class="col-xs-12">
+                                <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Print</button> 
+                            </div>
+                        </div>
+                    </section>
+                    <div>
+                        <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+                        <div id="Images"></div>
+
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div> 
+    </div>
+}
+else
+{
+ <script type="text/javascript">
+    $(function (event) {
+        GetFancy("/Transfers/Purchases");
+    });
+
+ </script>
+}

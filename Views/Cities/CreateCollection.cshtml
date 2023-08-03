@@ -1,0 +1,235 @@
+﻿@model RetailKing.Models.CollectionPoint
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites"
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+
+                $("#panel").html(result);
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#Profilep").ajaxForm(options);
+
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $("#City").change(function () {
+
+            var xx = $("#City").val();
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("Regions", "Cities")',
+                dataType: 'html',
+                data: {
+                    CityId: xx
+                },
+                success: function (resp) {
+                    var ddl = $("#RegionId");
+                    ddl.empty();
+                    var subjects = $.parseJSON(resp);
+                    //alert(subjects);
+                    $.each(subjects, function (index, value) {
+                        // alert(value.Name);
+                        ddl.append(
+                        $('<option/>', {
+                            value: value.Name,
+                            text: value.Name
+                        })
+                      );
+                    });
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#RegionId").change(function () {
+
+            var xx = $("#RegionId").val();
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("Suburbs", "Cities")',
+                dataType: 'html',
+                data: {
+                    regionId: xx
+
+                },
+                success: function (resp) {
+                    var ddl = $("#Suburb");
+                    ddl.empty();
+                    var subjects = $.parseJSON(resp);
+                    //alert(subjects);
+                    $.each(subjects, function (index, value) {
+                        // alert(value.Name);
+                        ddl.append(
+                        $('<option/>', {
+                            value: value.Id,
+                            text: value.Name
+                        })
+                      );
+                    });
+                    Getsuburb();
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+    });
+
+    function Getsuburb() {
+
+        var xx = $("#RegionId").val();
+        $.ajax({
+            type: "Get",
+            url: '@Url.Action("Suburbs", "Cities")',
+            dataType: 'html',
+            data: {
+                regionId: xx
+
+            },
+            success: function (resp) {
+                var ddl = $("#Suburb");
+                ddl.empty();
+                var subjects = $.parseJSON(resp);
+                //alert(subjects);
+                $.each(subjects, function (index, value) {
+                    // alert(value.Name);
+                    ddl.append(
+                    $('<option/>', {
+                        value: value.Id,
+                        text: value.Name
+                    })
+                  );
+                });
+            },
+            error: function (data) {
+            }
+        });
+    }
+
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>New Collection Point</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+              @using (Html.BeginForm("CreateCollection", "Cities", FormMethod.Post, new { enctype = "multipart/form-data", @name = "ProfileP", id = "Profilep" }))
+              {   
+                         @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                            <legend></legend>
+                            <div class="editor-label">
+                                <p>City/Town*</p>
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(m => m.City, new SelectList(
+                                    (IEnumerable<SelectListItem>)ViewBag.Cities,
+                                          "Value",
+                                          "Text", "-Select City-"), new { style = " height: 30px", @class = "chosen-select form-control" })
+
+                            </div>
+                            <div class="editor-label">
+                                <p>Region*</p>
+                            </div>
+                            <div id="regions" class="editor-field">
+
+                                @Html.DropDownListFor(m => m.RegionId, new SelectList(
+                 (IEnumerable<SelectListItem>)ViewBag.Area,
+                      "Value",
+                "Text", "-Select Region-"), new { style = " height: 30px", @class = "form-control"  })
+                            </div>
+                            <div class="editor-label">
+                                <p>Suburb*</p>
+                            </div>
+                            <div id="surbur" class="editor-field">
+
+                                @Html.DropDownListFor(m => m.Suburb , new SelectList(
+                 (IEnumerable<SelectListItem>)ViewBag.Subarb,
+                      "Value",
+                "Text", "-Select Surburb-"), new { style = " height: 30px", @class = "form-control" })
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Name)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Name, new {  @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("Collection Time")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Time, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Time)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("Address")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextAreaFor(model => model.Address, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Time)
+                            </div>
+
+                            <br />
+                            <p>
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </p>
+                        </fieldset>
+                    }
+                    <div>
+                        <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+                        <div id="Images"></div>
+
+                    </div>
+                </div>
+                <div class="grid_6">
+                    <img class="cloud-zoom" src="@Url.Content("~/img/regions.jpg")" data-large="@Url.Content("~/img/regions.jpg")" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            

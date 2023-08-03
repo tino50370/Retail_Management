@@ -1,0 +1,158 @@
+﻿@model RetailKing.Models.Supplier
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites"
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+
+                $("#panel").html(result);
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#createAd").ajaxForm(options);
+
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Create Publisher </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                   
+                     @using (Html.BeginForm("CreatePublisher", "Adverts", FormMethod.Post, new { id = "createSuppliers" }))
+                     {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                           
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.AccountCode)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.AccountCode, new { disabled = "disabled", @class = "form-control" })
+                                @Html.HiddenFor(model => model.AccountCode)
+                                @Html.HiddenFor(model => model.Company)
+                                @Html.ValidationMessageFor(model => model.AccountCode)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Supplier Name")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.SupplierName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SupplierName)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Branch Name")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Branch, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Branch)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.ContactPerson)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.ContactPerson, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ContactPerson)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Email)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </div>
+
+
+                            <div class="editor-label">
+                                @Html.Label("Address 1")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Address1, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Address1)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Address 2")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Address2, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Address2)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Phone")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Phone1, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Phone1)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Service Type")
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.ServiceType, new SelectList(new[] { "Publisher" }, Model.ServiceType), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ServiceType)
+                            </div>
+
+                            
+                            <p>
+
+                            </p>
+                        </fieldset>
+                    }
+                    <br />
+                    <div>
+                        <button class="btn btn-success" onclick="SaveView('createSuppliers')">Save</button>
+                        <button class="btn btn-warning" onclick="GetView('@Url.Action("Publishers", "Adverts")')">Cancel</button>
+                    </div>
+                    <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+                    <div id="Images"></div>
+               </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

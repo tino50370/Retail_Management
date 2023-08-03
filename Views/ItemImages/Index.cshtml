@@ -1,0 +1,51 @@
+﻿@model IEnumerable<RetailKing.Models.ItemImage>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="grid_10">
+    <div class="box round ">
+        <h2>Item Images</h2>
+   <p></p>
+        <table style="width: 100%">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageThumb)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageType)
+                </th>
+                <th><button class="btn btn-black" onclick="GetView('@Url.Action("Create", "ItemImages")')">Create New</button></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Image)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImageThumb)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImageType)
+                    </td>
+                    <td>
+                        <button class="btn btn-info" onclick="GetView('@Url.Action("Edit", "ItemImages")','@item.Id')">Edit</button>
+                        <button class="btn btn-danger`" onclick="GetView('@Url.Action("Delete", "ItemImages")','@item.Id')">Delete</button>  
+                    </td>
+                </tr>
+            }
+
+        </table>
+</div>
+</div>

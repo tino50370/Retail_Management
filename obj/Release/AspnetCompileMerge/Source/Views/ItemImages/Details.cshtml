@@ -1,0 +1,43 @@
+﻿@model RetailKing.Models.ItemImage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ItemImage</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ItemCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ItemCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Image)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Image)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImageThumb)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageThumb)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImageType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageType)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="RetailKing.Models.MonthlySales, RetailKing" table="MonthlySales" >
+
+    <id name="Id" column="ID" type="System.String" unsaved-value="0">
+      <generator class="assigned"/>
+    </id>
+
+    <property name="Year" column="Year"  not-null="false" type="System.Int64"  length="100" insert="true" update="true"/>
+    <property name="Sales" column="Sales"  not-null="false" type="System.Decimal"  length="40" insert="true" update="true"/>
+  </class>
+</hibernate-mapping>

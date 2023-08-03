@@ -1,0 +1,186 @@
+﻿@{
+    ViewBag.Title = "Tender";
+}
+
+<div id="Data" class="col-md-12" style="width:500px">     
+    <div id="Existing" class="col-md-12">
+          <div style="color: #67217A; font-size:30px;"> Credit Payment</div>
+        
+         <div class="alert alert-danger alert-dismissible fade in" style="display:none" role="alert">
+        </div>
+             <div id="customerAccount"class="col-md-10">
+                 <input type="text" id="Creditq" autocomplete="off" class="form-control" style="width : 100%; " placeholder="Account or Phone Number" />
+                 <div id="customers" style="position:absolute; top:34px; z-index:9999; width: 100%"></div>    
+             </div>
+              
+              <div id="clear" class="col-md-2">
+                  <button type="button" onclick="Back()" class="btn btn-success"><i class="fa fa-arrow-left"></i> Back</button>
+              </div> 
+
+                <div class="col-md-10">
+                    @Html.DropDownList("Type", new SelectList((IEnumerable<SelectListItem>)ViewBag.Type, "Value", " Text"), new { @class = "form-control" })
+                    <br />
+                    <input type="number" step="0.01" id="Balance" class="form-control" autocomplete="false" placeholder="Amount "  />
+                      <br />
+                 
+                </div> 
+                <div class="col-md-10">
+                    <input type="text" id="Receipt" class="form-control" autocomplete="false" placeholder="Receipt Number Being Paid For " />
+                </div> 
+                <div id="clear" class="col-md-2">
+                    <button type="button" onclick="GetReceipts()" class="btn btn-success"><i class="fa fa-search"></i> </button>
+                </div> 
+                <div class="col-md-10">
+                    @Html.TextArea("Description", new { @class="form-control", autocomplete = "false", placeholder = "Payment Description" })
+                </div>
+                <div  id ="saveCustomerr" class="col-md-12" >
+                    <div class="col-md-12" style="margin-top:15px;   height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; font-weight: bold; cursor: pointer" id="Enter" onclick="setCustomer(); this.disabled = true; this.value = 'processing…';">Make Payment</div>
+                </div>       
+        </div>    
+</div> 
+  
+<div id="Receiptz" class="col-md-12" style="width:500px; display:none">
+    
+</div>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            customerSelected = "";
+            product = 'Credit';
+            PaymentType = "Credit Payment"
+           
+            $('#Creditq').focus;
+            $("#Creditq").bind('input propertychange', function (e) {
+                $(".alert-danger").hide();
+                var txt = $("#Creditq").val();
+                if (txt.length > 5) {
+
+                    txt = $("#Creditq").val();
+                    $.ajax({
+                        type: "Get",
+                        url: '@Url.Action("Search", "Customers")',
+                        dataType: 'html',
+                        data: { searchtext: $("#Creditq").val() },
+                        success: function (resp) {
+                            $('#customers').html(resp);
+                        },
+                        error: function (data) {
+                        }
+                    });
+
+                } else {
+                    $('#customers').html('');
+                }
+            });
+
+        
+        });
+
+        function GetReceipts() {
+            //  alert(id);
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("getCustomerSales", "Pos")',
+                dataType: 'html',
+                data: {
+                    Customer: $("#Creditq").val(),
+                    TranType: $("#Type").val()
+                },
+                success: function (resp) {
+                    $("#Receiptz").html(resp);
+                    $("#Receiptz").show();
+                    $("#Data").hide();
+                },
+                error: function (data) {
+                }
+            });
+        }
+
+        function Existing() {
+            //  alert(id);
+            $('#newCustomer').hide();
+            $('#customerAccount').show();
+            $('#clear').show();
+            $('#Btns').show();
+            $('#newC').show();
+            $('#EC').hide();
+            $('#saveCustomerr').hide();
+            customerSelected = '';
+        }
+
+        function placeText(id) {
+            //  alert(id);
+            $('#Creditq').val(id);
+            $('#customers').html('');
+            customerSelected = 'Y';
+        }
+
+        function CancelReceipts() {
+            $('#Receiptz').hide();
+            $('#Data').show();
+        }
+
+        function placeReceipt(id) {
+            var rec = $('#Receipt').val();
+            rec = rec.toUpperCase();
+            if (rec.toUpperCase().indexOf(id.toUpperCase()) >= 0)
+            {
+                $('#Receiptz').hide();
+                $('#Data').show();
+            }
+            else {
+                rec = rec + "," + id.toUpperCase();
+                $('#Receipt').val(rec);
+                $('#Receiptz').hide();
+                $('#Data').show();
+            }
+
+        }
+
+        function setCustomer() {
+            if (customerSelected == '') {
+                $(".alert-danger").html("You need to select the customer");
+                $(".alert-danger").show();
+            }
+            else {
+                if (customerSelected == 'Y' && ($("#Balance").val() !== undefined || $("#Balance").val() !== '') && ($("#Receipt").val() !== undefined || $("#Receipt").val() !== '')) {
+                    customerName = $('#Creditq').val() + "_" + $('#Date').val();
+                    PaymentType = $('#Type').val();
+                    tender = $('#Balance').val();
+                    collecttionPoint = $('#Receipt').val();
+                    partpaymentTotal = 0;
+                    Balance = $('#Balance').val();
+                    OriginalTender = $('#Balance').val();
+                    $.ajax({
+                        type: "Get",
+                        url: '@Url.Action("Tender", "Pos")',
+                        dataType: 'html',
+                        data: { PaymentType: PaymentType },
+                        success: function (resp) {
+                            $.fancybox(resp, {
+                                helpers: {
+                                    overlay: {
+                                        closeClick: false
+                                    }
+                                },
+                                keys: {
+                                    close: null
+                                },
+                                minWidth: '400',
+                                closeBtn: false,
+                                openEffect: 'none',
+                                closeEffect: 'none'
+                            });
+                        },
+                        error: function (data) {
+                        }
+                    });
+                   
+                }
+                else {
+                    $(".alert-danger").html("Please enter Reciept and Amount");
+                    $(".alert-danger").show();
+                }
+            }
+        }
+    </script>

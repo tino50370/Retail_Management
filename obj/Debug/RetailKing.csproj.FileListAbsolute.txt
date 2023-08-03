@@ -1,0 +1,1867 @@
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\obj\Debug\RetailKing.dll.licenses
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\hibernate.cfg.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\RetailKing.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\RetailKing.pdb
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\EntityFramework.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\Iesi.Collections.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\log4net.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\Microsoft.CSharp.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\Newtonsoft.Json.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.Abstractions.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.ApplicationServices.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.DynamicData.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.Entity.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.Extensions.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.Helpers.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.Mvc.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.Razor.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.Routing.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.Services.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.WebPages.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.WebPages.Razor.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Xml.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Xml.Linq.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\EntityFramework.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\Iesi.Collections.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\log4net.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\Newtonsoft.Json.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.Mvc.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.Razor.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.WebPages.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.Helpers.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\bin\System.Web.WebPages.Razor.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\obj\Debug\RetailKing.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\mobistore\obj\Debug\RetailKing.pdb
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\hibernate.cfg.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\RetailKing.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\RetailKing.pdb
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\EntityFramework.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\Iesi.Collections.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\log4net.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\Microsoft.CSharp.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\Newtonsoft.Json.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.Abstractions.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.ApplicationServices.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.DynamicData.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.Entity.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.Extensions.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.Helpers.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.Mvc.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.Razor.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.Routing.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.Services.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.WebPages.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.WebPages.Razor.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Xml.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Xml.Linq.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\EntityFramework.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\Iesi.Collections.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\log4net.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\Newtonsoft.Json.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.Mvc.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.Razor.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.WebPages.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.Helpers.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\System.Web.WebPages.Razor.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\obj\Debug\RetailKing.dll.licenses
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\obj\Debug\RetailKing.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\obj\Debug\RetailKing.pdb
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\Antlr3.Runtime.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\Castle.Core.dll
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\NHibernate.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\NHibernate.ByteCode.Castle.xml
+C:\Users\Walter\Documents\Visual Studio 2010\Projects\RetailKing\bin\Castle.Core.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\hibernate.cfg.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\RetailKing.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\RetailKing.pdb
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Antlr3.Runtime.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.Core.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\EntityFramework.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Iesi.Collections.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\log4net.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Microsoft.CSharp.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Newtonsoft.Json.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Abstractions.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.ApplicationServices.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.DynamicData.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Entity.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Extensions.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Helpers.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Mvc.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Optimization.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Razor.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Routing.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Services.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.WebPages.Deployment.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.WebPages.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.WebPages.Razor.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Xml.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Xml.Linq.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\WebGrease.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\WebMatrix.Data.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\WebMatrix.WebData.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Mono.Math.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.Core.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\EntityFramework.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Iesi.Collections.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\log4net.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Newtonsoft.Json.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Helpers.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Mvc.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Razor.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.WebPages.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.WebPages.Deployment.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.WebPages.Razor.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\WebMatrix.Data.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\WebMatrix.WebData.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Mono.Math.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\obj\Debug\RetailKing.csprojResolveAssemblyReference.cache
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\obj\Debug\RetailKing.dll.licenses
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\obj\Debug\RetailKing.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\obj\Debug\RetailKing.pdb
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\obj\Debug\RetailKing.csprojResolveAssemblyReference.cache
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\obj\Debug\RetailKing.dll.licenses
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\obj\Debug\RetailKing.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\obj\Debug\RetailKing.pdb
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\hibernate.cfg.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\RetailKing.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\RetailKing.pdb
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Antlr3.Runtime.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\DotNetOpenAuth.Core.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\EntityFramework.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Iesi.Collections.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\log4net.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Microsoft.CSharp.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Newtonsoft.Json.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.Abstractions.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.ApplicationServices.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.DynamicData.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.Entity.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.Helpers.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.Mvc.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.Optimization.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.Razor.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.Routing.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.Services.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.WebPages.Deployment.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.WebPages.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.WebPages.Razor.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Xml.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\WebGrease.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\WebMatrix.Data.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\WebMatrix.WebData.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Mono.Math.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\DotNetOpenAuth.Core.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\EntityFramework.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Iesi.Collections.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\log4net.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Newtonsoft.Json.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.Helpers.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.Mvc.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.Razor.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.WebPages.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.WebPages.Deployment.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\System.Web.WebPages.Razor.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\WebMatrix.Data.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\WebMatrix.WebData.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\Mono.Math.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing - EF\bin\RetailKing.dll.config
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\hibernate.cfg.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\RetailKing.dll.config
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\RetailKing.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\RetailKing.pdb
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Antlr3.Runtime.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.Core.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\EntityFramework.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Iesi.Collections.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\log4net.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Microsoft.CSharp.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Newtonsoft.Json.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Abstractions.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.ApplicationServices.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.DynamicData.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Entity.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Helpers.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Mvc.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Optimization.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Razor.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Routing.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Services.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.WebPages.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.WebPages.Razor.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Xml.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\WebGrease.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\WebMatrix.Data.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\WebMatrix.WebData.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Mono.Math.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.Core.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\EntityFramework.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Iesi.Collections.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\log4net.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Newtonsoft.Json.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Helpers.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Mvc.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Razor.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.WebPages.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.WebPages.Razor.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\WebMatrix.Data.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\WebMatrix.WebData.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Mono.Math.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\obj\Debug\RetailKing.csprojResolveAssemblyReference.cache
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\obj\Debug\RetailKing.dll.licenses
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\obj\Debug\RetailKing.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\obj\Debug\RetailKing.pdb
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Rotativa.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Net.Http.Formatting.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Http.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Net.Http.Formatting.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Http.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Http.WebHost.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Http.WebHost.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\BotDetect.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\BotDetect.Web.UI.Mvc.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\CaptchaMvc.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\CaptchaMvc.pdb
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\CaptchaMvc.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Google.GData.Apps.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Google.GData.Client.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Google.GData.Contacts.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Google.GData.Extensions.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\hibernate.cfg.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\RetailKing.dll.config
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\RetailKing.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\RetailKing.pdb
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Antlr3.Runtime.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\BotDetect.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\BotDetect.Web.UI.Mvc.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\CaptchaMvc.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.Core.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\EntityFramework.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Google.GData.Apps.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Google.GData.Client.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Google.GData.Contacts.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Google.GData.Extensions.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Iesi.Collections.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\log4net.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.CSharp.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Newtonsoft.Json.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Rotativa.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Net.Http.Formatting.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Abstractions.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.ApplicationServices.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.DynamicData.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Entity.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Helpers.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.WebHost.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Mvc.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Optimization.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Razor.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Routing.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Services.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.Razor.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Xml.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\WebGrease.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\WebMatrix.Data.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\WebMatrix.WebData.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Mono.Math.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\CaptchaMvc.pdb
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\CaptchaMvc.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.Core.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\EntityFramework.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Iesi.Collections.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\log4net.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Newtonsoft.Json.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Net.Http.Formatting.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Helpers.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.WebHost.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Mvc.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Razor.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.Razor.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\WebMatrix.Data.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\WebMatrix.WebData.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\bin\Mono.Math.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\obj\Debug\RetailKing.csprojResolveAssemblyReference.cache
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\obj\Debug\RetailKing.dll.licenses
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\obj\Debug\RetailKing.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\Accusales\obj\Debug\RetailKing.pdb
+F:\Accusales\bin\hibernate.cfg.xml
+F:\Accusales\bin\RetailKing.dll.config
+F:\Accusales\bin\RetailKing.dll
+F:\Accusales\bin\RetailKing.pdb
+F:\Accusales\bin\Antlr3.Runtime.dll
+F:\Accusales\bin\BotDetect.dll
+F:\Accusales\bin\BotDetect.Web.UI.Mvc.dll
+F:\Accusales\bin\CaptchaMvc.dll
+F:\Accusales\bin\DotNetOpenAuth.AspNet.dll
+F:\Accusales\bin\DotNetOpenAuth.Core.dll
+F:\Accusales\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\Accusales\bin\DotNetOpenAuth.OAuth.dll
+F:\Accusales\bin\DotNetOpenAuth.OpenId.dll
+F:\Accusales\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\Accusales\bin\EntityFramework.dll
+F:\Accusales\bin\Iesi.Collections.dll
+F:\Accusales\bin\log4net.dll
+F:\Accusales\bin\Microsoft.CSharp.dll
+F:\Accusales\bin\Microsoft.Web.Infrastructure.dll
+F:\Accusales\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+F:\Accusales\bin\Microsoft.Web.WebPages.OAuth.dll
+F:\Accusales\bin\Newtonsoft.Json.dll
+F:\Accusales\bin\Rotativa.dll
+F:\Accusales\bin\System.ComponentModel.DataAnnotations.dll
+F:\Accusales\bin\System.Net.Http.Formatting.dll
+F:\Accusales\bin\System.Web.Abstractions.dll
+F:\Accusales\bin\System.Web.ApplicationServices.dll
+F:\Accusales\bin\System.Web.dll
+F:\Accusales\bin\System.Web.DynamicData.dll
+F:\Accusales\bin\System.Web.Entity.dll
+F:\Accusales\bin\System.Web.Helpers.dll
+F:\Accusales\bin\System.Web.Http.dll
+F:\Accusales\bin\System.Web.Http.WebHost.dll
+F:\Accusales\bin\System.Web.Mvc.dll
+F:\Accusales\bin\System.Web.Optimization.dll
+F:\Accusales\bin\System.Web.Razor.dll
+F:\Accusales\bin\System.Web.Routing.dll
+F:\Accusales\bin\System.Web.Services.dll
+F:\Accusales\bin\System.Web.WebPages.Deployment.dll
+F:\Accusales\bin\System.Web.WebPages.dll
+F:\Accusales\bin\System.Web.WebPages.Razor.dll
+F:\Accusales\bin\System.Xml.dll
+F:\Accusales\bin\WebGrease.dll
+F:\Accusales\bin\WebMatrix.Data.dll
+F:\Accusales\bin\WebMatrix.WebData.dll
+F:\Accusales\bin\Org.Mentalis.Security.Cryptography.dll
+F:\Accusales\bin\Mono.Math.dll
+F:\Accusales\bin\CaptchaMvc.pdb
+F:\Accusales\bin\CaptchaMvc.xml
+F:\Accusales\bin\DotNetOpenAuth.AspNet.xml
+F:\Accusales\bin\DotNetOpenAuth.Core.xml
+F:\Accusales\bin\DotNetOpenAuth.OAuth.xml
+F:\Accusales\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\Accusales\bin\DotNetOpenAuth.OpenId.xml
+F:\Accusales\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\Accusales\bin\EntityFramework.xml
+F:\Accusales\bin\Iesi.Collections.xml
+F:\Accusales\bin\log4net.xml
+F:\Accusales\bin\Microsoft.Web.WebPages.OAuth.xml
+F:\Accusales\bin\Newtonsoft.Json.xml
+F:\Accusales\bin\System.Net.Http.Formatting.xml
+F:\Accusales\bin\System.Web.Helpers.xml
+F:\Accusales\bin\System.Web.Http.xml
+F:\Accusales\bin\System.Web.Http.WebHost.xml
+F:\Accusales\bin\System.Web.Mvc.xml
+F:\Accusales\bin\System.Web.Razor.xml
+F:\Accusales\bin\System.Web.WebPages.xml
+F:\Accusales\bin\System.Web.WebPages.Deployment.xml
+F:\Accusales\bin\System.Web.WebPages.Razor.xml
+F:\Accusales\bin\WebMatrix.Data.xml
+F:\Accusales\bin\WebMatrix.WebData.xml
+F:\Accusales\bin\Org.Mentalis.Security.Cryptography.xml
+F:\Accusales\bin\Mono.Math.xml
+F:\Accusales\obj\Debug\RetailKing.csprojResolveAssemblyReference.cache
+F:\Accusales\obj\Debug\RetailKing.dll.licenses
+F:\Accusales\obj\Debug\RetailKing.dll
+F:\Accusales\obj\Debug\RetailKing.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\hibernate.cfg.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\RetailKing.dll.config
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\RetailKing.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\RetailKing.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Antlr3.Runtime.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\BotDetect.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\CaptchaMvc.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.Core.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\EntityFramework.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Iesi.Collections.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\log4net.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.CSharp.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Newtonsoft.Json.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Rotativa.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Net.Http.Formatting.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Abstractions.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.ApplicationServices.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.DynamicData.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Entity.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Helpers.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.WebHost.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Mvc.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Optimization.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Razor.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Routing.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Services.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.Deployment.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.Razor.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Xml.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\WebGrease.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\WebMatrix.Data.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\WebMatrix.WebData.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Mono.Math.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\CaptchaMvc.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\CaptchaMvc.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.Core.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\EntityFramework.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Iesi.Collections.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\log4net.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Newtonsoft.Json.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Net.Http.Formatting.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Helpers.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.WebHost.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Mvc.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Razor.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.Deployment.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.Razor.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\WebMatrix.Data.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\WebMatrix.WebData.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Mono.Math.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\obj\Debug\RetailKing.csprojResolveAssemblyReference.cache
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\obj\Debug\RetailKing.dll.licenses
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\obj\Debug\RetailKing.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\obj\Debug\RetailKing.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Exchange.WebServices.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Exchange.WebServices.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Raven.Abstractions.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Raven.Client.Lightweight.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Raven.Abstractions.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Raven.Abstractions.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Raven.Client.Lightweight.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Raven.Client.Lightweight.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Cors.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.Cors.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.Cors.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Owin.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Owin.Security.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Owin.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Owin.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Owin.Security.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\csc.exe
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\vbc.exe
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\VBCSCompiler.exe
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\BotDetect.Web.Mvc.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Geolocation.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Geolocation.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\obj\Debug\RetailKing.csprojResolveAssemblyReference.cache
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\obj\Debug\RetailKing.dll.licenses
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\csc.exe
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\vbc.exe
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\VBCSCompiler.exe
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\hibernate.cfg.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\RetailKing.dll.config
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\RetailKing.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\RetailKing.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Antlr3.Runtime.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\BotDetect.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\BotDetect.Web.Mvc.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\CaptchaMvc.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.Core.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\EntityFramework.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Geolocation.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Iesi.Collections.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\log4net.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.CSharp.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Exchange.WebServices.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Owin.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Owin.Security.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Newtonsoft.Json.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Owin.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Raven.Abstractions.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Raven.Client.Lightweight.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Rotativa.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Net.Http.Formatting.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Abstractions.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.ApplicationServices.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Cors.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.DynamicData.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Entity.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Helpers.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Http.Cors.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Http.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Http.WebHost.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Mvc.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Optimization.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Razor.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Routing.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Services.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.WebPages.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Xml.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\WebGrease.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\WebMatrix.Data.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\WebMatrix.WebData.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Mono.Math.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\CaptchaMvc.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\CaptchaMvc.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.Core.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\EntityFramework.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Geolocation.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Iesi.Collections.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\log4net.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Exchange.WebServices.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Owin.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Owin.Security.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Newtonsoft.Json.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Raven.Abstractions.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Raven.Abstractions.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Raven.Client.Lightweight.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Raven.Client.Lightweight.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Net.Http.Formatting.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Helpers.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Http.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Http.Cors.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Http.WebHost.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Mvc.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Razor.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.WebPages.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\WebMatrix.Data.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\WebMatrix.WebData.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\bin\Mono.Math.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\obj\Debug\RetailKing.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\GainStore\obj\Debug\RetailKing.pdb
+C:\Users\new\Desktop\GainStore\bin\roslyn\csc.exe
+C:\Users\new\Desktop\GainStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\new\Desktop\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\new\Desktop\GainStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\new\Desktop\GainStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\new\Desktop\GainStore\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\new\Desktop\GainStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\new\Desktop\GainStore\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\new\Desktop\GainStore\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\new\Desktop\GainStore\bin\roslyn\vbc.exe
+C:\Users\new\Desktop\GainStore\bin\roslyn\VBCSCompiler.exe
+C:\Users\new\Desktop\GainStore\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\new\Desktop\GainStore\bin\hibernate.cfg.xml
+C:\Users\new\Desktop\GainStore\bin\RetailKing.dll.config
+C:\Users\new\Desktop\GainStore\bin\RetailKing.dll
+C:\Users\new\Desktop\GainStore\bin\RetailKing.pdb
+C:\Users\new\Desktop\GainStore\bin\Antlr3.Runtime.dll
+C:\Users\new\Desktop\GainStore\bin\BotDetect.dll
+C:\Users\new\Desktop\GainStore\bin\BotDetect.Web.Mvc.dll
+C:\Users\new\Desktop\GainStore\bin\CaptchaMvc.dll
+C:\Users\new\Desktop\GainStore\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\new\Desktop\GainStore\bin\DotNetOpenAuth.Core.dll
+C:\Users\new\Desktop\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\new\Desktop\GainStore\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\new\Desktop\GainStore\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\new\Desktop\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\new\Desktop\GainStore\bin\EntityFramework.dll
+C:\Users\new\Desktop\GainStore\bin\Geolocation.dll
+C:\Users\new\Desktop\GainStore\bin\Iesi.Collections.dll
+C:\Users\new\Desktop\GainStore\bin\log4net.dll
+C:\Users\new\Desktop\GainStore\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\new\Desktop\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\new\Desktop\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\new\Desktop\GainStore\bin\Microsoft.CSharp.dll
+C:\Users\new\Desktop\GainStore\bin\Microsoft.Exchange.WebServices.dll
+C:\Users\new\Desktop\GainStore\bin\Microsoft.Owin.dll
+C:\Users\new\Desktop\GainStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\new\Desktop\GainStore\bin\Microsoft.Owin.Security.dll
+C:\Users\new\Desktop\GainStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\new\Desktop\GainStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\new\Desktop\GainStore\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\new\Desktop\GainStore\bin\Newtonsoft.Json.dll
+C:\Users\new\Desktop\GainStore\bin\Owin.dll
+C:\Users\new\Desktop\GainStore\bin\Raven.Abstractions.dll
+C:\Users\new\Desktop\GainStore\bin\Raven.Client.Lightweight.dll
+C:\Users\new\Desktop\GainStore\bin\Rotativa.dll
+C:\Users\new\Desktop\GainStore\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\new\Desktop\GainStore\bin\System.Net.Http.Formatting.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.Abstractions.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.ApplicationServices.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.Cors.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.DynamicData.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.Entity.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.Helpers.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.Http.Cors.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.Http.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.Http.WebHost.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.Mvc.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.Optimization.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.Razor.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.Routing.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.Services.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.WebPages.dll
+C:\Users\new\Desktop\GainStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\new\Desktop\GainStore\bin\System.Xml.dll
+C:\Users\new\Desktop\GainStore\bin\WebGrease.dll
+C:\Users\new\Desktop\GainStore\bin\WebMatrix.Data.dll
+C:\Users\new\Desktop\GainStore\bin\WebMatrix.WebData.dll
+C:\Users\new\Desktop\GainStore\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\new\Desktop\GainStore\bin\Mono.Math.dll
+C:\Users\new\Desktop\GainStore\bin\CaptchaMvc.pdb
+C:\Users\new\Desktop\GainStore\bin\CaptchaMvc.xml
+C:\Users\new\Desktop\GainStore\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\new\Desktop\GainStore\bin\DotNetOpenAuth.Core.xml
+C:\Users\new\Desktop\GainStore\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\new\Desktop\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\new\Desktop\GainStore\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\new\Desktop\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\new\Desktop\GainStore\bin\EntityFramework.xml
+C:\Users\new\Desktop\GainStore\bin\Geolocation.pdb
+C:\Users\new\Desktop\GainStore\bin\Iesi.Collections.xml
+C:\Users\new\Desktop\GainStore\bin\log4net.xml
+C:\Users\new\Desktop\GainStore\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\new\Desktop\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\new\Desktop\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\new\Desktop\GainStore\bin\Microsoft.Owin.xml
+C:\Users\new\Desktop\GainStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\new\Desktop\GainStore\bin\Microsoft.Owin.Security.xml
+C:\Users\new\Desktop\GainStore\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\new\Desktop\GainStore\bin\Newtonsoft.Json.xml
+C:\Users\new\Desktop\GainStore\bin\Raven.Abstractions.pdb
+C:\Users\new\Desktop\GainStore\bin\Raven.Abstractions.xml
+C:\Users\new\Desktop\GainStore\bin\Raven.Client.Lightweight.pdb
+C:\Users\new\Desktop\GainStore\bin\Raven.Client.Lightweight.xml
+C:\Users\new\Desktop\GainStore\bin\System.Net.Http.Formatting.xml
+C:\Users\new\Desktop\GainStore\bin\System.Web.Helpers.xml
+C:\Users\new\Desktop\GainStore\bin\System.Web.Http.xml
+C:\Users\new\Desktop\GainStore\bin\System.Web.Http.Cors.xml
+C:\Users\new\Desktop\GainStore\bin\System.Web.Http.WebHost.xml
+C:\Users\new\Desktop\GainStore\bin\System.Web.Mvc.xml
+C:\Users\new\Desktop\GainStore\bin\System.Web.Razor.xml
+C:\Users\new\Desktop\GainStore\bin\System.Web.WebPages.xml
+C:\Users\new\Desktop\GainStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\new\Desktop\GainStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\new\Desktop\GainStore\bin\WebMatrix.Data.xml
+C:\Users\new\Desktop\GainStore\bin\WebMatrix.WebData.xml
+C:\Users\new\Desktop\GainStore\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\new\Desktop\GainStore\bin\Mono.Math.xml
+C:\Users\new\Desktop\GainStore\obj\Debug\RetailKing.csprojResolveAssemblyReference.cache
+C:\Users\new\Desktop\GainStore\obj\Debug\RetailKing.dll.licenses
+C:\Users\new\Desktop\GainStore\obj\Debug\RetailKing.dll
+C:\Users\new\Desktop\GainStore\obj\Debug\RetailKing.pdb
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\roslyn\csc.exe
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\roslyn\System.Collections.Immutable.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\roslyn\System.Reflection.Metadata.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\roslyn\vbc.exe
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\roslyn\VBCSCompiler.exe
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\roslyn\VBCSCompiler.exe.config
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\hibernate.cfg.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\RetailKing.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\RetailKing.pdb
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Antlr3.Runtime.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\BotDetect.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\BotDetect.Web.Mvc.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\CaptchaMvc.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\DotNetOpenAuth.AspNet.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\DotNetOpenAuth.Core.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\DotNetOpenAuth.OAuth.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\DotNetOpenAuth.OpenId.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\EntityFramework.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Geolocation.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Iesi.Collections.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\log4net.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.CSharp.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.Owin.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.Owin.Security.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.Web.Infrastructure.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Newtonsoft.Json.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Owin.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Raven.Abstractions.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Raven.Client.Lightweight.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Rotativa.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.ComponentModel.DataAnnotations.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Net.Http.Formatting.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Abstractions.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.ApplicationServices.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Cors.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.DynamicData.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Entity.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Helpers.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Http.Cors.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Http.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Http.WebHost.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Mvc.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Optimization.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Razor.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Routing.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Services.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.WebPages.Deployment.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.WebPages.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.WebPages.Razor.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Xml.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\WebGrease.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\WebMatrix.Data.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\WebMatrix.WebData.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Org.Mentalis.Security.Cryptography.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Mono.Math.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\CaptchaMvc.pdb
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\CaptchaMvc.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\DotNetOpenAuth.AspNet.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\DotNetOpenAuth.Core.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\DotNetOpenAuth.OAuth.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\DotNetOpenAuth.OpenId.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\EntityFramework.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Geolocation.pdb
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Iesi.Collections.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\log4net.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.Exchange.WebServices.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.Owin.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.Owin.Security.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Newtonsoft.Json.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Raven.Abstractions.pdb
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Raven.Abstractions.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Raven.Client.Lightweight.pdb
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Raven.Client.Lightweight.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Net.Http.Formatting.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Helpers.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Http.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Http.Cors.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Http.WebHost.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Mvc.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.Razor.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.WebPages.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.WebPages.Deployment.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\System.Web.WebPages.Razor.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\WebMatrix.Data.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\WebMatrix.WebData.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Org.Mentalis.Security.Cryptography.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\bin\Mono.Math.xml
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\obj\Debug\RetailKing.csprojResolveAssemblyReference.cache
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\obj\Debug\RetailKing.dll.licenses
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\obj\Debug\RetailKing.dll
+E:\Users\A J\Documents\Visual Studio 2012\Projects\GainStore\obj\Debug\RetailKing.pdb
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\csc.exe
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\vbc.exe
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\VBCSCompiler.exe
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\hibernate.cfg.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\RetailKing.dll.config
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\RetailKing.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\RetailKing.pdb
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Antlr3.Runtime.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\BotDetect.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\BotDetect.Web.Mvc.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\CaptchaMvc.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.Core.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\EntityFramework.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Geolocation.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Iesi.Collections.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\log4net.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.CSharp.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Exchange.WebServices.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Owin.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Owin.Security.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Newtonsoft.Json.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Owin.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Raven.Abstractions.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Raven.Client.Lightweight.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Rotativa.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Net.Http.Formatting.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Abstractions.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.ApplicationServices.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Cors.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.DynamicData.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Entity.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Helpers.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Http.Cors.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Http.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Http.WebHost.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Mvc.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Optimization.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Razor.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Routing.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Services.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.WebPages.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Xml.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\WebGrease.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\WebMatrix.Data.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\WebMatrix.WebData.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Mono.Math.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\CaptchaMvc.pdb
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\CaptchaMvc.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.Core.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\EntityFramework.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Geolocation.pdb
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Iesi.Collections.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\log4net.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Owin.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Owin.Security.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Newtonsoft.Json.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Raven.Abstractions.pdb
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Raven.Abstractions.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Raven.Client.Lightweight.pdb
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Raven.Client.Lightweight.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Net.Http.Formatting.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Helpers.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Http.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Http.Cors.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Http.WebHost.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Mvc.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.Razor.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.WebPages.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\WebMatrix.Data.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\WebMatrix.WebData.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\bin\Mono.Math.xml
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\obj\Debug\RetailKing.dll.licenses
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\obj\Debug\RetailKing.dll
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\obj\Debug\RetailKing.pdb
+C:\Users\new\Documents\Visual Studio 2013\Projects\GainStore\obj\Debug\RetailKing.csprojResolveAssemblyReference.cache
+J:\GainStore compressed\GainStore\GainStore\bin\roslyn\csc.exe
+J:\GainStore compressed\GainStore\GainStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+J:\GainStore compressed\GainStore\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+J:\GainStore compressed\GainStore\GainStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+J:\GainStore compressed\GainStore\GainStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+J:\GainStore compressed\GainStore\GainStore\bin\roslyn\Microsoft.CSharp.Core.targets
+J:\GainStore compressed\GainStore\GainStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+J:\GainStore compressed\GainStore\GainStore\bin\roslyn\System.Collections.Immutable.dll
+J:\GainStore compressed\GainStore\GainStore\bin\roslyn\System.Reflection.Metadata.dll
+J:\GainStore compressed\GainStore\GainStore\bin\roslyn\vbc.exe
+J:\GainStore compressed\GainStore\GainStore\bin\roslyn\VBCSCompiler.exe
+J:\GainStore compressed\GainStore\GainStore\bin\roslyn\VBCSCompiler.exe.config
+J:\GainStore compressed\GainStore\GainStore\bin\hibernate.cfg.xml
+J:\GainStore compressed\GainStore\GainStore\bin\RetailKing.dll.config
+J:\GainStore compressed\GainStore\GainStore\bin\RetailKing.dll
+J:\GainStore compressed\GainStore\GainStore\bin\RetailKing.pdb
+J:\GainStore compressed\GainStore\GainStore\bin\Antlr3.Runtime.dll
+J:\GainStore compressed\GainStore\GainStore\bin\BotDetect.dll
+J:\GainStore compressed\GainStore\GainStore\bin\BotDetect.Web.Mvc.dll
+J:\GainStore compressed\GainStore\GainStore\bin\CaptchaMvc.dll
+J:\GainStore compressed\GainStore\GainStore\bin\DotNetOpenAuth.AspNet.dll
+J:\GainStore compressed\GainStore\GainStore\bin\DotNetOpenAuth.Core.dll
+J:\GainStore compressed\GainStore\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+J:\GainStore compressed\GainStore\GainStore\bin\DotNetOpenAuth.OAuth.dll
+J:\GainStore compressed\GainStore\GainStore\bin\DotNetOpenAuth.OpenId.dll
+J:\GainStore compressed\GainStore\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+J:\GainStore compressed\GainStore\GainStore\bin\EntityFramework.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Geolocation.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Iesi.Collections.dll
+J:\GainStore compressed\GainStore\GainStore\bin\log4net.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.AspNet.SignalR.Core.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.CSharp.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.Exchange.WebServices.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.Owin.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.Owin.Security.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.Web.Infrastructure.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.Web.WebPages.OAuth.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Newtonsoft.Json.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Owin.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Raven.Abstractions.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Raven.Client.Lightweight.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Rotativa.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.ComponentModel.DataAnnotations.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Net.Http.Formatting.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Abstractions.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.ApplicationServices.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Cors.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.DynamicData.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Entity.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Helpers.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Http.Cors.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Http.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Http.WebHost.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Mvc.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Optimization.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Razor.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Routing.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Services.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.WebPages.Deployment.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.WebPages.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.WebPages.Razor.dll
+J:\GainStore compressed\GainStore\GainStore\bin\System.Xml.dll
+J:\GainStore compressed\GainStore\GainStore\bin\WebGrease.dll
+J:\GainStore compressed\GainStore\GainStore\bin\WebMatrix.Data.dll
+J:\GainStore compressed\GainStore\GainStore\bin\WebMatrix.WebData.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Org.Mentalis.Security.Cryptography.dll
+J:\GainStore compressed\GainStore\GainStore\bin\Mono.Math.dll
+J:\GainStore compressed\GainStore\GainStore\bin\CaptchaMvc.pdb
+J:\GainStore compressed\GainStore\GainStore\bin\CaptchaMvc.xml
+J:\GainStore compressed\GainStore\GainStore\bin\DotNetOpenAuth.AspNet.xml
+J:\GainStore compressed\GainStore\GainStore\bin\DotNetOpenAuth.Core.xml
+J:\GainStore compressed\GainStore\GainStore\bin\DotNetOpenAuth.OAuth.xml
+J:\GainStore compressed\GainStore\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+J:\GainStore compressed\GainStore\GainStore\bin\DotNetOpenAuth.OpenId.xml
+J:\GainStore compressed\GainStore\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+J:\GainStore compressed\GainStore\GainStore\bin\EntityFramework.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Geolocation.pdb
+J:\GainStore compressed\GainStore\GainStore\bin\Iesi.Collections.xml
+J:\GainStore compressed\GainStore\GainStore\bin\log4net.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.AspNet.SignalR.Core.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.Owin.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.Owin.Security.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Microsoft.Web.WebPages.OAuth.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Newtonsoft.Json.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Raven.Abstractions.pdb
+J:\GainStore compressed\GainStore\GainStore\bin\Raven.Abstractions.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Raven.Client.Lightweight.pdb
+J:\GainStore compressed\GainStore\GainStore\bin\Raven.Client.Lightweight.xml
+J:\GainStore compressed\GainStore\GainStore\bin\System.Net.Http.Formatting.xml
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Helpers.xml
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Http.xml
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Http.Cors.xml
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Http.WebHost.xml
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Mvc.xml
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.Razor.xml
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.WebPages.xml
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.WebPages.Deployment.xml
+J:\GainStore compressed\GainStore\GainStore\bin\System.Web.WebPages.Razor.xml
+J:\GainStore compressed\GainStore\GainStore\bin\WebMatrix.Data.xml
+J:\GainStore compressed\GainStore\GainStore\bin\WebMatrix.WebData.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Org.Mentalis.Security.Cryptography.xml
+J:\GainStore compressed\GainStore\GainStore\bin\Mono.Math.xml
+J:\GainStore compressed\GainStore\GainStore\obj\Debug\RetailKing.csprojResolveAssemblyReference.cache
+J:\GainStore compressed\GainStore\GainStore\obj\Debug\RetailKing.dll.licenses
+J:\GainStore compressed\GainStore\GainStore\obj\Debug\RetailKing.dll
+J:\GainStore compressed\GainStore\GainStore\obj\Debug\RetailKing.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\roslyn\csc.exe
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\roslyn\vbc.exe
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\roslyn\VBCSCompiler.exe
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\hibernate.cfg.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\RetailKing.dll.config
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\RetailKing.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\RetailKing.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Antlr3.Runtime.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\BotDetect.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\BotDetect.Web.Mvc.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\CaptchaMvc.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\DotNetOpenAuth.Core.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\EntityFramework.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Geolocation.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Iesi.Collections.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\log4net.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.CSharp.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.Exchange.WebServices.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.Owin.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.Owin.Security.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Newtonsoft.Json.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Owin.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Raven.Abstractions.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Raven.Client.Lightweight.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Rotativa.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Net.Http.Formatting.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Abstractions.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.ApplicationServices.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Cors.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.DynamicData.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Entity.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Helpers.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Http.Cors.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Http.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Http.WebHost.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Mvc.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Optimization.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Razor.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Routing.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Services.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.WebPages.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Xml.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\WebGrease.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\WebMatrix.Data.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\WebMatrix.WebData.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Mono.Math.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\CaptchaMvc.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\CaptchaMvc.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\DotNetOpenAuth.Core.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\EntityFramework.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Geolocation.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Iesi.Collections.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\log4net.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.Owin.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.Owin.Security.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Newtonsoft.Json.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Raven.Abstractions.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Raven.Abstractions.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Raven.Client.Lightweight.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Raven.Client.Lightweight.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Net.Http.Formatting.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Helpers.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Http.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Http.Cors.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Http.WebHost.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Mvc.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.Razor.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.WebPages.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\WebMatrix.Data.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\WebMatrix.WebData.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\bin\Mono.Math.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\obj\Debug\RetailKing.dll.licenses
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\obj\Debug\RetailKing.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\version3.0\GainStore\obj\Debug\RetailKing.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\roslyn\csc.exe
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\roslyn\vbc.exe
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\roslyn\VBCSCompiler.exe
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\hibernate.cfg.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\RetailKing.dll.config
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\RetailKing.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\RetailKing.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Antlr3.Runtime.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\BotDetect.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\BotDetect.Web.Mvc.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\CaptchaMvc.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\DotNetOpenAuth.Core.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\EntityFramework.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Geolocation.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Iesi.Collections.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\log4net.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.CSharp.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.Exchange.WebServices.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.Owin.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.Owin.Security.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Newtonsoft.Json.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Owin.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Raven.Abstractions.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Raven.Client.Lightweight.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Rotativa.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Net.Http.Formatting.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Abstractions.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.ApplicationServices.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Cors.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.DynamicData.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Entity.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Helpers.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Http.Cors.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Http.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Http.WebHost.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Mvc.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Optimization.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Razor.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Routing.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Services.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.WebPages.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Xml.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\WebGrease.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\WebMatrix.Data.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\WebMatrix.WebData.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Mono.Math.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\CaptchaMvc.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\CaptchaMvc.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\DotNetOpenAuth.Core.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\EntityFramework.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Geolocation.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Iesi.Collections.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\log4net.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.Owin.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.Owin.Security.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Newtonsoft.Json.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Raven.Abstractions.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Raven.Abstractions.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Raven.Client.Lightweight.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Raven.Client.Lightweight.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Net.Http.Formatting.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Helpers.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Http.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Http.Cors.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Http.WebHost.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Mvc.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.Razor.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.WebPages.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\WebMatrix.Data.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\WebMatrix.WebData.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\bin\Mono.Math.xml
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\obj\Debug\RetailKing.dll.licenses
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\obj\Debug\RetailKing.dll
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\obj\Debug\RetailKing.pdb
+C:\Users\Matewe\Desktop\Tinoda_UZ\work\attachment\New folder\GainStore\GainStore\GainStore\obj\Debug\RetailKing.csprojResolveAssemblyReference.cache
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\roslyn\csc.exe
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\roslyn\vbc.exe
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\roslyn\VBCSCompiler.exe
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\hibernate.cfg.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\RetailKing.dll.config
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\RetailKing.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\RetailKing.pdb
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Antlr3.Runtime.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\BotDetect.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\BotDetect.Web.Mvc.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\CaptchaMvc.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\DotNetOpenAuth.Core.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\EntityFramework.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Geolocation.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Iesi.Collections.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\log4net.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.CSharp.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.Owin.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.Owin.Security.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Newtonsoft.Json.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Owin.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Raven.Abstractions.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Raven.Client.Lightweight.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Rotativa.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Net.Http.Formatting.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Abstractions.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.ApplicationServices.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Cors.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.DynamicData.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Entity.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Helpers.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Http.Cors.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Http.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Http.WebHost.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Mvc.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Optimization.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Razor.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Routing.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Services.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.WebPages.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Xml.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\WebGrease.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\WebMatrix.Data.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\WebMatrix.WebData.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Mono.Math.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\CaptchaMvc.pdb
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\CaptchaMvc.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\DotNetOpenAuth.Core.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\EntityFramework.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Geolocation.pdb
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Iesi.Collections.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\log4net.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.Owin.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.Owin.Security.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Newtonsoft.Json.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Raven.Abstractions.pdb
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Raven.Abstractions.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Raven.Client.Lightweight.pdb
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Raven.Client.Lightweight.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Net.Http.Formatting.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Helpers.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Http.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Http.Cors.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Http.WebHost.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Mvc.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.Razor.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.WebPages.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\WebMatrix.Data.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\WebMatrix.WebData.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\bin\Mono.Math.xml
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\obj\Debug\RetailKing.csprojAssemblyReference.cache
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\obj\Debug\RetailKing.dll.licenses
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\obj\Debug\RetailKing.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\obj\Debug\RetailKing.csproj.CopyComplete
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\obj\Debug\RetailKing.dll
+C:\Users\USER\Desktop\gg\New folder (2)\GainStore\obj\Debug\RetailKing.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\obj\Debug\RetailKing.dll.licenses
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\obj\Debug\RetailKing.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\roslyn\csc.exe
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\roslyn\vbc.exe
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\roslyn\VBCSCompiler.exe
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\hibernate.cfg.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\RetailKing.dll.config
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\RetailKing.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\RetailKing.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Antlr3.Runtime.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\BotDetect.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\BotDetect.Web.Mvc.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\CaptchaMvc.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\DotNetOpenAuth.Core.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\EntityFramework.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Geolocation.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Iesi.Collections.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\log4net.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.CSharp.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.Owin.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.Owin.Security.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Newtonsoft.Json.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Owin.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Raven.Abstractions.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Raven.Client.Lightweight.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Rotativa.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Net.Http.Formatting.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Abstractions.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.ApplicationServices.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Cors.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.DynamicData.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Entity.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Helpers.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Http.Cors.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Http.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Http.WebHost.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Mvc.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Optimization.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Razor.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Routing.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Services.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.WebPages.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Xml.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\WebGrease.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\WebMatrix.Data.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\WebMatrix.WebData.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Mono.Math.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\CaptchaMvc.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\CaptchaMvc.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\DotNetOpenAuth.Core.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\EntityFramework.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Geolocation.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Iesi.Collections.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\log4net.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.Owin.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.Owin.Security.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Newtonsoft.Json.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Raven.Abstractions.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Raven.Abstractions.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Raven.Client.Lightweight.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Raven.Client.Lightweight.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Net.Http.Formatting.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Helpers.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Http.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Http.Cors.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Http.WebHost.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Mvc.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.Razor.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.WebPages.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\WebMatrix.Data.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\WebMatrix.WebData.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\bin\Mono.Math.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\obj\Debug\RetailKing.csproj.CopyComplete
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\obj\Debug\RetailKing.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\obj\Debug\RetailKing.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\obj\Debug\RetailKing.csprojAssemblyReference.cache
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\csc.exe
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\csc.exe.config
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\csc.rsp
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\csi.exe
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\csi.exe.config
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\csi.rsp
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\Microsoft.Managed.EditorConfig.targets
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\System.Buffers.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\System.Memory.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\vbc.exe
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\vbc.exe.config
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\vbc.rsp
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\VBCSCompiler.exe
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\hibernate.cfg.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\RetailKing.dll.config
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\RetailKing.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\RetailKing.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Antlr3.Runtime.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\BotDetect.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\BotDetect.Web.Mvc.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\CaptchaMvc.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\DotNetOpenAuth.Core.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\EntityFramework.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Geolocation.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Iesi.Collections.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\log4net.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.CSharp.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.Owin.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.Owin.Security.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Newtonsoft.Json.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Owin.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Raven.Abstractions.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Raven.Client.Lightweight.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Rotativa.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Net.Http.Formatting.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Abstractions.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.ApplicationServices.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Cors.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.DynamicData.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Entity.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Helpers.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Http.Cors.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Http.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Http.WebHost.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Mvc.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Optimization.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Razor.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Routing.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Services.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.WebPages.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Xml.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\WebGrease.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\WebMatrix.Data.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\WebMatrix.WebData.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Mono.Math.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\CaptchaMvc.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\CaptchaMvc.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\DotNetOpenAuth.Core.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\EntityFramework.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Geolocation.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Iesi.Collections.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\log4net.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.Owin.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.Owin.Security.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Newtonsoft.Json.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Raven.Abstractions.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Raven.Abstractions.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Raven.Client.Lightweight.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Raven.Client.Lightweight.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Net.Http.Formatting.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Helpers.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Http.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Http.Cors.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Http.WebHost.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Mvc.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.Razor.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.WebPages.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\WebMatrix.Data.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\WebMatrix.WebData.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\bin\Mono.Math.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\obj\Debug\RetailKing.dll.licenses
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\obj\Debug\RetailKing.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\obj\Debug\RetailKing.csproj.CopyComplete
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\obj\Debug\RetailKing.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\obj\Debug\RetailKing.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\jk\GainStore\obj\Debug\RetailKing.csprojAssemblyReference.cache
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\csc.exe
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\csc.exe.config
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\csc.rsp
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\csi.exe
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\csi.exe.config
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\csi.rsp
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\Microsoft.Managed.EditorConfig.targets
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\System.Buffers.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\System.Memory.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\vbc.exe
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\vbc.exe.config
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\vbc.rsp
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\VBCSCompiler.exe
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\hibernate.cfg.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\RetailKing.dll.config
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\RetailKing.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\RetailKing.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Antlr3.Runtime.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\BotDetect.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\BotDetect.Web.Mvc.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\CaptchaMvc.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\DotNetOpenAuth.Core.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\EntityFramework.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Geolocation.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Iesi.Collections.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\log4net.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.CSharp.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.Owin.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.Owin.Security.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Newtonsoft.Json.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Owin.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Raven.Abstractions.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Raven.Client.Lightweight.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Rotativa.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Net.Http.Formatting.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Abstractions.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.ApplicationServices.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Cors.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.DynamicData.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Entity.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Helpers.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Http.Cors.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Http.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Http.WebHost.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Mvc.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Optimization.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Razor.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Routing.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Services.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.WebPages.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Xml.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\WebGrease.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\WebMatrix.Data.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\WebMatrix.WebData.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Mono.Math.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\CaptchaMvc.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\CaptchaMvc.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\DotNetOpenAuth.Core.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\EntityFramework.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Geolocation.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Iesi.Collections.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\log4net.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.Owin.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.Owin.Security.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Newtonsoft.Json.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Raven.Abstractions.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Raven.Abstractions.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Raven.Client.Lightweight.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Raven.Client.Lightweight.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Net.Http.Formatting.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Helpers.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Http.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Http.Cors.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Http.WebHost.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Mvc.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.Razor.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.WebPages.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\WebMatrix.Data.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\WebMatrix.WebData.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\bin\Mono.Math.xml
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\obj\Debug\RetailKing.dll.licenses
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\obj\Debug\RetailKing.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\obj\Debug\RetailKing.csproj.CopyComplete
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\obj\Debug\RetailKing.dll
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\obj\Debug\RetailKing.pdb
+C:\Users\USER\Documents\Visual Studio 2019\Projects\GainStore\GainStore\obj\Debug\RetailKing.csprojAssemblyReference.cache

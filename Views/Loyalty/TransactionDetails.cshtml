@@ -1,0 +1,51 @@
+@model RetailKing.Models.Tranlog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Transaction Detail</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                    <fieldset>
+                        <div class="col-md-12" >
+                            <h3>@ViewData["CustomerName"]</h3>
+                            <p>
+                                Mobile: @ViewData["CustomerMobile"]<br />
+                                Amount Paid: @Model.Amount <br />
+                                Receipt Number: @Model.ReceiptNumber <br/>
+                                Date: @Model.DateCreated<br />
+                                Till Number: @Model.TerminalId<br />
+                                Cashier Name: @Model.Username<br />
+                                Deacription: @Model.Description
+                            </p>
+                        </div>  
+                    </fieldset>
+                </div>
+                @if (ViewData["Reversal"].ToString() == "REVERSAL")
+                {
+                    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+
+                        <strong>Transaction was reversed by @ViewData["Reversedby"]!</strong> <br />
+                        Reason:<br />
+                        @ViewData["Reason"]
+                    </div>
+                }
+                @if (ViewData["Role"].ToString() == "ADMINISTRATOR" && ViewData["Reversal"].ToString()!= "REVERSAL")
+                {
+                    <div>
+                        <button  class="btn btn-success " onclick="GetFancy('@Url.Action("TransactionReversal", "Loyalty")','@Model.Miscellaneous')">Reverse Transaction</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

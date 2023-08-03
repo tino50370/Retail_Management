@@ -1,0 +1,200 @@
+﻿@model RetailKing.Models.Item
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Items</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quantity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quantity)
+            @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.sold)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.sold)
+            @Html.ValidationMessageFor(model => model.sold)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.transfer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.transfer)
+            @Html.ValidationMessageFor(model => model.transfer)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Balance)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Balance)
+            @Html.ValidationMessageFor(model => model.Balance)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewStock)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NewStock)
+            @Html.ValidationMessageFor(model => model.NewStock)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Returned)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Returned)
+            @Html.ValidationMessageFor(model => model.Returned)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Swaps)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Swaps)
+            @Html.ValidationMessageFor(model => model.Swaps)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Reorder)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Reorder)
+            @Html.ValidationMessageFor(model => model.Reorder)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.company)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.company)
+            @Html.ValidationMessageFor(model => model.company)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SubCategory)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SubCategory)
+            @Html.ValidationMessageFor(model => model.SubCategory)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BuyingPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BuyingPrice)
+            @Html.ValidationMessageFor(model => model.BuyingPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SellingPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SellingPrice)
+            @Html.ValidationMessageFor(model => model.SellingPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Amount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Amount)
+            @Html.ValidationMessageFor(model => model.Amount)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Expected)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Expected)
+            @Html.ValidationMessageFor(model => model.Expected)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ItemName )
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ItemName )
+            @Html.ValidationMessageFor(model => model.ItemName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.category)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.category)
+            @Html.ValidationMessageFor(model => model.category)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.status)
+            @Html.ValidationMessageFor(model => model.status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ItemCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ItemCode)
+            @Html.ValidationMessageFor(model => model.ItemCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tax)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.tax)
+            @Html.ValidationMessageFor(model => model.tax)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TopSeller)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TopSeller)
+            @Html.ValidationMessageFor(model => model.TopSeller)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SDate)
+            @Html.ValidationMessageFor(model => model.SDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EDate)
+            @Html.ValidationMessageFor(model => model.EDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

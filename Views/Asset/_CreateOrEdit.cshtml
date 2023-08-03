@@ -1,0 +1,178 @@
+@model RetailKing.Models.Asset
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+<script type="text/javascript" src="@Url.Content("~/Content/tinymce/tinymce.min.js")"></script>
+
+<script type="text/javascript">
+    $(function () {
+        if (tinymce.editors.length != 0 || tinymce.activeEditor != undefined) {
+            setTimeout(function () {
+                // alert(tinymce.editors.length);
+                tinymce.init({
+                    selector: "Detail",
+                    plugins: [
+                        "advlist autolink autosave link lists base64_image charmap hr pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars fullscreen media ",
+                        "table contextmenu directionality textcolor paste fullpage textcolor colorpicker textpattern"
+                    ],
+
+                    toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table",
+                    toolbar2: "formatselect | cut copy paste | searchreplace  |  undo redo | link unlink base64_image | forecolor backcolor",
+                    menubar: false,
+                    paste_data_images: true,
+                    height: "300",
+                    width: "400"
+                });
+                tinymce.execCommand('mceAddEditor', true, "Detail");
+            }, 1000);
+        }
+        else {
+            tinymce.init({
+                selector: "Detail",
+                plugins: [
+                    "advlist autolink autosave link lists base64_image charmap hr pagebreak spellchecker",
+                    "searchreplace wordcount visualblocks visualchars fullscreen media ",
+                    "table contextmenu directionality textcolor paste fullpage textcolor colorpicker textpattern"
+                ],
+                toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table",
+                toolbar2: "formatselect | cut copy paste | searchreplace  |  undo redo | link unlink base64_image | forecolor backcolor",
+                menubar: false,
+                paste_data_images: true,
+                height: "300",
+                width: "400",
+            });
+            tinyMCE.execCommand('mceAddEditor', true, 'Detail');
+        }
+
+        $("#FixedEmail").change(function () {
+            if (this.checked) {
+                $("#emailPw").hide();
+            }
+            else {
+                $("#emailPw").show();
+            }
+        });
+
+        $("#Customer").click(function () {
+            GetFancy('@Url.Action("CustomerList", "Asset")')
+        });
+     
+    });
+
+    // Prevent bootstrap dialog from blocking focusin
+    $(document).on('focusin', function (e) {
+        if ($(e.target).closest(".mce-window").length) {
+            e.stopImmediatePropagation();
+        }
+    });
+</script>
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+<div class="editor-label">
+    @Html.LabelFor(model => model.AssetCode)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.AssetCode, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.AssetCode)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Location )
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Location , new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Location, "", new { style ="color:red"})
+</div>
+
+<div class="editor-label">
+    @Html.Label("Area (Sqm)")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Area, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Area, "", new { style = "color:red" })
+</div>
+
+<div class="editor-label">
+    @Html.Label("Asset Mobility")
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.Type, new SelectList(new[] { "Fixed", "Movable"}, Model.Type), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Type)
+</div>
+
+
+<div class="editor-label">
+    @Html.Label("Type" )
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.Description , new SelectList(new[] { "Residential", "Commercial", "Industrial", "Institutional"}, Model.Type), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Description)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Aquisition Type")
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.AquisitionType, new SelectList(new[] { "Purchase", "Lease" }, Model.AquisitionType), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.AquisitionType)
+</div>
+<div class="editor-label">
+    @Html.Label("Aquisition Date")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.AquisitionDate , new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.AquisitionDate)
+</div>
+<div class="editor-label">
+    @Html.Label("Rating Zone")
+</div>
+<div class="editor-field">
+   @Html.DropDownListFor(model => model.ZoneId,
+                           new SelectList(
+                             ViewBag.Company,
+                             "Value",
+                                              "Text"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ZoneId)
+</div>
+
+@*
+<div class="editor-label">
+    @Html.Label("Current Asset Value")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.CurrentValue, new { @class = "form-control", @type = "Numeric" })
+    @Html.ValidationMessageFor(model => model.CurrentValue)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Lifespan (yrs)")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.lifespan , new { @class = "form-control",@type="Number"  })
+    @Html.ValidationMessageFor(model => model.lifespan)
+</div>
+*@
+
+<div class="editor-label">
+    @Html.Label("Customer") <em>(Optional)</em>
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Customer, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Customer)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Detailed Description")
+</div>
+<div class="editor-field">
+    @Html.TextAreaFor(model => model.Detail, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Detail)
+</div>
+
+
+

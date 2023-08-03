@@ -1,0 +1,162 @@
+﻿@model IEnumerable<RetailKing.Models.Customer>
+
+@{
+    ViewBag.Title = "Browse";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Browse </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AccountCode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomerName )
+                            </th>
+                            <th>
+                                <button class="btn btn-success" onclick="CreateCustomer()"><span></span>New Customer</button>
+                            
+                                <div class="editor-field">
+                                    Search by Customer <input type="text" class="form-control" id="SearchInItems" style="width:100%" />
+
+                                </div>
+                          
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr onclick="AppendToCustomer('@item.AccountCode','@item.CustomerName')" style="cursor:pointer">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccountCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustomerName)
+                                </td>
+
+                            </tr>
+                        }
+
+                    </table>
+                    <div>
+                        <p>
+                            <button class="btn btn-warning" onclick="GetFancy('/Quotations/Purchases')">Cancel</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+function CreateCustomer() {
+    // Quode to add customer to quote or invoice
+    $.ajax({
+        type: "Get",
+        url: '/Customers/Create',
+        dataType: 'html',
+        data: {
+            Company: Company
+
+        },
+        success: function (resp) {
+            $.fancybox(resp, {
+                helpers: {
+                    overlay: {
+                        closeClick: false
+                    }
+                },
+                keys: {
+                    close: null
+                },
+                minWidth: '400',
+                closeBtn: false,
+                openEffect: 'none',
+                closeEffect: 'none'
+            });
+        },
+        error: function (data) {
+        }
+    });
+}
+$("#SearchInItems").keyup(function () {
+    // event.preventDefault();
+    var s = $('#SearchInItems').val();
+    if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+        $.ajax({
+            type: "Get",
+            url: '@Url.Action("Browse", "Customers")',
+            dataType: 'html',
+            data: {
+                cc: $("#SearchInItems").val(),
+                iDisplayLength: $("#SizeR").val(),
+                sEnd: $("#Date").val(),
+                sStart: $("#DateCreated").val(),
+                sEcho: 1
+            },
+            success: function (resp) {
+                $.fancybox(resp, {
+                    helpers: {
+                        overlay: {
+                            closeClick: false
+                        }
+                    },
+                    keys: {
+                        close: null
+                    },
+                    minWidth: '400',
+                    closeBtn: false,
+                    openEffect: 'none',
+                    closeEffect: 'none'
+                });
+            },
+            error: function (data) {
+            }
+        });
+    }
+    //   }, 2000);
+});
+    $("#customer").bind('input propertychange', function (e) {
+       
+        var txt = $("#customer").val();
+            if (supplierSelected == 'Y') {
+                $("#balances").val('');
+                $('#Invoices').val('');
+                $("#Receipt").val('');
+                $("#Amount").prop('disabled', true);
+                $('#Balance').val('');
+                $('#TheValue').hide();
+                supplierSelected == 'N';
+            }
+            if (txt.length > 1) {
+                $.ajax({
+                    type: "Get",
+                    url: '@Url.Action("GetPayee", "Accounts")',
+                    dataType: 'html',
+                    data: {
+                        searchtext: $("#Payee").val(),
+                        Transaction: $("#type").val(),
+                        Company: Company
+                    },
+                    success: function (resp) {
+                        $('#payee').html(resp);
+                    },
+                    error: function (data) {
+                    }
+                });
+            } else {
+                $('#payee').html('');
+            }
+        
+    });
+
+</script>

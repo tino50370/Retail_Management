@@ -1,0 +1,83 @@
+@model IEnumerable<RetailKing.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            AccountCode
+        </th>
+        <th>
+            CustomerName
+        </th>
+        <th>
+            ContactPerson
+        </th>
+        <th>
+            Address1
+        </th>
+        <th>
+            Address2
+        </th>
+        <th>
+            Phone1
+        </th>
+        <th>
+            Phone2
+        </th>
+        <th>
+            Username
+        </th>
+        <th>
+            Dated
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+        <td>
+			@item.AccountCode
+        </td>
+        <td>
+			@item.CustomerName
+        </td>
+        <td>
+			@item.ContactPerson
+        </td>
+        <td>
+			@item.Address1
+        </td>
+        <td>
+			@item.Address2
+        </td>
+        <td>
+			@item.Phone1
+        </td>
+        <td>
+			@item.Phone2
+        </td>
+        <td>
+			@item.Username
+        </td>
+        <td>
+			@String.Format("{0:g}", item.Dated)
+        </td>
+    </tr>
+}
+
+</table>
+
+

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<RetailKing.Models.Supplier>
+
+@{
+    ViewBag.Title = "Browse";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Browse </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AccountCode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SupplierName)
+                            </th>
+
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr onclick="AppendToSuplier('@item.AccountCode','@item.SupplierName')">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccountCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SupplierName)
+                                </td>
+
+                            </tr>
+                        }
+
+                    </table>
+                    <div>
+                        <p>
+
+                            <button class="btn btn-warning" onclick="GetSupplier()">Cancel</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

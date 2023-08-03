@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--shopping list-->
+<Items>
+  <Item>
+    <ItemId>63</ItemId>
+    <Quantity>3.0000</Quantity>
+  </Item>
+  <Item>
+    <ItemId>64</ItemId>
+    <Quantity>1.0000</Quantity>
+  </Item>
+  <Item>
+    <ItemId>65</ItemId>
+    <Quantity>1.0000</Quantity>
+  </Item>
+  <Item>
+    <ItemId>66</ItemId>
+    <Quantity>1.0000</Quantity>
+  </Item>
+</Items>

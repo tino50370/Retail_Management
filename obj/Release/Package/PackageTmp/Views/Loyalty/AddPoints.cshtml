@@ -1,0 +1,56 @@
+@model RetailKing.Models.Loyalty
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Add Points</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+
+                    @using (Html.BeginForm("AddPoints", "Loyalty", FormMethod.Post, new { id = "createCustomers" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        <fieldset>
+                            
+                            @Html.HiddenFor(model => model.SupplierId)
+                            <div class="editor-label">
+                                @Html.Label("Card/Customer/Mobile Number")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.CardNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CardNumber, "", new { style = "color:red" })
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("Invoice Amount")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.MonetaryValue, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MonetaryValue, "", new { style = "color:red" })
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("Invoice Number")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Branch, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Branch, "", new { style = "color:red" })
+                            </div>
+
+                        </fieldset>
+                    }
+                    <br/>
+                    <div>
+                        <button class="btn btn-success" onclick="SaveView('createCustomers')">Save</button>
+                        <button class="btn btn-warning" onclick="GetView('@Url.Action("TransactionHistory", "Loyalty")')">Cancel</button>
+                    </div>
+                </div>
+            </div>
+</div>
+        </div>
+    </div>
+

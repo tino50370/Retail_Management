@@ -1,0 +1,83 @@
+﻿@model IEnumerable<RetailKing.Models.Sale> 
+@{
+    ViewBag.Title = "getItems";
+}
+
+   <div style="width:400px">
+       <div class="col-md-12">
+           <h1>Customer Sales</h1>
+       </div>
+       <div class="col-md-12"><input type="text" id="Date" class="form-control" value="@ViewData["Date"]" /></div>
+       
+       <div class="col-md-12">
+          <br />
+          <input type="text" id="ReceiptNo" class="form-control" placeholder="Search By Receipt" />
+       </div>
+       <div class="col-md-12">
+           <br />
+           <input type="Button" id="ReceiptNo" class="btn btn-warning"  onclick="CancelReceipts()" value="Cancel" />
+       </div>
+       <br />
+    <div class="col-md-12">
+        <table class="table" style="width:100%">
+            <tbody>
+              @foreach (var menu in Model)
+              {
+                  var newrId = "";
+                  var newVId = "";
+                  if (menu.Reciept != null)
+                  {
+                      char[] delimiter = new char[] { '.' };
+                      string[] partz = menu.Reciept.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+                      newrId = partz[0];// + partz[1] + partz[2];
+                  }
+                  string rid = newrId + "_b";
+                  string ridx = newrId + "_x";
+
+                  if (menu.Invoice != null)
+                  {
+                      char[] delimita = new char[] { '.' };
+                      string[] part = menu.Invoice.Split(delimita, StringSplitOptions.RemoveEmptyEntries);
+                      newVId = part[0];// + part[1] + part[2];
+                  }
+                  string vidx = newVId + "_x";
+                  string vid = newVId + "_b";
+
+
+                    <tr onclick="placeReceipt('@menu.Reciept')" style="width:100%; border-bottom-color: White; background-color: #00B294; cursor: pointer">
+                       
+                        
+                         <td style="border-left-style:none; border-right-style: none; font-size: 13px; vertical-align: middle; text-align:center; color: White; font-weight: bold">
+                            @menu.Reciept
+                        </td>
+                        <td style="float:left;border-left-style:none; border-right-style: none; font-size: 13px; vertical-align: middle; text-align:center; color: White; font-weight: bold">
+                        @if(menu.Balance == null)
+                        {
+                            menu.Balance = 0;
+                        }
+                            $@String.Format("{0:F}", menu.Balance)
+                        </td>
+                        <td id="btns-@menu.ID" style="border-left-style:none; border-right-style: none; font-size: 13px; vertical-align: middle;  color: White; font-weight: bold">
+                            @menu.TableNumber
+                        </td>
+                    </tr>
+              }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+       $(document).ready(function () {
+
+           $('#Date').daterangepicker({
+               singleDatePicker: true,
+               calender_style: "picker_2"
+           }, function (start, end, label) {
+              
+               GetActions('/Pos/getCustomnerSales?date=' + start.format('YYYY-MM-DD'), 'SALES')
+           });
+
+       });
+
+</script>

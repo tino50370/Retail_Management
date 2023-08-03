@@ -1,0 +1,710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InventoryModelStoreContainer" CdmEntityContainer="InventoryEntities3">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="InventoryModel.Account">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Opening" ColumnName="Opening" />
+          <ScalarProperty Name="LinkAccount" ColumnName="LinkAccount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Activecoes">
+      <EntityTypeMapping TypeName="InventoryModel.Activeco">
+        <MappingFragment StoreEntitySet="Activeco">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="company" ColumnName="company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="InventoryModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="InventoryModel.Company">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+          <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="Footer1" ColumnName="Footer1" />
+          <ScalarProperty Name="Footer2" ColumnName="Footer2" />
+          <ScalarProperty Name="Footer3" ColumnName="Footer3" />
+          <ScalarProperty Name="footer4" ColumnName="footer4" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="VatNo" ColumnName="VatNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreditNotes">
+      <EntityTypeMapping TypeName="InventoryModel.CreditNote">
+        <MappingFragment StoreEntitySet="CreditNotes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="user" ColumnName="user" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="InventoryModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discounts">
+      <EntityTypeMapping TypeName="InventoryModel.Discount">
+        <MappingFragment StoreEntitySet="Discounts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="Receipt" ColumnName="Receipt" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expenses">
+      <EntityTypeMapping TypeName="InventoryModel.Expens">
+        <MappingFragment StoreEntitySet="Expenses">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Payee" ColumnName="Payee" />
+          <ScalarProperty Name="Dated" ColumnName="Dated" />
+          <ScalarProperty Name="Receipt" ColumnName="Receipt" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="cashier" ColumnName="cashier" />
+          <ScalarProperty Name="till" ColumnName="till" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="InventoryModel.Invoice">
+        <MappingFragment StoreEntitySet="Invoices">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="item1" ColumnName="item1" />
+          <ScalarProperty Name="item2" ColumnName="item2" />
+          <ScalarProperty Name="item3" ColumnName="item3" />
+          <ScalarProperty Name="item4" ColumnName="item4" />
+          <ScalarProperty Name="item5" ColumnName="item5" />
+          <ScalarProperty Name="item6" ColumnName="item6" />
+          <ScalarProperty Name="item7" ColumnName="item7" />
+          <ScalarProperty Name="item8" ColumnName="item8" />
+          <ScalarProperty Name="item9" ColumnName="item9" />
+          <ScalarProperty Name="item10" ColumnName="item10" />
+          <ScalarProperty Name="item11" ColumnName="item11" />
+          <ScalarProperty Name="item12" ColumnName="item12" />
+          <ScalarProperty Name="item13" ColumnName="item13" />
+          <ScalarProperty Name="item14" ColumnName="item14" />
+          <ScalarProperty Name="item15" ColumnName="item15" />
+          <ScalarProperty Name="item16" ColumnName="item16" />
+          <ScalarProperty Name="item17" ColumnName="item17" />
+          <ScalarProperty Name="item18" ColumnName="item18" />
+          <ScalarProperty Name="item19" ColumnName="item19" />
+          <ScalarProperty Name="item20" ColumnName="item20" />
+          <ScalarProperty Name="quantity1" ColumnName="quantity1" />
+          <ScalarProperty Name="quantity2" ColumnName="quantity2" />
+          <ScalarProperty Name="quantity3" ColumnName="quantity3" />
+          <ScalarProperty Name="quantity4" ColumnName="quantity4" />
+          <ScalarProperty Name="quantity5" ColumnName="quantity5" />
+          <ScalarProperty Name="quantity6" ColumnName="quantity6" />
+          <ScalarProperty Name="quantity7" ColumnName="quantity7" />
+          <ScalarProperty Name="quantity8" ColumnName="quantity8" />
+          <ScalarProperty Name="quantity9" ColumnName="quantity9" />
+          <ScalarProperty Name="quantity10" ColumnName="quantity10" />
+          <ScalarProperty Name="quantity11" ColumnName="quantity11" />
+          <ScalarProperty Name="quantity12" ColumnName="quantity12" />
+          <ScalarProperty Name="quantity13" ColumnName="quantity13" />
+          <ScalarProperty Name="quantity14" ColumnName="quantity14" />
+          <ScalarProperty Name="quantity15" ColumnName="quantity15" />
+          <ScalarProperty Name="quantity16" ColumnName="quantity16" />
+          <ScalarProperty Name="quantity17" ColumnName="quantity17" />
+          <ScalarProperty Name="quantity18" ColumnName="quantity18" />
+          <ScalarProperty Name="quantity19" ColumnName="quantity19" />
+          <ScalarProperty Name="quantity20" ColumnName="quantity20" />
+          <ScalarProperty Name="price1" ColumnName="price1" />
+          <ScalarProperty Name="price2" ColumnName="price2" />
+          <ScalarProperty Name="price3" ColumnName="price3" />
+          <ScalarProperty Name="price4" ColumnName="price4" />
+          <ScalarProperty Name="price5" ColumnName="price5" />
+          <ScalarProperty Name="price6" ColumnName="price6" />
+          <ScalarProperty Name="price7" ColumnName="price7" />
+          <ScalarProperty Name="price8" ColumnName="price8" />
+          <ScalarProperty Name="price9" ColumnName="price9" />
+          <ScalarProperty Name="price10" ColumnName="price10" />
+          <ScalarProperty Name="price11" ColumnName="price11" />
+          <ScalarProperty Name="price12" ColumnName="price12" />
+          <ScalarProperty Name="price13" ColumnName="price13" />
+          <ScalarProperty Name="price14" ColumnName="price14" />
+          <ScalarProperty Name="price15" ColumnName="price15" />
+          <ScalarProperty Name="price16" ColumnName="price16" />
+          <ScalarProperty Name="price17" ColumnName="price17" />
+          <ScalarProperty Name="price18" ColumnName="price18" />
+          <ScalarProperty Name="price19" ColumnName="price19" />
+          <ScalarProperty Name="price20" ColumnName="price20" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="Customer" ColumnName="Customer" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice1" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="User" ColumnName="User" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="InventoryModel.Item">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Item1" ColumnName="Item" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="BuyingPrice" ColumnName="BuyingPrice" />
+          <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
+          <ScalarProperty Name="Expected" ColumnName="Expected" />
+          <ScalarProperty Name="sold" ColumnName="sold" />
+          <ScalarProperty Name="transfer" ColumnName="transfer" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="NewStock" ColumnName="NewStock" />
+          <ScalarProperty Name="Returns" ColumnName="Returns" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+          <ScalarProperty Name="Swaps" ColumnName="Swaps" />
+          <ScalarProperty Name="Reorder" ColumnName="Reorder" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logins">
+      <EntityTypeMapping TypeName="InventoryModel.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="accesslevel" ColumnName="accesslevel" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="prefix" ColumnName="prefix" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="PosUser" ColumnName="PosUser" />
+          <ScalarProperty Name="RetailUser" ColumnName="RetailUser" />
+          <ScalarProperty Name="UsesBoth" ColumnName="UsesBoth" />
+          <ScalarProperty Name="Shifts" ColumnName="Shifts" />
+          <ScalarProperty Name="ManagerMenu" ColumnName="ManagerMenu" />
+          <ScalarProperty Name="Tables" ColumnName="Tables" />
+          <ScalarProperty Name="Payments" ColumnName="Payments" />
+          <ScalarProperty Name="Reporting" ColumnName="Reporting" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="Pricing" ColumnName="Pricing" />
+          <ScalarProperty Name="Barcoding" ColumnName="Barcoding" />
+          <ScalarProperty Name="AddsProducts" ColumnName="AddsProducts" />
+          <ScalarProperty Name="Purchases" ColumnName="Purchases" />
+          <ScalarProperty Name="ManageUsers" ColumnName="ManageUsers" />
+          <ScalarProperty Name="ManagePos" ColumnName="ManagePos" />
+          <ScalarProperty Name="Transfers" ColumnName="Transfers" />
+          <ScalarProperty Name="Accounts" ColumnName="Accounts" />
+          <ScalarProperty Name="OnShift" ColumnName="OnShift" />
+          <ScalarProperty Name="xreport" ColumnName="xreport" />
+          <ScalarProperty Name="zreport" ColumnName="zreport" />
+          <ScalarProperty Name="voidsale" ColumnName="voidsale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menus">
+      <EntityTypeMapping TypeName="InventoryModel.menu">
+        <MappingFragment StoreEntitySet="menu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="button" ColumnName="button" />
+          <ScalarProperty Name="caption" ColumnName="caption" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="company" ColumnName="company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="InventoryModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="item1" ColumnName="item1" />
+          <ScalarProperty Name="item2" ColumnName="item2" />
+          <ScalarProperty Name="item3" ColumnName="item3" />
+          <ScalarProperty Name="item4" ColumnName="item4" />
+          <ScalarProperty Name="item5" ColumnName="item5" />
+          <ScalarProperty Name="item6" ColumnName="item6" />
+          <ScalarProperty Name="item7" ColumnName="item7" />
+          <ScalarProperty Name="item8" ColumnName="item8" />
+          <ScalarProperty Name="item9" ColumnName="item9" />
+          <ScalarProperty Name="item10" ColumnName="item10" />
+          <ScalarProperty Name="item11" ColumnName="item11" />
+          <ScalarProperty Name="item12" ColumnName="item12" />
+          <ScalarProperty Name="item13" ColumnName="item13" />
+          <ScalarProperty Name="item14" ColumnName="item14" />
+          <ScalarProperty Name="item15" ColumnName="item15" />
+          <ScalarProperty Name="item16" ColumnName="item16" />
+          <ScalarProperty Name="item17" ColumnName="item17" />
+          <ScalarProperty Name="item18" ColumnName="item18" />
+          <ScalarProperty Name="item19" ColumnName="item19" />
+          <ScalarProperty Name="item20" ColumnName="item20" />
+          <ScalarProperty Name="quantity1" ColumnName="quantity1" />
+          <ScalarProperty Name="quantity2" ColumnName="quantity2" />
+          <ScalarProperty Name="quantity3" ColumnName="quantity3" />
+          <ScalarProperty Name="quantity4" ColumnName="quantity4" />
+          <ScalarProperty Name="quantity5" ColumnName="quantity5" />
+          <ScalarProperty Name="quantity6" ColumnName="quantity6" />
+          <ScalarProperty Name="quantity7" ColumnName="quantity7" />
+          <ScalarProperty Name="quantity8" ColumnName="quantity8" />
+          <ScalarProperty Name="quantity9" ColumnName="quantity9" />
+          <ScalarProperty Name="quantity10" ColumnName="quantity10" />
+          <ScalarProperty Name="quantity11" ColumnName="quantity11" />
+          <ScalarProperty Name="quantity12" ColumnName="quantity12" />
+          <ScalarProperty Name="quantity13" ColumnName="quantity13" />
+          <ScalarProperty Name="quantity14" ColumnName="quantity14" />
+          <ScalarProperty Name="quantity15" ColumnName="quantity15" />
+          <ScalarProperty Name="quantity16" ColumnName="quantity16" />
+          <ScalarProperty Name="quantity17" ColumnName="quantity17" />
+          <ScalarProperty Name="quantity18" ColumnName="quantity18" />
+          <ScalarProperty Name="quantity19" ColumnName="quantity19" />
+          <ScalarProperty Name="quantity20" ColumnName="quantity20" />
+          <ScalarProperty Name="price1" ColumnName="price1" />
+          <ScalarProperty Name="price2" ColumnName="price2" />
+          <ScalarProperty Name="price3" ColumnName="price3" />
+          <ScalarProperty Name="price4" ColumnName="price4" />
+          <ScalarProperty Name="price5" ColumnName="price5" />
+          <ScalarProperty Name="price6" ColumnName="price6" />
+          <ScalarProperty Name="price7" ColumnName="price7" />
+          <ScalarProperty Name="price8" ColumnName="price8" />
+          <ScalarProperty Name="price9" ColumnName="price9" />
+          <ScalarProperty Name="price10" ColumnName="price10" />
+          <ScalarProperty Name="price11" ColumnName="price11" />
+          <ScalarProperty Name="price12" ColumnName="price12" />
+          <ScalarProperty Name="price13" ColumnName="price13" />
+          <ScalarProperty Name="price14" ColumnName="price14" />
+          <ScalarProperty Name="price15" ColumnName="price15" />
+          <ScalarProperty Name="price16" ColumnName="price16" />
+          <ScalarProperty Name="price17" ColumnName="price17" />
+          <ScalarProperty Name="price18" ColumnName="price18" />
+          <ScalarProperty Name="price19" ColumnName="price19" />
+          <ScalarProperty Name="price20" ColumnName="price20" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="button" ColumnName="button" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="cashier" ColumnName="cashier" />
+          <ScalarProperty Name="table" ColumnName="table" />
+          <ScalarProperty Name="guests" ColumnName="guests" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchases">
+      <EntityTypeMapping TypeName="InventoryModel.Purchase">
+        <MappingFragment StoreEntitySet="Purchases">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="item1" ColumnName="item1" />
+          <ScalarProperty Name="item2" ColumnName="item2" />
+          <ScalarProperty Name="item3" ColumnName="item3" />
+          <ScalarProperty Name="item4" ColumnName="item4" />
+          <ScalarProperty Name="item5" ColumnName="item5" />
+          <ScalarProperty Name="item6" ColumnName="item6" />
+          <ScalarProperty Name="item7" ColumnName="item7" />
+          <ScalarProperty Name="item8" ColumnName="item8" />
+          <ScalarProperty Name="item9" ColumnName="item9" />
+          <ScalarProperty Name="item10" ColumnName="item10" />
+          <ScalarProperty Name="item11" ColumnName="item11" />
+          <ScalarProperty Name="item12" ColumnName="item12" />
+          <ScalarProperty Name="item13" ColumnName="item13" />
+          <ScalarProperty Name="item14" ColumnName="item14" />
+          <ScalarProperty Name="item15" ColumnName="item15" />
+          <ScalarProperty Name="item16" ColumnName="item16" />
+          <ScalarProperty Name="item17" ColumnName="item17" />
+          <ScalarProperty Name="item18" ColumnName="item18" />
+          <ScalarProperty Name="item19" ColumnName="item19" />
+          <ScalarProperty Name="item20" ColumnName="item20" />
+          <ScalarProperty Name="quantity1" ColumnName="quantity1" />
+          <ScalarProperty Name="quantity2" ColumnName="quantity2" />
+          <ScalarProperty Name="quantity3" ColumnName="quantity3" />
+          <ScalarProperty Name="quantity4" ColumnName="quantity4" />
+          <ScalarProperty Name="quantity5" ColumnName="quantity5" />
+          <ScalarProperty Name="quantity6" ColumnName="quantity6" />
+          <ScalarProperty Name="quantity7" ColumnName="quantity7" />
+          <ScalarProperty Name="quantity8" ColumnName="quantity8" />
+          <ScalarProperty Name="quantity9" ColumnName="quantity9" />
+          <ScalarProperty Name="quantity10" ColumnName="quantity10" />
+          <ScalarProperty Name="quantity11" ColumnName="quantity11" />
+          <ScalarProperty Name="quantity12" ColumnName="quantity12" />
+          <ScalarProperty Name="quantity13" ColumnName="quantity13" />
+          <ScalarProperty Name="quantity14" ColumnName="quantity14" />
+          <ScalarProperty Name="quantity15" ColumnName="quantity15" />
+          <ScalarProperty Name="quantity16" ColumnName="quantity16" />
+          <ScalarProperty Name="quantity17" ColumnName="quantity17" />
+          <ScalarProperty Name="quantity18" ColumnName="quantity18" />
+          <ScalarProperty Name="quantity19" ColumnName="quantity19" />
+          <ScalarProperty Name="quantity20" ColumnName="quantity20" />
+          <ScalarProperty Name="price1" ColumnName="price1" />
+          <ScalarProperty Name="price2" ColumnName="price2" />
+          <ScalarProperty Name="price3" ColumnName="price3" />
+          <ScalarProperty Name="price4" ColumnName="price4" />
+          <ScalarProperty Name="price5" ColumnName="price5" />
+          <ScalarProperty Name="price6" ColumnName="price6" />
+          <ScalarProperty Name="price7" ColumnName="price7" />
+          <ScalarProperty Name="price8" ColumnName="price8" />
+          <ScalarProperty Name="price9" ColumnName="price9" />
+          <ScalarProperty Name="price10" ColumnName="price10" />
+          <ScalarProperty Name="price11" ColumnName="price11" />
+          <ScalarProperty Name="price12" ColumnName="price12" />
+          <ScalarProperty Name="price13" ColumnName="price13" />
+          <ScalarProperty Name="price14" ColumnName="price14" />
+          <ScalarProperty Name="price15" ColumnName="price15" />
+          <ScalarProperty Name="price16" ColumnName="price16" />
+          <ScalarProperty Name="price17" ColumnName="price17" />
+          <ScalarProperty Name="price18" ColumnName="price18" />
+          <ScalarProperty Name="price19" ColumnName="price19" />
+          <ScalarProperty Name="price20" ColumnName="price20" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="supplier" ColumnName="supplier" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Returns">
+      <EntityTypeMapping TypeName="InventoryModel.Return">
+        <MappingFragment StoreEntitySet="Returns">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="item1" ColumnName="item1" />
+          <ScalarProperty Name="item2" ColumnName="item2" />
+          <ScalarProperty Name="item3" ColumnName="item3" />
+          <ScalarProperty Name="item4" ColumnName="item4" />
+          <ScalarProperty Name="item5" ColumnName="item5" />
+          <ScalarProperty Name="item6" ColumnName="item6" />
+          <ScalarProperty Name="item7" ColumnName="item7" />
+          <ScalarProperty Name="item8" ColumnName="item8" />
+          <ScalarProperty Name="item9" ColumnName="item9" />
+          <ScalarProperty Name="item10" ColumnName="item10" />
+          <ScalarProperty Name="item11" ColumnName="item11" />
+          <ScalarProperty Name="item12" ColumnName="item12" />
+          <ScalarProperty Name="item13" ColumnName="item13" />
+          <ScalarProperty Name="item14" ColumnName="item14" />
+          <ScalarProperty Name="item15" ColumnName="item15" />
+          <ScalarProperty Name="item16" ColumnName="item16" />
+          <ScalarProperty Name="item17" ColumnName="item17" />
+          <ScalarProperty Name="item18" ColumnName="item18" />
+          <ScalarProperty Name="item19" ColumnName="item19" />
+          <ScalarProperty Name="item20" ColumnName="item20" />
+          <ScalarProperty Name="quantity1" ColumnName="quantity1" />
+          <ScalarProperty Name="quantity2" ColumnName="quantity2" />
+          <ScalarProperty Name="quantity3" ColumnName="quantity3" />
+          <ScalarProperty Name="quantity4" ColumnName="quantity4" />
+          <ScalarProperty Name="quantity5" ColumnName="quantity5" />
+          <ScalarProperty Name="quantity6" ColumnName="quantity6" />
+          <ScalarProperty Name="quantity7" ColumnName="quantity7" />
+          <ScalarProperty Name="quantity8" ColumnName="quantity8" />
+          <ScalarProperty Name="quantity9" ColumnName="quantity9" />
+          <ScalarProperty Name="quantity10" ColumnName="quantity10" />
+          <ScalarProperty Name="quantity11" ColumnName="quantity11" />
+          <ScalarProperty Name="quantity12" ColumnName="quantity12" />
+          <ScalarProperty Name="quantity13" ColumnName="quantity13" />
+          <ScalarProperty Name="quantity14" ColumnName="quantity14" />
+          <ScalarProperty Name="quantity15" ColumnName="quantity15" />
+          <ScalarProperty Name="quantity16" ColumnName="quantity16" />
+          <ScalarProperty Name="quantity17" ColumnName="quantity17" />
+          <ScalarProperty Name="quantity18" ColumnName="quantity18" />
+          <ScalarProperty Name="quantity19" ColumnName="quantity19" />
+          <ScalarProperty Name="quantity20" ColumnName="quantity20" />
+          <ScalarProperty Name="price1" ColumnName="price1" />
+          <ScalarProperty Name="price2" ColumnName="price2" />
+          <ScalarProperty Name="price3" ColumnName="price3" />
+          <ScalarProperty Name="price4" ColumnName="price4" />
+          <ScalarProperty Name="price5" ColumnName="price5" />
+          <ScalarProperty Name="price6" ColumnName="price6" />
+          <ScalarProperty Name="price7" ColumnName="price7" />
+          <ScalarProperty Name="price8" ColumnName="price8" />
+          <ScalarProperty Name="price9" ColumnName="price9" />
+          <ScalarProperty Name="price10" ColumnName="price10" />
+          <ScalarProperty Name="price11" ColumnName="price11" />
+          <ScalarProperty Name="price12" ColumnName="price12" />
+          <ScalarProperty Name="price13" ColumnName="price13" />
+          <ScalarProperty Name="price14" ColumnName="price14" />
+          <ScalarProperty Name="price15" ColumnName="price15" />
+          <ScalarProperty Name="price16" ColumnName="price16" />
+          <ScalarProperty Name="price17" ColumnName="price17" />
+          <ScalarProperty Name="price18" ColumnName="price18" />
+          <ScalarProperty Name="price19" ColumnName="price19" />
+          <ScalarProperty Name="price20" ColumnName="price20" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="InventoryModel.Sale">
+        <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="item1" ColumnName="item1" />
+          <ScalarProperty Name="item2" ColumnName="item2" />
+          <ScalarProperty Name="item3" ColumnName="item3" />
+          <ScalarProperty Name="item4" ColumnName="item4" />
+          <ScalarProperty Name="item5" ColumnName="item5" />
+          <ScalarProperty Name="item6" ColumnName="item6" />
+          <ScalarProperty Name="item7" ColumnName="item7" />
+          <ScalarProperty Name="item8" ColumnName="item8" />
+          <ScalarProperty Name="item9" ColumnName="item9" />
+          <ScalarProperty Name="item10" ColumnName="item10" />
+          <ScalarProperty Name="item11" ColumnName="item11" />
+          <ScalarProperty Name="item12" ColumnName="item12" />
+          <ScalarProperty Name="item13" ColumnName="item13" />
+          <ScalarProperty Name="item14" ColumnName="item14" />
+          <ScalarProperty Name="item15" ColumnName="item15" />
+          <ScalarProperty Name="item16" ColumnName="item16" />
+          <ScalarProperty Name="item17" ColumnName="item17" />
+          <ScalarProperty Name="item18" ColumnName="item18" />
+          <ScalarProperty Name="item19" ColumnName="item19" />
+          <ScalarProperty Name="item20" ColumnName="item20" />
+          <ScalarProperty Name="quantity1" ColumnName="quantity1" />
+          <ScalarProperty Name="quantity2" ColumnName="quantity2" />
+          <ScalarProperty Name="quantity3" ColumnName="quantity3" />
+          <ScalarProperty Name="quantity4" ColumnName="quantity4" />
+          <ScalarProperty Name="quantity5" ColumnName="quantity5" />
+          <ScalarProperty Name="quantity6" ColumnName="quantity6" />
+          <ScalarProperty Name="quantity7" ColumnName="quantity7" />
+          <ScalarProperty Name="quantity8" ColumnName="quantity8" />
+          <ScalarProperty Name="quantity9" ColumnName="quantity9" />
+          <ScalarProperty Name="quantity10" ColumnName="quantity10" />
+          <ScalarProperty Name="quantity11" ColumnName="quantity11" />
+          <ScalarProperty Name="quantity12" ColumnName="quantity12" />
+          <ScalarProperty Name="quantity13" ColumnName="quantity13" />
+          <ScalarProperty Name="quantity14" ColumnName="quantity14" />
+          <ScalarProperty Name="quantity15" ColumnName="quantity15" />
+          <ScalarProperty Name="quantity16" ColumnName="quantity16" />
+          <ScalarProperty Name="quantity17" ColumnName="quantity17" />
+          <ScalarProperty Name="quantity18" ColumnName="quantity18" />
+          <ScalarProperty Name="quantity19" ColumnName="quantity19" />
+          <ScalarProperty Name="quantity20" ColumnName="quantity20" />
+          <ScalarProperty Name="price1" ColumnName="price1" />
+          <ScalarProperty Name="price2" ColumnName="price2" />
+          <ScalarProperty Name="price3" ColumnName="price3" />
+          <ScalarProperty Name="price4" ColumnName="price4" />
+          <ScalarProperty Name="price5" ColumnName="price5" />
+          <ScalarProperty Name="price6" ColumnName="price6" />
+          <ScalarProperty Name="price7" ColumnName="price7" />
+          <ScalarProperty Name="price8" ColumnName="price8" />
+          <ScalarProperty Name="price9" ColumnName="price9" />
+          <ScalarProperty Name="price10" ColumnName="price10" />
+          <ScalarProperty Name="price11" ColumnName="price11" />
+          <ScalarProperty Name="price12" ColumnName="price12" />
+          <ScalarProperty Name="price13" ColumnName="price13" />
+          <ScalarProperty Name="price14" ColumnName="price14" />
+          <ScalarProperty Name="price15" ColumnName="price15" />
+          <ScalarProperty Name="price16" ColumnName="price16" />
+          <ScalarProperty Name="price17" ColumnName="price17" />
+          <ScalarProperty Name="price18" ColumnName="price18" />
+          <ScalarProperty Name="price19" ColumnName="price19" />
+          <ScalarProperty Name="price20" ColumnName="price20" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_Lines">
+      <EntityTypeMapping TypeName="InventoryModel.Sales_Lines">
+        <MappingFragment StoreEntitySet="Sales_Lines">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="priceinc" ColumnName="priceinc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="seats">
+      <EntityTypeMapping TypeName="InventoryModel.seat">
+        <MappingFragment StoreEntitySet="seats">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TableNumber" ColumnName="TableNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shifts">
+      <EntityTypeMapping TypeName="InventoryModel.shift">
+        <MappingFragment StoreEntitySet="shift">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="ShiftNumber" ColumnName="ShiftNumber" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trannames">
+      <EntityTypeMapping TypeName="InventoryModel.Tranname">
+        <MappingFragment StoreEntitySet="Tranname">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tname" ColumnName="tname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="InventoryModel.Transaction">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TransactionName" ColumnName="TransactionName" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Debit1" ColumnName="Debit1" />
+          <ScalarProperty Name="Debit2" ColumnName="Debit2" />
+          <ScalarProperty Name="Debit3" ColumnName="Debit3" />
+          <ScalarProperty Name="Debit4" ColumnName="Debit4" />
+          <ScalarProperty Name="Debit5" ColumnName="Debit5" />
+          <ScalarProperty Name="Debit6" ColumnName="Debit6" />
+          <ScalarProperty Name="Credit1" ColumnName="Credit1" />
+          <ScalarProperty Name="Credit2" ColumnName="Credit2" />
+          <ScalarProperty Name="Credit3" ColumnName="Credit3" />
+          <ScalarProperty Name="Credit4" ColumnName="Credit4" />
+          <ScalarProperty Name="Credit5" ColumnName="Credit5" />
+          <ScalarProperty Name="Credit6" ColumnName="Credit6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transfers">
+      <EntityTypeMapping TypeName="InventoryModel.Transfer">
+        <MappingFragment StoreEntitySet="Transfers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="item1" ColumnName="item1" />
+          <ScalarProperty Name="item2" ColumnName="item2" />
+          <ScalarProperty Name="item3" ColumnName="item3" />
+          <ScalarProperty Name="item4" ColumnName="item4" />
+          <ScalarProperty Name="item5" ColumnName="item5" />
+          <ScalarProperty Name="item6" ColumnName="item6" />
+          <ScalarProperty Name="item7" ColumnName="item7" />
+          <ScalarProperty Name="item8" ColumnName="item8" />
+          <ScalarProperty Name="item9" ColumnName="item9" />
+          <ScalarProperty Name="item10" ColumnName="item10" />
+          <ScalarProperty Name="item11" ColumnName="item11" />
+          <ScalarProperty Name="item12" ColumnName="item12" />
+          <ScalarProperty Name="item13" ColumnName="item13" />
+          <ScalarProperty Name="item14" ColumnName="item14" />
+          <ScalarProperty Name="item15" ColumnName="item15" />
+          <ScalarProperty Name="item16" ColumnName="item16" />
+          <ScalarProperty Name="item17" ColumnName="item17" />
+          <ScalarProperty Name="item18" ColumnName="item18" />
+          <ScalarProperty Name="item19" ColumnName="item19" />
+          <ScalarProperty Name="item20" ColumnName="item20" />
+          <ScalarProperty Name="quantity1" ColumnName="quantity1" />
+          <ScalarProperty Name="quantity2" ColumnName="quantity2" />
+          <ScalarProperty Name="quantity3" ColumnName="quantity3" />
+          <ScalarProperty Name="quantity4" ColumnName="quantity4" />
+          <ScalarProperty Name="quantity5" ColumnName="quantity5" />
+          <ScalarProperty Name="quantity6" ColumnName="quantity6" />
+          <ScalarProperty Name="quantity7" ColumnName="quantity7" />
+          <ScalarProperty Name="quantity8" ColumnName="quantity8" />
+          <ScalarProperty Name="quantity9" ColumnName="quantity9" />
+          <ScalarProperty Name="quantity10" ColumnName="quantity10" />
+          <ScalarProperty Name="quantity11" ColumnName="quantity11" />
+          <ScalarProperty Name="quantity12" ColumnName="quantity12" />
+          <ScalarProperty Name="quantity13" ColumnName="quantity13" />
+          <ScalarProperty Name="quantity14" ColumnName="quantity14" />
+          <ScalarProperty Name="quantity15" ColumnName="quantity15" />
+          <ScalarProperty Name="quantity16" ColumnName="quantity16" />
+          <ScalarProperty Name="quantity17" ColumnName="quantity17" />
+          <ScalarProperty Name="quantity18" ColumnName="quantity18" />
+          <ScalarProperty Name="quantity19" ColumnName="quantity19" />
+          <ScalarProperty Name="quantity20" ColumnName="quantity20" />
+          <ScalarProperty Name="price1" ColumnName="price1" />
+          <ScalarProperty Name="price2" ColumnName="price2" />
+          <ScalarProperty Name="price3" ColumnName="price3" />
+          <ScalarProperty Name="price4" ColumnName="price4" />
+          <ScalarProperty Name="price5" ColumnName="price5" />
+          <ScalarProperty Name="price6" ColumnName="price6" />
+          <ScalarProperty Name="price7" ColumnName="price7" />
+          <ScalarProperty Name="price8" ColumnName="price8" />
+          <ScalarProperty Name="price9" ColumnName="price9" />
+          <ScalarProperty Name="price10" ColumnName="price10" />
+          <ScalarProperty Name="price11" ColumnName="price11" />
+          <ScalarProperty Name="price12" ColumnName="price12" />
+          <ScalarProperty Name="price13" ColumnName="price13" />
+          <ScalarProperty Name="price14" ColumnName="price14" />
+          <ScalarProperty Name="price15" ColumnName="price15" />
+          <ScalarProperty Name="price16" ColumnName="price16" />
+          <ScalarProperty Name="price17" ColumnName="price17" />
+          <ScalarProperty Name="price18" ColumnName="price18" />
+          <ScalarProperty Name="price19" ColumnName="price19" />
+          <ScalarProperty Name="price20" ColumnName="price20" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dated" ColumnName="dated" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="Reciept" ColumnName="Reciept" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trantypes">
+      <EntityTypeMapping TypeName="InventoryModel.Trantype">
+        <MappingFragment StoreEntitySet="Trantype">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tname" ColumnName="tname" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

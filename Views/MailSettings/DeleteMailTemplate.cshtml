@@ -1,0 +1,43 @@
+@model RetailKing.Models.MailTemplate
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Delete</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="col-md-8">
+
+                <h3>Are you sure you want to delete this template?</h3>
+                <fieldset>
+
+                    <div class="display-label">Services</div>
+                    <div class="display-field">@Model.Service</div>
+
+                    <div class="display-label">Subject</div>
+                    <div class="display-field">@Model.Subject</div>
+                   
+                    <br/>
+
+                </fieldset>
+                @using (Html.BeginForm("DeleteMailTemplate", "MailSettings", FormMethod.Post, new { enctype = "multipart/form-data", @name = "Create", id = "createMailList" }))
+                {
+                    <p>
+                        @Html.HiddenFor(m => m.Id)
+
+                        <button class="btn btn-danger" onclick="SaveView('createMailList')">Delete</button>
+                        <a class="btn btn-warning" onclick="GetView('@Url.Action("MailTemplate", "MailSettings")')" data-original-title="Top Navbar"><span class="hidden-minibar">Back</span></a> 
+
+                    </p>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

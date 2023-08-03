@@ -1,0 +1,52 @@
+﻿@model IEnumerable<RetailKing.Models.LossLine>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<table id="@ViewData["Id"]"class="table"  style="width :94%; float: right">
+    <tr>
+        <th style="background-color:#ff7514; border-color: #fff; color: #fff">
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+       
+        <th style="background-color:#ff7514; border-color: #fff; color: #fff">
+            @Html.DisplayNameFor(model => model.item)
+        </th>
+        <th style="background-color:#ff7514; border-color: #fff; color: #fff">
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+       
+        <th style="background-color:#ff7514; border-color: #fff; color: #fff">
+            @Html.DisplayName("Description")
+        </th>
+       
+    </tr>
+<tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td style="background-color:#EEEEEE; border-color: #fff">
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+       
+        <td style="background-color:#EEEEEE; border-color: #fff">
+            @Html.DisplayFor(modelItem => item.item)
+        </td>
+        <td style="background-color:#EEEEEE; border-color: #fff">
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+       
+        <td style="background-color:#EEEEEE; border-color: #fff">
+              <input type="text" class="Description" id="Description_@item.Reciept" style="width: 100%"/>  
+              <input type="text" class="Itemcode"  style="display:none" value="@item.ID"/>  
+        </td> 
+        
+    </tr>
+}
+</tbody>
+</table>
+
+<div style="float: right">
+     <a  class="btn btn-warning" onclick="SaveOrderDetails('@ViewData["Id"]')"><span></span>Save Details</a>
+</div>

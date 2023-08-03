@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RetailKing.Models.Faq>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Create @ViewData["Section"]</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                        
+                        <table style="width:100%" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Question)
+                                    </th>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Answer)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.FaqType)
+                                    </th>
+                                    <th>
+                                         <button class="btn btn-success " onclick="GetView('@Url.Action("CreateFaq", "Inforgraphics")')">Create New</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Question)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Answer)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FaqType)
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm" onclick="GetView('@Url.Action("Edit", "Inforgraphics")','@item.Id')">Edit</button>
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    

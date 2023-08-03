@@ -1,0 +1,44 @@
+﻿@model RetailKing.Models.shopingList
+@{
+    ViewBag.Title = "SaveList";
+}
+<div class="row content">
+
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="breadcrumbs">
+            <p><a href="@Url.Action("Index","Home")">Home</a> <i class="icons icon-right-dir"></i> <a href="#">Collections </a> <i class="icons icon-right-dir"></i> Collection Points </p>
+        </div>
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        <section class="main-content col-lg-9 col-md-9 col-sm-9">
+            <div id="product-single">
+
+                <div style="background-color:#34495E; height:40px; color:#fff; font-size:large; font-weight:bold; margin: 10px 15px">
+                    <span style="top :10px;margin-left:20px; color:#fff">Select A Collection Point</span>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                   
+
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <p>
+                                @Html.LabelFor(model => model.Title)
+                            </p>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8">
+                            @Html.TextBoxFor(m => m.Title, new { style="width:100%", placeholder = "Shopping List Title" })
+                        </div><br />
+                    <br />
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <input style="float:right" class="big" type="submit" value="Save List">
+                        </div>
+                    </div>
+                </div>
+       
+    
+        </section>
+    }
+</div>

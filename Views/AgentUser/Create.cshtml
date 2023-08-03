@@ -1,0 +1,107 @@
+﻿@model RetailKing.Models.AgentUser
+
+@{
+    ViewBag.Title = "Create";
+}
+<link rel="stylesheet" href="@Url.Content("~/Content/chosen_v1.5.1/docsupport/style.css")">
+<link rel="stylesheet" href="@Url.Content("~/Content/chosen_v1.5.1/docsupport/prism.css")">
+<link rel="stylesheet" href="@Url.Content("~/Content/chosen_v1.5.1/chosen.css")">
+<style type="text/css" media="all">
+    /* fix rtl for demo */
+    .chosen-rtl .chosen-drop {
+        left: -9000px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Create User </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                    @using (Html.BeginForm("Create", "AgentUser", FormMethod.Post, new { enctype = "multipart/form-data", @name = "NewUser", id = "createUser" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                           
+                            <div class="col-md-6">
+                                <div class="editor-label">
+                                    @Html.Label("Select Branch")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.AccountNumber, new SelectList((IEnumerable<SelectListItem>)ViewBag.Supplier, "Value", " Text"), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AccountNumber)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Access Level")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.Role, new SelectList((IEnumerable<SelectListItem>)ViewBag.Role, "Value", " Text"), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Role)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.FullName)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FullName)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Username", new { id = "uname" })
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.UserName)
+                                </div>
+                                <div class="editor-label">
+                                    @Html.Label("Password")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.PasswordFor(model => model.SessionCode, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.SessionCode)
+                                </div>
+
+                                
+                                </div>
+                            
+                            <p>
+
+                            </p>
+                        </fieldset>
+                    }
+                    <br/>
+                    <div>
+                        <button class="btn btn-success" onclick="SaveView('createUser')">Save</button>
+                        <button class="btn btn-warning" onclick="GetView('@Url.Action("Index", "AgentUser")')">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+ $(document).ready(function (event) {
+        $("#Role").change(function (event) {
+            event.preventDefault();
+            if ($("#Role").val() == "Administrator")
+            {
+                $('#uname').val() = "Email Address";
+            }
+            else
+            {
+                $('#uname').val() = "Username";
+            }
+        });
+});
+</script>

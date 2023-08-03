@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="RetailKing.Models.CreditNotes, RetailKing" table="CreditNotes" >
+
+    <id name="Id" column="ID" type="System.Int64" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+
+    <property name="Amount" column="Amount"  not-null="false" type="System.Decimal"   insert="true" update="true"/>
+    <property name="Invoice" column="Invoice"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="users" column="users"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Dated" column="Dated"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+
+   
+
+  </class>
+</hibernate-mapping>

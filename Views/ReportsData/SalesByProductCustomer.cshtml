@@ -1,0 +1,376 @@
+﻿@model IEnumerable<RetailKing.Models.Sales_Lines>
+
+@{
+    ViewBag.Title = "CollectionsSammary";
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        // $("#DateCreated").datepicker({ dateFormat: "d MM yy" });
+        //$("#Date").datepicker({ dateFormat: "d MM yy" });
+     
+        $("#SearchInItems").focus();
+
+        $("#category").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("SalesByProductCustomer", "ReportsData")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    ProductID: @ViewData["itm"],
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SubCategory").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("SalesByProductCustomer", "ReportsData")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    ProductID: @ViewData["itm"],
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("SalesByProductCustomer", "ReportsData")',
+                dataType: 'html',
+                data: {
+                    sEnd: $("#Date").val(),
+                    sStart: $("#DateCreated").val(),
+                    ItemCode: '',
+                    iDisplayLength: $("#SizeR").val(),
+                    ProductID:@ViewData["itm"],
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            var s = $('#SearchInItems').val();
+            if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                $.ajax({
+                    type: "Get",
+                    url: '@Url.Action("SalesByProductCustomer", "ReportsData")',
+                    dataType: 'html',
+                    data: {
+                        cc: $("#SearchInItems").val(),
+                        iDisplayLength: $("#SizeR").val(),
+                        sEnd: $("#Date").val(),
+                        sStart: $("#DateCreated").val(),
+                        ProductID: @ViewData["itm"],
+                        sEcho: 1
+                    },
+                    success: function (resp) {
+                        $('#panel').html(resp);
+                    },
+                    error: function (data) {
+                    }
+                });
+            }
+            //   }, 2000);
+        });
+
+
+
+    });
+</script>
+
+<script type="text/javascript">
+     function GetPageR(thispage) {
+         $.ajax({
+             type: "GET",
+             url: '@Url.Action("SalesByProductCustomer", "ReportsData")',
+             dataType: 'html',
+             data: {
+                 sEnd: $("#Date").val(),
+                 sStart: $("#DateCreated").val(),
+                 ItemCode: '',
+                 iDisplayStart: thispage,
+                 iDisplayLength: $("#SizeR").val(),
+                 ProductID: @ViewData["itm"],
+                 sEcho: 1
+             },
+             success: function (resp) {
+                 $('#panel').html(resp);
+             },
+             error: function (data) {
+             }
+         });
+     }
+
+    function SearchSammary() {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("SalesByProductCustomer", "ReportsData")',
+            dataType: 'html',
+            data: {
+                sEnd: $("#Date").val(),
+                sStart: $("#DateCreated").val(),
+                sSearch: $("#SearchInItems").val(),
+                iDisplayLength: $("#SizeR").val(),
+                ProductID: @ViewData["itm"],
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+</script>
+
+
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Sales By Customer </h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+
+            <table id="gradient-style" style="width:100%; border-style: none ">
+                <tbody>
+                    <tr>
+                        <td style="border-style: none">
+                            <div class="editor-field">
+                                Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100","200","500" }, @ViewData["listSize"].ToString()), new { id = "SizeR", @class = "form-control", style = "width:80%" })
+                            </div>
+                        </td>
+
+                        <td style="border-style: none">
+                            <div class="editor-field">
+                                Start Date
+                                <input type="text" class="form-control" name="DateCreated" id="DateCreated" value="@ViewData["sdate"]" style="width: 80%" />
+                            </div>
+                        </td>
+                        <td style="border-style: none">
+                            <div class="editor-field">
+                                End Date
+                                <input type="text" class="form-control" name="Date" id="Date" value="@ViewData["edate"]" style="width: 80%" />
+                            </div>
+                        </td>
+                        <td style="border-style: none">
+                            <div class="editor-field">
+                                Search by Customer <input type="text" class="form-control" id="SearchInItems" style="width:100%" />
+
+                            </div>
+                        </td>
+                        <td style="border-style: none">
+                            <div class="editor-field">
+                                <br />
+                                <button class="btn btn-success " onclick="SearchSammary()"><span></span>Go</button>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+
+            <table id="CollectionSammary" class="table table-striped" style="width:100%;">
+                <thead>
+                <tr>
+                    
+                    <th>
+                        @Html.DisplayName("Quantity")
+                    </th>
+                   
+                    <th>
+                        @Html.DisplayName("Item Name")
+                    </th>
+                    <th>
+                        @Html.DisplayName("customer")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Date")
+                    </th>
+                    
+                    <th>
+                        @Html.DisplayName("price")
+                    </th>
+                    <th>
+                        @Html.DisplayName("cashier")
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+
+                    //if (item.DeliveryType.Trim() != "Sms")
+                    //{
+                    
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.quantity)
+                            </td>
+                           
+                            <td>
+                                @Html.DisplayFor(modelItem => item.item)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                               @item.Dated.Value.ToString("dd/MM/yyyy")
+                            </td>
+                            
+                            <td>
+                                @Html.DisplayFor(modelItem => item.priceinc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubCategory)
+                            </td>
+                           
+
+                            
+                        </tr>
+                        
+                    //}
+
+                }
+                    </tbody>
+                <tr>
+                    <th colspan="12" style="background-color: #E2E4FF; ">
+                        <div onclick="GetPageR()" style=" float: left; padding-left: 10px"> Pages</div>
+                        @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                        {
+                            if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                            {
+                                <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                            }
+                            else
+                            {
+                                <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                            }
+                        }
+                        <div style=" float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="@Url.Content("~/Content/Administration/js/datepicker/daterangepicker.js")"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#Date').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+       
+        $('#DateCreated').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+
+
+    })
+</script> 
+@*<script type="text/javascript" src="@Url.Content("~/Content/Administration/js/jquery.min.js")"></script>*@ 
+@*<script src="@Url.Content("~/Content/Administration/vendors/datatables.net/js/jquery.dataTables.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net/js/jquery.dataTables.min.js")"></script>*@
+
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net/js/jquery.dataTables.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/dataTables.buttons.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/buttons.flash.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/buttons.html5.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons/js/buttons.print.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-responsive/js/dataTables.responsive.min.js")"></script>
+<script src="@Url.Content("~/Content/Administration/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js")"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var handleDataTableButtons =function () {
+            if ($("#CollectionSammary").length) {
+                $("#CollectionSammary").DataTable({
+                    dom: "Bfrtip",
+                    order: [[1, "desc"]],
+                    buttons: [
+                    {
+                        extend: "copy",
+                        className: "btn-sm"
+                    },
+                    {
+                        extend: "csv",
+                        className: "btn-sm"
+                    },
+                    {
+                        extend: "excel",
+                        className: "btn-sm"
+                    },
+                    {
+                        extend: "print",
+                        className: "btn-sm"
+                    },
+                    ],
+                    responsive: true
+                });
+           }
+        };
+
+        TableManageButtons = function () {
+            "use strict";
+            return {
+                init: function () {
+                    handleDataTableButtons();
+                   
+                }
+            };
+        }();
+
+        TableManageButtons.init();
+    });
+</script>

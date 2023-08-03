@@ -1,0 +1,747 @@
+﻿@model RetailKing.Models.HomeData
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    @{
+        var banners = (from e in Model.items.Where(u => u.Promotion.Trim() == "YES" && u.AdPosition.StartsWith("Banner")) select e).Take(3).ToList();
+    }
+
+
+    <!-- Slider -->
+    <section class="slider col-lg-12 col-md-12 col-sm-12">
+        <div class="flexslider flexsliderBig">
+            <ul class="slides">
+
+                @if (banners.Count() > 0)
+                {
+                    foreach (var banner in banners)
+                    {
+                        <li id="slide3" style="background-image:url(@banner.PromoImage.Substring(1, banner.PromoImage.Length - 1))">
+                            <div class="text">
+
+                                <div class="bg"></div>
+
+                                <div class="title">
+                                    <h2>@banner.Title</h2>
+                                </div>
+
+                                <div class="desc">
+                                    <h3></h3>
+                                    <h3>@banner.Description</h3>
+                                    @if (banner.DicountType.Trim() == "PERCENT")
+                                    {
+                                        <span class="price">@banner.Discount.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) % OFF</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="price">$ @banner.Discount.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) OFF</span>
+                                    }
+                                </div>
+
+                                <div class="button">
+                                    <a class="button big red" href="@Url.Action("Details", "items", new { id = banner.ID }) ">Buy Now</a>
+                                </div>
+
+                            </div>
+                        </li>
+                    }
+
+                }
+                <li id="slide1" style="background-image:url(/Content/Template/img/Network.jpg)">
+                    <div class="text">
+
+                        <div class="bg"></div>
+
+                        <div class="title">
+                            <h2>Build your own team of shoppers</h2>
+                        </div>
+
+                        <div class="desc">
+                            <h3></h3>
+                            <h3>
+                                Build a network of shoppers on MOBISHOPPA and<br />
+                                turn your shopping into your business
+                            </h3>
+
+                        </div>
+
+                        <div class="button">
+                            <a class="button big red" href="@Url.Action("Recruiting", "Home") ">Learn More</a>
+                        </div>
+
+                    </div>
+                </li>
+                <li id="slide2" style="background-image:url(/Content/Template/img/homeslide.jpg)">
+                    <div class="text">
+
+                        <div class="bg"></div>
+
+                        <div class="title">
+                            <h2>Turn your monthly expense into revenue</h2>
+                        </div>
+
+                        <div class="desc">
+                            <h3></h3>
+                            <h3>Buy your groceries and other category items from this network <br /> and earn money from your network's shopping</h3>
+                        </div>
+
+                        <div class="button">
+                            <a class="button big red" href="@Url.Action("Recruiting", "Home") ">Learn More</a>
+                        </div>
+
+                    </div>
+                </li>
+
+
+            </ul>
+        </div>
+    </section>
+    <!-- /Slider -->
+    <!-- Banner -->
+    <section class="banner col-lg-12 col-md-12 col-sm-12">
+
+        <div class="left-side-banner banner-item icon-on-right gray">
+            <h4>263 (4) 570106</h4>
+            <p>Monday - Friday: 8am - 5pm </p>
+            <i class="icons icon-phone-outline"></i>
+        </div>
+
+        <a href="#">
+            <div class="middle-banner banner-item icon-on-left light-blue">
+                <h4>Free Delivery</h4>
+                <p>on all orders over $99</p>
+                <span class="button">Learn more</span>
+                <i class="icons icon-truck-1"></i>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="right-side-banner banner-item orange">
+                <h4>Crazy sale!</h4>
+                <p>on selected items</p>
+                <span class="button">Shop now</span>
+            </div>
+        </a>
+
+    </section>
+    <!-- /Banner -->
+    <!-- Sidebar -->
+    @*<aside class="sidebar col-lg-3 col-md-3 col-sm-3">
+
+            <!-- Categories -->
+            <div class="row sidebar-box purple">
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                    <div class="sidebar-box-heading">
+                        <i class="icons icon-folder-open-empty"></i>
+                        <h4>Categories</h4>
+                    </div>
+                    @{
+                        var cats = (from e in Model.Categories.Where(u => u.AccountCode.Length == 4) select e).ToList();
+                    }
+            <div class="sidebar-box-content">
+             <ul>
+                 @foreach (var cat in cats)
+                 {
+                     var subcats = (from e in Model.Categories.Where(u => u.AccountCode.StartsWith(cat.AccountCode + "-")) select e).ToList();
+                     <li>
+                         <a href="@Url.Action("Index", "Category", new { id=cat.AccountName  })">@cat.AccountName <i class="icons icon-right-dir"></i></a>
+                         @if (subcats.Count > 0)
+                         {
+                             int runs = subcats.Count / 8;
+                             if (subcats.Count % 8 != 0)
+                             { runs = runs + 1; }
+                             <ul class="sidebar-dropdown">
+                                 @for (int i = 0; i < runs; i++)
+                                 {
+                                     var top8 = (from e in subcats.Skip(i * 8) select e).Take(8);
+                                     <li>
+                                         <ul>
+                                             @foreach (var scat in top8)
+                                             {
+                                                 <li>
+                                                     <a href="@Url.Action("Index", "Category", new { id = scat.AccountName }) ">@scat.AccountName</a>
+                                                 </li>
+                                             }
+                                         </ul>
+                                     </li>
+                                 }
+
+                             </ul>
+                         }
+                     </li>
+                 }
+            </ul>
+            </div>
+
+                </div>
+
+            </div>
+            <!-- /Categories -->
+
+
+
+            <!-- Carousel -->
+            <div class="row sidebar-box">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 sidebar-carousel">
+                    @{
+                        var sideAd = (from e in Model.items.Where(u => u.Promotion.Trim() == "YES" && u.AdPosition.StartsWith("Side") ) select e).ToList();
+                    }
+                    <!-- Slider -->
+                    <section class="sidebar-slider">
+                        <div class="sidebar-flexslider">
+                            <ul class="slides">
+                                @foreach(var slid in sideAd)
+                                {
+                                   <li>
+                                       <a href="@Url.Action("Details", "items", new { id = slid.ID })"><img src="@Url.Content(slid.PromoImage)" alt=" slide1" /></a>
+                                  </li>
+                                }
+
+                            </ul>
+                        </div>
+                        <div class="slider-nav"></div>
+                    </section>
+                    <!-- /Slider -->
+
+                </div>
+
+            </div>
+            <!-- /Carousel -->
+
+
+            <!-- Bestsellers -->
+            <div class="row sidebar-box red">
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                    <div class="sidebar-box-heading">
+                    <i class="icons icon-award-2"></i>
+                        <h4>Bestsellers</h4>
+                    </div>
+
+                    <div class="sidebar-box-content">
+                        <table class="bestsellers-table">
+                            @{
+                                var topsellers = (from e in Model.items.OrderByDescending(u => u.sold) select e).Take(5);
+                            }
+                            @foreach(var item in topsellers)
+                            {
+                            <tr>
+                                @if (item.ThumbImage == null)
+                                {
+                                    <td class="product-thumbnail"><a href="@Url.Action("Details", "items", new { id = item.ID })"><img src="@Url.Content("~/Content/Template/img/bag.png")" alt="@item.ItemName"></a></td>
+                                }
+                                else
+                                {
+                                    <td class="product-thumbnail"><a href="@Url.Action("Details", "items", new { id = item.ID })"><img src="@Url.Content(item.ThumbImage)" alt="@Url.Content("~/Content/Template/img/bag.png")"></a></td>
+                                }
+                                <td class="product-info">
+                                    <p><a href="@Url.Action("Details", "items", new { id = item.ID })" >@item.ItemName</a></p>
+                                    <span class="price">$@item.SellingPrice.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span>
+                                </td>
+                            </tr>
+                            }
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- /Bestsellers -->
+
+        </aside>*@
+    <!-- /Sidebar -->
+    <!-- Main Content -->
+    <section class="main-content col-lg-12 col-md-12 col-sm-12">
+        @*
+                    <!-- Airtime Products -->
+                    <div class="products-row row">
+
+                        <!-- Carousel Heading -->
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+
+                            <div class="carousel-heading">
+                                <h4>Topup Vouchers</h4>
+                                <div class="carousel-arrows">
+                                    <i class="icons icon-left-dir"></i>
+                                    <i class="icons icon-right-dir"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /Carousel Heading -->
+                        <!-- Carousel -->
+                        <div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
+                            @{
+                                var pins = (from e in Model.items.Where(u => u.category.Trim() == "AIRTIME" && u.Featured.Trim() == "YES") select e).ToList();
+                            }
+                            <div class="owl-carousel" data-max-items="3">
+                                @foreach (var c in pins)
+                                {
+            <!-- Slide -->
+                                    <div>
+                                        <!-- Carousel Item -->
+                                        <div class="product">
+
+                                            <div class="product-image">
+                                                @if (c.ThumbImage == null)
+                                                {
+                                                    <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                                        <img src="@Url.Content("~/Content/Template/img/bag.png")" alt="@c.ItemName">
+                                                    </a>
+                                                }
+                                                else
+                                                {
+
+                                                    <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                                        <img src="@Url.Content(c.ThumbImage)" alt="Product1">
+                                                    </a>
+                                                }
+                                                <a href="@Url.Action("Details", "items", new { id = c.ID })" class="product-hover">
+                                                    <i class="icons icon-eye-1"></i> Quick View
+                                                </a>
+                                            </div>
+
+                                            <div class="product-info">
+                                                <h5><a href="@Url.Action("Details", "items", new { id = c.ID })">@c.ItemName </a></h5>
+                                                <span class="price">$@c.SellingPrice.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span>
+                                                <div class="rating readonly-rating" data-score="4"></div>
+                                                <div id="Error_@c.ID" style="display:none; border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:99%;height:40px">
+
+                                                </div>
+                                                <div id="Success_@c.ID" style="display:none;border: 1px solid #2ECC9F;color:#2ECC9F; padding:8px 8px 8px 8px ;  margin-top:10px;margin-bottom: 20px; width:99%;height:40px">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="product-actions">
+                                                @if (c.Balance > 0)
+                                                {
+                                                    <span class="add-to-cart">
+                                                        <span class="action-wrapper">
+                                                            <i class="icons icon-basket-2"></i>
+                                                            <a onclick="AddToCartQ('@c.ID','@c.SellingPrice')">
+                                                                <span class="action-name" style="color:#ffffff">Add to Cart</span>
+                                                            </a>
+                                                        </span>
+                                                    </span>
+                                                    <span class="add-to-cart-green">
+                                                        <span class="action-wrapper">
+                                                            <i class="icons icon-book-2"></i>
+                                                            <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                                                <span class="action-name" style="color:#ffffff">View Details</span>
+                                                            </a>
+                                                        </span>
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="add-to-favorites">
+                                                        <span class="action-wrapper">
+                                                            <i class="icons icon-basket-2"></i>
+                                                            <a>
+                                                                <span class="action-name" style="color:#ffffff">Out Of Stock</span>
+                                                            </a>
+                                                        </span>
+                                                    </span>
+                                                    <span class="add-to-cart-green">
+                                                        <span class="action-wrapper">
+                                                            <i class="icons icon-book-2"></i>
+                                                            <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                                                <span class="action-name" style="color:#ffffff">View Details</span>
+                                                            </a>
+                                                        </span>
+                                                    </span>
+
+                                                }
+                                                <span class="add-to-compare">
+                                                    <span class="action-wrapper">
+                                                        <i class="icons icon-heart-empty"></i>
+                                                        <span class="action-name">Add to wishlist</span>
+                                                    </span>
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <!-- /Slide -->
+                                }
+
+                            </div>
+                        </div>
+                        <!-- /Carousel -->
+
+                    </div>
+                    <!-- /Vouchers Products -->
+        *@
+
+        <!-- Featured Products -->
+        <div class="products-row row">
+
+            <!-- Carousel Heading -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="carousel-heading">
+                    <h4>Featured Products</h4>
+                    <div class="carousel-arrows">
+                        <i class="icons icon-left-dir"></i>
+                        <i class="icons icon-right-dir"></i>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Carousel Heading -->
+            <!-- Carousel -->
+            <div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
+                @{
+                    var featured = (from e in Model.items.Where(u => u.Featured.Trim() == "YES" && u.category.Trim() != "AIRTIME") select e).ToList();
+                }
+                <div class="owl-carousel" data-max-items="4">
+                    @foreach (var c in featured)
+                    {
+           	<!-- Slide -->
+                        <div>
+                            <!-- Carousel Item -->
+                            <div class="product">
+
+                                <div class="product-image">
+                                    @if (c.ThumbImage == null)
+                                    {
+                                        <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                            <img src="@Url.Content("~/Content/Template/img/bag.png")" alt="@c.ItemName">
+                                        </a>
+                                    }
+                                    else
+                                    {
+
+                                        <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                            <img src="@Url.Content(c.ThumbImage)" alt="@c.ItemName" )">
+                                        </a>
+                                    }
+                                    <a href="@Url.Action("Details", "items", new { id = c.ID })" class="product-hover">
+                                        <i class="icons icon-eye-1"></i> Quick View
+                                    </a>
+                                </div>
+
+                                <div class="product-info">
+                                    <h5><a href="@Url.Action("Details", "items", new { id = c.ID })">@c.ItemName </a></h5>
+                                    <span class="price">$@c.SellingPrice.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span>
+                                    <div class="rating readonly-rating" data-score="4"></div>
+                                    <div id="Error_@c.ID" style="display:none; border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:99%;height:40px">
+
+                                    </div>
+                                    <div id="Success_@c.ID" style="display:none;border: 1px solid #2ECC9F;color:#2ECC9F; padding:8px 8px 8px 8px ;  margin-top:10px;margin-bottom: 20px; width:99%;height:40px">
+
+                                    </div>
+                                </div>
+
+                                <div class="product-actions">
+                                    @if (c.Balance > 0)
+                                    {
+                                        <span class="add-to-cart">
+                                            <span class="action-wrapper">
+                                                <i class="icons icon-basket-2"></i>
+                                                <a onclick="AddToCartQ('@c.ID','@c.SellingPrice')">
+                                                    <span class="action-name" style="color:#ffffff">Add to Cart</span>
+                                                </a>
+                                            </span>
+                                        </span>
+                                        <span class="add-to-cart-green">
+                                            <span class="action-wrapper">
+                                                <i class="icons icon-book-2"></i>
+                                                <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                                    <span class="action-name" style="color:#ffffff">View Details</span>
+                                                </a>
+                                            </span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="add-to-favorites">
+                                            <span class="action-wrapper">
+                                                <i class="icons icon-basket-2"></i>
+                                                <a>
+                                                    <span class="action-name" style="color:#ffffff">Out Of Stock</span>
+                                                </a>
+                                            </span>
+                                        </span>
+                                        <span class="add-to-cart-green">
+                                            <span class="action-wrapper">
+                                                <i class="icons icon-book-2"></i>
+                                                <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                                    <span class="action-name" style="color:#ffffff">View Details</span>
+                                                </a>
+                                            </span>
+                                        </span>
+
+                                    }
+                                    <span class="add-to-compare">
+                                        <span class="action-wrapper">
+                                            <i class="icons icon-heart-empty"></i>
+                                            <span class="action-name">Add to wishlist</span>
+                                        </span>
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+									<!-- /Slide -->
+                    }
+
+                </div>
+            </div>
+            <!-- /Carousel -->
+
+        </div>
+        <!-- /Featured Products -->
+        <!-- New Collection -->
+        <div class="products-row row">
+
+            <!-- Carousel Heading -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="carousel-heading">
+                    <h4>New Collection</h4>
+                    <div class="carousel-arrows">
+                        <i class="icons icon-left-dir"></i>
+                        <i class="icons icon-right-dir"></i>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Carousel Heading -->
+            <!-- Carousel -->
+            <div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
+
+                @{
+                                    var newStock = (from e in Model.items.OrderByDescending(u => u.ID) select e).Take(6);
+                }
+                <div class="owl-carousel" data-max-items="4">
+                    @foreach (var c in newStock)
+                                    {
+           	<!-- Slide -->
+                                    <div>
+                                        <!-- Carousel Item -->
+                                        <div class="product">
+
+                                            <div class="product-image">
+                                                @if (c.ThumbImage == null)
+                                                     {
+                                                    <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                                        <img src="@Url.Content("~/Content/Template/img/bag.png")" alt="@c.ItemName">
+                                                    </a>
+                                                    }
+                                                    else
+                                                    {
+                                                    <a href="@Url.Action("Details", "items", new { id = c.ID })">
+                                                        <img src="@Url.Content(c.ThumbImage)" alt="@c.ItemName">
+                                                    </a>
+                                                    }
+                                                <a href="@Url.Action("Details", "items", new { id = c.ID })" class="product-hover">
+                                                    <i class="icons icon-eye-1"></i> Quick View
+                                                </a>
+                                            </div>
+
+                                            <div class="product-info">
+                                                <h5><a href="@Url.Action("Details", "items", new { id = c.ID })">@c.ItemName </a></h5>
+                                                <span class="price">$@c.SellingPrice.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</span>
+                                                <div class="rating readonly-rating" data-score="4"></div>
+                                                <div id="Error_@c.ID" style="display:none; border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:99%;height:40px">
+
+                                                </div>
+                                                <div id="Success_@c.ID" style="display:none;border: 1px solid #2ECC9F;color:#2ECC9F; padding:8px 8px 8px 8px ;  margin-top:10px;margin-bottom: 20px; width:99%;height:40px">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="product-actions">
+                                                @if (c.Balance > 0)
+                                                    {
+                                                    <span class="add-to-cart">
+                                                        <span class="action-wrapper">
+                                                            <i class="icons icon-basket-2"></i>
+                                                            <a onclick="AddToCartQ('@c.ID','@c.SellingPrice')">
+
+                                                                <span class="action-name" style="color:#ffffff">Add to Cart</span>
+
+                                                            </a>
+                                                        </span>
+                                                    </span>
+                                                    <span class="add-to-cart-green">
+                                                        <span class="action-wrapper">
+                                                            <i class="icons icon-book-2"></i>
+                                                            <a href="@Url.Action("Details", "items", new { id = c.ID })">
+
+                                                                <span class="action-name" style="color:#ffffff">View Details</span>
+
+                                                            </a>
+                                                        </span>
+                                                    </span>
+                                                    }
+                                                    else
+                                                    {
+                                                    <span class="add-to-favorites">
+                                                        <span class="action-wrapper">
+                                                            <i class="icons icon-basket-2"></i>
+                                                            <a>
+                                                                <span class="action-name" style="color:#ffffff">Out Of Stock</span>
+                                                            </a>
+                                                        </span>
+                                                    </span>
+                                                    <span class="add-to-cart-green">
+                                                        <span class="action-wrapper">
+                                                            <i class=" icons icon-book-2"></i>
+                                                            <a href="@Url.Action("Details", "items", new { id = c.ID })">
+
+                                                                <span class="action-name" style="color:#ffffff">View Details</span>
+
+                                                            </a>
+                                                        </span>
+                                                    </span>
+                                                    }
+                                                <span class="add-to-compare">
+                                                    <span class="action-wrapper">
+                                                        <i class="icons icon-heart-empty"></i>
+                                                        <span class="action-name">Add to wishlist</span>
+                                                    </span>
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- /Carousel Item -->
+
+                                    </div>
+									<!-- /Slide -->
+
+                                    }
+
+                </div>
+
+            </div>
+        </div>
+        <!-- /Carousel -->
+        <!-- Carousel lazy -->
+        <div id="result">
+
+        </div>
+        <div id="loading" class="col-lg-12 col-md-12 col-sm-12" style="display:none">
+            <div class="row button-row">
+
+                <div style="float:right" class="col-lg-7 col-md-7 col-sm-7 align-right">
+                    <a class="button purple  regular" ><i class="icons"></i> loading....</a>
+                </div>
+
+            </div>
+        </div>
+<!-- /Carousel -->
+<!-- /New Collection -->
+<!-- Product Brands -->
+<div class="products-row row">
+
+    <!-- Carousel Heading -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
+
+        <div class="carousel-heading">
+            <h4>Product Brands</h4>
+            <div class="carousel-arrows">
+                <i class="icons icon-left-dir"></i>
+                <i class="icons icon-right-dir"></i>
+            </div>
+        </div>
+
+    </div>
+    <!-- /Carousel Heading -->
+    <!-- Carousel -->
+
+    <div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
+
+        <div class="owl-carousel" data-max-items="5">
+            @foreach (var partner in Model.Partners)
+            {
+									<!-- Slide -->
+                <div>
+                    <div class="product">
+                        <a href="#"><img src="@Url.Content(partner.Logo)" alt="@partner.Name"></a>
+                    </div>
+                </div>
+									<!-- /Slide -->
+            }
+
+        </div>
+
+    </div>
+    <!-- /Carousel -->
+
+</div>
+<!-- /Product Brands -->
+				</section>
+<!-- /Main Content -->
+        </div>
+
+
+<script type="text/javascript">
+    var hasMoreRecords = 'true';
+    var last = '@ViewData["listSize"]';
+    var curr = 0;
+    var scrollpage = 0;
+    $(function () {
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > ($(document).height() - $(window).height()) - 200) {
+                if (scrollpage == curr) {
+                    scrollpage = scrollpage + 1;
+                    FetchDataFromServer();
+                }
+            }
+        });
+    });
+
+    function FetchDataFromServer() {
+        if (hasMoreRecords == 'false') {
+            return;
+        }
+        $("#loading").show();
+        $.ajax({
+            url: '@Url.Action("CategoryCorusel", "Home")',
+            data: {
+                currpage: curr,
+                iDisplayStart: curr + 1,
+                iColumns: curr,
+                iDisplayLength: '7',
+                sEcho: 1
+            },
+            datatype: 'html',
+            success: function (data) {
+                $("#loading").hide();
+                if (data === null) {
+                  
+                } else {
+                    $("#result").append(data);
+                   // curr = curr + 1;
+                    if(curr == last)
+                    {
+                        hasMoreRecords = 'false'; // signal no more records to display
+                    }
+                }
+
+            },
+            error: function () {
+               
+            }
+        });
+    }
+
+</script>

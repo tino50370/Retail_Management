@@ -1,0 +1,124 @@
+﻿@model IEnumerable<RetailKing.Models.CashoutType>
+
+@{
+    ViewBag.Title = "Payment";
+    double dd = double.Parse(ViewData["Total"].ToString());
+}
+
+
+<!-- Main Content -->
+
+
+    <div class="row">
+
+        <!-- Heading -->
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="carousel-heading">
+                <h4>Cash Out Options</h4>
+
+            </div>
+
+        </div>
+        <!-- /Heading -->
+
+    </div>
+
+    
+    <div class="row">
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <table class="order-table">
+                <tr style="background-color:#9B59B6;color:#ffffff">
+                    
+                    <td colspan="5"> Payment Wallet Balance</td>
+                    <td colspan="1">$@dd.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</td>
+                </tr>
+                <tr>
+                    <th colspan="6">Select a pay out method</th>
+                    
+                </tr>
+                @foreach (var item in Model)
+                {
+
+                    if (item.trantype.Trim() == "MobileMoney")
+                    {
+                        <tr style="cursor: pointer" onclick="ShowPayOption('@item.ID')">
+                            <td colspan="2"><img style=" width:100px" src="@Url.Content(@item.Logo)" alt=""></td>
+                            <td style="vertical-align:middle " colspan="4" >@item.Name</td>
+                        </tr>
+                        <tr id="details-@item.ID"style="background-color:#F5791F;color:#fff;font-weight:bold;display:none ">
+                            <td style="vertical-align:middle "> @item.Name Account Number</td>
+                            <td style="vertical-align:middle " colspan="2">@Html.TextBox("merchant", "", new { Id = "v_" + item.ID, @style = "width:100%; color:#596067", placeholder = "Account number" })</td>
+                            <td style="vertical-align:middle ">Cash Out Amount</td>
+                            <td style="vertical-align:middle " colspan="2">@Html.TextBox("CashAmount", "", new { Id = "A_" + item.ID, @style = "width:100%; color:#596067", placeholder = "Enter Amount" })</td>
+                        </tr>
+                        <tr id="action-@item.ID" style="display:none;background-color:#fff;height:70px">
+                            <td colspan="6">
+                                <div>
+                                    <span><a style="float:right;margin-left:10px;" class="button big" onclick="HidePayOption('@item.ID')">Cancel</a></span>
+                                    <span><a onclick="Cash('@item.ID')" style="float:right; " class="button big blue">Cash Out</a></span>
+                                </div>
+
+                            </td>
+                        </tr>
+                    <tr id="error_@item.ID" style="background-color:#E74C3C;color:#fff;font-weight:bold;display:none ">
+                        <td id="error_td_@item.ID" colspan="6"></td>
+                    </tr>
+
+                    }
+                    else if (item.trantype.Trim() == "PaymentGateway")
+                    {
+                        <tr style="cursor: pointer" onclick="ShowPayOption('@item.ID')">
+                            <td colspan="2"><a href="@Url.Action("Paynow", "Cart", new { Id = ViewData["OrderNumber"] })"><img style=" width:100px" src="@Url.Content(@item.Logo)" alt=""></a></td>
+                            <td style="vertical-align:middle " colspan="4">@item.Name</td>
+                        </tr>
+                        <tr id="details-@item.ID" style="background-color:#F5791F;color:#fff;font-weight:bold;display:none ">
+                            <td style="vertical-align:middle "> @item.Name Name</td>
+                            <td style="vertical-align:middle " colspan="2" >@Html.TextBox("merchant", "", new { Id = "N_" + item.ID, @style = "width:100%; color:#596067", placeholder = "Bank Name" })</td>
+                            <td style="vertical-align:middle ">Branch</td>
+                            <td style="vertical-align:middle " colspan="2" >@Html.TextBox("CashAmount", "", new { Id = "B_" + item.ID, @style = "width:100%; color:#596067", placeholder = "Branch" })</td>
+                        </tr>
+                        <tr id="details2-@item.ID" style="background-color:#F5791F;color:#fff;font-weight:bold;display:none ">
+                            <td style="vertical-align:middle "> @item.Name Account Number</td>
+                            <td style="vertical-align:middle " colspan="2">@Html.TextBox("merchant", "", new { Id = "A_" + item.ID, @style = "width:100%; color:#596067", placeholder = "Account number" })</td>
+                            <td style="vertical-align:middle ">Cash Out Amount</td>
+                            <td style="vertical-align:middle " colspan="2" >@Html.TextBox("CashAmount", "", new { Id = "C_" + item.ID, @style = "width:100%; color:#596067", placeholder = "Enter Amount" })</td>
+                        </tr>
+                        <tr id="action-@item.ID" style="display:none;background-color:#fff;height:70px">
+                            <td colspan="6">
+                                <div>
+                                    <span><a style="float:right;margin-left:10px;" class="button big" onclick="HidePayOption('@item.ID')">Cancel</a></span>
+                                    <span><a onclick="Cash('@item.ID')" style="float:right; " class="button big blue">Cash Out</a></span>
+                                </div>
+
+                            </td>
+                        </tr>
+                        if (ViewData["Status"].ToString() == "Error")
+                        {
+                            <tr id="error_@item.ID" style="background-color:#E74C3C;color:#fff;font-weight:bold ">
+                                <td id="error_td_@item.ID" colspan="6"> This payment can not be initiated please try again later!</td>
+                            </tr>
+                        }
+                    }
+                }
+                <tr id="error" style="background-color:#E74C3C;color:#fff;font-weight:bold;display:none ">
+                    <td id="error_td">
+                        Sorry the is an error in the payment. Please try again.
+                    </td>
+                </tr>
+                <tr id="No" style="background-color:#E74C3C;color:#fff;font-weight:bold;display:none ">
+                    <td id="No_td">
+                        Your transaction was not found please try to confirm payment again checking your respense code.
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+
+
+<!-- /Main Content -->

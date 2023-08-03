@@ -1,0 +1,75 @@
+﻿@model RetailKing.Models.login 
+         
+@{
+    ViewBag.Title = "Login";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        $("#password").focus();
+    })
+
+</script>
+<div class="animate form login_form">
+    <section class="login_content col-md-12">
+        <div class="col-md-12" id="login">
+            @using (Html.BeginForm("PosLogin", "Login", FormMethod.Post, new { enctype = "multipart/form-data", @name = "createCustomersP", id = "createCustomers" }))
+            {
+                <div class="col-md-12" style="text-align:center ">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div style="margin-top:20px;">
+                            <img alt="" src="@Url.Content("~/Content/Images/Logo.jpg")" />
+                        </div>
+                        <div style="margin-Top: 20px ">
+
+                            <div class="col-md-12">
+                                @Html.ValidationSummary()
+                                <div class="col-md-12" id="Btns" style="margin-top:10px;  height:400px; ">
+                                    <div class="row" style="margin-left: 10px; ">
+                                        <div class="col-md-2 editor-field" style="text-align:center">
+                                            </div>
+                                            <div class="col-md-8 editor-field" style="text-align:center">
+                                                @Html.PasswordFor(m => m.password, new { style = "text-align:center; font-size:x-large", @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.password)
+                                            </div>
+                                        <div class="col-md-2 editor-field" style="text-align:center">
+                                        </div>
+                                        </div>
+
+                                    <div class="row">
+                                        <div class="btn btn-app" style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; cursor: pointer" id="7" onclick="onLNumber('7')">7</div>
+                                        <div class="btn btn-app" style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="8" onclick="onLNumber('8')">8</div>
+                                        <div class="btn btn-app" style="margin-top:10px;  height:65px; background-color: #67217A; color: White;font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="9" onclick="onLNumber('9')">9</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="btn btn-app" style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="4" onclick="onLNumber('4')">4</div>
+                                        <div class="btn btn-app" style="margin-top:10px; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="5" onclick="onLNumber('5')">5</div>
+                                        <div class="btn btn-app" style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="6" onclick="onLNumber('6')">6</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="btn btn-app" style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="1" onclick="onLNumber('1')">1</div>
+                                        <div class="btn btn-app" style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="2" onclick="onLNumber('2')">2</div>
+                                        <div class="btn btn-app" style="margin-top:10px; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="3" onclick="onLNumber('3')">3</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="btn btn-app" style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="." onclick="onLNumber('.')">.</div>
+                                        <div class="btn btn-app" style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="0" onclick="onLNumber('0')">0</div>
+                                        <div class="btn btn-app" style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="0" onclick="onLNumber('clear')">Clear</div>
+                                    </div>
+                                    <Button type="submit" value="Enter" class="btn btn-app" style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; font-weight: bold; cursor: pointer">
+                                        Enter
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            }
+        </div>
+    </section>
+</div>

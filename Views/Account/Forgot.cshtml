@@ -1,0 +1,83 @@
+﻿@model RetailKing.Models.ChangePasswordModel
+@{
+    ViewBag.Title = "Login";
+}
+@using BotDetect.Web.UI.Mvc;
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+ <section class="main-content col-lg-13 col-md-12 col-sm-12">
+         <div class="row">
+             @using (Html.BeginForm("Forgot", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @name = "loginAccount", id = "loginAccount" }))
+             {
+                @Html.AntiForgeryToken()
+                 MvcCaptcha sampleCaptcha = new MvcCaptcha("SampleCaptcha");
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+
+                     <div class="carousel-heading no-margin">
+                         <h4>Forgot Password</h4>
+                     </div>
+
+                     <div class="page-content">
+                         <p>Enter your account email address</p>
+                         <div class="row">
+                             <div class="col-lg-6 col-md-6 col-sm-6">
+                                 <div class="iconic-input">
+                                     @Html.TextBoxFor(model => model.OldPassword, new { placeholder = "Email Address" })
+                                     @Html.ValidationMessageFor(model => model.OldPassword )
+                                     <i class="icons icon-user-3"></i>
+                                 </div>
+                             </div>
+                             </div>
+                         <div class="row">
+                             <div class="col-lg-6 col-md-6 col-sm-6">
+                                 @Html.Captcha(sampleCaptcha)
+                             </div>
+                          </div>
+                         <p>Enter the characters in the picture</p>
+                         <div class="row">
+                             <div class="col-lg-6 col-md-6 col-sm-6">
+                                 <div class="iconic-input">
+                                     @Html.TextBox("CaptchaCode", "", new { placeholder = "Enter characters from picture" })
+                                     <i class="icons icon-lock"></i>
+                                 </div>
+                             </div>
+                         </div>
+                         
+                     <br />
+                         @Html.ValidationSummary(true)
+                         <div class="row">
+                             @if (ViewData["Success"].ToString() == "Success")
+                             {
+                                 <div id="Success" style="border: 1px solid #2ECC9F;color:#2ECC9F; padding:8px 8px 8px 8px ;  margin-top:10px;margin-bottom: 20px; width:80%;height:40px">
+                                     A link has been sent to your email
+                                 </div>
+                             }
+                             else if (ViewData["Success"].ToString() == "Error")
+                             {
+                                 <div id="Error" style="border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:80%;height:40px">
+                                     Sorry check your email address and try again
+                                 </div>
+                             }
+                             else if (ViewData["Success"].ToString() != "start")
+                             {
+                                <div id="Error" style="border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:80%;height:40px">
+                                    @ViewData["Success"]
+                                </div>
+                             }
+                             <div class="col-lg-6 col-md-6 col-sm-6 align-left">
+                                 <input type="submit" class="orange" value="Submit">
+                                 
+                             </div>
+                             <div class="col-lg-6 col-md-6 col-sm-6 align-right">
+                             </div>
+                         </div>
+                     </div>
+
+                 </div>
+             }
+         </div>
+     
+</section>
+
+
+            

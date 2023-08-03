@@ -1,0 +1,137 @@
+﻿@model RetailKing.Models.Suburb
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatuss');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                $.fancybox.showLoading();
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                if (percentComplete == 100) {
+                    pVel = "Processing file on server might take a few minuites"
+                }
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                $.fancybox.hideLoading();
+
+                $("#panel").html(result);
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                $('#fileresp').html(errorThrown);
+                $('#fileresp').show();
+                status.fadeOut(800);
+            }
+
+        };
+        $("#Profilep").ajaxForm(options);
+
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $("#CityId").change(function () {
+
+            var xx = $("#CityId").val();
+            $.ajax({
+                type: "Get",
+                url: '@Url.Action("GetRegions", "Accounts")',
+                dataType: 'html',
+                data: {
+                    Id: xx
+
+                },
+                success: function (resp) {
+                    $("#regions").html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+    });
+
+
+
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>New Suburbs</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    @using (Html.BeginForm("CreateSuburbs", "Cities", FormMethod.Post, new { enctype = "multipart/form-data", @name = "ProfileP", id = "Profilep" }))
+            {     
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                            <legend></legend>
+                            <div class="editor-label">
+                                <p>City/Town*</p>
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(m => m.CityId, new SelectList(
+                                    (IEnumerable<SelectListItem>)ViewBag.Cities,
+                                          "Value",
+                                          "Text", "-Select City-"), new { style = " height: 30px", @class = "chosen-select form-control" })
+
+                            </div>
+                            <div class="editor-label">
+                                <p>Region*</p>
+                            </div>
+                            <div id="regions" class="editor-field">
+
+                                @Html.DropDownListFor(m => m.RegionId, new SelectList(
+                 (IEnumerable<SelectListItem>)ViewBag.Area,
+                      "Value",
+                "Text", "-Select Region-"), new { style = " height: 30px", @class = "form-control"  })
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Name)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Name,new { @class="form-control" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                            <br />
+                            <p>
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </p>
+                        </fieldset>
+                    }
+                    <div>
+                        <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+                        <div id="Images"></div>
+
+                    </div>
+                </div>
+                <div class="grid_6">
+                    <img class="cloud-zoom" src="@Url.Content("~/img/regions.jpg")" data-large="@Url.Content("~/img/regions.jpg")" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            

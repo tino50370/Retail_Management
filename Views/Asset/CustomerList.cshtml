@@ -1,0 +1,76 @@
+@model IEnumerable<RetailKing.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Customer List</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+
+            <table style="width:100%" class="table table-stripe">
+                <tr>
+                    <th>
+                        Account 
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                   
+                </tr>
+
+                @{
+
+                    int cnt = 0;
+                    foreach (var item in Model)
+                    {
+                        cnt += 1;
+                        if (cnt % 2 == 0)
+                        {
+                            <tr onclick="SelectService('@item.ID','@item.CustomerName')" style=" background-color: #EEEEEE">
+
+                                <td>
+                                    @item.ID 
+                                </td>
+                                <td>
+                                    @item.CustomerName
+                                </td>
+
+
+
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr onclick="SelectService('@item.ID','@item.CustomerName')" style=" background-color :#FCFDFF">
+
+                                <td>
+                                    @item.ID
+                                </td>
+                                <td>
+                                    @item.CustomerName
+                                </td>
+
+                            </tr>
+                        }
+                    }
+}
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function SelectService(id, name)
+    {
+        //$('#Customer').val(id);
+        $('#Customer').val(name);
+        $.fancybox.close();
+    }
+</script>

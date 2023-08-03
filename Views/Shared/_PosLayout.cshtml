@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title> 
+     
+    <link href="@Url.Content("~/Content/Administration/vendors/bootstrap/dist/css/bootstrap.min.css")" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="@Url.Content("~/Content/Administration/vendors/font-awesome/css/font-awesome.min.css")" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="@Url.Content("~/Content/Administration/vendors/nprogress/nprogress.css")" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="@Url.Content("~/Content/Administration/vendors/iCheck/skins/flat/green.css")" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="@Url.Content("~/Content/Administration/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css")" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="@Url.Content("~/Content/Administration/vendors/jqvmap/dist/jqvmap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Administration/vendors/animate.css/animate.min.css")" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="@Url.Content("~/Content/Administration/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Administration/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Administration/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Administration/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Administration/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css")" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="@Url.Content("~/Content/Administration/css/custom.min.css")" rel="stylesheet">
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/fancybox/source/jquery.fancybox.css")" type="text/css" media="screen" />
+    <!--script src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script-->
+    <script src="@Url.Content("~/Content/Administration/js/jquery-1.10.2.min.js")"></script> 
+</head>
+<body class="login">
+    <div class="container body">
+      <div class="main_container">
+      
+          <div id="panel" class="col-md-12" role="main">
+             @RenderBody()
+         </div>
+      </div> 
+  </div> 
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script> 
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.signalR-2.2.2.min.js")"></script>
+    <script src="@Url.Content("~/signalr/hubs")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/pos/js/dependencies/rsvp-3.1.0.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/pos/js/dependencies/sha-256.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/pos/js/qz-tray.js")"></script>
+
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/fancybox/source/jquery.fancybox.js?v=2.1.5")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/pos/posgesture.js")" ></script>
+    <script src="@Url.Content("~/Content/Administration/vendors/bootstrap/dist/js/bootstrap.min.js")"></script>
+    
+    <!-- NProgress -->
+   
+    <!-- Chart.js -->
+    <script src="@Url.Content("~/Content/Administration/vendors/Chart.js/dist/Chart.min.js")"></script>
+    <script src="@Url.Content("~/Content/Administration/vendors/jquery-sparkline/dist/jquery.sparkline.min.js")"></script>
+    <script src="@Url.Content("~/Content/Administration/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js")"></script>
+     
+    <!-- morris.js -->
+    <script src="@Url.Content("~/Content/Administration/vendors/raphael/raphael.min.js")"></script>
+    <script src="@Url.Content("~/Content/Administration/vendors/morris.js/morris.min.js")"></script>
+
+  
+  <!-- Custom Theme Scripts -->
+    <script src="@Url.Content("~/Content/Administration/js/custom.js")"></script>
+    <script src="@Url.Content("~/Content/Administration/vendors/iCheck/icheck.min.js")"></script>
+    <script src="@Url.Content("~/Content/Administration/js/moment/moment.min.js")"></script>
+    <script src="@Url.Content("~/Content/Administration/js/datepicker/daterangepicker.js")"></script>
+    
+
+    <script type="text/javascript">
+        $(function () {
+            $('#Date').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4",
+                dateFormat: "d MM yy"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+            $('#AquisitionDate').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4",
+                dateFormat: "d MM yy"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+            $('#DisposalDate').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4",
+                dateFormat: "d MM yy"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+
+            $('#DateCreated').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4",
+                dateFormat: "d MM yy"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+
+            $('#ExpireryDate').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4",
+                dateFormat: "d MM yy"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+          
+
+        })
+    </script>
+    
+    @if (Request.IsAuthenticated)
+    {
+        <script type="text/javascript">
+            $(function () {
+
+                var chat = $.connection.chatHub;
+
+                chat.client.sendAlert = function (alert) {
+                    // var table = document.getElementById("Features");
+                    // $(".timeline").append(alert);
+                    $(alert).insertBefore("timeline-alert");
+                    // row.innerHTML = post;
+                }
+                // Declare a function on the chat hub so the server can invoke it
+                chat.client.sendPrintMessage = function (msg) {
+                    try {
+                        $("#toprint").html(msg);
+                        setTimeout(function () { PrintDiv() }, 2000);
+                    }
+                    catch (e) {
+
+                    }
+
+                };
+
+                // Start the connection
+                $.connection.hub.start();
+                $.connection.hub.start().done(function () {
+                    chat.server.connect('@ViewData["UserId"]');
+                });
+
+                $.connection.hub.disconnected(function () {
+                    setTimeout(function () {
+                        $.connection.hub.start();
+                        $.connection.hub.start().done(function () {
+                            chat.server.connect('@ViewData["UserId"]');
+                        });
+                    }, 3000); // Restart connection after 3 seconds.
+                });
+
+            });
+
+        </script>
+    }
+
+
+</body>
+  
+
+</html>

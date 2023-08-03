@@ -1,0 +1,131 @@
+﻿@model RetailKing.Models.login 
+
+@{
+    ViewBag.Title = "Authenticate";
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>
+
+ <script type="text/javascript">
+    $(function () {
+        var status = $('#ajaxStatus');
+        var percent = $('.percent');
+        var bar = $('.bar');
+        var options = {
+            beforeSend: function () {
+                status.fadeIn();
+                //bar.width('0%');
+                percent.html('0%');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var pVel = percentComplete + '%';
+                // bar.width(pVel);
+                // alert("progress");
+                percent.html(pVel);
+
+            },
+            success: function (result) {
+                try {
+                  
+                    
+                   if (result == "Authorise")
+                    {
+                        SaveCashcollection();
+                    }
+                   else if (result == "Authorise")
+                    {
+                        SaveXcollection();
+                    }
+                   else if (result == "CreditNote")
+                    {
+                        SaveCreditnote();
+                    }
+                   else if (result == "success") {
+                        
+                        if (action == 'voidsale') {
+                            location.reload();
+                        }
+                        else {
+                            action = "voidline";
+                            vd = action;
+                        }
+                        $.fancybox.close();
+                        $("#grumbleq").focus();
+                    }
+                    else  {
+                        $(".alert-danger").html("Enter Correct Supervisor password");
+                        $(".alert-danger").show();
+                    }
+
+                }
+                catch (error) {
+
+                   // alert("cant read");
+                    status.fadeOut(800);
+                }
+
+            },
+
+            error: function (xhr, textStatus, errorThrown) {
+                // $('#panel').html(errorThrown);
+                status.fadeOut(800);
+            }
+
+        };
+        $("#createMailTemplate").ajaxForm(options);
+
+    });
+</script>
+
+ <script type="text/javascript">
+     $(document).ready(function () {
+         $("#" + product + "q").focus();
+         $(".Tender").keyup(function (e) {
+            // alert("oyiroyryi");
+             $("#" + product + "q").focus();
+         });
+     });
+</script>
+
+<div class="Tender">
+    <div class="container_12" style="width:500px ; overflow: hidden"> 
+        @using (Html.BeginForm("Authenticate", "Pos", FormMethod.Post, new { enctype = "multipart/form-data", @name = "createMailTemplateP", id = "createMailTemplate", autocomplete = "off" }))
+        {
+      <div class="col-md-12">
+         <div style="color: #67217A; font-size:32px;"> Enter Password</div>
+          
+          <div class="col-md-10 ">
+              @Html.PasswordFor(model => model.password, new { style = "width: 98%; height: 35px", @class = "form-control", autocomplete = "off" })
+              @Html.HiddenFor(model => model.Account)         
+           </div>
+          <div class="col-md-2 floatleft">
+              <button type="button" onclick="Back()" class="btn btn-success"><i class="fa fa-arrow-left"></i> Back</button>
+          </div>
+          <div id="error" class="alert alert-danger alert-dismissible fade in" style="display:none" role="alert">
+          </div>   
+              <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="7" onclick="onNumber('7')">7</div>
+              <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;  height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="8" onclick="onNumber('8')">8</div>
+              <div class="col-md-4" style="margin-top:15px; width:32%; height:45px; background-color: #67217A; color: White;font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="9" onclick="onNumber('9')">9</div>
+              <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;  height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="4" onclick="onNumber('4')">4</div>
+              <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="5" onclick="onNumber('5')">5</div>
+              <div class="col-md-4" style="margin-top:15px; width:32%; height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="6" onclick="onNumber('6')">6</div>
+              <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%;  height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="1" onclick="onNumber('1')">1</div>
+              <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="2" onclick="onNumber('2')">2</div>
+              <div class="col-md-4" style="margin-top:15px; width:32%; height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="3" onclick="onNumber('3')">3</div>
+              <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="." onclick="onNumber('.')">.</div>
+              <div class="col-md-4" style="margin-top:15px; margin-right: 2%; width:32%; height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="0" onclick="onNumber('0')">0</div>
+              <div class="col-md-4" style="margin-top:15px; width:32%; height:45px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; font-weight: bold; cursor: pointer" id="Enter"><button type="submit" class="btn" style="background-color: #67217A;font-size:20px; ">Enter</button></div>
+          </div>
+        }
+        </div> 
+    </div> 
+ 
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#Passq").on('change keyup paste mouseup', function (e) {
+            $(".alert-danger").hide();
+        });
+    });
+</script>  

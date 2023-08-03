@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="RetailKing.Models.Items, RetailKing" table="Items" >
+
+    <id name="Id" column="ID" type="System.Int64" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+   
+    <property name="BuyingPrice" column="BuyingPrice"  not-null="false" type="System.Decimal"  length="40" insert="true" update="true"/>
+    <property name="SellingPrice" column="SellingPrice"  not-null="false" type="System.Decimal"  length="40" insert="true" update="true"/>
+    <property name="Expected" column="Expected"  not-null="false" type="System.Decimal"  length="40" insert="true" update="true"/>
+    <property name="Amount" column="Amount"  not-null="false" type="System.Decimal"  length="40" insert="true" update="true"/>
+    <property name="Item" column="Item"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="company" column="company"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="category" column="category"  not-null="false" type="System.String"  length="150" insert="true" update="true"/>
+    <property name="SubCategory" column="SubCategory"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="status" column="status"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="ItemCode" column="ItemCode"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="tax" column="tax"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="TopSeller" column="TopSeller"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="SDate" column="SDate"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="EDate" column="EDate"  not-null="false" type="System.String"  length="100" insert="true" update="true"/>
+    <property name="Quantity" column="Quantity"  not-null="false" type="System.Int64" length="40" insert="true" update="true"/>
+    <property name="sold" column="sold"  not-null="false" type="System.Int64" length="40" insert="true" update="true"/>
+    <property name="transfer" column="transfer"  not-null="false" type="System.Int64" length="40" insert="true" update="true"/>
+    <property name="Balance" column="Balance"  not-null="false" type="System.Int64" length="40" insert="true" update="true"/>
+    <property name="NewStock" column="NewStock"  not-null="false" type="System.Int64" length="40" insert="true" update="true"/>
+    <property name="Returned" column="Returned"  not-null="false" type="System.Int64" length="40" insert="true" update="true"/>
+    <property name="Swaps" column="Swaps"  not-null="false" type="System.Int64" length="40" insert="true" update="true"/>
+    <property name="Reorder" column="Reorder"  not-null="false" type="System.Int64" length="40" insert="true" update="true"/>
+    
+  </class>
+</hibernate-mapping>

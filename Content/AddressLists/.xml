@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Address list-->
+<Addresses>
+  <Address>
+    <Id>1</Id>
+    <Contact>Guest</Contact>
+    <Address1>23DDD</Address1>
+    <CityId>1</CityId>
+    <City>1</City>
+    <SuburbId>8</SuburbId>
+    <Suburb>Borrowdale Brooke</Suburb>
+    <RegionId>2</RegionId>
+    <Phone>076890234</Phone>
+  </Address>
+  <Address>
+    <Id>2</Id>
+    <Contact>Guest</Contact>
+    <Address1>33221m</Address1>
+    <CityId>1</CityId>
+    <City>1</City>
+    <SuburbId>6</SuburbId>
+    <Suburb>Gun Hill</Suburb>
+    <RegionId>1</RegionId>
+    <Phone>0000033333</Phone>
+  </Address>
+  <Address>
+    <Id>3</Id>
+    <Contact>Guest</Contact>
+    <Address1>3ssss</Address1>
+    <CityId>1</CityId>
+    <City>1</City>
+    <SuburbId>9</SuburbId>
+    <Suburb>Colne Valley</Suburb>
+    <RegionId>2</RegionId>
+    <Phone>030303</Phone>
+  </Address>
+  <Address>
+    <Id>4</Id>
+    <Contact>Guest</Contact>
+    <Address1>8878</Address1>
+    <CityId>1</CityId>
+    <City>1</City>
+    <SuburbId>15</SuburbId>
+    <Suburb>Umwinsidale</Suburb>
+    <RegionId>3</RegionId>
+    <Phone>owwww</Phone>
+  </Address>
+  <Address>
+    <Id>5</Id>
+    <Contact>Guest</Contact>
+    <Address1 />
+    <CityId>1</CityId>
+    <City>1</City>
+    <SuburbId>12</SuburbId>
+    <Suburb>Mandara</Suburb>
+    <RegionId>2</RegionId>
+    <Phone>0988</Phone>
+  </Address>
+  <Address>
+    <Id>6</Id>
+    <Contact>Guest</Contact>
+    <Address1>1234 edd</Address1>
+    <CityId>1</CityId>
+    <City>1</City>
+    <SuburbId>13</SuburbId>
+    <Suburb>The Grange</Suburb>
+    <RegionId>2</RegionId>
+    <Phone>0722333334</Phone>
+  </Address>
+  <Address>
+    <Id>7</Id>
+    <Contact>Guest</Contact>
+    <Address1>33221m</Address1>
+    <CityId>1</CityId>
+    <City>1</City>
+    <SuburbId>14</SuburbId>
+    <Suburb>Hogerty Hill</Suburb>
+    <RegionId>3</RegionId>
+    <Phone>0722333334</Phone>
+  </Address>
+</Addresses>

@@ -1,0 +1,397 @@
+﻿@model RetailKing.Models.Customer
+
+@{
+    ViewBag.Title = "CreateAcount";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+       $(document).ready(function () {
+
+
+           $("#City").change(function () {
+               $("#Suburb").empty();
+           });
+
+           $("#Suburb").keyup(function () {
+
+               var xx = $("#Suburb").val();
+               if (xx == '') {
+
+               } else {
+                   $.ajax({
+                       type: "Get",
+                       url: '@Url.Action("GetSuburbs", "Accounts")',
+                       dataType: 'html',
+                       data: {
+                           Id: xx,
+                           City: $("#City").val()
+                       },
+                       success: function (resp) {
+                           $("#suburblist").html(resp);
+                       },
+                       error: function (data) {
+                       }
+                   });
+               }
+         });
+           
+       });
+
+       function SelectSuburb(dd, Id) {
+           $("#Suburb").val(dd);
+           $("#suburblist").html('');
+           $("#Region").val(Id);
+       }
+    
+</script>
+<div> 
+
+    @using (Html.BeginForm("Register", "Accounts", FormMethod.Post, new { id = "createCustomers" }))
+    {
+        @Html.AntiForgeryToken()
+     
+
+        @Html.HiddenFor(m => m.AccountCode)
+        @Html.HiddenFor(m => m.ParentId)
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="breadcrumbs">
+                <p><a href="#">Home</a> <i class="icons icon-right-dir"></i> Create an account</p>
+            </div>
+        </div>
+
+            <!-- Main Content -->
+        <section class="main-content col-lg-9 col-md-9 col-sm-9">
+
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 register-account">
+
+                    <div class="carousel-heading no-margin">
+                        <h4>New User</h4>
+                    </div>
+
+                    <div class="page-content">
+                        <div style="color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:80%;height:40px">
+                            @Html.ValidationSummary(true)
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <p><strong>Shopper information</strong></p>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>E-Mail*</p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.TextBoxFor(m => m.Email, new { placeholder = "Email Address" })
+                                @Html.ValidationMessageFor(model => model.Email )
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Title</p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <select class="chosen-select">
+                                    <option>Mr</option>
+                                    <option>Mrs</option>
+                                    <option>Ms</option>
+                                    <option>Dr</option>
+                                    <option>Prof</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Name and Surname*</p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.TextBoxFor(m => m.ContactPerson, new { placeholder = "Name & Surname" })
+                                @Html.ValidationMessageFor(model => model.ContactPerson )
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Displayed name*</p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.TextBoxFor(m => m.CustomerName, new { placeholder = "Display name" })
+                                @Html.ValidationMessageFor(model => model.CustomerName)
+                            </div>
+
+                        </div>
+
+                        <div class="row" style="display:none">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Network Level</p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.DropDownListFor(m => m.NetworkType, new SelectList(
+                                    (IEnumerable<SelectListItem>)ViewBag.Level,
+                                          "Value",
+                                    "Text", "-Select Suburb-"), new { style = "width:100%; height: 30px", @class = "chosen-select" })
+
+                            </div>
+                        </div>
+
+                        <div id="RegFee" class="row" style="display:none">
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Registration Fee </p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <p id="Fee" style=" color:#F5791F"></p>
+                            </div>
+                        </div>
+              
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <p><strong>Delivery Details</strong></p>
+                            </div>
+                           
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>City/Town8*/p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.DropDownListFor(m => m.City, new SelectList(
+                                    (IEnumerable<SelectListItem>)ViewBag.Cities,
+                                          "Value",
+                                          "Text", "-Select City-"), new { style = "width:100%; height: 30px", @class = "chosen-select" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                          
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Address* </p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.TextBoxFor(m => m.Address1, new { placeholder = "Address" })
+                                @Html.ValidationMessageFor(model => model.Address1 )
+                            </div>
+                        </div>
+                 
+                        <div class="row" style="display:none">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Address2</p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.TextBoxFor(m => m.Address2, new { placeholder = "Address" })
+                            </div>
+
+                        </div>
+
+                        @* <div class="row" style="display:none">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Area/Region</p>
+                            </div>
+                            <div id="Region_select" class="col-lg-8 col-md-8 col-sm-8">
+
+                                @Html.DropDownList("Region", new SelectList(
+                                     (IEnumerable<SelectListItem>)ViewBag.Area,
+                                          "Value",
+                                    "Text", "-Select Region-"), new { id = "Region", style = "width:100%; height: 30px", @class = "chosen-select" })
+
+                                 @Html.DropDownListFor(m => m.Suburb, new SelectList(
+                                     (IEnumerable<SelectListItem>)ViewBag.Suburb,
+                                          "Value",
+                                          "Text", "-Select Suburb-"), new { style = "width:100%; height: 30px", @class = "chosen-select" })
+                            </div>
+
+                        </div>*@
+
+                        
+                        <div class="row">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Suburb*</p>
+                                @Html.Hidden("Region")
+                            </div>
+                            <div id="Suburb_select" class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.TextBoxFor(m => m.Suburb, new { placeholder = "Suburb" })
+                                <div id="suburblist" style="width:100%"></div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Phone</p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.TextBoxFor(m => m.Phone1 , new { placeholder = "Phone" })
+                                @Html.ValidationMessageFor(model => model.Phone1)
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <p>Mobile Phone</p>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.TextBoxFor(m => m.Phone2, new { placeholder = "Mobile Phone" })
+                                @Html.ValidationMessageFor(model => model.Phone2 )
+                            </div>
+
+                        </div>
+                        
+                        <div style="color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:80%;height:40px">
+                            @Html.ValidationSummary(true)
+                        </div>
+                        <div class="row">
+                            @if(ViewData["Success"].ToString() == "Success")
+                            {
+                                <div id="Success" style="border: 1px solid #2ECC9F;color:#2ECC9F; padding:8px 8px 8px 8px ;  margin-top:10px;margin-bottom: 20px; width:80%;height:40px">
+                                    Registration Completed Successfuly
+                                </div>
+                            }
+                            else if (ViewData["Success"].ToString() == "Error")
+                            { 
+                                <div id="Error" style="border:1px solid #E74C3C;color:#E74C3C; padding:8px 8px 8px 8px ; margin-top:10px;margin-bottom: 20px;width:80%;height:40px">
+                                    Sorry Registration Failed Please check your data
+                                </div>
+                            }
+                           
+
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <input class="big" type="submit" value="Register">
+                                <input class="big" type="reset" value="Clear">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    }
+            <!-- /Main Content -->
+            <!-- Sidebar -->
+    <aside class="sidebar col-lg-3 col-md-3 col-sm-3 right-sidebar">
+
+        <!-- Categories -->
+        <div class="row sidebar-box purple">
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="sidebar-box-heading">
+                    <i class="icons icon-folder-open-empty"></i>
+                    <h4>Categories</h4>
+                </div>
+                @{
+                         var cats = (from e in Model.categories.Where(u => u.AccountCode.Length == 4) select e).ToList();
+                }
+                <div class="sidebar-box-content">
+                    <ul>
+                        @foreach (var cat in cats)
+                            {
+                                var subcats = (from e in Model.categories.Where(u => u.AccountCode.StartsWith(cat.AccountCode + "-")) select e).ToList();
+                            <li>
+                                <a href="@Url.Action("Index", "Category", new { id=cat.AccountName  })">@cat.AccountName <i class="icons icon-right-dir"></i></a>
+                                @if (subcats.Count > 0)
+                                    {
+                                        int runs = subcats.Count / 5;
+                                        if (subcats.Count % 5 != 0)
+                                        { runs = runs + 1; }
+                                    <ul class="sidebar-dropdown">
+                                        @for (int i = 0; i < runs; i++)
+                                            {
+                                                var top5 = (from e in subcats.Skip(i) select e).Take(5);
+                                            <li>
+                                                <ul>
+                                                    @foreach (var scat in subcats)
+                                                        {
+                                                        <li>
+                                                            <a href="@Url.Action("Index", "Category", new { id = scat.AccountName }) ">@scat.AccountName</a>
+                                                        </li>
+                                                        }
+                                                </ul>
+                                            </li>
+                                            }
+
+                                    </ul>
+                                    }
+                            </li>
+                            }
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /Categories -->
+        @if (Model.slides != null)
+        {
+            <div class="row sidebar-box">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 sidebar-carousel">
+
+                    <!-- Slider -->
+                    <section class="sidebar-slider">
+                        <div class="sidebar-flexslider">
+                            <ul class="slides">
+                                @foreach (var slid in Model.slides)
+                                    {
+                                    <li>
+                                        <a href="@Url.Action("Details", "items", new { id = slid.ID })"><img src="@Url.Content(slid.PromoImage)" alt=" slide1" /></a>
+                                    </li>
+                                    }
+
+                            </ul>
+                        </div>
+                        <div class="slider-nav"></div>
+                    </section>
+                    <!-- /Slider -->
+
+                </div>
+
+            </div>
+        }
+
+        <div id="product-slider">
+            <ul class="slides">
+                <li>
+
+                    <img class="cloud-zoom" src="@Url.Content("~/img/regions.jpg")" data-large="@Url.Content("~/img/regions.jpg")" alt="" />
+                    <a class="fullscreen-button" href="@Url.Content("~/img/regions.jpg")">
+                        <div class="product-fullscreen">
+                            <i class="icons icon-resize-full-1"></i>
+                        </div>
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+
+ 
+
+    </aside>
+
+            <!-- /Sidebar -->
+
+
+
+  
+    </div>

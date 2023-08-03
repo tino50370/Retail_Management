@@ -1,0 +1,262 @@
+﻿@model IEnumerable<RetailKing.Models.Advert>
+
+@{
+    ViewBag.Title = "Index";
+    int cnt = 0;
+}
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        $.fancybox.close();
+         $("#SearchInItems").focus();
+         var typinTimer;
+         $("#category").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Accounts")',
+                 dataType: 'html',
+                 data: {
+                     company: $("#activeco").text(),
+                     category: $("#category").val(),
+                     ItemCode: "",
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $("#panel").html(resp);
+                 },
+                 error: function (data) {
+                     alert(data);
+                 }
+             });
+         });
+
+         $("#SubCategory").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Accounts")',
+                 dataType: 'html',
+                 data: {
+                     SubCategory: $("#SubCategory").val(),
+                     ItemCode: "",
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $("#panel").html(resp);
+                 },
+                 error: function (data) {
+                     alert(data);
+                 }
+             });
+         });
+
+         $("#SizeR").change(function (event) {
+             event.preventDefault();
+             $.ajax({
+                 type: "Post",
+                 url: '@Url.Action("Index", "Accounts")',
+                 dataType: 'html',
+                 data: {
+                     company: $("#activeco").text(),
+                     category: $("#category").val(),
+                     ItemCode: '',
+                     iDisplayLength: $("#SizeR").val(),
+                     sEcho: 1
+                 },
+                 success: function (resp) {
+                     $('#panel').html(resp);
+                 },
+                 error: function (data) {
+                 }
+             });
+         });
+
+         $("#SearchInItems").keyup(function () {
+             // event.preventDefault();
+             var s = $('#SearchInItems').val();
+            // alert(s);
+             clearTimeout(typinTimer);
+             typinTimer = setTimeout(function () {
+                // alert($('#SearchInItems').val() );
+                 if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                     $.ajax({
+                         type: "Post",
+                         url: '@Url.Action("Index", "Accounts")',
+                         dataType: 'html',
+                         data: {
+                             company: $("#activeco").text(),
+                             category: $("#category").val(),
+                             ItemCode: $("#SearchInItems").val(),
+                             iDisplayLength: $("#SizeR").val(),
+                             sEcho: 1
+                         },
+                         success: function (resp) {
+                             $('#panel').html(resp);
+                         },
+                         error: function (data) {
+                         }
+                     });
+                 }
+            }, 2000);
+         });
+
+         $("#tableData input").keypress( function (e) {
+             if (e.keyCode == 13) {
+
+                 if (this.value == '') {
+                     alert($("#" + this.id).val());
+                 }
+                 else {
+                     if (isNaN(this.value / 1) == false) {
+                         var dd = this.id;
+                         $.ajax({
+                             type: "Post",
+                             url: '@Url.Action("newStock", "Accounts")',
+                             dataType: 'html',
+                             data: {
+                                 company: $("#activeco").text(),
+                                 Qty: this.value,
+                                 ItemCode: this.id
+                             },
+                             success: function (resp) {
+                                 var jsonItem = $.parseJSON(resp);
+                               //  alert($('#' + dd).val());
+                                 $('.' + dd).html(jsonItem.NewStock);
+                                 $('#balance_' + dd).html(jsonItem.Balance);
+                                 $('#' + dd).val('');
+                             },
+                             error: function (data) {
+                             }
+                         });
+                     }
+                     else {
+                         alert("Please enter number only");
+                     }
+                 }
+             }
+         });
+
+     });
+</script>
+
+<script type="text/javascript">
+     function GetPageR(thispage) {
+         $.ajax({
+             type: "Post",
+             url: '@Url.Action("Index", "Items")',
+             dataType: 'html',
+             data: {
+                 company: $("#activeco").text(),
+                 category: $("#category").val(),
+                 ItemCode: '',
+                 iDisplayStart: thispage,
+                 iDisplayLength: $("#SizeR").val(),
+                 sEcho: 1
+             },
+             success: function (resp) {
+                 $('#panel').html(resp);
+             },
+             error: function (data) {
+             }
+         });
+     }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Advert Campaigns</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <p></p>
+                <table id="gradient-style" class="table" style="width:100%; ">
+                    <tbody>
+                        <tr>
+                            <td style="border-style: none">
+                                <div class="editor-field">
+                                    Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR" , @class = "form-control" })
+                                </div>
+                            </td>
+
+
+                            <td style="border-style: none">
+                                <div class="editor-field">
+                                    Search <input type="text" id="SearchInItems" class = "form-control pull-left"/>
+                                    
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-stripped" style="width: 100%">
+                    <tr>
+
+                        <th>
+
+                        </th>
+                        <th>
+                            Position
+                        </th>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Balance
+                        </th>
+                        <th>
+                            Created
+                        </th>
+                        <th>
+                            Expires
+                        </th>
+                        <th>
+                            <button class="btn btn-success " style="float: right" onclick="GetView('@Url.Action("Create", "Adverts")')">Create New </button>
+                        </th>
+
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+
+                            <td>
+                               @if (item.Image != null)
+                               {
+                                   <image src="@Url.Content(item.Image)" style="width:60px"/>
+                               }
+                            </td>
+                            <td>
+                                @item.AdPosition
+                            </td>
+                            <td>
+                                @item.Title
+                            </td>
+                            <td>
+                                @String.Format("{0:F}", item.DailyUsage)
+                            </td>
+                            <td>
+                                @item.DateCreated
+                            </td>
+                            <td>
+                                @item.ExpireryDate
+                            </td>
+                            <td> 
+                                <button class="btn btn-primary" style="float: right" onclick="GetView('@Url.Action("Edit", "Adverts")','@item.Id')">Edit </button>
+                                <button class="btn btn-warning" style="float: right" onclick="GetFancy('@Url.Action("AdSpaceAllocations", "Adverts")','@item.Id')">Placements </button>
+                            </td>
+                        </tr>
+
+                    }
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

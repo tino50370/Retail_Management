@@ -1,0 +1,17 @@
+@model RetailKing.Models.MailTemplate
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">   
+            <h4 class="display-field">@Model.Subject</h4>
+
+            @Html.Raw(Server.HtmlDecode(Model.Message))
+        </div>
+    </div>          
+</div>
