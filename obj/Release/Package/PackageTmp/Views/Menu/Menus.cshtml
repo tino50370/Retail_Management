@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Yomoney.Models.Menus>
+@{
+    ViewBag.Title = "Menus";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Menus</h3>
+                </div>
+                <div class="box-body">
+
+                    <p>
+                        <a href="@Url.Action("CreateMenus","Admin")" class="btn btn-primary  btn-animate-demo">Create Menu</a>
+                    </p>
+                    <table class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </th>
+                                <th>
+                                    Css Class
+                                </th>
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CssClass)
+                                    </td>
+
+                                    <td>
+                                        <a href="@Url.Action("MenuItems","Admin", new{Id = item.Id})" class="btn btn-primary btn-xs btn-animate-demo">Menu Items</a>
+                                        <a href="@Url.Action("EditMenus","Admin", new{Id = item.Id})" class="btn btn-warning btn-xs btn-animate-demo">Edit Menu</a>
+                                        <a href="@Url.Action("DeleteMenus","Admin", new{Id = item.Id})" class="btn btn-danger btn-xs btn-animate-demo">Delete Menu</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="8">
+                                    There are no Pages
+                                </td>
+                            </tr>
+
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

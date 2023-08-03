@@ -1,0 +1,226 @@
+@model IEnumerable<RetailKing.Models.ServiceAction>
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        $("#SearchInItems").focus();
+
+        $("#cat").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: 'SupplierServices/ServiceActions',
+                dataType: 'html',
+                data: {
+                    category: $("#cat").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("ServiceActions", "SupplierServices")',
+                dataType: 'html',
+                data: {
+                    category: $("#cat").val(),
+                    ItemCode: '',
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            var s = $('#SearchInItems').val();
+            //alert(s);
+            clearTimeout(typinTimer);
+            typinTimer = setTimeout(function () {
+                if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                    $.ajax({
+                        type: "Post",
+                        url: '@Url.Action("ServiceActions", "SupplierServices")',
+                        dataType: 'html',
+                        data: {
+                            category: $("#cat").val(),
+                            ItemCode: $("#SearchInItems").val(),
+                            iDisplayLength: $("#SizeR").val(),
+                            sEcho: 1
+                        },
+                        success: function (resp) {
+                            $('#panel').html(resp);
+                        },
+                        error: function (data) {
+                        }
+                    });
+                }
+            }, 2000);
+        });
+
+
+
+    });
+</script>
+
+<script type="text/javascript">
+    function GetPageR(thispage) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("ServiceActions", "SupplierServices")',
+            dataType: 'html',
+            data: {
+                category: $("#cat").val(),
+                ItemCode: '',
+                iDisplayStart: thispage,
+                iDisplayLength: $("#SizeR").val(),
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Service Actions </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+
+                    <table  id="gradient-style" style="width:100%; border-style: none ">
+                        <tbody>
+                            <tr>
+                                <td class="style3" style="border-style: none">
+                                    <div class="editor-field">
+                                        Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR" })
+                                    </div>
+                                </td>
+
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                        Search by Supplier Name  <input type="text" id="SearchInItems" />
+                                    </div>
+                                </td>
+                                <td class="style4" style="border-style: none">
+                                    <div class="editor-field" style="float:right ">
+                                        <button class="btn btn-primary" onclick="GetView('@Url.Action("CreateServiceAction", "SupplierServices", new { Id = @ViewData["Id"] })')">New Action</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="tableData">
+                        <table style="width:100%" class="table table-stripe">
+                            <tr>
+
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Service Charge Type
+                                </th>
+                                <th>
+                                    Charge Value
+                                </th>
+                                <th>
+                                    Commision Charge Type
+                                </th>
+                                <th>
+                                    Commision Value
+                                </th>
+
+
+                                <th></th>
+                            </tr>
+                            @{
+
+                                int cnt = 0;
+                                foreach (var item in Model)
+                                {
+                                    
+                                        <tr>
+
+                                            <td>
+                                                @item.Name 
+                                            </td>
+                                            <td>
+                                                @item.Description
+                                            </td>
+                                            <td>
+                                                @item.ChargeType 
+                                            </td>
+                                            <td>
+                                                @item.ChargeValue 
+                                            </td>
+                                            <td>
+                                                @item.CommisionChargeType 
+                                            </td>
+                                            <td>
+                                                @item.CommisionValue 
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger" style="float: right;" onclick="GetView('@Url.Action("DeleteServiceAction", "SupplierServices", new { ServId = item.ServiceId, Id =@item.Id})')">Delete</button>
+                                                <button class="btn btn-primary " style="float: right; margin-right:5px" onclick="GetView('@Url.Action("EditServiceAction", "SupplierServices", new { ServId = item.ServiceId, Id =@item.Id})')">Edit </button>
+                                            </td>
+                                        </tr>
+                                   
+                                }
+                            }
+                            <tr>
+                                <th colspan="12" style="background-color: #E2E4FF; ">
+                                    <div onclick="GetPageR()" style="float: left; padding-left: 10px"> Pages</div>
+                                    @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                                    {
+                                        if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                        {
+                                            <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                                        }
+                                        else
+                                        {
+                                            <div onclick="GetPageR(@i)" style="float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                                        }
+                                    }
+                                    <div style="float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                                </th>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

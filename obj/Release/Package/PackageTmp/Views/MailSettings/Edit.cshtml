@@ -1,0 +1,37 @@
+@model RetailKing.Models.MailSetting
+
+@{
+    ViewBag.Title = "Edit";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Edit Mail Settings</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Edit", "MailSettings", FormMethod.Post, new { id = "editSyskeys" }))
+                {
+                    @Html.ValidationSummary(true)
+                    @Html.AntiForgeryToken()
+                    <fieldset>
+                        @Html.HiddenFor(m => m.Id)
+                        @Html.Partial("_CreateOrEdit", Model)
+                    </fieldset>
+                }
+                <div>
+                    <button class="btn btn-success" onclick="SaveView('editSyskeys')">Save</button>
+                    <button class="btn btn-warning" onclick="GetView('@Url.Action("Index", "MailSettings")')">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <iframe id="UploadTarget" name="UploadTarget" style="position: absolute; left: -999em; top: -999em;"></iframe>
+        <div id="Images"></div>
+    </div>
+</div>

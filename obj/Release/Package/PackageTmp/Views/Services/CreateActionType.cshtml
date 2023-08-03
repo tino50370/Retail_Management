@@ -1,0 +1,104 @@
+﻿@model RetailKing.Models.ServiceActionType 
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Create Action Types</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    @using (Html.BeginForm("CreateActionType", "Services", FormMethod.Post, new { id = "createSuppliers" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        <fieldset>
+                            <div class="editor-label">
+                                @Html.Label("Service Type")
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.ServiceType, new SelectList(new[] { "Merchant", "Bank", "Tickets", "Insurance", "Employment" }, Model.ServiceType), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ServiceType)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Transaction Type")
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.TranTypeId , new SelectList((IEnumerable<SelectListItem>)ViewBag.Trantype, "Value", " Text"), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TranTypeId)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("Billing Service")
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.YomoneyId, new SelectList((IEnumerable<SelectListItem>)ViewBag.YmService, "Value", " Text"), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.YomoneyId)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Action Name")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.ActionName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ActionName)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("Description")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </div>
+                            
+                        </fieldset>
+                    }
+                    <br/>
+                    <div>
+                        <button class="btn btn-success" onclick="SaveView('createSuppliers')">Save</button>
+                        <button class="btn btn-warning" onclick="GetView('@Url.Action("CreateActionType", "Suppliers")')">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="RightPanel" class="col-md-6">
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        GetSideView('@Url.Action("ActionTypes", "Services",new { ServiceType  = Model.ServiceType})')
+    })
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+      
+        $("#ServiceType").change(function (event) {
+            event.preventDefault();
+
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("ActionTypes", "Services")',
+                dataType: 'html',
+                data: {
+                    ServiceType: $("#ServiceType").val(),
+                   
+                },
+                success: function (resp) {
+                    $('#RightPanel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+      
+    });
+</script>

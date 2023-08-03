@@ -1,0 +1,31 @@
+@model RetailKing.Models.SupplierService
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+ 
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Name, new {  @class="form-control"})
+  
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Service Description")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Description)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Service HasProducts")
+</div>
+<div class="col-md-4">
+    <div class="editor-field">
+        @Html.CheckBoxFor(model => model.ExternalServiceId, new { @class = "form-control ", style = "float:left" })
+        @Html.ValidationMessageFor(model => model.ExternalServiceId)
+    </div>
+</div>

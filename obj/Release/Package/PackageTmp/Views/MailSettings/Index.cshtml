@@ -1,0 +1,90 @@
+@model IEnumerable<RetailKing.Models.MailSetting>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Mail Settings</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+
+            <table style="width:100%" class="table table-stripe">
+                <tr>
+                    <th>
+                        Company
+                    </th>
+                    <th>
+                        Domain
+                    </th>
+                    <th>
+                        Host 
+                    </th>
+                    
+                    <th></th>
+                </tr>
+
+                @{
+
+                    int cnt = 0;
+                    foreach (var item in Model)
+                    {
+                        cnt += 1;
+                        if (cnt % 2 == 0)
+                        {
+                            <tr style=" background-color: #EEEEEE">
+
+                                <td>
+                                    @item.Company
+                                </td>
+                                <td>
+                                    @item.Domain 
+                                </td>
+                                <td>
+                                    @item.SmtpHost 
+                                </td>
+                                
+                                <td>
+                                    <button class="btn btn-primary btn-sm" onclick="GetView('@Url.Action("Edit", "MailSettings")', '@item.Id')">Edit</button>
+                                    <button class="btn btn-danger btn-sm" onclick="GetView('@Url.Action("Delete", "MailSettings")', '@item.Id')">Delete</button>
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr style=" background-color :#FCFDFF">
+
+                                <td>
+                                    @item.Company
+                                </td>
+                                <td>
+                                    @item.Domain
+                                </td>
+                                <td>
+                                    @item.SmtpHost
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" onclick="GetView('@Url.Action("Edit", "MailSettings")', '@item.Id')">Edit</button>
+                                    <button class="btn btn-danger btn-sm" onclick="GetView('@Url.Action("Delete", "MailSettings")', '@item.Id')">Delete</button>
+                                </td>
+                               
+                            </tr>
+                        }
+                    }
+                }
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+       // GetSideView('@Url.Action("Create", "MailSettings")')
+    })
+</script>

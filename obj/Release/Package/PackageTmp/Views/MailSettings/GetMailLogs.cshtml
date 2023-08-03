@@ -1,0 +1,67 @@
+@model IEnumerable<string>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>@ViewData["Service"] Mail Logs</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p><a class="btn btn-success" href="/MailSettings/DashBoard"><i class="fa fa-arrow-left"></i> Back</a></p>
+
+            <table style="width:100%" class="table">
+            
+                <tr>
+                    
+                    <th>
+                        @Html.DropDownList("type", new SelectList(new[] { "Sent"}), new { @class = "form-control" })
+                    </th>
+                    <th>
+                   
+                        <input id="date" name="date" class="form-control" type="text" >
+                    </th>
+                    <th>
+                        <button class="btn btn-warning" type="submit" onclick="Getlogs('@Url.Action("GetMaillogs", "MailSettings")','@ViewData["ServiceId"]')">Get logs</button>
+                    </th>
+                </tr>
+       
+                @{
+
+                    int cnt = 0;
+                    foreach (var item in Model)
+                    {  
+                            <tr>
+
+                                <td colspan="3">
+                                    @item
+                                </td>
+                                
+                                
+                            </tr>        
+                    }
+                }
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<script src="@Url.Content("~/Content/Administration/js/datepicker/daterangepicker.js")"></script>
+<script src="@Url.Content("~/Content/Administration/js/moment/moment.min.js")"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#date').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });   
+    })
+   
+</script>

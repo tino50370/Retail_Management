@@ -1,0 +1,350 @@
+﻿@model RetailKing.Models.login
+
+@{
+    ViewBag.Title = "Create";
+}
+<link rel="stylesheet" href="@Url.Content("~/Content/chosen_v1.5.1/docsupport/style.css")">
+<link rel="stylesheet" href="@Url.Content("~/Content/chosen_v1.5.1/docsupport/prism.css")">
+<link rel="stylesheet" href="@Url.Content("~/Content/chosen_v1.5.1/chosen.css")">
+<style type="text/css" media="all">
+    /* fix rtl for demo */
+    .chosen-rtl .chosen-drop {
+        left: -9000px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Create User </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                    @using (Html.BeginForm("Create", "User", FormMethod.Post, new { enctype = "multipart/form-data", @name = "NewUser", id = "createUser" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                           
+                            <div class="col-md-6">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.username)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.username, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.username)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.password)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.PasswordFor(model => model.password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.password)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.Label("Access Level")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.accesslevel, new SelectList(new[] { "CASHIER", "SUPERVISOR", "MANAGER", "ADMINISTRATOR" }), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.accesslevel)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Firstname)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Firstname, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Firstname)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Surname)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Surname, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Surname)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.prefix)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.prefix, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.prefix)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Location)
+                                </div>
+                                <div class="editor-field">
+
+                                    @Html.DropDownListFor(m => m.Location, new SelectList((IEnumerable<SelectListItem>)ViewBag.Company, "Value", " Text"), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Location)
+                                </div>
+
+                                    <div class="editor-label">
+                                        @Html.Label("Menu Access")
+                                    </div>
+                                    <div class="editor-field">
+                                        @Html.ListBox(
+                                        "Menus",
+                                        ViewBag.Menus as MultiSelectList,
+                                         new { @class = "form-control form-cascade-control input-small chosen-select", style = "width:100%;", data_placeholder = "Choose menus...", tabindex = "4", MultiSelectList = "multiple" })
+                                        @Html.ValidationMessageFor(model => model.Menus)
+                                    </div>
+                          
+
+                            </div>
+
+                            <div class="col-md-6" style="display:none">
+                                <div>
+                                    <h2>Back Office Roles</h2>
+
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.RetailUser)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.CheckBox("RetailUser")
+                                            @Html.ValidationMessageFor(model => model.RetailUser)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.UsesBoth)
+                                        </div>
+                                        <div class="editor-field">
+
+                                            @Html.CheckBox("UsesBoth")
+                                            @Html.ValidationMessageFor(model => model.UsesBoth)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.Shifts)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.CheckBox("Shifts")
+                                            @Html.ValidationMessageFor(model => model.Shifts)
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2 last">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.Tables)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.CheckBox("Tables")
+                                            @Html.ValidationMessageFor(model => model.Tables)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.Payments)
+                                        </div>
+                                        <div class="editor-field">
+
+                                            @Html.CheckBox("Payments")
+                                            @Html.ValidationMessageFor(model => model.Payments)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.Reporting)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.CheckBox("Reporting")
+
+                                            @Html.ValidationMessageFor(model => model.Reporting)
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.Pricing)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.CheckBox("Pricing")
+                                            @Html.ValidationMessageFor(model => model.Pricing)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.Barcoding)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.CheckBox("Barcoding")
+
+                                            @Html.ValidationMessageFor(model => model.Barcoding)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.AddsProducts)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.CheckBox("AddsProducts")
+
+                                            @Html.ValidationMessageFor(model => model.AddsProducts)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.Purchases)
+                                        </div>
+                                        <div class="editor-field">
+
+                                            @Html.CheckBox("Purchases")
+                                            @Html.ValidationMessageFor(model => model.Purchases)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.ManageUsers)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.CheckBox("ManageUsers")
+                                            @Html.ValidationMessageFor(model => model.ManageUsers)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.ManagePos)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.CheckBox("ManagePos")
+                                            @Html.ValidationMessageFor(model => model.ManagePos)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.Transfers)
+                                        </div>
+                                        <div class="editor-field">
+
+                                            @Html.CheckBox("Transfers")
+                                            @Html.ValidationMessageFor(model => model.Transfers)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.Accounts)
+                                        </div>
+                                        <div class="editor-field">
+
+                                            @Html.CheckBox("Accounts")
+                                            @Html.ValidationMessageFor(model => model.Accounts)
+                                        </div>
+                                    </div>
+                                </div>
+                                <p></p>
+                            </div>
+
+                            <div class="col-md-6" style="display:none">
+                                <div >
+                                    <h2>Point Of Sale Roles</h2>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.PosUser)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.TextBoxFor(model => model.PosUser, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.PosUser)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.Sales)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.TextBoxFor(model => model.Sales, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Sales)
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.ManagerMenu)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.TextBoxFor(model => model.ManagerMenu, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.ManagerMenu)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.xreport)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.TextBoxFor(model => model.xreport, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.xreport)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.zreport)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.TextBoxFor(model => model.zreport, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.zreport)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.voidsale)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.TextBoxFor(model => model.voidsale, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.voidsale)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.OnShift)
+                                        </div>
+                                        <div class="editor-field">
+                                            @Html.TextBoxFor(model => model.OnShift, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.OnShift)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>
+
+                            </p>
+                        </fieldset>
+                    }
+                    <br/>
+                    <div>
+                        <button class="btn btn-success" onclick="SaveView('createUser')">Save</button>
+                        <button class="btn btn-warning" onclick="GetView('@Url.Action("Index", "User")')">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="@Url.Content("~/Content/chosen_v1.5.1/chosen.jquery.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/chosen_v1.5.1/docsupport/prism.js")" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" }
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+</script>
+

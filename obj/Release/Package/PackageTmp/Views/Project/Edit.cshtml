@@ -1,0 +1,42 @@
+@model RetailKing.Models.Asset
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Edit Asset</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <div class="col-md-8">
+                        @using (Html.BeginForm("Edit", "Asset", FormMethod.Post, new { id = "editAsset" }))
+                        {
+                            @Html.ValidationSummary(true)
+                            @Html.AntiForgeryToken()
+                            <fieldset>
+                               
+
+                                @Html.HiddenFor(model => model.Id)
+                                @Html.Partial("_CreateOrEdit", Model)
+
+                                <p>
+                                    <input type="submit" value="Save" />
+                                </p>
+                            </fieldset>
+                        }
+                        <br />
+                        <div>
+                            <button class="btn btn-success" onclick="SaveView('editAsset')">Save</button>
+                            <button class="btn btn-warning" onclick="GetView('@Url.Action("Index", "Asset")')">Cancel</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,97 @@
+@model RetailKing.Models.Valuation
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+<script type="text/javascript" src="@Url.Content("~/Content/tinymce/tinymce.min.js")"></script>
+
+<script type="text/javascript">
+    $(function () {
+        if (tinymce.editors.length != 0 || tinymce.activeEditor != undefined) {
+            setTimeout(function () {
+                // alert(tinymce.editors.length);
+                tinymce.init({
+                    selector: "Detail",
+                    plugins: [
+                        "advlist autolink autosave link lists base64_image charmap hr pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars fullscreen media ",
+                        "table contextmenu directionality textcolor paste fullpage textcolor colorpicker textpattern"
+                    ],
+
+                    toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table",
+                    toolbar2: "formatselect | cut copy paste | searchreplace  |  undo redo | link unlink base64_image | forecolor backcolor",
+                    menubar: false,
+                    paste_data_images: true,
+                    height: "300",
+                    width: "400"
+                });
+                tinymce.execCommand('mceAddEditor', true, "Detail");
+            }, 1000);
+        }
+        else {
+            tinymce.init({
+                selector: "Detail",
+                plugins: [
+                    "advlist autolink autosave link lists base64_image charmap hr pagebreak spellchecker",
+                    "searchreplace wordcount visualblocks visualchars fullscreen media ",
+                    "table contextmenu directionality textcolor paste fullpage textcolor colorpicker textpattern"
+                ],
+                toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table",
+                toolbar2: "formatselect | cut copy paste | searchreplace  |  undo redo | link unlink base64_image | forecolor backcolor",
+                menubar: false,
+                paste_data_images: true,
+                height: "300",
+                width: "400",
+            });
+            tinyMCE.execCommand('mceAddEditor', true, 'Detail');
+        }
+
+        $("#FixedEmail").change(function () {
+            if (this.checked) {
+                $("#emailPw").hide();
+            }
+            else {
+                $("#emailPw").show();
+            }
+        });
+
+        $("#Customer").click(function () {
+            GetFancy('@Url.Action("CustomerList", "Asset")')
+        });
+     
+    });
+
+    // Prevent bootstrap dialog from blocking focusin
+    $(document).on('focusin', function (e) {
+        if ($(e.target).closest(".mce-window").length) {
+            e.stopImmediatePropagation();
+        }
+    });
+</script>
+<div class="editor-label">
+    @Html.LabelFor(model => model.AssetName)
+</div>
+<div class="editor-field">
+    @Html.TextBox("AssetName", new { @class = "form-control" })
+    @Html.HiddenFor(model => model.Id, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.AssetName)
+</div>
+<div class="editor-label">
+    @Html.Label("Valuation Land")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.LandValuation, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.LandValuation)
+</div>
+<div class="editor-label">
+    @Html.Label("Valuation Improvements")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Improvement, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.LandValuation)
+</div>
+<div class="editor-label">
+    @Html.Label("Total Property Valuation")
+</div>
+<div class="editor-field">
+    @Html.TextBox("Total", new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.LandValuation)
+</div>

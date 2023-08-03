@@ -1,0 +1,75 @@
+﻿@model IEnumerable<RetailKing.Models.SubMenuItem>
+@{
+    ViewBag.Title = "Menus";
+}
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>SubMenu items</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <p>
+                        <a onclick="GetView('@Url.Action("CreateSubMenuItems", "Menu", new { Id= @ViewData["Id"] })')" class="btn btn-primary  btn-animate-demo">Create Menu Item</a>
+                    </p>
+                    <table class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Title)
+                                </th>
+                                <th>
+                                    Url Link
+                                </th>
+                                <th>
+                                    Css Class
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Title)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.LinkUrl)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CssClass)
+                                    </td>
+                                    <td>
+
+                                        <a onclick="GetView('@Url.Action("EditSubMenuItems","Menu", new{Id = item.Id})')" class="btn btn-warning btn-xs btn-animate-demo">Edit</a>
+                                        <a onclick="GetView('@Url.Action("DeleteSubMenuItems","Menu", new{Id = item.Id})')" class="btn btn-danger btn-xs btn-animate-demo">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="8">
+                                    There are no Sub-Menuitems
+                                </td>
+                            </tr>
+
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,103 @@
+﻿@model RetailKing.Models.CashPosition
+@{
+    ViewBag.Title = "CashPosition";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Cash Position Report</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+                    <table id="gradient-style" style="width:100%; border-style: none ">
+                        <tbody>
+                            <tr>
+                                <td class="style3" style="border-style: none">
+                                    <div class="editor-field">
+                                    </div>
+                                </td>
+                                <td class="style4" style="border-style: none"></td>
+                                <td class="style4" style="border-style: none"></td>
+                                <td style="border-style: none">
+                                    <div class="editor-field" style="float:right ">
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="tableData">
+                        <table style="width:100%">
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Item Code
+                                </th>
+                                <th>
+                                    Opening
+                                </th>
+
+                                <th>
+                                    Sold
+                                </th>
+                                <th>
+                                    Transfers
+                                </th>
+
+                                <th>
+
+                                </th>
+
+
+                                <th></th>
+                            </tr>
+
+                            @{
+
+                                int cnt = 0;
+                                foreach (var item in Model.accounts)
+                                {
+                                    cnt += 1;
+                                    if (cnt % 2 == 0)
+                                    {
+                                        <tr style=" background-color: #EEEEEE">
+
+                                            <td>
+                                                @item.AccountName
+                                            </td>
+                                            <td>
+                                                @item.Balance
+                                            </td>
+                                            <td></td>
+
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        <tr style=" background-color :#FCFDFF">
+
+                                            <td>
+                                                @item.AccountName
+                                            </td>
+                                            <td>
+                                                @item.Balance
+                                            </td>
+                                            <td></td>
+
+                                        </tr>
+                                    }
+                                }
+                            }
+
+                        </table>
+                    </div>
+</div>
+</div>
+</div>
+</div>

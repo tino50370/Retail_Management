@@ -1,0 +1,38 @@
+﻿@model RetailKing.Models.ServiceAction 
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Edit Service Action</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+
+                    @using (Html.BeginForm("EditServiceAction", "SupplierService", FormMethod.Post, new { id = "createSuppliers" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        <fieldset>
+                            <legend></legend>
+                            @Html.HiddenFor(model => model.Id)
+                            @Html.HiddenFor(model => model.SupplierId)
+                            @Html.HiddenFor(model => model.ServiceId)
+                            @Html.Partial("_CreateOrEditServiceAction", Model)
+
+                        </fieldset>
+                    }
+                    <br/>
+                    <div>
+                        <button class="btn btn-success" onclick="SaveView('createSuppliers')">Save</button>
+                        <button class="btn btn-warning" onclick="GetView('@Url.Action("Index", "SupplierService")')">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

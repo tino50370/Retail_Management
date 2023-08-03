@@ -1,0 +1,15 @@
+@model RetailKing.Models.JobSubCategory
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+ 
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Name, new {  @class="form-control"})
+    @Html.HiddenFor(model => model.JobCategoryId)
+    @Html.HiddenFor(model => model.Image)
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+

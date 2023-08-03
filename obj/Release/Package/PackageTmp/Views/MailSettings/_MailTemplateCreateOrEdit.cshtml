@@ -1,0 +1,174 @@
+@model RetailKing.Models.MailTemplate
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Subject)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Subject, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Subject)
+</div>
+<div class="editor-label">
+    @Html.LabelFor(model => model.Message)
+</div>
+<div class="editor-field">
+    @Html.TextAreaFor(model => model.Message, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Message)
+</div>
+<div class="editor-label">
+    @Html.Label("Select Integration Service ") <em style="color:orange"> (optional) </em>
+</div>
+<div class="editor-field">
+    @Html.HiddenFor(model => model.ServiceId)
+    @Html.TextBoxFor(model => model.Service, new { @class = "form-control", placeholder="use mailing service to send mail" })
+    @Html.ValidationMessageFor(model => model.ServiceId)
+</div>
+
+<div class="editor-label">
+    @Html.Label("Select Mailing List") <em style="color:orange"> (optional) </em>
+</div>
+
+<div class="editor-field">
+    @Html.HiddenFor(model => model.GroupId)
+    @Html.TextBoxFor(model => model.ListName , new { @class = "form-control", placeholder="send mail to a specific group" })
+    @Html.ValidationMessageFor(model => model.GroupId)
+</div>
+
+<div class="editor-field">
+    <div class="checkbox">
+        <label>
+            @Html.CheckBox("HasSms", Model.HasSms.Value, new { @class = "flat" }) Notification sends SMS
+        </label>
+    </div>
+    @Html.ValidationMessageFor(model => model.HasSms)
+</div>
+@if (Model.HasSms == true )
+{ 
+<div id="smsDetails" style=" display:block">
+    <div class="editor-label">
+        @Html.Label("Sms Message")
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.SmsMessage, new { @class = "form-control", length = 160})
+        @Html.ValidationMessageFor(model => model.SmsMessage)
+    </div>
+ 
+</div>
+}
+else
+{
+    <div id="smsDetails" style=" display:none">
+        <div class="editor-label">
+            @Html.Label("Sms Message")
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.SmsMessage, new { @class = "form-control",@maxlength=160})
+            @Html.ValidationMessageFor(model => model.SmsMessage)
+        </div>
+
+    </div>
+}
+<div class="editor-field">
+    <div class="checkbox">
+        <label>  
+            @Html.CheckBox("FixedEmail",Model.FixedEmail.Value, new { @class = "flat", @checked = "checked" }) Use my Email Address
+        </label>
+    </div>
+    
+    @Html.ValidationMessageFor(model => model.FixedEmail)
+</div>
+
+<div id="emailPw" style=" display:none">
+    <div class="editor-label">
+        @Html.Label("Email Address")
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.EmailAddress)
+    </div>
+
+    <div class="editor-label">
+        @Html.Label("Password")
+    </div>
+    <div class="editor-field">
+        @Html.PasswordFor(model => model.NewPassword, new { @class = "form-control", placeholder = "enter the password to the above email" })
+        @Html.ValidationMessageFor(model => model.NewPassword)
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        if (tinymce.editors.length != 0 || tinymce.activeEditor != undefined) {
+            setTimeout(function () {
+                // alert(tinymce.editors.length);
+                tinymce.init({
+                    selector: "Message",
+                    plugins: [
+                        "advlist autolink autosave link lists base64_image charmap hr pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars fullscreen media ",
+                        "table contextmenu directionality textcolor paste fullpage textcolor colorpicker textpattern"
+                    ],
+
+                    toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table",
+                    toolbar2: "formatselect | cut copy paste | searchreplace  |  undo redo | link unlink base64_image | forecolor backcolor",
+                    menubar: false,
+                    paste_data_images: true,
+                    height: "300",
+                    width: "400"
+                });
+                tinymce.execCommand('mceAddEditor', true, "Message");
+            }, 1000);
+        }
+        else {
+            tinymce.init({
+                selector: "Message",
+                plugins: [
+                    "advlist autolink autosave link lists base64_image charmap hr pagebreak spellchecker",
+                    "searchreplace wordcount visualblocks visualchars fullscreen media ",
+                    "table contextmenu directionality textcolor paste fullpage textcolor colorpicker textpattern"
+                ],
+                toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table",
+                toolbar2: "formatselect | cut copy paste | searchreplace  |  undo redo | link unlink base64_image | forecolor backcolor",
+                menubar: false,
+                paste_data_images: true,
+                height: "300",
+                width: "400",
+            });
+            tinyMCE.execCommand('mceAddEditor', true, 'Message');
+        }
+
+        $("#FixedEmail").change(function () {
+            if (this.checked) {
+                $("#emailPw").hide();
+            }
+            else {
+                $("#emailPw").show();
+            }
+        });
+
+        $("#HasSms").change(function (e) {
+            if (this.checked) {
+                $("#smsDetails").show();
+            }
+            else {
+                $("#smsDetails").hide();
+            }
+        });
+
+
+        $("#Service").click(function () {
+            GetFancy('@Url.Action("ServiceList", "MailSettings")')
+        });
+        $("#ListName").click(function () {
+            GetFancy('@Url.Action("SelectMailing", "MailSettings")')
+        });
+    });
+
+    // Prevent bootstrap dialog from blocking focusin
+    $(document).on('focusin', function (e) {
+        if ($(e.target).closest(".mce-window").length) {
+            e.stopImmediatePropagation();
+        }
+    });
+</script>

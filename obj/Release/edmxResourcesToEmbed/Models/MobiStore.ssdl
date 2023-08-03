@@ -1,0 +1,900 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MobiStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Balance" Type="money" />
+    <Property Name="Opening" Type="money" />
+    <Property Name="LinkAccount" Type="nvarchar" MaxLength="255" />
+    <Property Name="CompanyId" Type="bigint" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nchar" MaxLength="200" />
+    <Property Name="image" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Activeco">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="dailyTarget" Type="money" />
+    <Property Name="monthlyTarget" Type="money" />
+    <Property Name="CompanyId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="AdPosition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" />
+    <Property Name="status" Type="nvarchar" MaxLength="255" />
+    <Property Name="location" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="CollectionPoints">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="250" />
+    <Property Name="Address" Type="nchar" MaxLength="500" />
+    <Property Name="City" Type="nchar" MaxLength="200" />
+    <Property Name="Time" Type="nchar" MaxLength="20" />
+    <Property Name="Country" Type="nchar" MaxLength="200" />
+    <Property Name="RegionId" Type="bigint" />
+    <Property Name="RegionName" Type="nchar" MaxLength="200" />
+    <Property Name="Suburb" Type="nchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Companies">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" />
+    <Property Name="status" Type="nvarchar" MaxLength="255" />
+    <Property Name="location" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Contact1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Contact2" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="nvarchar" MaxLength="255" />
+    <Property Name="Footer1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Footer2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Footer3" Type="nvarchar" MaxLength="255" />
+    <Property Name="footer4" Type="nvarchar" MaxLength="255" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="255" />
+    <Property Name="VatNo" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="150" />
+    <Property Name="Stdcode" Type="nchar" MaxLength="10" />
+    <Property Name="Phone" Type="nchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="CreditNotes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="users" Type="nvarchar" MaxLength="255" />
+    <Property Name="Dated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="255" />
+    <Property Name="ContactPerson" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Username" Type="nvarchar" MaxLength="255" />
+    <Property Name="Dated" Type="nvarchar" MaxLength="255" />
+    <Property Name="Period" Type="bigint" />
+    <Property Name="Balance" Type="money" />
+    <Property Name="Wallet" Type="money" />
+    <Property Name="Purchases" Type="money" />
+    <Property Name="PurchasesToDate" Type="money" />
+    <Property Name="CompanyId" Type="nvarchar" MaxLength="255" />
+    <Property Name="ParentId" Type="bigint" />
+    <Property Name="IsParent" Type="nvarchar" MaxLength="1" />
+    <Property Name="Image" Type="nvarchar" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="Password" Type="nchar" MaxLength="100" />
+    <Property Name="NetworkType" Type="bigint" />
+    <Property Name="City" Type="nchar" MaxLength="200" />
+    <Property Name="Suburb" Type="nchar" MaxLength="200" />
+    <Property Name="RegionId" Type="bigint" />
+    <Property Name="Level1Count" Type="bigint" />
+    <Property Name="Level2Count" Type="bigint" />
+    <Property Name="Level3Count" Type="bigint" />
+    <Property Name="wallet2" Type="money" />
+    <Property Name="wallet3" Type="money" />
+  </EntityType>
+  <EntityType Name="DailySales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nchar" MaxLength="80" Nullable="false" />
+    <Property Name="Date" Type="nchar" MaxLength="40" />
+    <Property Name="Sales" Type="money" />
+    <Property Name="UniqueVisits" Type="bigint" />
+    <Property Name="Hits" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Deliveries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="bigint" />
+    <Property Name="RegionId" Type="bigint" />
+    <Property Name="SaburbId" Type="bigint" />
+    <Property Name="CustomerName" Type="nchar" MaxLength="100" />
+    <Property Name="Address" Type="nchar" MaxLength="500" />
+    <Property Name="City" Type="nchar" MaxLength="200" />
+    <Property Name="Saburb" Type="nchar" MaxLength="200" />
+    <Property Name="Region" Type="nchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DeadLine" Type="datetime" />
+    <Property Name="Status" Type="nchar" MaxLength="1" />
+    <Property Name="DeliveryType" Type="nchar" MaxLength="200" />
+    <Property Name="Receipt" Type="nchar" MaxLength="200" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="DriverId" Type="bigint" />
+    <Property Name="DriverName" Type="nchar" MaxLength="200" />
+    <Property Name="DriverMobile" Type="nchar" MaxLength="50" />
+    <Property Name="Invoice" Type="nchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Discounts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dated" Type="datetime" />
+    <Property Name="amount" Type="money" />
+    <Property Name="Receipt" Type="nvarchar" MaxLength="255" />
+    <Property Name="Users" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Expenses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="value" Type="money" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Payee" Type="nvarchar" MaxLength="255" />
+    <Property Name="Dated" Type="datetime" />
+    <Property Name="Receipt" Type="nvarchar" MaxLength="255" />
+    <Property Name="Balance" Type="money" />
+    <Property Name="type" Type="nvarchar" MaxLength="255" />
+    <Property Name="cashier" Type="nvarchar" MaxLength="255" />
+    <Property Name="till" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Features">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="InvoiceLines">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="item" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity" Type="bigint" />
+    <Property Name="price" Type="money" />
+    <Property Name="tax" Type="money" />
+    <Property Name="priceinc" Type="money" />
+  </EntityType>
+  <EntityType Name="Invoices">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="total" Type="money" />
+    <Property Name="discount" Type="money" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="datetime" />
+    <Property Name="customer" Type="nvarchar" MaxLength="255" />
+    <Property Name="Account" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="shift" Type="nvarchar" MaxLength="255" />
+    <Property Name="state" Type="nvarchar" MaxLength="255" />
+    <Property Name="Period" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ItemImages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemCode" Type="varchar" MaxLength="255" />
+    <Property Name="Image" Type="varchar" MaxLength="255" />
+    <Property Name="ImageThumb" Type="varchar" MaxLength="255" />
+    <Property Name="ImageType" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Quantity" Type="money" />
+    <Property Name="BuyingPrice" Type="money" />
+    <Property Name="SellingPrice" Type="money" />
+    <Property Name="Expected" Type="money" />
+    <Property Name="sold" Type="money" />
+    <Property Name="transfer" Type="money" />
+    <Property Name="Balance" Type="money" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="NewStock" Type="money" />
+    <Property Name="Returned" Type="money" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="category" Type="nvarchar" MaxLength="255" />
+    <Property Name="SubCategory" Type="nvarchar" MaxLength="255" />
+    <Property Name="Swaps" Type="money" />
+    <Property Name="Reorder" Type="money" />
+    <Property Name="status" Type="nvarchar" MaxLength="255" />
+    <Property Name="ItemCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="tax" Type="nvarchar" MaxLength="255" />
+    <Property Name="TopSeller" Type="nchar" MaxLength="10" />
+    <Property Name="SDate" Type="datetime" />
+    <Property Name="EDate" Type="datetime" />
+    <Property Name="Measure" Type="nchar" MaxLength="50" />
+    <Property Name="Image" Type="nchar" MaxLength="255" />
+    <Property Name="ThumbImage" Type="nchar" MaxLength="255" />
+    <Property Name="DicountType" Type="nchar" MaxLength="30" />
+    <Property Name="Discount" Type="money" />
+    <Property Name="Promotion" Type="nchar" MaxLength="50" />
+    <Property Name="Nation" Type="nchar" MaxLength="100" />
+    <Property Name="Manufacturer" Type="nvarchar" MaxLength="255" />
+    <Property Name="Title" Type="nchar" MaxLength="200" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="AdPosition" Type="nchar" MaxLength="100" />
+    <Property Name="PromoImage" Type="nvarchar" MaxLength="255" />
+    <Property Name="Featured" Type="nchar" MaxLength="10" />
+    <Property Name="ItemDescription" Type="nchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ItemVariations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="Quantity" Type="money" />
+    <Property Name="VariationType" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="255" />
+    <Property Name="password" Type="nvarchar" MaxLength="255" />
+    <Property Name="accesslevel" Type="nvarchar" MaxLength="255" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="255" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="255" />
+    <Property Name="prefix" Type="nvarchar" MaxLength="255" />
+    <Property Name="Location" Type="nvarchar" MaxLength="255" />
+    <Property Name="PosUser" Type="bit" />
+    <Property Name="RetailUser" Type="bit" />
+    <Property Name="UsesBoth" Type="bit" />
+    <Property Name="Shifts" Type="bit" />
+    <Property Name="ManagerMenu" Type="bit" />
+    <Property Name="Tables" Type="bit" />
+    <Property Name="Payments" Type="bit" />
+    <Property Name="Reporting" Type="bit" />
+    <Property Name="Sales" Type="bit" />
+    <Property Name="Pricing" Type="bit" />
+    <Property Name="Barcoding" Type="bit" />
+    <Property Name="AddsProducts" Type="bit" />
+    <Property Name="Purchases" Type="bit" />
+    <Property Name="ManageUsers" Type="bit" />
+    <Property Name="ManagePos" Type="bit" />
+    <Property Name="Transfers" Type="bit" />
+    <Property Name="Accounts" Type="bit" />
+    <Property Name="OnShift" Type="bit" />
+    <Property Name="xreport" Type="bit" />
+    <Property Name="zreport" Type="bit" />
+    <Property Name="voidsale" Type="bit" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="button" Type="nvarchar" MaxLength="255" />
+    <Property Name="caption" Type="nvarchar" MaxLength="255" />
+    <Property Name="code" Type="nvarchar" MaxLength="255" />
+    <Property Name="color" Type="nvarchar" MaxLength="255" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="tax" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="MonthlySales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nchar" MaxLength="80" Nullable="false" />
+    <Property Name="Year" Type="int" />
+    <Property Name="Sales" Type="money" />
+    <Property Name="UniqueVisits" Type="bigint" />
+    <Property Name="Hits" Type="bigint" />
+  </EntityType>
+  <EntityType Name="NetworkSales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Year" Type="int" />
+    <Property Name="Jan0" Type="money" />
+    <Property Name="Jan1" Type="money" />
+    <Property Name="Jan2" Type="money" />
+    <Property Name="Jan3" Type="money" />
+    <Property Name="JanJ0" Type="money" />
+    <Property Name="JanJ1" Type="money" />
+    <Property Name="JanJ2" Type="money" />
+    <Property Name="JanJ3" Type="money" />
+    <Property Name="Feb0" Type="money" />
+    <Property Name="Feb1" Type="money" />
+    <Property Name="Feb2" Type="money" />
+    <Property Name="Feb3" Type="money" />
+    <Property Name="FebJ0" Type="money" />
+    <Property Name="FebJ1" Type="money" />
+    <Property Name="FebJ2" Type="money" />
+    <Property Name="FebJ3" Type="money" />
+    <Property Name="Mar0" Type="money" />
+    <Property Name="Mar1" Type="money" />
+    <Property Name="Mar2" Type="money" />
+    <Property Name="Mar3" Type="money" />
+    <Property Name="MarJ0" Type="money" />
+    <Property Name="MarJ1" Type="money" />
+    <Property Name="MarJ2" Type="money" />
+    <Property Name="MarJ3" Type="money" />
+    <Property Name="Apr0" Type="money" />
+    <Property Name="Apr1" Type="money" />
+    <Property Name="Apr2" Type="money" />
+    <Property Name="Apr3" Type="money" />
+    <Property Name="AprJ0" Type="money" />
+    <Property Name="AprJ1" Type="money" />
+    <Property Name="AprJ2" Type="money" />
+    <Property Name="AprJ3" Type="money" />
+    <Property Name="May0" Type="money" />
+    <Property Name="May1" Type="money" />
+    <Property Name="May2" Type="money" />
+    <Property Name="May3" Type="money" />
+    <Property Name="MayJ0" Type="money" />
+    <Property Name="MayJ1" Type="money" />
+    <Property Name="MayJ2" Type="money" />
+    <Property Name="MayJ3" Type="money" />
+    <Property Name="Jun0" Type="money" />
+    <Property Name="Jun1" Type="money" />
+    <Property Name="Jun2" Type="money" />
+    <Property Name="Jun3" Type="money" />
+    <Property Name="JunJ0" Type="money" />
+    <Property Name="JunJ1" Type="money" />
+    <Property Name="JunJ2" Type="money" />
+    <Property Name="JunJ3" Type="money" />
+    <Property Name="Jul0" Type="money" />
+    <Property Name="Jul1" Type="money" />
+    <Property Name="Jul2" Type="money" />
+    <Property Name="Jul3" Type="money" />
+    <Property Name="JulJ0" Type="money" />
+    <Property Name="JulJ1" Type="money" />
+    <Property Name="JulJ2" Type="money" />
+    <Property Name="JulJ3" Type="money" />
+    <Property Name="Aug0" Type="money" />
+    <Property Name="Aug1" Type="money" />
+    <Property Name="Aug2" Type="money" />
+    <Property Name="Aug3" Type="money" />
+    <Property Name="AugJ0" Type="money" />
+    <Property Name="AugJ1" Type="money" />
+    <Property Name="AugJ2" Type="money" />
+    <Property Name="AugJ3" Type="money" />
+    <Property Name="Sep0" Type="money" />
+    <Property Name="Sep1" Type="money" />
+    <Property Name="Sep2" Type="money" />
+    <Property Name="Sep3" Type="money" />
+    <Property Name="SepJ0" Type="money" />
+    <Property Name="SepJ1" Type="money" />
+    <Property Name="SepJ2" Type="money" />
+    <Property Name="SepJ3" Type="money" />
+    <Property Name="Oct0" Type="money" />
+    <Property Name="Oct1" Type="money" />
+    <Property Name="Oct2" Type="money" />
+    <Property Name="Oct3" Type="money" />
+    <Property Name="OctJ0" Type="money" />
+    <Property Name="OctJ1" Type="money" />
+    <Property Name="OctJ2" Type="money" />
+    <Property Name="OctJ3" Type="money" />
+    <Property Name="Nov0" Type="money" />
+    <Property Name="Nov1" Type="money" />
+    <Property Name="Nov2" Type="money" />
+    <Property Name="Nov3" Type="money" />
+    <Property Name="NovJ0" Type="money" />
+    <Property Name="NovJ1" Type="money" />
+    <Property Name="NovJ2" Type="money" />
+    <Property Name="NovJ3" Type="money" />
+    <Property Name="Dec0" Type="money" />
+    <Property Name="Dec1" Type="money" />
+    <Property Name="Dec2" Type="money" />
+    <Property Name="Dec3" Type="money" />
+    <Property Name="DecJ0" Type="money" />
+    <Property Name="DecJ1" Type="money" />
+    <Property Name="DecJ2" Type="money" />
+    <Property Name="DecJ3" Type="money" />
+  </EntityType>
+  <EntityType Name="NetworkType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="100" />
+    <Property Name="Depth" Type="int" />
+    <Property Name="Fee" Type="money" />
+    <Property Name="MonthlyTarget" Type="money" />
+  </EntityType>
+  <EntityType Name="OrderLines">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="item" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity" Type="money" />
+    <Property Name="price" Type="money" />
+    <Property Name="tax" Type="money" />
+    <Property Name="priceinc" Type="money" />
+    <Property Name="Dated" Type="datetime" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="ItemCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="Discount" Type="money" />
+    <Property Name="SubCategory" Type="nvarchar" MaxLength="255" />
+    <Property Name="Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="Company" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="total" Type="money" />
+    <Property Name="discount" Type="money" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="datetime" />
+    <Property Name="customer" Type="nvarchar" MaxLength="255" />
+    <Property Name="Account" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="shift" Type="nvarchar" MaxLength="255" />
+    <Property Name="state" Type="nvarchar" MaxLength="255" />
+    <Property Name="Period" Type="nvarchar" MaxLength="255" />
+    <Property Name="Balance" Type="money" />
+    <Property Name="DeliveryType" Type="nchar" MaxLength="40" />
+    <Property Name="CollectionId" Type="bigint" />
+    <Property Name="Tax" Type="money" />
+    <Property Name="quests" Type="bigint" />
+    <Property Name="tableNumber" Type="nvarchar" MaxLength="255" />
+    <Property Name="cashier" Type="nchar" MaxLength="50" />
+    <Property Name="button" Type="nchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Partners">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Url" Type="nvarchar" MaxLength="555" />
+    <Property Name="CategoryId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Source" Type="nchar" MaxLength="50" />
+    <Property Name="Location" Type="nchar" MaxLength="50" />
+    <Property Name="SourceRefrence" Type="nchar" MaxLength="30" />
+    <Property Name="SourceMobileNumber" Type="nchar" MaxLength="30" />
+    <Property Name="Description" Type="nchar" MaxLength="100" />
+    <Property Name="PaymentType" Type="nchar" MaxLength="50" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="Status" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="PaymentType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Logo" Type="nchar" MaxLength="200" />
+    <Property Name="Name" Type="nchar" MaxLength="100" />
+    <Property Name="trantype" Type="nchar" MaxLength="100" />
+    <Property Name="ProviderAccount" Type="nchar" MaxLength="100" />
+    <Property Name="AccountName" Type="nchar" MaxLength="100" />
+    <Property Name="ReturnUrl" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PosKeys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerNameForCash" Type="nchar" MaxLength="10" />
+    <Property Name="OrderBased" Type="nchar" MaxLength="10" />
+    <Property Name="Company" Type="nchar" MaxLength="200" />
+    <Property Name="FiscalPrinter" Type="nchar" MaxLength="30" />
+    <Property Name="KitchenPrinting" Type="nchar" MaxLength="10" />
+    <Property Name="KitchenPrinter" Type="nchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PurchaseLines">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="item" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity" Type="money" />
+    <Property Name="price" Type="money" />
+    <Property Name="tax" Type="money" />
+    <Property Name="priceinc" Type="money" />
+    <Property Name="Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="Dated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Purchases">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="total" Type="money" />
+    <Property Name="discount" Type="money" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="datetime" />
+    <Property Name="supplier" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="shift" Type="nvarchar" MaxLength="255" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status" Type="nchar" MaxLength="10" />
+    <Property Name="Balance" Type="money" />
+  </EntityType>
+  <EntityType Name="Regions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="10" />
+    <Property Name="DeliveryRate" Type="money" />
+    <Property Name="CityId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ReturnLines">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="item" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity" Type="bigint" />
+    <Property Name="price" Type="money" />
+    <Property Name="tax" Type="money" />
+    <Property Name="priceinc" Type="money" />
+  </EntityType>
+  <EntityType Name="Returns">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="total" Type="money" />
+    <Property Name="discount" Type="money" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="nvarchar" MaxLength="255" />
+    <Property Name="customer" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="shift" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="total" Type="money" />
+    <Property Name="discount" Type="money" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="datetime" />
+    <Property Name="customer" Type="nvarchar" MaxLength="255" />
+    <Property Name="Account" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="shift" Type="nvarchar" MaxLength="255" />
+    <Property Name="state" Type="nvarchar" MaxLength="255" />
+    <Property Name="Period" Type="nvarchar" MaxLength="255" />
+    <Property Name="Balance" Type="money" />
+    <Property Name="DeliveryType" Type="nchar" MaxLength="40" />
+    <Property Name="CollectionId" Type="bigint" />
+    <Property Name="Tax" Type="money" />
+  </EntityType>
+  <EntityType Name="Sales_Lines">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="item" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity" Type="money" />
+    <Property Name="price" Type="money" />
+    <Property Name="tax" Type="money" />
+    <Property Name="priceinc" Type="money" />
+    <Property Name="Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="Dated" Type="datetime" />
+    <Property Name="ItemCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="Discount" Type="money" />
+    <Property Name="SubCategory" Type="nvarchar" MaxLength="255" />
+    <Property Name="Company" Type="nvarchar" MaxLength="255" />
+    <Property Name="Picked" Type="bit" />
+  </EntityType>
+  <EntityType Name="SalesLineSammary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="255" />
+    <Property Name="ItemCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="Quantity" Type="money" />
+    <Property Name="Total" Type="money" />
+    <Property Name="Company" Type="nvarchar" MaxLength="255" />
+    <Property Name="DeliveredQty" Type="money" />
+    <Property Name="Balance" Type="money" />
+    <Property Name="Received" Type="money" />
+    <Property Name="Varience" Type="money" />
+    <Property Name="Status" Type="nchar" MaxLength="10" />
+    <Property Name="Dated" Type="datetime" />
+    <Property Name="DeliveryDate" Type="datetime" />
+    <Property Name="Deadline" Type="datetime" />
+    <Property Name="DeliveryType" Type="nvarchar" MaxLength="255" />
+    <Property Name="SuppierPicking" Type="bit" />
+    <Property Name="DeliveryPicking" Type="bit" />
+  </EntityType>
+  <EntityType Name="seats">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TableNumber" Type="bigint" />
+  </EntityType>
+  <EntityType Name="shift">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dated" Type="datetime" />
+    <Property Name="ShiftNumber" Type="bigint" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="State" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="shopingList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="bigint" />
+    <Property Name="OrderNumber" Type="nchar" MaxLength="100" />
+    <Property Name="Title" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Symbol" Type="nchar" MaxLength="10" />
+    <Property Name="Name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MobiStore.dbo.Suburbs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Suburbs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="200" />
+    <Property Name="CityId" Type="bigint" />
+    <Property Name="RegionId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="SupplierName" Type="nvarchar" MaxLength="255" />
+    <Property Name="ContactPerson" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Username" Type="nvarchar" MaxLength="255" />
+    <Property Name="Dated" Type="datetime" />
+    <Property Name="Period" Type="bigint" />
+    <Property Name="Balance" Type="money" />
+    <Property Name="Company" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="temp">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="field1" Type="nvarchar" MaxLength="255" />
+    <Property Name="field2" Type="nvarchar" MaxLength="255" />
+    <Property Name="field3" Type="nvarchar" MaxLength="255" />
+    <Property Name="field4" Type="nvarchar" MaxLength="255" />
+    <Property Name="field5" Type="nvarchar" MaxLength="255" />
+    <Property Name="field6" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Tranname">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tname" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="TransactionData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Debit1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Debit2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Debit3" Type="nvarchar" MaxLength="255" />
+    <Property Name="Debit4" Type="nvarchar" MaxLength="255" />
+    <Property Name="Debit5" Type="nvarchar" MaxLength="255" />
+    <Property Name="Debit6" Type="nvarchar" MaxLength="255" />
+    <Property Name="Credit1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Credit2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Credit3" Type="nvarchar" MaxLength="255" />
+    <Property Name="Credit4" Type="nvarchar" MaxLength="255" />
+    <Property Name="Credit5" Type="nvarchar" MaxLength="255" />
+    <Property Name="Credit6" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="TransferLines">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="item" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity" Type="bigint" />
+    <Property Name="price" Type="money" />
+    <Property Name="tax" Type="money" />
+    <Property Name="priceinc" Type="money" />
+  </EntityType>
+  <EntityType Name="Transfers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="total" Type="money" />
+    <Property Name="discount" Type="money" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="dated" Type="datetime" />
+    <Property Name="customer" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reciept" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="255" />
+    <Property Name="shift" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Trantype">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tname" Type="nvarchar" MaxLength="255" />
+    <Property Name="type" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="VariationType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="MobiStoreModelStoreContainer">
+    <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Activeco" EntityType="Self.Activeco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdPosition" EntityType="Self.AdPosition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CollectionPoints" EntityType="Self.CollectionPoints" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CreditNotes" EntityType="Self.CreditNotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DailySales" EntityType="Self.DailySales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deliveries" EntityType="Self.Deliveries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Discounts" EntityType="Self.Discounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Expenses" EntityType="Self.Expenses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Features" EntityType="Self.Features" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvoiceLines" EntityType="Self.InvoiceLines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemImages" EntityType="Self.ItemImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemVariations" EntityType="Self.ItemVariations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MonthlySales" EntityType="Self.MonthlySales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NetworkSales" EntityType="Self.NetworkSales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NetworkType" EntityType="Self.NetworkType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderLines" EntityType="Self.OrderLines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partners" EntityType="Self.Partners" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentType" EntityType="Self.PaymentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PosKeys" EntityType="Self.PosKeys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseLines" EntityType="Self.PurchaseLines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchases" EntityType="Self.Purchases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReturnLines" EntityType="Self.ReturnLines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Returns" EntityType="Self.Returns" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales_Lines" EntityType="Self.Sales_Lines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesLineSammary" EntityType="Self.SalesLineSammary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="seats" EntityType="Self.seats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shift" EntityType="Self.shift" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shopingList" EntityType="Self.shopingList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="temp" EntityType="Self.temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tranname" EntityType="Self.Tranname" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionData" EntityType="Self.TransactionData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransferLines" EntityType="Self.TransferLines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transfers" EntityType="Self.Transfers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Trantype" EntityType="Self.Trantype" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VariationType" EntityType="Self.VariationType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suburbs" EntityType="Self.Suburbs" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Suburbs].[Id] AS [Id], 
+[Suburbs].[Name] AS [Name], 
+[Suburbs].[CityId] AS [CityId], 
+[Suburbs].[RegionId] AS [RegionId]
+FROM [dbo].[Suburbs] AS [Suburbs]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

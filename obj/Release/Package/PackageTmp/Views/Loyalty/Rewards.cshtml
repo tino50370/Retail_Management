@@ -1,0 +1,76 @@
+@model IEnumerable<RetailKing.Models.Reward>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="col-md-8">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Loyalty Rewards</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+
+            <table style="width:100%" class="table table-stripe">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Points
+                    </th>
+                    <th>
+                        Cash Value
+                    </th>
+                    <th>
+                        Type
+                    </th>
+
+                </tr>
+
+                @{
+
+                    
+                    if (Model != null)
+                    { 
+                        foreach (var item in Model)
+                        {                 
+                            <tr>
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    @item.Points   
+                                </td>
+                                <td>
+                                   $ @item.MonetaryValue
+                                </td>
+                                <td>
+                                   @item.RewardType 
+                                </td>
+                               
+                            </tr>
+                       
+                       }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="3"> no reward for this scheme</td>
+                        </tr>
+                    }
+                }
+            </table>
+
+        </div>
+    </div>
+</div>
+<div id="RightPanel" class="col-md-4">
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        GetSideView('@Url.Action("CreateReward", "Loyalty", new { SchemeId = @ViewData["SupplierId"] })')
+    })
+</script>

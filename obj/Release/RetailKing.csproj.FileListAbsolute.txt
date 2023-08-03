@@ -1,0 +1,250 @@
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\hibernate.cfg.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\RetailKing.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\RetailKing.pdb
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Antlr3.Runtime.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.Core.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\EntityFramework.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Iesi.Collections.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\log4net.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Microsoft.CSharp.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Newtonsoft.Json.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Abstractions.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.ApplicationServices.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.DynamicData.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Entity.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Extensions.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Helpers.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Mvc.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Optimization.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Razor.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Routing.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Services.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.WebPages.Deployment.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.WebPages.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.WebPages.Razor.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Xml.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Xml.Linq.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\WebGrease.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\WebMatrix.Data.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\WebMatrix.WebData.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Castle.Core.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Mono.Math.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.Core.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\EntityFramework.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Iesi.Collections.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\log4net.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Newtonsoft.Json.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\NHibernate.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\NHibernate.ByteCode.Castle.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Helpers.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Mvc.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.Razor.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.WebPages.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.WebPages.Deployment.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\System.Web.WebPages.Razor.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\WebMatrix.Data.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\WebMatrix.WebData.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Castle.Core.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\bin\Mono.Math.xml
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\obj\Release\RetailKing.csprojResolveAssemblyReference.cache
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\obj\Release\RetailKing.dll.licenses
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\obj\Release\RetailKing.dll
+C:\Users\DELL\Documents\Visual Studio 2012\Projects\RetailKing\obj\Release\RetailKing.pdb
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\hibernate.cfg.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\RetailKing.dll.config
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\RetailKing.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\RetailKing.pdb
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Antlr3.Runtime.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.Core.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\EntityFramework.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Iesi.Collections.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\log4net.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Microsoft.CSharp.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Newtonsoft.Json.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Abstractions.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.ApplicationServices.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.DynamicData.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Entity.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Helpers.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Mvc.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Optimization.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Razor.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Routing.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Services.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.WebPages.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.WebPages.Razor.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Xml.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\WebGrease.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\WebMatrix.Data.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\WebMatrix.WebData.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Mono.Math.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.Core.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\EntityFramework.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Iesi.Collections.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\log4net.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Newtonsoft.Json.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Helpers.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Mvc.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.Razor.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.WebPages.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\System.Web.WebPages.Razor.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\WebMatrix.Data.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\WebMatrix.WebData.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\bin\Mono.Math.xml
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\obj\Release\RetailKing.csprojResolveAssemblyReference.cache
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\obj\Release\RetailKing.dll.licenses
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\obj\Release\RetailKing.dll
+C:\Users\Walter\Documents\Visual Studio 2013\Projects\RetailKing - EF\obj\Release\RetailKing.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\hibernate.cfg.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\RetailKing.dll.config
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\RetailKing.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\RetailKing.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Antlr3.Runtime.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\BotDetect.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\CaptchaMvc.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.Core.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\EntityFramework.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Iesi.Collections.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\log4net.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.CSharp.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Newtonsoft.Json.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Rotativa.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Net.Http.Formatting.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Abstractions.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.ApplicationServices.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.DynamicData.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Entity.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Helpers.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.WebHost.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Mvc.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Optimization.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Razor.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Routing.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Services.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.Deployment.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.Razor.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Xml.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\WebGrease.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\WebMatrix.Data.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\WebMatrix.WebData.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Mono.Math.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\CaptchaMvc.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\CaptchaMvc.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.Core.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\EntityFramework.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Iesi.Collections.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\log4net.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Newtonsoft.Json.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Net.Http.Formatting.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Helpers.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.WebHost.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Mvc.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Razor.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.Deployment.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.WebPages.Razor.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\WebMatrix.Data.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\WebMatrix.WebData.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Mono.Math.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\obj\Release\RetailKing.csprojResolveAssemblyReference.cache
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\obj\Release\RetailKing.dll.licenses
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\obj\Release\RetailKing.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\obj\Release\RetailKing.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Exchange.WebServices.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Exchange.WebServices.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Raven.Abstractions.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Raven.Client.Lightweight.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Raven.Abstractions.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Raven.Abstractions.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Raven.Client.Lightweight.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Raven.Client.Lightweight.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Cors.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.Cors.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\System.Web.Http.Cors.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\csc.exe
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\vbc.exe
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\VBCSCompiler.exe
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\BotDetect.Web.Mvc.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Geolocation.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Owin.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Owin.Security.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Owin.dll
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Geolocation.pdb
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Owin.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\CHIPANGURA\Documents\Visual Studio 2013\Projects\Accusales\bin\Microsoft.Owin.Security.xml

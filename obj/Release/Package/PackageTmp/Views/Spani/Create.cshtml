@@ -1,0 +1,37 @@
+﻿@model RetailKing.Models.Supplier
+
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>New Supplier </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+
+                    @using (Html.BeginForm("Create", "Suppliers", FormMethod.Post, new { id = "createSuppliers" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        <fieldset>
+                           
+
+                            @Html.Partial("_CreateOrEdit", Model)
+
+                        </fieldset>
+                    }
+                    <br/>
+                    <div>
+                        <button class="btn btn-success" onclick="SaveView('createSuppliers')">Save</button>
+                        <button class="btn btn-warning" onclick="GetView('@Url.Action("Index", "Suppliers")')">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,250 @@
+@model RetailKing.Models.MultipleLogs
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        $.fancybox.hideLoading();
+        $.fancybox.close();
+        $("#SearchInItems").focus();
+
+        $("#Branch").change(function (event) {
+            event.preventDefault();
+            $.fancybox.showLoading();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("TransactionHistory", "Loyalty")',
+                dataType: 'html',
+                data: {
+                    sStart: $("#Month").val(),
+                    sSearch: $("#SearchInItems").val(),
+                    iDisplayLength: $("#SizeR").val(),
+                    sColumns: $("#Branch").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $.fancybox.hideLoading();
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+            $.fancybox.showLoading();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("TransactionHistory", "Loyalty")',
+                dataType: 'html',
+                data: {
+                    sStart: $("#Month").val(),
+                    sSearch: $("#SearchInItems").val(),
+                    iDisplayLength: $("#SizeR").val(),
+                    sColumns: $("#Branch").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#Month").change(function (event) {
+            event.preventDefault();
+            $.fancybox.showLoading();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("TransactionHistory", "Loyalty")',
+                dataType: 'html',
+                data: {
+                    sStart: $("#Month").val(),
+                    sSearch: $("#SearchInItems").val(),
+                    iDisplayLength: $("#SizeR").val(),
+                    sColumns: $("#Branch").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            $.fancybox.showLoading();
+            var s = $('#SearchInItems').val();
+            var  typinTimer;
+            clearTimeout(typinTimer);
+            typinTimer = setTimeout(function () {
+                if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                    $.fancybox.showLoading();
+                    $.ajax({
+                        type: "Post",
+                        url: '@Url.Action("TransactionHistory", "Loyalty")',
+                        dataType: 'html',
+                        data: {
+                            sStart: $("#Month").val(),
+                            sSearch: $("#SearchInItems").val(),
+                            iDisplayLength: $("#SizeR").val(),
+                            sColumns: $("#Branch").val(),
+                            sEcho: 1
+                        },
+                        success: function (resp) {
+                            $.fancybox.hideLoading();
+                            $('#panel').html(resp);
+                        },
+                        error: function (data) {
+                        }
+                    });
+                }
+            }, 2000);
+        });
+
+        $("#tableData input").keypress(function (e) {
+            if (e.keyCode == 13) {
+                if (this.value == '') {
+                   // alert($("#" + this.id).val());
+                }
+                else {
+                    if (isNaN(this.value / 1) == false) {
+                        var dd = this.id;
+                        $.ajax({
+                            type: "Post",
+                            url: '@Url.Action("TransactionHistory", "Loyalty")',
+                            dataType: 'html',
+                            data: {
+                                Qty: $("#" + this.id).val(),
+                                ItemCode: this.id
+                            },
+                            success: function (resp) {
+
+                                var jsonItem = $.parseJSON(resp);
+                                $('.' + dd).text(jsonItem.NewStock);
+                                $('.balance_' + dd).text(jsonItem.Balance);
+                                $('#' + dd).val('');
+
+                            },
+                            error: function (data) {
+                            }
+                        });
+                    }
+                    else {
+                        alert("Please enter number only");
+                    }
+                }
+            }
+        });
+
+    });
+    function GetTrantype(Id) {
+        //event.preventDefault();
+        $.fancybox.showLoading();
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("TransactionHistory", "Loyalty")',
+            dataType: 'html',
+            data: {
+                sStart: $("#Month").val(),
+                sSearch: $("#SearchInItems").val(),
+                iDisplayLength: $("#SizeR").val(),
+                sColumns: $("#Branch").val(),
+                iTransactionType: Id,
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    };
+</script>
+
+<script type="text/javascript">
+     function GetPageR(thispage) {
+         $.ajax({
+             type: "Post",
+             url: '@Url.Action("TransactionHistory", "Loyalty")',
+             dataType: 'html',
+             data: {
+                 sStart: $("#Month").val(),
+                 sSearch: $("#SearchInItems").val(),
+                 sColumns: $("#Branch").val(),
+                 iDisplayStart: thispage,
+                 iDisplayLength: $("#SizeR").val(),
+                 sEcho: 1
+             },
+             success: function (resp) {
+                 $('#panel').html(resp);
+             },
+             error: function (data) {
+             }
+         });
+     }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Transaction History</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+
+                    <br/>
+                    <div>
+                        <button class="btn btn-success btn-sm pull-right" onclick="GetTrantype('0')">Transactions</button>
+                        <button class="btn btn-warning  btn-sm pull-right" onclick="GetTrantype('4')">Account Creations</button>
+                    </div>
+                     <div id="tableData">
+                        <table class="table table-striped" style="width:100%">
+                            <tr>
+                                <th>
+                                    OG Size
+                                </th>
+                                <th>
+                                    Final Size
+                                </th>
+                                <th>
+                                    Branches
+                                </th>
+                               
+                                <th>
+                                    Branches Done
+                                </th>
+                                <th>
+                                    Duration
+                                </th>
+                                
+                               
+                            </tr>
+                           <tr>
+                               <td>@Model.OgSize </td>
+                               <td>@Model.FinalSize </td>
+                               <td>@Model.branches </td>
+                               <td>@Model.brancheDone</td>
+                               <td>@Model.duration</td>
+                           </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+</div>
+</div>
+   
+</div>

@@ -1,0 +1,71 @@
+@model IEnumerable<RetailKing.Models.LoyaltyScheme>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="col-md-8">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Loyalty Campaigns</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+
+            <table style="width:100%" class="table table-stripe">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    
+                    <th>
+                        Point Value
+                    </th>
+                    <th>
+                        Point Cost
+                    </th>
+                    
+                    <th></th>
+                </tr>
+
+                @{
+
+                    int cnt = 0;
+                    foreach (var item in Model)
+                    {
+                       
+                            <tr>
+
+                                <td>
+                                    @item.Name
+                                </td>
+                                
+                                <td>
+                                    @item.PointValue  
+                                </td>
+                                <td>
+                                     @string.Format("{0:n}", item.PointCost)   
+                                </td>
+                                
+                                <td>
+                                    <button class="btn btn-info btn-xs" onclick="GetView('@Url.Action("Rewards", "Loyalty", new { Id =item.Id })')">Rewards</button>
+                                    <button class="btn btn-primary btn-xs" onclick="GetSideView('@Url.Action("EditScheme", "Loyalty", new { Id =item.Id })')">Edit</button>
+                                  
+                                </td>
+                            </tr>
+                       
+                    }
+                }
+            </table>
+
+        </div>
+    </div>
+</div>
+<div id="RightPanel" class="col-md-4">
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        GetSideView('@Url.Action("CreateScheme", "Loyalty")')
+    })
+</script>

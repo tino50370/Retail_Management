@@ -1,0 +1,29 @@
+@model RetailKing.Models.Loyalty 
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+@Html.HiddenFor(model => model.Branch )
+@Html.HiddenFor(model => model.SupplierId)
+@Html.HiddenFor(model => model.SupplierName)
+
+<div class="editor-label">
+    @Html.Label("Select Scheme")
+</div>
+<div class="editor-field">
+   
+    @Html.DropDownListFor(model => model.SchemeId,
+                           new SelectList(
+                                 ViewBag.Services,
+                             "Value",
+                             "Text"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.SchemeId)
+</div>
+<div class="editor-label">
+    @Html.LabelFor(model => model.CardNumber )
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.CardNumber, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.CardNumber , "", new { style ="color:red"})
+</div>
+
+

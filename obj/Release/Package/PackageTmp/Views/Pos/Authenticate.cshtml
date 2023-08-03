@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Authenticate";
+}
+
+ <script type="text/javascript">
+     $(document).ready(function () {
+         $("#" + product + "q").focus();
+         $(".Tender").keyup(function (e) {
+            // alert("oyiroyryi");
+             $("#" + product + "q").focus();
+         });
+     });
+</script>
+
+<div class="Tender">
+    <div class="container_12" style="width:500px">     
+      <div class="grid_12 floatleft">
+         <div style="color: #67217A; font-size:32px;"> Enter Password</div>
+          <div><span class="grid_10"><input type="text" id="Passq" style="width : 98%; height: 25px" /> </span><span class="grid_2" style="height:30px; background-color:#17806E" onclick="Back()"><img alt="" width = "80%"  src="@Url.Content("~/Content/Images/clear.png")" style=" margin-top: -19%; margin-left: 1%"/></span></div>
+          <div> <label id="error" class="error" style=" float: left "></label></div>
+              <div id="Btns" style=" margin-top:10px; width: 100%; ">
+               <div class="grid_4" style="margin-top:10px; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id ="7" onclick="onNumber('7')">7</div> 
+               <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="8" onclick="onNumber('8')">8</div>
+                <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White;font-size:32px; vertical-align: middle; text-align: center;cursor: pointer" id="9" onclick="onNumber('9')">9</div>
+                 <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id ="4" onclick="onNumber('4')">4</div>
+                 <div class="grid_4" style="margin-top:10px; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="5" onclick="onNumber('5')">5</div> 
+               <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="6"  onclick="onNumber('6')">6</div>
+                <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="1" onclick="onNumber('1')">1</div>
+                 <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="2" onclick="onNumber('2')">2</div>
+                 <div class="grid_4" style="margin-top:10px; height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="3" onclick="onNumber('3')">3</div> 
+               <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id="." onclick="onNumber('.')">.</div>
+                <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; cursor: pointer" id= "0" onclick="onNumber('0')">0</div>
+                 <div class="grid_4"  style="margin-top:10px;  height:65px; background-color: #67217A; color: White; font-size:32px; vertical-align: middle; text-align: center; font-weight: bold; cursor: pointer" id="Enter"  onclick="Authenticate()">Enter</div>        
+          </div>
+        </div> 
+    </div> 
+ </div>
+    

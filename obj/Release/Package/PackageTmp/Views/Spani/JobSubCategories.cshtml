@@ -1,0 +1,211 @@
+@model IEnumerable<RetailKing.Models.JobSubCategory>
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        $("#SearchInItems").focus();
+
+        $("#cat").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: 'Suppliers/Index',
+                dataType: 'html',
+                data: {
+                    category: $("#cat").val(),
+                    Id: "@ViewData["Id"]",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("Index", "Suppliers")',
+                dataType: 'html',
+                data: {
+                    category: $("#cat").val(),
+                    Id: "@ViewData["Id"]",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            var s = $('#SearchInItems').val();
+            //alert(s);
+            clearTimeout(typinTimer);
+            typinTimer = setTimeout(function () {
+                if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                    $.ajax({
+                        type: "Post",
+                        url: '@Url.Action("Index", "Suppliers")',
+                        dataType: 'html',
+                        data: {
+                            category: $("#cat").val(),
+                            Id: "@ViewData["Id"]",
+                            iDisplayLength: $("#SizeR").val(),
+                            sEcho: 1
+                        },
+                        success: function (resp) {
+                            $('#panel').html(resp);
+                        },
+                        error: function (data) {
+                        }
+                    });
+                }
+            }, 2000);
+        });
+
+
+
+    });
+</script>
+
+<script type="text/javascript">
+    function GetPageR(thispage) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("Index", "Suppliers")',
+            dataType: 'html',
+            data: {
+                category: $("#cat").val(),
+                Id: "@ViewData["Id"]",
+                iDisplayStart: thispage,
+                iDisplayLength: $("#SizeR").val(),
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Job Sub-Category List </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+
+                    <table  id="gradient-style" style="width:100%; border-style: none ">
+                        <tbody>
+                            <tr>
+                                <td class="style3" style="border-style: none">
+                                    <div class="editor-field">
+                                        Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"].ToString()), new { id = "SizeR" })
+                                    </div>
+                                </td>
+
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                        Search by Job Category <input type="text" id="SearchInItems" />
+                                    </div>
+                                </td>
+                                <td class="style4" style="border-style: none">
+                                    <div class="editor-field" style="float:right ">
+                                        <button class="btn btn-primary" onclick="GetView('@Url.Action("CreateSubCategory", "Spani", new {  Id= @ViewData["Id"] })')">New Category</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="tableData">
+                        <table style="width:100%" class="table table-stripe">
+                            <tr>
+
+                                <th>
+                                    
+                                </th>
+                                <th>
+                                     Name
+                                </th>
+                                
+                                
+
+                                <th></th>
+                            </tr>
+                            @{
+
+                                int cnt = 0;
+                                foreach (var item in Model)
+                                {
+                                    cnt += 1;
+                                   
+                                        <tr >
+
+                                            <td>
+                                                @if(item.Image != null)
+                                                {
+                                                    <image style="width:50px" src="@Url.Content(item.Image)"/>
+                                                }
+                                                
+                                            </td>
+                                            <td>
+                                                @item.Name
+                                            </td>
+                                            
+                                            <td>
+                                                <button class="btn btn-danger" style="float: right;" onclick="GetView('@Url.Action("DeleteJobCategoty", "Spani")','@item.Id')">Delete</button>
+                                                <button class="btn btn-warning" style="float: right;" onclick="GetView('@Url.Action("EditJobCategoty", "Spani")','@item.Id')">Edit</button>
+                                                <button class="btn btn-primary " style="float: right; margin-right:5px" onclick="GetView('@Url.Action("CreateSubCategory", "Spani")','@item.Id')">Create Sub-Category </button>
+
+                                            </td>
+                                        </tr>
+                      
+                                }
+                            }
+                            <tr>
+                                <th colspan="12" style="background-color: #E2E4FF; ">
+                                    <div onclick="GetPageR()" style="float: left; padding-left: 10px"> Pages</div>
+                                    @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                                    {
+                                        if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                        {
+                                            <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                                        }
+                                        else
+                                        {
+                                            <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                                        }
+                                    }
+                                    <div style="float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                                </th>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

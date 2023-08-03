@@ -1,0 +1,251 @@
+@model IEnumerable<RetailKing.Models.Tranlog>
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        $("#SearchInItems").focus();
+
+        $("#cat").change(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("RewardHistory", "Loyalty")',
+                dataType: 'html',
+                data: {
+                    category: $("#cat").val(),
+                    ItemCode: "",
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $("#panel").html(resp);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+
+        $("#SizeR").change(function (event) {
+            event.preventDefault();
+
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("RewardHistory", "Loyalty")',
+                dataType: 'html',
+                data: {
+                    category: $("#cat").val(),
+                    ItemCode: '',
+                    iDisplayLength: $("#SizeR").val(),
+                    sEcho: 1
+                },
+                success: function (resp) {
+                    $('#panel').html(resp);
+                },
+                error: function (data) {
+                }
+            });
+        });
+
+        $("#SearchInItems").keyup(function () {
+            // event.preventDefault();
+            var s = $('#SearchInItems').val();
+            //alert(s);
+            clearTimeout(typinTimer);
+            typinTimer = setTimeout(function () {
+                if ($('#SearchInItems').val() == s && $('#SearchInItems').val() != "") {
+                    $.ajax({
+                        type: "Post",
+                        url: '@Url.Action("RewardHistory", "Loyalty")',
+                        dataType: 'html',
+                        data: {
+                            category: $("#cat").val(),
+                            ItemCode: $("#SearchInItems").val(),
+                            iDisplayLength: $("#SizeR").val(),
+                            sEcho: 1
+                        },
+                        success: function (resp) {
+                            $('#panel').html(resp);
+                        },
+                        error: function (data) {
+                        }
+                    });
+                }
+            }, 2000);
+        });
+
+        $("#tableData input").keypress(function (e) {
+            if (e.keyCode == 13) {
+                if (this.value == '') {
+                    alert($("#" + this.id).val());
+                }
+                else {
+                    if (isNaN(this.value / 1) == false) {
+                        var dd = this.id;
+                        $.ajax({
+                            type: "Post",
+                            url: '@Url.Action("RewardHistory", "Loyalty")',
+                            dataType: 'html',
+                            data: {
+                                Qty: $("#" + this.id).val(),
+                                ItemCode: this.id
+                            },
+                            success: function (resp) {
+
+                                var jsonItem = $.parseJSON(resp);
+                                $('.' + dd).text(jsonItem.NewStock);
+                                $('.balance_' + dd).text(jsonItem.Balance);
+                                $('#' + dd).val('');
+
+                            },
+                            error: function (data) {
+                            }
+                        });
+                    }
+                    else {
+                        alert("Please enter number only");
+                    }
+                }
+            }
+        });
+
+    });
+</script>
+
+<script type="text/javascript">
+    function GetPageR(thispage) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("RewardHistory", "Loyalty")',
+            dataType: 'html',
+            data: {
+                category: $("#cat").val(),
+                ItemCode: '',
+                iDisplayStart: thispage,
+                iDisplayLength: $("#SizeR").val(),
+                sEcho: 1
+            },
+            success: function (resp) {
+                $('#panel').html(resp);
+            },
+            error: function (data) {
+            }
+        });
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Rewards for Collection</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <p></p>
+
+                    <table id="gradient-style" style="width:100%; border-style: none ">
+                        <tbody>
+                            <tr>
+                                <td class="style3" style="border-style: none">
+                                    <div class="editor-field">
+                                        Show @Html.DropDownList("Size", new SelectList(new[] { "10", "20", "50", "100" }, @ViewData["listSize"]), new { id = "SizeR", style = "width:80%", @class = "form-control" })
+                                    </div>
+                                </td>
+
+                                <td style="border-style: none">
+                                    <div class="editor-field">
+                                        Search by Customer Account  <input type="text" style="width:80%" id="SearchInItems" class="form-control" />
+                                    </div>
+                                </td>
+                                <td class="style3" style="border-style: none">
+                                    <div class="editor-field">
+                                        Month @Html.DropDownList("Month", new SelectList(new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }, @DateTime.Now.Month.ToString()), new { id = "Month", @class = "form-control" })
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+
+                    <div id="tableData">
+                        <table style="width:100%" class="table table-stripped">
+                            <tr>
+                                <th>
+                                    Till
+                                </th>
+                                
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    CustomerID
+                                </th>
+                                <th>
+                                    Cashier
+                                </th>
+                                <th>
+                                    Date 
+                                </th>
+
+                                <th></th>
+                            </tr>
+                            @{
+
+                                int cnt = 0;
+                                foreach (var item in Model)
+                                {
+                                    
+                                        <tr>
+                                            <td>
+                                                @item.TerminalId
+                                            </td>
+                                            
+                                            <td>
+                                                @item.Description
+                                            </td>
+                                            <td>
+                                                @item.DestinationAccountNumber
+                                            </td>
+                                            <td>
+                                                @item.Username
+                                            </td>
+                                            <td>
+                                                @item.DateCreated
+                                            </td>
+                                            
+                                            <td><button class="btn btn-warning pull-right" onclick="GetFancy('@Url.Action("RedemptionDetails", "Loyalty")','@item.Id')">Details</button></td>
+
+                                        </tr>
+                                    
+                                }
+                            }
+                            <tr>
+                                <th colspan="12" style=" background-color: #E2E4FF; ">
+                                    <div onclick="GetPageR()" style="float: left; padding-left: 10px"> Pages</div>
+                                    @for (int i = 1; i <= int.Parse(@ViewData["Pages"].ToString()); i++)
+                                    {
+                                        if (i == int.Parse(@ViewData["ThisPage"].ToString()))
+                                        {
+                                            <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Orange; color: Orange;">@i</div>
+                                        }
+                                        else
+                                        {
+                                            <div onclick="GetPageR(@i)" style=" float: left; padding-left: 4px; padding-right: 4px; border-style: solid; border-width:1px; margin-left:2px; border-color: Black ">@i</div>
+                                        }
+                                    }
+                                    <div style=" float: left; padding-left: 10px"> @ViewData["RecordData"]</div>
+                                </th>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+</div>
+</div>
+</div>

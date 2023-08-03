@@ -1,0 +1,19 @@
+﻿@model IEnumerable<RetailKing.Models.Item>
+@{
+    ViewBag.Title = "getItems";
+}
+
+<div>
+    <table style="width:100%; border:1px solid #00B294; ">
+        <tbody>
+            @foreach (var menu in Model)
+            {
+                <tr onclick="getItemCh('@menu.ItemCode.Trim()','@menu.ItemName.Trim()','@menu.SellingPrice','@menu.tax')" style=" background-color: #00B294; cursor: pointer">
+                    <td style="width: 20%; border:1px solid #00B294; border-right-style: none; background-color: White; vertical-align: middle"><img alt="" src="@Url.Content("~/Content/Images/bag.png")" style="width: 100%; max-width: 40px" /> </td>
+                    <td style="width: 50%;border-bottom-color: White; border-left-style:none; border-right-style: none;text-align:center"><span style=" font-size: 15px; color: White; ">@menu.ItemName </span><br /><span style="color:#FFFF00; font-weight: bold ">@menu.ItemCode</span></td>
+                    <td style="width: 30%;border-bottom-color: White; border-left-style:none; border-right-style: none; font-size: 13px; vertical-align: middle; text-align:center; color: White; font-weight: bold">@String.Format("{0:F}", @menu.SellingPrice)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

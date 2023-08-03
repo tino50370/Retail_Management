@@ -1,0 +1,178 @@
+@model RetailKing.Models.NotificationDash
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="row top_tiles">
+        @{
+            long cr = 0;
+            if (Model.stats != null)
+            {
+                var nc = Model.stats.Where(u => u.ServiceName == "NEW CUSTOMER").FirstOrDefault();
+
+                if (nc != null)
+                {
+                    cr = nc.Successful;
+                }
+
+            }
+        }
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
+                <div class="count">@cr</div>
+                <h3>New Sign ups</h3>
+                <p>New clients added</p>
+            </div>
+        </div>
+        @{
+            long pn = 0;
+            if (Model.stats != null)
+            {
+                var pc = Model.stats.Where(u => u.ServiceName == "ADD LOYALTY").FirstOrDefault();
+
+                if (pc != null)
+                {
+                    pn = pc.Successful;
+                }
+            }
+        }
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-comments-o"></i></div>
+                <div class="count">@pn</div>
+                <h3>Loyal Customers</h3>
+                <p>Customers given points</p>
+            </div>
+        </div>
+        @{
+            long pnt = 0;
+            if (Model.stats != null)
+            {
+                var nt = Model.stats.Where(u => u.ServiceName == "SMS MESSAGE").FirstOrDefault();
+
+                if (nt != null)
+                {
+                    pnt = nt.Successful;
+                }
+            }
+        }
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-check-square-o"></i></div>
+                <div class="count">@pnt</div>
+                <h3>Sms Deliveries</h3>
+                <p>Today's sent sms messages.</p>
+            </div>
+        </div>
+        @{ long adv = 0;
+            if (Model.stats != null)
+            {
+                var at = Model.stats.Where(u => u.ServiceName == "ADVERTS").FirstOrDefault();
+
+                if (at != null)
+                {
+                    adv = at.Successful;
+                }
+            }
+        }
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
+                <div class="count">@adv</div>
+                <h3>Advert Impressions</h3>
+                <p>These include you existing customers</p>
+            </div>
+        </div>
+   
+            </div>
+    <div id="graphs">
+        <div class="x_panel">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="dashboard_graph">
+                        <div class="row x_title">
+                            <div class="col-md-12">
+                                <h3>Marketing Activities <small>Graph shows top 10 campaigns today</small></h3>
+                            </div>
+
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+
+                            <div class="x_content2">
+                                <div id="graphx" style="width:100%; height:300px;"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
+                            <div class="x_title">
+                                <h2>Top 5 Campaign Performance</h2>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-6">
+                                @{
+                            long total = 0;
+                            if (Model.stats != null)
+                            {
+                                total = Model.stats.Sum(u => u.Successful);
+                                foreach (var itm in Model.stats)
+                                {
+                                    long width = itm.Successful * 100 / total;
+                                            <div>
+                                                <p>@itm.ServiceName</p>
+                                                <div class="">
+                                                    <div class="progress progress_sm" style="width: @width%;">
+                                                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="@total"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                }
+                            }
+                                }
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ <script type="text/javascript">
+     $(function () {
+         
+         var ch = '@ViewData["Graph"].ToString()'
+         if( ch== "Group")
+         {
+             try{
+                 var x = @Html.Raw(Json.Encode(@ViewBag.data));
+             }catch(e)
+             {
+                 x = [];
+             }
+
+             Morris.Bar({
+                 element: 'graphx',
+                 data:JSON.parse(x) ,
+                 xkey: 'Period',
+                 ykeys: ['NewAccounts', 'Points', 'Adverts'],
+                 labels: ['NewAccounts', 'Points', 'Adverts'],
+                 barRatio: 0.4,
+                 barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+                 xLabelAngle: 35,
+                 hideHover: 'auto',
+                 resize: true
+             });
+         }
+         else
+         {
+            
+             GetGraph("/DashBoard/WeeklySmsGraph","");
+         }
+     });
+ </script>

@@ -1,0 +1,39 @@
+@model RetailKing.Models.Supplier
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Edit Branch </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    @using (Html.BeginForm("edit", "Suppliers", FormMethod.Post, new { id = "editSuppliers" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        <fieldset>
+                            <legend>Customer</legend>
+
+                            @Html.HiddenFor(model => model.ID)
+                            @Html.Partial("_CreateOrEdit", Model)
+
+                            <p>
+
+                            </p>
+                        </fieldset>
+                    }
+                    <br/>
+                    <div>
+                        <button class="btn btn-success" onclick="SaveView('editSuppliers')">Save</button>
+                        <button class="btn btn-warning" onclick="GetView('@Url.Action("Index", "Suppliers")')">Cancel</button>
+                    </div>
+</div>
+</div>
+</div>
+</div>
+</div>

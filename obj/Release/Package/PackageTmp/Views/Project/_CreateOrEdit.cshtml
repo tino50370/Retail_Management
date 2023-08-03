@@ -1,0 +1,152 @@
+@model RetailKing.Models.Project
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.Label("Title")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+<div class="editor-label">
+    @Html.Label("Description")
+</div>
+<div class="editor-field">
+    @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Description)
+</div>
+<div class="editor-label">
+    @Html.Label("Category")
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.Type, new SelectList(new[] { "Software","Service Request", "Maintanance", "Construction"}, Model.Type), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Type)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Priority )
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.Priority, new SelectList(new[] { "Low", "Medium","High" }, Model.Type), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Priority, "", new { style ="color:red"})
+</div>
+
+<div class="editor-label">
+    @Html.Label("Due Date")
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.DueDate, new {id="DueDate", @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.DueDate)
+</div>
+
+
+<div class="editor-label">
+    @Html.Label("Asset Type")
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.ItemType, new SelectList(new[] {"Select Asset Type","Equipment", "Facility" }, Model.Type), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ItemType)
+</div>
+
+<div id="EquipmentData" style="display:none">
+    <div class="editor-label">
+        @Html.Label("Equipment Code")
+    </div>
+    <div class="editor-field">
+        @Html.TextBox("EquipmentCode", new { id = "EquipmentCode", @class = "form-control" })
+    </div>
+    @Html.HiddenFor(model => model.EquipmentId)
+    @Html.HiddenFor(model => model.FacilityId)
+</div>
+
+<div id="FacilityData" style="display:none">
+    <div class="editor-label">
+        @Html.Label("Select Asset")
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.AssetId, new SelectList((IEnumerable<SelectListItem>)ViewBag.Assets, "Value", " Text"), new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.AssetId)
+    </div>
+
+    
+</div>
+
+
+<script src="@Url.Content("~/Content/Administration/js/datepicker/daterangepicker.js")"></script>
+<script src="@Url.Content("~/Content/Administration/js/moment/moment.min.js")"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#DueDate').daterangepicker({
+            singleDatePicker: true,
+            calender_style: "picker_4",
+            dateFormat: "d MM yy"
+        }, function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+           $("#AssetId").change(function () {
+              $.ajax({
+                  type: "Post",
+                  url: '@Url.Action("GetFacilities", "Project")',
+                  dataType: 'html',
+                  data: {
+                      Id: $("#AssetId").val(),
+                      Company: Company
+                  },
+                  success: function (resp) {
+                      $('#Facilitylist').html(resp)
+                  },
+                  error: function (data) {
+                  }
+              });
+          });
+
+          $("#category").change(function () {
+              var xx = $("#category").val();
+              $.ajax({
+                  type: "Post",
+                  url: '@Url.Action("GetSubCategories", "Items")',
+                  dataType: 'html',
+                  data: {
+                      Id: xx,
+                      Company: $("#company").val()
+                  },
+                  success: function (resp) {
+                      var ddl = $("#SubCategory");
+                      ddl.empty();
+                      var subjects = $.parseJSON(resp);
+                      //alert(subjects);
+                      $.each(subjects, function (index, value) {
+                          // alert(value.Name);
+                          ddl.append(
+                          $('<option/>', {
+                              value: value.Id,
+                              text: value.Name
+                          })
+                        );
+                      });
+                  },
+                  error: function (data) {
+                  }
+              });
+          });
+
+           $("#ItemType").change(function () {
+               var vv = $("#ItemType").val();
+              if (vv == "Equipment") {
+                  $("#EquipmentData").show();
+                  $("#FacilityData").hide();
+              }
+              else {
+                  $("#FacilityData").show();
+                  $("#EquipmentData").hide();
+              }
+          });
+
+       });
+    function SetFacility(id) {
+        $('#FacilityId').val(id);
+    }
+</script>

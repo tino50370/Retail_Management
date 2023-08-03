@@ -1,0 +1,59 @@
+@model RetailKing.Models.Company
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Company</legend>
+
+    <div class="display-label">name</div>
+    <div class="display-field">@Model.name</div>
+
+    <div class="display-label">status</div>
+    <div class="display-field">@Model.status</div>
+
+    <div class="display-label">location</div>
+    <div class="display-field">@Model.location</div>
+
+    <div class="display-label">Address1</div>
+    <div class="display-field">@Model.Address1</div>
+
+    <div class="display-label">Address2</div>
+    <div class="display-field">@Model.Address2</div>
+
+    <div class="display-label">Contact1</div>
+    <div class="display-field">@Model.Contact1</div>
+
+    <div class="display-label">Contact2</div>
+    <div class="display-field">@Model.Contact2</div>
+
+    <div class="display-label">dated</div>
+    <div class="display-field">@String.Format("{0:g}", Model.dated)</div>
+
+    <div class="display-label">Footer1</div>
+    <div class="display-field">@Model.Footer1</div>
+
+    <div class="display-label">Footer2</div>
+    <div class="display-field">@Model.Footer2</div>
+
+    <div class="display-label">Footer3</div>
+    <div class="display-field">@Model.Footer3</div>
+
+    <div class="display-label">footer4</div>
+    <div class="display-field">@Model.footer4</div>
+
+    <div class="display-label">Logo</div>
+    <div class="display-field">@Model.Logo</div>
+
+    <div class="display-label">VatNo</div>
+    <div class="display-field">@Model.VatNo</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

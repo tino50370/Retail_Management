@@ -1,0 +1,65 @@
+@model RetailKing.Models.MailSetting
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Company)
+    </div>
+    <div class="editor-field">
+
+        @Html.DropDownListFor(model => model.Company,
+                           new SelectList(
+                             ViewBag.Company,
+                             "Value",
+                             "Text"), new { @class = "form-control" })
+
+
+        @Html.ValidationMessageFor(model => model.Company)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Domain)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Domain, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Domain)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.SmtpHost)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.SmtpHost, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.SmtpHost)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Port)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Port, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Port)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.EnableSSl)
+    </div>
+    <div class="editor-field">
+        @Html.CheckBox("EnableSSl",false)
+        @Html.ValidationMessageFor(model => model.EnableSSl)
+    </div>
+    <div class="editor-label">
+        @Html.Label("Tick To Use Exchange Untick For SMTP")
+    </div>
+    <div class="editor-field">
+        @Html.CheckBox("UseExchange", false)
+        @Html.ValidationMessageFor(model => model.UseExchange)
+    </div>
+    <div class="editor-label">
+        @Html.Label("Tick To Use Local SMTP")
+    </div>
+    <div class="editor-field">
+        @Html.CheckBox("UseLocalSmtp", false)
+        @Html.ValidationMessageFor(model => model.UseExchange )
+    </div>
+
+
+

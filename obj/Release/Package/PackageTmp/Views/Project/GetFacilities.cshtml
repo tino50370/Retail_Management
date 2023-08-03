@@ -1,0 +1,138 @@
+﻿@model IEnumerable<RetailKing.Models.Facility>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Facilities</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <p></p>
+            <table id="datatable-buttons" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name </th>
+                        <th>Category</th>
+                        <th>Description</th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var parents = Model.Where(u => u.ParentId == null).ToList();
+                    }
+                    @foreach (var item in parents)
+                    {
+                        <tr>
+                            <td onclick="SetFacility('@item.Id')"><input type="checkbox" class="flat" name="table_records"></td>
+                            <td>@item.Name </td>
+                            <td>@item.Category  </td>
+                            <td>@item.Description</td>
+                            <td>
+                                @if(item.FeatureCount > 0)
+                                {
+                                    var children = Model.Where(u => u.ParentId == item.Id).ToList();
+                                    <table class="table table-striped">
+                                        <tbody>
+                                            @foreach (var itemc in children)
+                                            {
+                                                <tr onclick="SetFacility('@itemc.Id')">
+                                                    <td onclick="SetFacility('@itemc.Id')"><input type="checkbox" class="flat" name="table_records"></td>
+                                                    <td>@itemc.Name </td>
+                                                    <td>@itemc.Category  </td>
+                                                    <td>@itemc.Description</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                 }
+                            </td>
+                            
+                        </tr>
+                    }
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        GetSideView('@Url.Action("CreateChild", "Facility")', '@ViewData["ParentId"]')
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        var handleDataTableButtons = function () {
+            if ($("#datatable-buttons").length) {
+                $("#datatable-buttons").DataTable({
+                    dom: "Bfrtip",
+                    buttons: [
+                      {
+                          extend: "copy",
+                          className: "btn-sm"
+                      },
+                      {
+                          extend: "csv",
+                          className: "btn-sm"
+                      },
+                      {
+                          extend: "print",
+                          className: "btn-sm"
+                      },
+                    ],
+                    responsive: true
+                });
+            }
+        };
+
+        TableManageButtons = function () {
+            "use strict";
+            return {
+                init: function () {
+                    handleDataTableButtons();
+                }
+            };
+        }();
+
+        $('#datatable').dataTable();
+
+        $('#datatable-keytable').DataTable({
+            keys: true
+        });
+
+        $('#datatable-responsive').DataTable();
+
+
+
+        $('#datatable-fixed-header').DataTable({
+            fixedHeader: true
+        });
+
+        var $datatable = $('#datatable-checkbox');
+
+        $datatable.dataTable({
+            'order': [[1, 'asc']],
+            'columnDefs': [
+              { orderable: false, targets: [0] }
+            ]
+        });
+        $datatable.on('draw.dt', function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_flat-green'
+            });
+        });
+
+        TableManageButtons.init();
+    });
+</script>
